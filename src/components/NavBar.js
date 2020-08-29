@@ -5,9 +5,9 @@ import { ReactComponent as GithubIcon } from './atoms/Github.svg'
 const NavBar = props => {
   const navItems = [
     { path: '/', text: 'Início' },
-    { path: '/aboutUs', text: 'Sobre nós' },
-    { path: '/aboutHack', text: 'Sobre a Cultura Hacker' },
-    { path: '/activities', text: 'Agenda de Atividades' },
+    // { path: '/aboutUs', text: 'Sobre nós' },
+    // { path: '/aboutHack', text: 'Sobre a Cultura Hacker' },
+    // { path: '/activities', text: 'Agenda de Atividades' },
   ]
 
   const renderItems = (navItems, props) =>
@@ -23,7 +23,7 @@ const NavBar = props => {
     <nav className="navbar navbar-expand-md navbar-default ">
       <div className="navbar-brand">
         <img
-          src="https://avatars0.githubusercontent.com/u/4346710?s=200&v=4"
+          src="http://i.imgur.com/tUhuLfF.png"
           width="30"
           height="30"
           alt="tarrafa logo"
@@ -36,7 +36,7 @@ const NavBar = props => {
       <div className="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
         <ul className="navbar-nav justify-content-end">{renderItems(navItems, props)}</ul>
       </div>
-      <a href="https://github.com/tarrafahc/tarrafahc.github.io" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/markkop/corvos-de-efrim-website" target="_blank" rel="noopener noreferrer">
         {<GithubIcon />}
       </a>
     </nav>
