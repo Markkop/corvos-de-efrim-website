@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/corvos-de-efrim-website/static/css/main.e9b8655c.chunk.css",
-    "main.js": "/corvos-de-efrim-website/static/js/main.b53d733c.chunk.js",
-    "main.js.map": "/corvos-de-efrim-website/static/js/main.b53d733c.chunk.js.map",
-    "runtime-main.js": "/corvos-de-efrim-website/static/js/runtime-main.77f9fddf.js",
-    "runtime-main.js.map": "/corvos-de-efrim-website/static/js/runtime-main.77f9fddf.js.map",
-    "static/js/2.77c6048b.chunk.js": "/corvos-de-efrim-website/static/js/2.77c6048b.chunk.js",
-    "static/js/2.77c6048b.chunk.js.map": "/corvos-de-efrim-website/static/js/2.77c6048b.chunk.js.map",
-    "index.html": "/corvos-de-efrim-website/index.html",
-    "precache-manifest.ed0388f605f7afbd81f2aae1865be5de.js": "/corvos-de-efrim-website/precache-manifest.ed0388f605f7afbd81f2aae1865be5de.js",
-    "service-worker.js": "/corvos-de-efrim-website/service-worker.js",
-    "static/css/main.e9b8655c.chunk.css.map": "/corvos-de-efrim-website/static/css/main.e9b8655c.chunk.css.map",
-    "static/js/2.77c6048b.chunk.js.LICENSE.txt": "/corvos-de-efrim-website/static/js/2.77c6048b.chunk.js.LICENSE.txt",
-    "static/media/Discord.b8edb8d8.svg": "/corvos-de-efrim-website/static/media/Discord.b8edb8d8.svg",
-    "static/media/Github.51c78e14.svg": "/corvos-de-efrim-website/static/media/Github.51c78e14.svg"
+    "main.css": "/static/css/main.e9b8655c.chunk.css",
+    "main.js": "/static/js/main.b53d733c.chunk.js",
+    "main.js.map": "/static/js/main.b53d733c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.59c1c085.js",
+    "runtime-main.js.map": "/static/js/runtime-main.59c1c085.js.map",
+    "static/js/2.77c6048b.chunk.js": "/static/js/2.77c6048b.chunk.js",
+    "static/js/2.77c6048b.chunk.js.map": "/static/js/2.77c6048b.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.a0f3df30ef237008a385bbad0c39d3f6.js": "/precache-manifest.a0f3df30ef237008a385bbad0c39d3f6.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.e9b8655c.chunk.css.map": "/static/css/main.e9b8655c.chunk.css.map",
+    "static/js/2.77c6048b.chunk.js.LICENSE.txt": "/static/js/2.77c6048b.chunk.js.LICENSE.txt",
+    "static/media/Discord.b8edb8d8.svg": "/static/media/Discord.b8edb8d8.svg",
+    "static/media/Github.51c78e14.svg": "/static/media/Github.51c78e14.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.77f9fddf.js",
+    "static/js/runtime-main.59c1c085.js",
     "static/js/2.77c6048b.chunk.js",
     "static/css/main.e9b8655c.chunk.css",
     "static/js/main.b53d733c.chunk.js"
