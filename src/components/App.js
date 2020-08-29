@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Home from './pages/Home'
-import AboutUs from './pages/AboutUs'
-import AboutHack from './pages/AboutHack'
-import Activities from './pages/Activities'
+// import AboutUs from './pages/AboutUs'
+// import AboutHack from './pages/AboutHack'
+// import Activities from './pages/Activities'
 import NavBar from './NavBar'
 import { Switch, Route } from 'react-router-dom'
 
