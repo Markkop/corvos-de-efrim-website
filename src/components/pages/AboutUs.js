@@ -4,34 +4,77 @@ import Emoji from '../atoms/Emoji'
 const About = () => {
   return (
     <article>
-      <h1>
-        <Emoji symbol="🏰" label="castle" /> Sobre o Tarrafa
-      </h1>
+      <h1>Sobre a Corvos de Efrim</h1>
       <p>
-        O #Tarrafa é um <a href="http://pt.wikipedia.org/wiki/Hackerspace">Hackerspace</a> situado em{' '}
-        <a href="http://pt.wikipedia.org/Florian%C3%B3polis">Florianópolis</a>. Somos um laboratório comunitário, espaço
-        onde pessoas com interesses em comum, frequentemente em tecnologia, ciência, arte digital e eletrônica,
-        política, matemática, biologia, arquitetura, segurança, e qualquer área do conhecimento humano, podem se
-        encontrar, compartilhar conhecimentos e colaborar em projetos conjuntos.
-        <strong>
-          {' '}
-          Se você tem interesse no Tarrafa, sugerimos que entre em nossa{' '}
-          <a href="https://lists.riseup.net/www/info/tarrafahackerclube">lista</a>
-        </strong>{' '}
-        (migramos para o RiseUp!). Também pedimos que ao entrar pra lista, você se apresente, diga seu nome, de onde é,
-        quais seus interesses, se deseja participar do Tarrafa, o que gostaria de ver, que tipo de atividade gostaria de
-        participar ou de propor no Tarrafa, enfim, fale um pouco sobre si.
+        A Corvos de Efrim é uma guilda de piratas que procura seus tesouros em calabouços ranqueados, guerreia em equipe
+        nos campos de batalha e auxília àqueles que chegaram há pouco tempo no Mundo dos Doze. Gostamos de promover e
+        participar de eventos e roleplay.
       </p>
+      <br />
       <p>
-        Participe também das reuniões mensais, que ocorrem sempre na última quarta-feira de cada mês. Se desejar ser
-        membro, recomendamos fortemente a participação nas reuniões é um bom começo, a menos é claro que a distância
-        seja muita e impossibilite sua participação. Caso contrário encorajamos muito a sua vinda ao Tarrafa, que
-        atualmente localiza-se no <a href="https://www.openstreetmap.org/way/43238581">Pavilhinho da ARQ</a>.
+        <Emoji symbol="📜" label="scroll" />
+        <strong>Regras:</strong> não seja babaca
       </p>
+      <br />
       <p>
-        <strong>
-          <em>Happy hacking!</em>
-        </strong>
+        <Emoji symbol="🏴‍☠️" label="scroll" /> <strong>Cargos:</strong>
+        <br />
+        Os cargos são divididos em áreas de interesse dentro do jogo, sendo os três primeiros de gestão.
+      </p>
+      <br />
+      <ul className="role-list">
+        <li>
+          <Emoji symbol="🚢" label="ship" />
+          <strong>Capitão</strong> - Líder da guilda junto com os demais contramestres
+        </li>
+        <li>
+          <Emoji symbol="⛵" label="sailboat" />
+          <strong>Contramestres</strong> - Responsáveis pela guilda junto com o Capitão
+        </li>
+        <li>
+          <Emoji symbol="⚓" label="anchor" />
+          <strong>Navegadores</strong> - Recrutadores que podem adicionar ou remover membros
+        </li>
+        <li>
+          <Emoji symbol="⚔️" label="crossed swords" />
+          <strong>Corsários</strong>* - Membros que demonstraram sua perícia em combates PvP
+        </li>
+        <li>
+          <Emoji symbol="⚒️" label="tools" />
+          <strong>Artesãos</strong>* - Membros que demonstraram sua perícia em colheita e artesanato
+        </li>
+        <li>
+          <Emoji symbol="🗺️" label="map" />
+          <strong>Cartógrafos</strong>* - Membros que demonstraram sua perícia atrás de baús ranqueados.
+        </li>
+        <li>
+          <Emoji symbol="🎺" label="trumpet" />
+          <strong>Bardos</strong>* - Membros que estão promovendo eventos no momento
+        </li>
+        <li>
+          <Emoji symbol="🌊" label="ocean" />
+          <strong>Marujos</strong> - Membros que optaram por não ter missão ou já estão em uma
+        </li>
+        <li>
+          <Emoji symbol="🛡️" label="shield" />
+          <strong>Iniciados</strong> - Membros que ainda não fizeram o juramento
+        </li>
+        <li>
+          <Emoji symbol="👻" label="ghost" />
+          <strong>Fantasmas</strong> - Personagens secundários
+        </li>
+      </ul>
+      <br />
+      <p>
+        *Para receber um destes cargos você deve provar suas habilidades em uma missão designada no momento do seu
+        juramento que acontece geralmente em fins de semana.
+      </p>
+      <br />
+      <p>
+        <Emoji symbol="🔎" label="mag" />
+        <strong>Recrutamento:</strong>
+        <br /> Para entrar na guilda basta ter uma breve conversa com um recrutador. Personagens inativos por muito
+        tempo podem ser removidos em caso de lotação máxima.
       </p>
     </article>
   )

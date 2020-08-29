@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { ReactComponent as GithubIcon } from './atoms/Github.svg'
+import { ReactComponent as DiscordIcon } from './atoms/Discord.svg'
 
-const NavBar = props => {
+const NavBar = (props) => {
   const navItems = [
     { path: '/', text: 'Início' },
-    // { path: '/aboutUs', text: 'Sobre nós' },
-    // { path: '/aboutHack', text: 'Sobre a Cultura Hacker' },
-    // { path: '/activities', text: 'Agenda de Atividades' },
+    { path: '/a-guilda', text: 'Sobre nós' },
   ]
 
   const renderItems = (navItems, props) =>
@@ -22,23 +21,21 @@ const NavBar = props => {
   return (
     <nav className="navbar navbar-expand-md navbar-default ">
       <div className="navbar-brand">
-        <img
-          src="http://i.imgur.com/tUhuLfF.png"
-          width="30"
-          height="30"
-          alt="tarrafa logo"
-        />
-        <Link to="/">Tarrafa HC</Link>
+        <img src="https://i.imgur.com/df8RYFk.png" width="30" height="30" alt="corvos de efrim logo" />
+        <Link to="/">Corvos de Efrim</Link>
       </div>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span className="navbar-toggler-icon" />
       </button>
       <div className="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
         <ul className="navbar-nav justify-content-end">{renderItems(navItems, props)}</ul>
+        <a href="https://github.com/markkop/corvos-de-efrim-website" target="_blank" rel="noopener noreferrer">
+          {<GithubIcon />}
+        </a>
+        <a href="https://discord.gg/XyGTJN2" target="_blank" rel="noopener noreferrer">
+          {<DiscordIcon />}
+        </a>
       </div>
-      <a href="https://github.com/markkop/corvos-de-efrim-website" target="_blank" rel="noopener noreferrer">
-        {<GithubIcon />}
-      </a>
     </nav>
   )
 }

@@ -1,11 +1,22 @@
-/* Color Scheme: https://coolors.co/0a2239-80d3f2-fa8334-fbd905-225560 */
+.twemoji {
+  width: 20px;
+  margin: 5px;
+}
+
+.role-list {
+  list-style: none;
+}
+
+.navbar svg {
+  margin: 10px;
+}
 
 body {
-  --color1: #fbd905;
-  --color2: #80d3f2;
-  --color3: #0a2239;
+  --color1: #ddd417;
+  --color2: #ffffff;
+  --color3: #2e2e2e;
   --color4: #fa8334;
-  --color5: #225560;
+  --color5: #9e6a1d;
 
   margin: 0;
   padding: 0;

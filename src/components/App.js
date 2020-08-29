@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import Home from './pages/Home'
-// import AboutUs from './pages/AboutUs'
-// import AboutHack from './pages/AboutHack'
-// import Activities from './pages/Activities'
+import AboutUs from './pages/AboutUs'
 import NavBar from './NavBar'
 import { Switch, Route } from 'react-router-dom'
 
@@ -14,9 +12,7 @@ class App extends Component {
         <section>
           <Switch>
             <Route exact path="/" component={Home} />
-            {/* <Route path="/aboutUs" component={AboutUs} />
-            <Route path="/aboutHack" component={AboutHack} />
-            <Route path="/activities" component={Activities} /> */}
+            <Route path="/a-guilda" component={AboutUs} />
           </Switch>
         </section>
       </main>
