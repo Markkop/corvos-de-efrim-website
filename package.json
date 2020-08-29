@@ -2,7 +2,7 @@
   "name": "corvos-de-efrim-website",
   "version": "0.0.1",
   "description": "Corvos de Efrim's webpage",
-  "homepage": "https://markkop.github.io/corvos-de-efrim-website/",
+  "homepage": "http://corvosdeefrim.com/",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
