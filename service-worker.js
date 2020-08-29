@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/corvos-de-efrim-website/precache-manifest.07791afe4b0ab1a631d8c17886b7c9ba.js"
+  "/corvos-de-efrim-website/precache-manifest.ed0388f605f7afbd81f2aae1865be5de.js"
 );
 
 self.addEventListener('message', (event) => {
