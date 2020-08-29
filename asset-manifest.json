@@ -1,24 +1,33 @@
 {
   "files": {
-    "main.css": "/static/css/main.e9b8655c.chunk.css",
-    "main.js": "/static/js/main.b53d733c.chunk.js",
-    "main.js.map": "/static/js/main.b53d733c.chunk.js.map",
+    "main.css": "/static/css/main.7d2babfe.chunk.css",
+    "main.js": "/static/js/main.556b4df4.chunk.js",
+    "main.js.map": "/static/js/main.556b4df4.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.59c1c085.js",
     "runtime-main.js.map": "/static/js/runtime-main.59c1c085.js.map",
-    "static/js/2.77c6048b.chunk.js": "/static/js/2.77c6048b.chunk.js",
-    "static/js/2.77c6048b.chunk.js.map": "/static/js/2.77c6048b.chunk.js.map",
+    "static/js/2.99222ab4.chunk.js": "/static/js/2.99222ab4.chunk.js",
+    "static/js/2.99222ab4.chunk.js.map": "/static/js/2.99222ab4.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.a0f3df30ef237008a385bbad0c39d3f6.js": "/precache-manifest.a0f3df30ef237008a385bbad0c39d3f6.js",
+    "precache-manifest.7e1c7f3794eacb1709b2319a38cbb832.js": "/precache-manifest.7e1c7f3794eacb1709b2319a38cbb832.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.e9b8655c.chunk.css.map": "/static/css/main.e9b8655c.chunk.css.map",
-    "static/js/2.77c6048b.chunk.js.LICENSE.txt": "/static/js/2.77c6048b.chunk.js.LICENSE.txt",
+    "static/css/main.7d2babfe.chunk.css.map": "/static/css/main.7d2babfe.chunk.css.map",
+    "static/js/2.99222ab4.chunk.js.LICENSE.txt": "/static/js/2.99222ab4.chunk.js.LICENSE.txt",
     "static/media/Discord.b8edb8d8.svg": "/static/media/Discord.b8edb8d8.svg",
-    "static/media/Github.51c78e14.svg": "/static/media/Github.51c78e14.svg"
+    "static/media/Github.51c78e14.svg": "/static/media/Github.51c78e14.svg",
+    "static/media/cachorroMostra.png": "/static/media/cachorroMostra.550577e4.png",
+    "static/media/corvosDorMor.png": "/static/media/corvosDorMor.fb9a1930.png",
+    "static/media/corvosXArch.png": "/static/media/corvosXArch.f1cc399b.png",
+    "static/media/danComYugo.png": "/static/media/danComYugo.8e5d2352.png",
+    "static/media/juramento.png": "/static/media/juramento.40ba641c.png",
+    "static/media/markxAjudaPercedal.png": "/static/media/markxAjudaPercedal.2fd70ddd.png",
+    "static/media/preCacaAoTesouro.png": "/static/media/preCacaAoTesouro.fff8f7d8.png",
+    "static/media/reuniaoAmaknaFora.png": "/static/media/reuniaoAmaknaFora.59bce2ee.png",
+    "static/media/setenPedraPapel.png": "/static/media/setenPedraPapel.163e8d1e.png"
   },
   "entrypoints": [
     "static/js/runtime-main.59c1c085.js",
-    "static/js/2.77c6048b.chunk.js",
-    "static/css/main.e9b8655c.chunk.css",
-    "static/js/main.b53d733c.chunk.js"
+    "static/js/2.99222ab4.chunk.js",
+    "static/css/main.7d2babfe.chunk.css",
+    "static/js/main.556b4df4.chunk.js"
   ]
 }
