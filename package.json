@@ -1,8 +1,7 @@
 {
-  "name": "tarrafahc",
-  "version": "1.0.0",
-  "description": "Tarrafa HackerClub's webpage",
-  "homepage": "http://tarrafahc.github.io",
+  "name": "corvos-de-efrim-website",
+  "version": "0.0.1",
+  "description": "Corvos de Efrim's webpage",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
