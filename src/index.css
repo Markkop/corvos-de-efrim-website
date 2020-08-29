@@ -11,6 +11,30 @@
   margin: 10px;
 }
 
+.imageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.imageContainerBig {
+  flex-direction: column;
+}
+
+.imageContainerBig > * {
+  width: 100%;
+}
+
+.image {
+  border: 5px groove var(--color1);
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.aboutUsImg {
+  width: 20vw;
+  height: 20vw;
+}
+
 body {
   --color1: #ddd417;
   --color2: #ffffff;
@@ -133,6 +157,17 @@ p {
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 768px) {
+  .imageContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+  }
+
   h1 {
     font-size: 20px;
   }

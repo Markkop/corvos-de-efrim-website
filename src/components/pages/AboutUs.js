@@ -1,5 +1,12 @@
 import React from 'react'
 import Emoji from '../atoms/Emoji'
+import dorMor from '../../images/corvosDorMor.png'
+import markxPercedal from '../../images/markxAjudaPercedal.png'
+import sansaYugo from '../../images/danComYugo.png'
+import setenPedraPapel from '../../images/setenPedraPapel.png'
+import cachorroMostra from '../../images/cachorroMostra.png'
+import reuniaoAmaknaFora from '../../images/reuniaoAmaknaFora.png'
+import corvosXArch from '../../images/corvosXArch.png'
 
 const About = () => {
   return (
@@ -10,6 +17,13 @@ const About = () => {
         nos campos de batalha e auxília àqueles que chegaram há pouco tempo no Mundo dos Doze. Gostamos de promover e
         participar de eventos e roleplay.
       </p>
+      <br />
+      <div className="imageContainer">
+        <img src={markxPercedal} alt="markx ajudando percedal" className="image aboutUsImg"></img>
+        <img src={sansaYugo} alt="sansa com yugo" className="image aboutUsImg"></img>
+        <img src={setenPedraPapel} alt="seten jogando pedra papel" className="image aboutUsImg"></img>
+        <img src={cachorroMostra} alt="cachorro mostrando algo" className="image aboutUsImg"></img>
+      </div>
       <br />
       <p>
         <Emoji symbol="📜" label="scroll" />
@@ -76,6 +90,12 @@ const About = () => {
         <br /> Para entrar na guilda basta ter uma breve conversa com um recrutador. Personagens inativos por muito
         tempo podem ser removidos em caso de lotação máxima.
       </p>
+
+      <div className="imageContainer imageContainerBig">
+        <img src={dorMor} alt="corvos em dor mor" className="image"></img>
+        <img src={corvosXArch} alt="corvos em luta contra arquimonstro" className="image"></img>
+        <img src={reuniaoAmaknaFora} alt="reuniao em amakna lado de fora" className="image"></img>
+      </div>
     </article>
   )
 }
