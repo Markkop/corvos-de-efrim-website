@@ -7,6 +7,7 @@ const NavBar = (props) => {
   const navItems = [
     { path: '/', text: 'Início' },
     { path: '/a-guilda', text: 'Sobre nós' },
+    { path: '/barcos', text: 'Barcos' },
   ]
 
   const renderItems = (navItems, props) =>

@@ -3,6 +3,10 @@
   margin: 5px;
 }
 
+.emoji-title {
+  width: 30px;
+}
+
 .role-list {
   list-style: none;
 }
@@ -11,16 +15,16 @@
   margin: 10px;
 }
 
-.imageContainer {
+.image-container {
   display: flex;
   justify-content: center;
 }
 
-.imageContainerBig {
+.image-container-big {
   flex-direction: column;
 }
 
-.imageContainerBig > * {
+.image-container-big > * {
   width: 100%;
 }
 
@@ -30,9 +34,23 @@
   margin: 5px;
 }
 
-.aboutUsImg {
+.about-us-image {
   width: 20vw;
   height: 20vw;
+}
+
+.boat-card-container {
+  display: flex;
+}
+
+.boat-card > * {
+  margin: auto;
+}
+
+.boat-image {
+  border: 5px groove var(--color3);
+  border-radius: 5px;
+  width: 100%;
 }
 
 body {
@@ -73,7 +91,7 @@ p {
   color: var(--color2);
 }
 
-.card-container {
+.boat-card-container {
   margin: 10px 0;
   padding: 0;
   display: flex;
@@ -81,29 +99,20 @@ p {
   justify-content: center;
 }
 
-.card {
+.boat-card {
   padding: 10px;
   margin: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.1s;
   background-color: var(--color5);
   border-radius: 10px;
-  width: 80vw;
-  max-width: 300px;
+  width: 37vw;
   display: flex;
   flex-flow: column;
 }
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
-}
-
-.card .card-content {
-  margin: 5px 0;
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
-  flex-grow: 1;
 }
 
 .card h1 {
@@ -157,7 +166,11 @@ p {
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 768px) {
-  .imageContainer {
+  .boat-card {
+    width: 100%;
+  }
+
+  .image-container {
     display: flex;
     justify-content: center;
     flex-direction: column;

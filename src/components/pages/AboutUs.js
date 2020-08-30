@@ -18,11 +18,11 @@ const About = () => {
         participar de eventos e roleplay.
       </p>
       <br />
-      <div className="imageContainer">
-        <img src={markxPercedal} alt="markx ajudando percedal" className="image aboutUsImg"></img>
-        <img src={sansaYugo} alt="sansa com yugo" className="image aboutUsImg"></img>
-        <img src={setenPedraPapel} alt="seten jogando pedra papel" className="image aboutUsImg"></img>
-        <img src={cachorroMostra} alt="cachorro mostrando algo" className="image aboutUsImg"></img>
+      <div className="image-container">
+        <img src={markxPercedal} alt="markx ajudando percedal" className="image about-us-image"></img>
+        <img src={sansaYugo} alt="sansa com yugo" className="image about-us-image"></img>
+        <img src={setenPedraPapel} alt="seten jogando pedra papel" className="image about-us-image"></img>
+        <img src={cachorroMostra} alt="cachorro mostrando algo" className="image about-us-image"></img>
       </div>
       <br />
       <p>
@@ -91,7 +91,7 @@ const About = () => {
         tempo podem ser removidos em caso de lotação máxima.
       </p>
 
-      <div className="imageContainer imageContainerBig">
+      <div className="imageContainer image-container-big">
         <img src={dorMor} alt="corvos em dor mor" className="image"></img>
         <img src={corvosXArch} alt="corvos em luta contra arquimonstro" className="image"></img>
         <img src={reuniaoAmaknaFora} alt="reuniao em amakna lado de fora" className="image"></img>
