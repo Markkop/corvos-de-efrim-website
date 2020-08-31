@@ -5,7 +5,7 @@
 [![https://img.shields.io/badge/made%20with-react-blue](https://img.shields.io/badge/made%20with-react-blue)](https://reactjs.org/)
 
 Projeto em [React](https://reactjs.org/) para o site da guilda Corvos de Efrim  
-Confira em: https://markkop.github.io/corvos-de-efrim-website/
+Confira em: https://corvosdeefrim.com
 
 ## Como desenvolver
 

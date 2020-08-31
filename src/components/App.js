@@ -3,11 +3,13 @@ import Home from './pages/Home'
 import AboutUs from './pages/AboutUs'
 import NavBar from './NavBar'
 import { Switch, Route } from 'react-router-dom'
+import Almanax from './molecules/Almanax'
 
 class App extends Component {
   render() {
     return (
       <main>
+        <Almanax />
         <NavBar />
         <section>
           <Switch>
