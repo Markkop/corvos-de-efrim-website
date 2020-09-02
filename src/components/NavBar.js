@@ -2,21 +2,39 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { ReactComponent as GithubIcon } from './atoms/Github.svg'
 import { ReactComponent as DiscordIcon } from './atoms/Discord.svg'
+import { ReactComponent as YouTubeIcon } from './atoms/YouTube.svg'
 
 const NavBar = (props) => {
+  const shortcuts = [
+    { icon: <GithubIcon />, link: 'https://github.com/markkop/corvos-de-efrim-website' },
+    { icon: <DiscordIcon />, link: 'https://discord.gg/XyGTJN2' },
+    { icon: <YouTubeIcon />, link: 'https://www.youtube.com/channel/UCt2vHFLkdUSkLJjcagzX9rA' },
+  ]
+
   const navItems = [
     { path: '/', text: 'Início' },
     { path: '/a-guilda', text: 'Sobre nós' },
   ]
 
-  const renderItems = (navItems, props) =>
-    navItems.map(({ path, text }, index) => (
+  function renderItems(navItems, props) {
+    return navItems.map(({ path, text }, index) => (
       <li key={index} className={`nav-item ${props.location.pathname === path ? 'active' : ''}`}>
         <Link className="nav-link" to={path}>
           {text}
         </Link>
       </li>
     ))
+  }
+
+  function renderShortCuts(shortcuts) {
+    return shortcuts.map(({ icon, link }) => (
+      <li>
+        <a href={link} target="_blank" rel="noopener noreferrer">
+          {icon}
+        </a>
+      </li>
+    ))
+  }
 
   return (
     <nav className="navbar navbar-expand-md navbar-default ">
@@ -28,13 +46,10 @@ const NavBar = (props) => {
         <span className="navbar-toggler-icon" />
       </button>
       <div className="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-        <ul className="navbar-nav justify-content-end">{renderItems(navItems, props)}</ul>
-        <a href="https://github.com/markkop/corvos-de-efrim-website" target="_blank" rel="noopener noreferrer">
-          {<GithubIcon />}
-        </a>
-        <a href="https://discord.gg/XyGTJN2" target="_blank" rel="noopener noreferrer">
-          {<DiscordIcon />}
-        </a>
+        <ul className="navbar-nav justify-content-end">
+          {renderItems(navItems, props)}
+          {renderShortCuts(shortcuts)}
+        </ul>
       </div>
     </nav>
   )
