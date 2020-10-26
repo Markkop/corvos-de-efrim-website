@@ -39,7 +39,7 @@ const NavBar = (props) => {
   return (
     <nav className="navbar navbar-expand-md navbar-default ">
       <div className="navbar-brand">
-        <img src="https://i.imgur.com/df8RYFk.png" width="30" height="30" alt="corvos de efrim logo" />
+        <img src="https://i.imgur.com/YS0XlBf.png" width="30" height="30" alt="corvos de efrim logo" />
         <Link to="/">Corvos de Efrim</Link>
       </div>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
