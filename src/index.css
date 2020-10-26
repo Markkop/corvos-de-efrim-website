@@ -1,3 +1,15 @@
+.provacao {
+  list-style-type: 'none'
+}
+
+.faq li {
+  margin-top: 30px
+}
+
+h3 .twemoji {
+  width: 30px;
+}
+
 .almanax-container {
   margin: 1px;
   margin-bottom: 0;
