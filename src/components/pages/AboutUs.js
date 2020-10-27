@@ -102,7 +102,7 @@ const About = () => {
       <h3><Emoji symbol="🤔" label="thinking" />FAQ</h3>
       <ul className="faq">
         <li>
-          <strong>Se não eu não tiver build 110, 170 ou 200, não entro na guilda?</strong>
+          <strong>Se eu não tiver build 110, 170 ou 200, não entro na guilda?</strong>
           <br />
           Não, você pode entrar na guilda, mas estará "Em Provação" até apresentar a build e demonstrá-la.
         </li>
