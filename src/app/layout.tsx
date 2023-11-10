@@ -1,5 +1,5 @@
 import { ThemeProvider } from '@/app/providers'
-import { WEBSITE_HOST_URL } from '@/lib/constants'
+import { WEBSITE_HOST_URL, DISCORD_INVITE_URL } from '@/lib/constants'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import './global.css'
@@ -68,9 +68,6 @@ export default function RootLayout({
                 <Link className="text-lg hover:text-[#a27a50]" href="/">
                   Home
                 </Link>
-                {/* <Link className="text-lg hover:text-[#a27a50]" href="#">
-                  Eventos
-                </Link> */}
                 <Link className="text-lg hover:text-[#a27a50]" href="/about">
                   Sobre
                 </Link>
@@ -86,7 +83,7 @@ export default function RootLayout({
                       },
                       {
                         name: 'Discord',
-                        url: 'https://discord.gg/bNM3DvVCJk',
+                        url: DISCORD_INVITE_URL,
                         image: '/icons/discord.svg'
                       },
                       {

@@ -1,3 +1,4 @@
+import { DISCORD_INVITE_URL } from '@/lib/constants'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -21,7 +22,7 @@ export function LandingPage() {
           </p>
           <Link
             className="mb-8 inline-flex h-10 items-center justify-center rounded-md border border-transparent bg-[#a27a50] px-5 text-base font-medium text-white hover:bg-[#a27a50]/90"
-            href="https://discord.gg/bNM3DvVCJk"
+            href={DISCORD_INVITE_URL}
           >
             Entre no nosso Discord
             <Image
