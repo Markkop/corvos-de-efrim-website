@@ -37,7 +37,13 @@ export function LandingPage() {
         </div>
       </section>
       {
-        [
+        [          {
+          title: "Conheça a Nossa História",
+          description: "Os Corvos de Efrim são uma guilda de jogadores de Wakfu que se uniram em 2014. Desde então, temos crescido e nos tornado uma comunidade de jogadores de vários jogos.",
+          link: "https://www.wakfu.com/pt/forum/49-guildas/348-guilda-corvos-efrim",
+          linkText: "Confira o nosso tópico no fórum",
+          imageUrl: "/images/amakna.png",
+        },
           {
             title: "Eventos da Guilda",
             description: "Nós organizamos regularmente uma variedade de eventos para nossos membros. De incursões a festivais temáticos, sempre há algo excitante acontecendo nos Corvos de Efrim.", 
@@ -50,7 +56,7 @@ export function LandingPage() {
             linkText: "Saiba mais sobre as nossas regras",
             imageUrl: "/images/juramento.png",
           },
-          // Add more sections as needed
+
         ].map(
           ({ title, description, imageUrl, link, linkText }, index) => {
             const isOdd = index % 2 === 0
@@ -78,13 +84,12 @@ export function LandingPage() {
               </div>
               <div className="px-8 lg:w-1/2">
                 <img
-                  className="h-[250px] w-full lg:mx-auto lg:h-[250px] lg:w-[500px]"
+                  className="h-[250px] w-full lg:mx-auto lg:h-[250px] lg:w-[500px] object-cover lg:object-none"
                   alt={title}
                   height={500}
                   width={500}
                   src={imageUrl}
                   style={{
-                    objectFit: "cover",
                     borderRadius: "0.5rem",
                     border: `0.25rem solid ${isOdd ? "black" : "#a27a50"}`,
                   }}
@@ -94,7 +99,6 @@ export function LandingPage() {
           }
         )
       }
-    
     </>
   )
 }

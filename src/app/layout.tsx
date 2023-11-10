@@ -13,9 +13,10 @@ const meta = {
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://corvosdeefrim.com/'),
   title: {
     default: meta.title,
-    template: '%s | Hunter Chang',
+    template: 'Corvos de Efrim',
   },
   description: meta.description,
   openGraph: {
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     description: meta.description,
     url: WEBSITE_HOST_URL,
     siteName: meta.title,
-    locale: 'en-US',
+    locale: 'pt-BR',
     type: 'website',
     images: [
       {
