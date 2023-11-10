@@ -1,10 +1,10 @@
 # :parrot: Corvos de Efrim Website
 
-[![Build Status](https://travis-ci.com/Markkop/corvos-de-efrim-website.svg?branch=master)](https://travis-ci.com/github/Markkop/corvos-de-efrim-website)
 ![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
 [![https://img.shields.io/badge/made%20with-react-blue](https://img.shields.io/badge/made%20with-react-blue)](https://reactjs.org/)
 
-Projeto em [React](https://reactjs.org/) para o site da guilda Corvos de Efrim  
+
+Projeto em baseado no template: https://github.com/ChangoMan/nextjs-mdx-blog
 Confira em: https://corvosdeefrim.com
 
 ## Como desenvolver
@@ -29,5 +29,5 @@ git add .
 git commit -m "<commit name>"
 git push origin <branch name>
 
-# Deploy is made automatically on master via Travis-CI
+# Deploy is made automatically via Vercel
 ```
