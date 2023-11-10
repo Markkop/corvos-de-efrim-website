@@ -54,7 +54,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark">
           <header className="lg:py-4">
             <nav className="flex lg:flex-row flex-col w-full items-center justify-between bg-black p-4 text-white">
-            <Link className="hover:text-[#a27a50] flex gap-2 items-center" href="/">
+            <Link className="hover:text-[#a27a50] flex flex-row-reverse gap-2 items-center " href="/">
               <Image
               className='rounded-full'
                 alt="Corvos de Efrim"
