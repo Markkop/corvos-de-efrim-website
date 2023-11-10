@@ -23,7 +23,7 @@ export function LandingPage() {
             className="mb-8 inline-flex h-10 items-center justify-center rounded-md border border-transparent bg-[#a27a50] px-5 text-base font-medium text-white hover:bg-[#a27a50]/90"
             href="https://discord.gg/bNM3DvVCJk"
           >
-            Clique aqui para entrar no nosso Discord
+            Entre no nosso Discord
             <Image
               className='ml-2'
               alt="Discord"

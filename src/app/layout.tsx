@@ -51,8 +51,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <header className="py-4">
-            <nav className="flex w-full items-center justify-between bg-black p-4 text-white">
+          <header className="lg:py-4">
+            <nav className="flex lg:flex-row flex-col w-full items-center justify-between bg-black p-4 text-white">
             <Link className="hover:text-[#a27a50] flex gap-2 items-center" href="/">
               <Image
               className='rounded-full'
@@ -64,6 +64,7 @@ export default function RootLayout({
               <h1 className="text-2xl font-bold">Corvos de Efrim</h1>
               </Link> 
               <div className="flex items-center space-x-4">
+                <div className='flex gap-4'>
                 <Link className="text-lg hover:text-[#a27a50]" href="/">
                   Home
                 </Link>
@@ -73,31 +74,37 @@ export default function RootLayout({
                 <Link className="text-lg hover:text-[#a27a50]" href="/about">
                   Sobre
                 </Link>
+                </div>
+     
                 <div className="ml-4 flex space-x-3">
-                  <Link aria-label="Our GitHub" href="https://github.com/Markkop/corvos-de-efrim-website/">
-                    <Image
-                      alt="GitHub"
-                      height={24}
-                      src="/icons/github.svg"
-                      width={24}
-                      />
-                  </Link>
-                  <Link aria-label="Our Discord" href="https://discord.gg/bNM3DvVCJk">
-                  <Image
-                      alt="Discord"
-                      height={24}
-                      src="/icons/discord.svg"
-                      width={24}
-                      />
-                  </Link>
-                  <Link aria-label="Our YouTube" href="https://www.youtube.com/channel/UCt2vHFLkdUSkLJjcagzX9rA">
-                  <Image
-                      alt="YouTube"
-                      height={24}
-                      src="/icons/youtube.svg"
-                      width={24}
-                      />
-                  </Link>
+                {
+                    [
+                      {
+                        name: 'GitHub',
+                        url: 'https://github.com/Markkop/corvos-de-efrim-website/',
+                        image: '/icons/github.svg'
+                      },
+                      {
+                        name: 'Discord',
+                        url: 'https://discord.gg/bNM3DvVCJk',
+                        image: '/icons/discord.svg'
+                      },
+                      {
+                        name: 'YouTube',
+                        url: 'https://www.youtube.com/channel/UCt2vHFLkdUSkLJjcagzX9rA',
+                        image: '/icons/youtube.svg'
+                      }
+                    ].map((item, index) => (
+                      <Link aria-label={`Our ${item.name}`} href={item.url} key={index}>
+                        <Image
+                          alt={item.name}
+                          height={24}
+                          src={item.image}
+                          width={24}
+                        />
+                      </Link>
+                    ))
+                  }
                 </div>
               </div>
             </nav>
