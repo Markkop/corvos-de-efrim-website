@@ -40,7 +40,7 @@ export function LandingPage() {
         [          {
           title: "Conheça a Nossa História",
           description: "Os Corvos de Efrim são uma guilda de jogadores de Wakfu que se uniram em 2014. Desde então, temos crescido e nos tornado uma comunidade de jogadores de vários jogos.",
-          link: "https://www.wakfu.com/pt/forum/49-guildas/348-guilda-corvos-efrim",
+          link: "https://www.wakfu.com/pt/forum/49-guildas/13189-guilda-corvos-efrim-estamos-volta-2023",
           linkText: "Confira o nosso tópico no fórum",
           imageUrl: "/images/amakna.png",
         },
