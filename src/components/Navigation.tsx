@@ -1,124 +1,116 @@
 'use client'
 
-import { ThemeProvider } from '@/app/providers'
 import { Button } from '@/components/ui/button'
 import { DISCORD_INVITE_URL } from '@/lib/constants'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
-import { ContactPage } from './pages/ContactPage'
-import { CrewPage } from './pages/CrewPage'
-import { HistoryPage } from './pages/HistoryPage'
-import { HomePage } from './pages/HomePage'
-import { MissionsPage } from './pages/MissionsPage'
-import { RecruitmentPage } from './pages/RecruitmentPage'
-import { RegimentPage } from './pages/RegimentPage'
 
-export default function Navigation() {
-  const [currentTab, setCurrentTab] = useState('INÍCIO')
+const Navigation = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const TabContent = {
-    INÍCIO: <HomePage />,
-    HISTÓRIA: <HistoryPage />,
-    TRIPULAÇÃO: <CrewPage />,
-    RECRUTAMENTO: <RecruitmentPage />,
-    MISSÕES: <MissionsPage />,
-    REGIMENTO: <RegimentPage />,
-    CONTATO: <ContactPage />,
+  const navItems = [
+    { label: 'INÍCIO', href: '/' },
+    { label: 'HISTÓRIA', href: '/historia' },
+    { label: 'TRIPULAÇÃO', href: '/tripulacao' },
+    { label: 'RECRUTAMENTO', href: '/recrutamento' },
+    { label: 'REGIMENTO', href: '/regimento' },
+    { label: 'CONTATO', href: '/contato' },
+  ]
+
+  const socialLinks = [
+    {
+      name: 'GitHub',
+      url: 'https://github.com/Markkop/corvos-de-efrim-website/',
+      image: '/icons/github.svg',
+    },
+    {
+      name: 'Discord',
+      url: DISCORD_INVITE_URL,
+      image: '/icons/discord.svg',
+    },
+    {
+      name: 'YouTube',
+      url: 'https://www.youtube.com/channel/UCt2vHFLkdUSkLJjcagzX9rA',
+      image: '/icons/youtube.svg',
+    },
+  ]
+
+  const handleToggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
   }
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark">
-      <div className="bg-[#e6d7c3] min-h-screen text-[#2a2a2a] font-serif">
-        <header className="bg-[#2a2a2a] text-[#e6d7c3] p-6">
-          <nav className="flex flex-wrap justify-between items-center max-w-7xl mx-auto">
-            <div className="flex items-center space-x-6 mb-4 lg:mb-0">
-              <Link
-                href="/"
-                className="flex items-center gap-3 hover:text-[#a27a50]"
-              >
-                <Image
-                  src="/images/corvos.png"
-                  alt="Corvos de Efrim"
-                  width={56}
-                  height={56}
-                  className="rounded-full"
-                />
-                <h1 className="text-3xl font-bold">Corvos de Efrim</h1>
-              </Link>
-            </div>
-            <div className="flex flex-wrap items-center space-x-4">
-              {[
-                'INÍCIO',
-                'HISTÓRIA',
-                'TRIPULAÇÃO',
-                'RECRUTAMENTO',
-                'MISSÕES',
-                'REGIMENTO',
-                'CONTATO',
-              ].map((item) => (
-                <Button
-                  key={item}
-                  onClick={() => setCurrentTab(item)}
-                  variant="ghost"
-                  className={`hover:text-[#a27a50] text-lg ${
-                    currentTab === item ? 'text-[#a27a50]' : ''
-                  }`}
-                >
-                  {item}
-                </Button>
-              ))}
-            </div>
-            <div className="flex space-x-4 mt-4 lg:mt-0">
-              {[
-                {
-                  name: 'GitHub',
-                  url: 'https://github.com/Markkop/corvos-de-efrim-website/',
-                  image: '/icons/github.svg',
-                },
-                {
-                  name: 'Discord',
-                  url: DISCORD_INVITE_URL,
-                  image: '/icons/discord.svg',
-                },
-                {
-                  name: 'YouTube',
-                  url: 'https://www.youtube.com/channel/UCt2vHFLkdUSkLJjcagzX9rA',
-                  image: '/icons/youtube.svg',
-                },
-              ].map((item, index) => (
-                <Link
-                  href={item.url}
-                  key={index}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-80"
-                  aria-label={`Our ${item.name}`}
-                >
-                  <Image
-                    alt={item.name}
-                    height={28}
-                    src={item.image}
-                    width={28}
-                  />
-                </Link>
-              ))}
-            </div>
-          </nav>
-        </header>
+    <nav className="max-w-7xl mx-auto">
+      <div className="flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-3 hover:text-[#a27a50]">
+          <Image
+            src="/images/corvos.png"
+            alt="Corvos de Efrim"
+            width={56}
+            height={56}
+            className="rounded-full"
+          />
+          <h1 className="text-3xl font-bold">Corvos de Efrim</h1>
+        </Link>
 
-        <main className="max-w-7xl mx-auto py-12 px-6">
-          {TabContent[currentTab]}
-        </main>
-
-        <footer className="bg-[#2a2a2a] text-[#e6d7c3] p-6 mt-12">
-          <div className="max-w-7xl mx-auto text-center">
-            <p className="text-lg">
-              © 2023 Corvos de Efrim. Todos os direitos reservados.
-            </p>
-          </div>
-        </footer>
+        <button
+          onClick={handleToggleMenu}
+          className="lg:hidden"
+          aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
       </div>
-    </ThemeProvider>
+
+      <div
+        className={`${
+          isMenuOpen ? 'block' : 'hidden'
+        } lg:block lg:flex lg:items-center lg:justify-between mt-4 lg:mt-0`}
+      >
+        <div className="flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-4">
+          {navItems.map((item) => (
+            <Link key={item.href} href={item.href}>
+              <Button
+                variant="ghost"
+                className="hover:text-[#a27a50] text-lg w-full lg:w-auto"
+              >
+                {item.label}
+              </Button>
+            </Link>
+          ))}
+        </div>
+
+        <div className="flex justify-center space-x-4 mt-4 lg:mt-0">
+          {socialLinks.map((item) => (
+            <Link
+              href={item.url}
+              key={item.name}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80"
+              aria-label={`Our ${item.name}`}
+            >
+              <Image alt={item.name} height={28} src={item.image} width={28} />
+            </Link>
+          ))}
+        </div>
+      </div>
+    </nav>
   )
 }
+
+export default Navigation
