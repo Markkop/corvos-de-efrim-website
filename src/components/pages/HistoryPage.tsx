@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { FaDiscord } from 'react-icons/fa'
 
 export function HistoryPage() {
   const timelineEvents = [
@@ -39,6 +40,10 @@ export function HistoryPage() {
         'Expandimos para Waven e outros jogos, mantendo nossa essência e valores.',
       image:
         'https://static.ankama.com/upload/backoffice/direct/2024-10-14/13e919929b5171593a980cf7bd70e9c6.png',
+      cta: {
+        text: 'Venha conosco!',
+        link: 'https://discord.gg/your-discord-invite-link',
+      },
     },
   ]
 
@@ -75,6 +80,17 @@ export function HistoryPage() {
               <div className="text-7xl font-bold opacity-50">{event.year}</div>
               <h2 className="text-4xl font-bold">{event.title}</h2>
               <p className="text-xl">{event.description}</p>
+              {event.cta && (
+                <a
+                  href={event.cta.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#5865F2] text-white px-6 py-3 rounded-full font-bold hover:bg-[#4752C4] transition-colors"
+                >
+                  <span>{event.cta.text}</span>
+                  <FaDiscord className="w-6 h-6" />
+                </a>
+              )}
             </div>
           </div>
         ))}
