@@ -55,7 +55,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <div className="bg-[#e6d7c3] min-h-screen text-[#2a2a2a] font-serif">
-            <header className="bg-[#2a2a2a] text-[#e6d7c3] p-6">
+            {/* Remove the p-6 padding from header since Navigation will handle its own padding */}
+            <header className="bg-[#2a2a2a] text-[#e6d7c3] sticky top-0 z-50">
               <Navigation />
             </header>
 
