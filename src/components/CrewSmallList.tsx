@@ -31,10 +31,10 @@ export const CrewSmallList = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-opacity duration-300 group-hover:opacity-70 pointer-events-none" />
             <CardFooter className="absolute bottom-0 left-0 right-0 p-4 z-10 pointer-events-none">
               <div className="transition-transform duration-300 group-hover:translate-y-[-4px] space-y-0.5">
-                <CardTitle className="text-base sm:text-xl text-white leading-tight">
+                <CardTitle className="~text-[1rem]/[2rem] text-white leading-tight">
                   {member.name}
                 </CardTitle>
-                <CardDescription className="text-sm sm:text-base text-[#bf9b30] leading-tight">
+                <CardDescription className="~text-[0.875rem]/[1rem] text-[#bf9b30] leading-tight">
                   {member.role}
                 </CardDescription>
               </div>

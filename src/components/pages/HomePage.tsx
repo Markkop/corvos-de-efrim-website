@@ -19,12 +19,14 @@ export function HomePage() {
         }}
       >
         <div className="text-center p-8">
-          <h1 className="mb-8 text-6xl font-bold">Corvos de Efrim</h1>
-          <p className="mb-12 text-xl font-semibold max-w-2xl mx-auto">
+          <h1 className="~text-[2.5rem]/[4rem] mb-8 font-bold">
+            Corvos de Efrim
+          </h1>
+          <p className="~text-[1.125rem]/[1.5rem] mb-12 font-semibold max-w-2xl mx-auto">
             Junte-se à nossa guilda e embarque numa aventura conosco!
           </p>
           <Link
-            className="inline-flex h-14 items-center justify-center rounded-md border border-transparent bg-[#a27a50] px-8 text-lg font-medium text-white hover:bg-[#a27a50]/90"
+            className="inline-flex ~h-[3rem]/[3.5rem] items-center justify-center rounded-md border border-transparent bg-[#a27a50] ~px-[1.5rem]/[2rem] ~text-[1rem]/[1.25rem] font-medium text-white hover:bg-[#a27a50]/90"
             href={DISCORD_INVITE_URL}
             target="_blank"
             rel="noopener noreferrer"
@@ -41,35 +43,37 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#2a2a2a] rounded-xl p-8">
+      <section className="bg-[#2a2a2a] rounded-xl ~p-[1.5rem]/[2rem]">
         <HistoryPage short />
       </section>
 
-      <section className="bg-[#a27a50] rounded-xl p-8">
-        <div className="text-center mb-16">
+      <section className="bg-[#a27a50] rounded-xl ~p-[1.5rem]/[2rem]">
+        <div className="text-center ~mb-[3rem]/[4rem]">
           <Link
             href="/tripulacao"
             className="inline-block transition-transform hover:scale-[1.01] focus-visible:scale-[1.01] focus-visible:outline-none"
           >
-            <h2 className="text-5xl font-bold mb-6">Tripulação Permanente</h2>
+            <h2 className="~text-[2rem]/[3rem] font-bold ~mb-[1rem]/[1.5rem]">
+              Tripulação Permanente
+            </h2>
           </Link>
         </div>
         <CrewSmallList />
       </section>
 
-      <section className="bg-[#2a2a2a] rounded-xl p-8">
+      <section className="bg-[#2a2a2a] rounded-xl ~p-[1.5rem]/[2rem]">
         <Link
           href="/recrutamento"
           className="inline-block transition-transform hover:scale-[1.01] focus-visible:scale-[1.01] focus-visible:outline-none"
         >
-          <h2 className="text-3xl font-bold mb-6 text-[#e6d7c3]">
+          <h2 className="~text-[1.5rem]/[2rem] font-bold ~mb-[1rem]/[1.5rem] text-[#e6d7c3]">
             Presentes em
           </h2>
         </Link>
         <GamesSmallList />
       </section>
 
-      <section className="bg-[#a27a50] rounded-xl p-8">
+      <section className="bg-[#a27a50] rounded-xl ~p-[1.5rem]/[2rem]">
         <ContactSmallList />
       </section>
     </div>

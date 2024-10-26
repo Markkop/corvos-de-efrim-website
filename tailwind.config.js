@@ -1,13 +1,20 @@
+import fluid, { extract, fontSize, screens } from 'fluid-tailwind'
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class'],
-  content: [
-    './pages/**/*.{js,jsx,ts,tsx}',
-    './components/**/*.{js,jsx,ts,tsx}',
-    './app/**/*.{js,jsx,ts,tsx}',
-    './src/**/*.{js,jsx,ts,tsx}',
-  ],
+  content: {
+    files: [
+      './pages/**/*.{js,jsx,ts,tsx}',
+      './components/**/*.{js,jsx,ts,tsx}',
+      './app/**/*.{js,jsx,ts,tsx}',
+      './src/**/*.{js,jsx,ts,tsx}',
+    ],
+    extract,
+  },
   theme: {
+    screens,
+    fontSize,
     container: {
       center: 'true',
       padding: '2rem',
@@ -88,5 +95,12 @@ module.exports = {
     },
   },
   presets: [require('tailwindcss/defaultTheme')],
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
+  plugins: [
+    fluid({
+      // Optional: configure default screens
+      defaultScreens: ['20rem', '90rem'], // min: 320px, max: 1440px
+    }),
+    require('tailwindcss-animate'),
+    require('@tailwindcss/typography'),
+  ],
 }
