@@ -1,5 +1,6 @@
 'use client'
 
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
   Card,
   CardContent,
@@ -53,10 +54,21 @@ export function CrewPage() {
         {crewMembers.map((member) => (
           <Card key={member.name} className="bg-[#2a2a2a] text-[#e6d7c3]">
             <CardHeader className="pb-4">
-              <CardTitle className="text-3xl">{member.name}</CardTitle>
-              <CardDescription className="text-[#bf9b30] text-lg">
-                {member.role}
-              </CardDescription>
+              <div className="flex items-center gap-4">
+                <Avatar className="h-16 w-16">
+                  <AvatarImage
+                    src={member.image}
+                    alt={`Avatar de ${member.name}`}
+                  />
+                  <AvatarFallback>{member.name.slice(0, 2)}</AvatarFallback>
+                </Avatar>
+                <div>
+                  <CardTitle className="text-3xl">{member.name}</CardTitle>
+                  <CardDescription className="text-[#bf9b30] text-lg">
+                    {member.role}
+                  </CardDescription>
+                </div>
+              </div>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-lg">{member.description}</p>
