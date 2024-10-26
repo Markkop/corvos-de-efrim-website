@@ -1,9 +1,9 @@
 import { ThemeProvider } from '@/app/providers'
-import { WEBSITE_HOST_URL, DISCORD_INVITE_URL } from '@/lib/constants'
+import Navigation from '@/components/Navigation'
+import { WEBSITE_HOST_URL } from '@/lib/constants'
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { ReactNode } from 'react'
 import './global.css'
-import Image from 'next/image'
 
 const meta = {
   title: 'Corvos de Efrim',
@@ -43,71 +43,26 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <header className="lg:py-4">
-            <nav className="flex lg:flex-row flex-col w-full items-center justify-between bg-black p-4 text-white">
-            <Link className="hover:text-[#a27a50] flex flex-row-reverse gap-2 items-center " href="/">
-              <Image
-              className='rounded-full'
-                alt="Corvos de Efrim"
-                height={48}
-                src="/images/corvos.png"
-                width={48}
-              />
-              <h1 className="text-2xl font-bold">Corvos de Efrim</h1>
-              </Link> 
-              <div className="flex items-center space-x-4">
-                <div className='flex gap-4'>
-                <Link className="text-lg hover:text-[#a27a50]" href="/">
-                  Home
-                </Link>
-                <Link className="text-lg hover:text-[#a27a50]" href="/about">
-                  Sobre
-                </Link>
-                </div>
-     
-                <div className="ml-4 flex space-x-3">
-                {
-                    [
-                      {
-                        name: 'GitHub',
-                        url: 'https://github.com/Markkop/corvos-de-efrim-website/',
-                        image: '/icons/github.svg'
-                      },
-                      {
-                        name: 'Discord',
-                        url: DISCORD_INVITE_URL,
-                        image: '/icons/discord.svg'
-                      },
-                      {
-                        name: 'YouTube',
-                        url: 'https://www.youtube.com/channel/UCt2vHFLkdUSkLJjcagzX9rA',
-                        image: '/icons/youtube.svg'
-                      }
-                    ].map((item, index) => (
-                      <Link aria-label={`Our ${item.name}`} href={item.url} key={index}>
-                        <Image
-                          alt={item.name}
-                          height={24}
-                          src={item.image}
-                          width={24}
-                        />
-                      </Link>
-                    ))
-                  }
-                </div>
+          <div className="bg-[#e6d7c3] min-h-screen text-[#2a2a2a] font-serif">
+            <header className="bg-[#2a2a2a] text-[#e6d7c3] p-6">
+              <Navigation />
+            </header>
+
+            <main className="max-w-7xl mx-auto py-12 px-6">{children}</main>
+
+            <footer className="bg-[#2a2a2a] text-[#e6d7c3] p-6 mt-12">
+              <div className="max-w-7xl mx-auto text-center">
+                <p className="text-lg">
+                  © 2024 Corvos de Efrim. Todos os direitos reservados.
+                </p>
               </div>
-            </nav>
-          </header>
-          <main>{children}</main>
+            </footer>
+          </div>
         </ThemeProvider>
       </body>
     </html>
