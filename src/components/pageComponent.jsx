@@ -40,96 +40,92 @@ export default function Component() {
   return (
     <ThemeProvider attribute="class" defaultTheme="dark">
       <div className="bg-[#e6d7c3] min-h-screen text-[#2a2a2a] font-serif">
-        <header className="bg-[#2a2a2a] text-[#e6d7c3] p-4">
-          <nav className="flex justify-between items-center max-w-6xl mx-auto">
-            <div className="flex items-center space-x-4">
+        <header className="bg-[#2a2a2a] text-[#e6d7c3] p-6">
+          <nav className="flex flex-wrap justify-between items-center max-w-7xl mx-auto">
+            <div className="flex items-center space-x-6 mb-4 lg:mb-0">
               <Link
                 href="/"
-                className="flex items-center gap-2 hover:text-[#a27a50]"
+                className="flex items-center gap-3 hover:text-[#a27a50]"
               >
                 <Image
                   src="/images/corvos.png"
                   alt="Corvos de Efrim"
-                  width={48}
-                  height={48}
+                  width={56}
+                  height={56}
                   className="rounded-full"
                 />
-                <h1 className="text-2xl font-bold">Corvos de Efrim</h1>
+                <h1 className="text-3xl font-bold">Corvos de Efrim</h1>
               </Link>
-              {['INÍCIO', 'HISTÓRIA', 'TRIPULAÇÃO', 'RECRUTAMENTO'].map(
-                (item) => (
-                  <Button
-                    key={item}
-                    onClick={() => setCurrentTab(item)}
-                    variant="ghost"
-                    className={`hover:text-[#a27a50] ${
-                      currentTab === item ? 'text-[#a27a50]' : ''
-                    }`}
-                  >
-                    {item}
-                  </Button>
-                ),
-              )}
             </div>
-            <div className="flex items-center space-x-4">
-              {['MISSÕES', 'REGIMENTO', 'CONTATO'].map((item) => (
+            <div className="flex flex-wrap items-center space-x-4">
+              {[
+                'INÍCIO',
+                'HISTÓRIA',
+                'TRIPULAÇÃO',
+                'RECRUTAMENTO',
+                'MISSÕES',
+                'REGIMENTO',
+                'CONTATO',
+              ].map((item) => (
                 <Button
                   key={item}
                   onClick={() => setCurrentTab(item)}
                   variant="ghost"
-                  className={`hover:text-[#a27a50] ${
+                  className={`hover:text-[#a27a50] text-lg ${
                     currentTab === item ? 'text-[#a27a50]' : ''
                   }`}
                 >
                   {item}
                 </Button>
               ))}
-              <div className="flex space-x-3 ml-4">
-                {[
-                  {
-                    name: 'GitHub',
-                    url: 'https://github.com/Markkop/corvos-de-efrim-website/',
-                    image: '/icons/github.svg',
-                  },
-                  {
-                    name: 'Discord',
-                    url: DISCORD_INVITE_URL,
-                    image: '/icons/discord.svg',
-                  },
-                  {
-                    name: 'YouTube',
-                    url: 'https://www.youtube.com/channel/UCt2vHFLkdUSkLJjcagzX9rA',
-                    image: '/icons/youtube.svg',
-                  },
-                ].map((item, index) => (
-                  <Link
-                    href={item.url}
-                    key={index}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:opacity-80"
-                    aria-label={`Our ${item.name}`}
-                  >
-                    <Image
-                      alt={item.name}
-                      height={24}
-                      src={item.image}
-                      width={24}
-                    />
-                  </Link>
-                ))}
-              </div>
+            </div>
+            <div className="flex space-x-4 mt-4 lg:mt-0">
+              {[
+                {
+                  name: 'GitHub',
+                  url: 'https://github.com/Markkop/corvos-de-efrim-website/',
+                  image: '/icons/github.svg',
+                },
+                {
+                  name: 'Discord',
+                  url: DISCORD_INVITE_URL,
+                  image: '/icons/discord.svg',
+                },
+                {
+                  name: 'YouTube',
+                  url: 'https://www.youtube.com/channel/UCt2vHFLkdUSkLJjcagzX9rA',
+                  image: '/icons/youtube.svg',
+                },
+              ].map((item, index) => (
+                <Link
+                  href={item.url}
+                  key={index}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80"
+                  aria-label={`Our ${item.name}`}
+                >
+                  <Image
+                    alt={item.name}
+                    height={28}
+                    src={item.image}
+                    width={28}
+                  />
+                </Link>
+              ))}
             </div>
           </nav>
         </header>
 
-        <main className="max-w-6xl mx-auto py-8 px-4">
+        <main className="max-w-7xl mx-auto py-12 px-6">
           {TabContent[currentTab]}
         </main>
 
-        <footer className="bg-[#2a2a2a] text-[#e6d7c3] p-4 mt-auto">
-          <div className="max-w-6xl mx-auto text-center">
-            <p>© 2023 Corvos de Efrim. Todos os direitos reservados.</p>
+        <footer className="bg-[#2a2a2a] text-[#e6d7c3] p-6 mt-12">
+          <div className="max-w-7xl mx-auto text-center">
+            <p className="text-lg">
+              © 2023 Corvos de Efrim. Todos os direitos reservados.
+            </p>
           </div>
         </footer>
       </div>
@@ -139,32 +135,32 @@ export default function Component() {
 
 function HomePage() {
   return (
-    <div className="space-y-12">
+    <div className="space-y-16">
       <section
-        className="relative flex h-[80vh] items-center justify-center bg-black bg-cover bg-center bg-no-repeat text-white"
+        className="relative flex h-[90vh] items-center justify-center bg-black bg-cover bg-center bg-no-repeat text-white rounded-xl overflow-hidden"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(0,0,0, 0.5) 0%,rgba(0,0,0,0) 100%), url(/images/dormor.png)',
+            'linear-gradient(rgba(0,0,0, 0.6) 0%,rgba(0,0,0,0.3) 100%), url(/images/dormor.png)',
         }}
       >
-        <div className="text-center">
-          <h1 className="mb-8 text-5xl font-bold">Corvos de Efrim</h1>
-          <p className="mb-8 text-lg font-semibold">
+        <div className="text-center p-8">
+          <h1 className="mb-8 text-6xl font-bold">Corvos de Efrim</h1>
+          <p className="mb-12 text-xl font-semibold max-w-2xl mx-auto">
             Junte-se à nossa guilda e embarque numa aventura conosco!
           </p>
           <Link
-            className="inline-flex h-10 items-center justify-center rounded-md border border-transparent bg-[#a27a50] px-5 text-base font-medium text-white hover:bg-[#a27a50]/90"
+            className="inline-flex h-14 items-center justify-center rounded-md border border-transparent bg-[#a27a50] px-8 text-lg font-medium text-white hover:bg-[#a27a50]/90"
             href={DISCORD_INVITE_URL}
             target="_blank"
             rel="noopener noreferrer"
           >
             Entre no nosso Discord
             <Image
-              className="ml-2"
+              className="ml-3"
               alt="Discord"
-              height={24}
+              height={28}
               src="/icons/discord.svg"
-              width={24}
+              width={28}
             />
           </Link>
         </div>
@@ -196,18 +192,18 @@ function HomePage() {
       ].map((section, index) => (
         <section
           key={index}
-          className={`flex w-full flex-col lg:flex-row py-12 ${
+          className={`flex w-full flex-col lg:flex-row py-16 rounded-xl overflow-hidden ${
             index % 2 === 0
               ? 'bg-[#a27a50] text-black'
               : 'bg-black text-white lg:flex-row-reverse'
           }`}
         >
-          <div className="p-8 lg:w-1/2">
-            <h2 className="mb-4 text-4xl font-bold">{section.title}</h2>
-            <p className="text-lg">{section.description}</p>
+          <div className="p-12 lg:w-1/2">
+            <h2 className="mb-6 text-5xl font-bold">{section.title}</h2>
+            <p className="text-xl mb-8">{section.description}</p>
             {section.link && (
               <Link
-                className={`mt-4 inline-flex h-10 items-center justify-center rounded-md border border-transparent px-5 text-base font-medium ${
+                className={`mt-6 inline-flex h-12 items-center justify-center rounded-md border border-transparent px-8 text-lg font-medium ${
                   index % 2 === 0
                     ? 'bg-black text-[#a27a50] hover:bg-black/90'
                     : 'bg-[#a27a50] text-white hover:bg-[#a27a50]/90'
@@ -218,12 +214,12 @@ function HomePage() {
               </Link>
             )}
           </div>
-          <div className="px-8 lg:w-1/2">
+          <div className="px-12 lg:w-1/2">
             <Image
-              className="h-[250px] w-full rounded-lg border-4 object-cover lg:h-[250px] lg:w-[500px] lg:mx-auto"
+              className="h-[300px] w-full rounded-lg border-4 object-cover lg:h-[400px] lg:w-[600px] lg:mx-auto"
               alt={section.title}
-              height={500}
-              width={500}
+              height={600}
+              width={600}
               src={section.imageUrl}
               style={{
                 borderColor: index % 2 === 0 ? 'black' : '#a27a50',
@@ -262,20 +258,20 @@ function HistoryPage() {
   ]
 
   return (
-    <div className="space-y-8">
-      <section className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Nossa História</h1>
-        <p className="text-lg max-w-3xl mx-auto">
+    <div className="space-y-12">
+      <section className="text-center mb-16">
+        <h1 className="text-5xl font-bold mb-6">Nossa História</h1>
+        <p className="text-xl max-w-3xl mx-auto">
           Uma jornada que começou em Wakfu e continua a crescer através dos
           anos, unindo jogadores em busca de aventuras e amizades duradouras.
         </p>
       </section>
 
-      <div className="space-y-12">
+      <div className="space-y-16">
         {timelineEvents.map((event, index) => (
           <div
             key={index}
-            className={`flex flex-col lg:flex-row items-center gap-8 p-6 rounded-lg ${
+            className={`flex flex-col lg:flex-row items-center gap-12 p-10 rounded-xl ${
               index % 2 === 0
                 ? 'bg-[#2a2a2a] text-[#e6d7c3]'
                 : 'bg-[#a27a50] text-black'
@@ -285,15 +281,15 @@ function HistoryPage() {
               <Image
                 src={event.image}
                 alt={event.title}
-                width={400}
-                height={300}
-                className="rounded-lg object-cover w-full h-[200px]"
+                width={500}
+                height={375}
+                className="rounded-lg object-cover w-full h-[250px]"
               />
             </div>
-            <div className="lg:w-2/3 space-y-4">
-              <div className="text-6xl font-bold opacity-50">{event.year}</div>
-              <h2 className="text-3xl font-bold">{event.title}</h2>
-              <p className="text-lg">{event.description}</p>
+            <div className="lg:w-2/3 space-y-6">
+              <div className="text-7xl font-bold opacity-50">{event.year}</div>
+              <h2 className="text-4xl font-bold">{event.title}</h2>
+              <p className="text-xl">{event.description}</p>
             </div>
           </div>
         ))}
@@ -335,25 +331,38 @@ function CrewPage() {
   ]
 
   return (
-    <div className="space-y-8">
-      <section className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Nossa Tripulação</h1>
-        <p className="text-lg max-w-3xl mx-auto">
+    <div className="space-y-12">
+      <section className="text-center mb-16">
+        <h1 className="text-5xl font-bold mb-6">Nossa Tripulação</h1>
+        <p className="text-xl max-w-3xl mx-auto">
           Conheça os membros que mantêm nossa guilda forte e unida.
         </p>
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {crewMembers.map((member, index) => (
           <Card key={member.name} className="bg-[#2a2a2a] text-[#e6d7c3]">
-            <CardHeader>
-              <CardTitle>{member.name}</CardTitle>
-              <CardDescription className="text-[#bf9b30]">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-3xl">{member.name}</CardTitle>
+              <CardDescription className="text-[#bf9b30] text-lg">
                 {member.role}
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <p>{member.description}</p>
+            <CardContent className="space-y-4">
+              <p className="text-lg">{member.description}</p>
+              <div>
+                <h4 className="font-semibold mb-2">Especialidades:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {member.specialties.map((specialty, i) => (
+                    <span
+                      key={i}
+                      className="bg-[#a27a50] text-black px-3 py-1 rounded-full text-sm"
+                    >
+                      {specialty}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </CardContent>
           </Card>
         ))}
@@ -385,73 +394,81 @@ function RecruitmentPage() {
   ]
 
   return (
-    <div className="space-y-8">
-      <section className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Junte-se aos Corvos</h1>
-        <p className="text-lg max-w-3xl mx-auto">
+    <div className="space-y-12">
+      <section className="text-center mb-16">
+        <h1 className="text-5xl font-bold mb-6">Junte-se aos Corvos</h1>
+        <p className="text-xl max-w-3xl mx-auto">
           Estamos sempre em busca de novos talentos para fortalecer nossa
           tripulação. Se você tem paixão por aventuras e trabalho em equipe,
           este é o seu lugar!
         </p>
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
         {recruitmentSteps.map((step, index) => (
           <div
             key={index}
-            className="bg-[#2a2a2a] text-[#e6d7c3] p-6 rounded-lg"
+            className="bg-[#2a2a2a] text-[#e6d7c3] p-8 rounded-xl"
           >
-            <h3 className="text-2xl font-bold mb-2 text-[#a27a50]">
+            <h3 className="text-3xl font-bold mb-4 text-[#a27a50]">
               {index + 1}. {step.title}
             </h3>
-            <p>{step.description}</p>
+            <p className="text-lg">{step.description}</p>
           </div>
         ))}
       </div>
 
-      <div className="bg-[#a27a50] text-black p-8 rounded-lg">
-        <h2 className="text-3xl font-bold mb-4">Formulário de Recrutamento</h2>
-        <form className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="name">Nome</Label>
+      <div className="bg-[#a27a50] text-black p-10 rounded-xl">
+        <h2 className="text-4xl font-bold mb-8">Formulário de Recrutamento</h2>
+        <form className="space-y-6">
+          <div className="space-y-3">
+            <Label htmlFor="name" className="text-lg">
+              Nome
+            </Label>
             <Input
               id="name"
-              className="w-full p-2 rounded bg-[#e6d7c3]"
+              className="w-full p-3 rounded bg-[#e6d7c3] text-lg"
               required
             />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="email">E-mail</Label>
+          <div className="space-y-3">
+            <Label htmlFor="email" className="text-lg">
+              E-mail
+            </Label>
             <Input
               id="email"
-              className="w-full p-2 rounded bg-[#e6d7c3]"
+              className="w-full p-3 rounded bg-[#e6d7c3] text-lg"
               required
             />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="experience">Experiência em Jogos</Label>
+          <div className="space-y-3">
+            <Label htmlFor="experience" className="text-lg">
+              Experiência em Jogos
+            </Label>
             <Textarea
               id="experience"
-              className="w-full p-2 rounded bg-[#e6d7c3]"
+              className="w-full p-3 rounded bg-[#e6d7c3] text-lg"
               rows="4"
               required
             ></Textarea>
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="motivation">
+          <div className="space-y-3">
+            <Label htmlFor="motivation" className="text-lg">
               Por que deseja se juntar aos Corvos de Efrim?
             </Label>
             <Textarea
               id="motivation"
-              className="w-full p-2 rounded bg-[#e6d7c3]"
+              className="w-full p-3 rounded bg-[#e6d7c3] text-lg"
               rows="4"
               required
             ></Textarea>
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="skill">Habilidade Principal</Label>
+          <div className="space-y-3">
+            <Label htmlFor="skill" className="text-lg">
+              Habilidade Principal
+            </Label>
             <Select required>
-              <SelectTrigger className="bg-[#e6d7c3] text-[#2a2a2a]">
+              <SelectTrigger className="bg-[#e6d7c3] text-[#2a2a2a] text-lg p-3">
                 <SelectValue placeholder="Selecione uma habilidade" />
               </SelectTrigger>
               <SelectContent>
@@ -464,7 +481,7 @@ function RecruitmentPage() {
           </div>
           <button
             type="submit"
-            className="bg-[#2a2a2a] text-[#e6d7c3] px-6 py-2 rounded hover:bg-[#2a2a2a]/80 transition-colors"
+            className="bg-[#2a2a2a] text-[#e6d7c3] px-8 py-3 rounded-lg text-lg font-semibold hover:bg-[#2a2a2a]/80 transition-colors"
           >
             Enviar Candidatura
           </button>
@@ -503,44 +520,44 @@ function MissionsPage() {
   ]
 
   return (
-    <div className="space-y-8">
-      <section className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Missões Ativas</h1>
-        <p className="text-lg max-w-3xl mx-auto">
+    <div className="space-y-12">
+      <section className="text-center mb-16">
+        <h1 className="text-5xl font-bold mb-6">Missões Ativas</h1>
+        <p className="text-xl max-w-3xl mx-auto">
           Embarque em aventuras épicas e ganhe recompensas exclusivas para os
           Corvos de Efrim.
         </p>
       </section>
 
-      <div className="space-y-8">
+      <div className="space-y-12">
         {missions.map((mission, index) => (
           <div
             key={index}
-            className="bg-[#2a2a2a] text-[#e6d7c3] p-6 rounded-lg flex flex-col md:flex-row gap-6"
+            className="bg-[#2a2a2a] text-[#e6d7c3] p-8 rounded-xl flex flex-col md:flex-row gap-10"
           >
             <div className="md:w-1/3">
               <Image
                 src={mission.image}
                 alt={mission.title}
-                width={400}
-                height={300}
-                className="rounded-lg object-cover w-full h-[200px]"
+                width={500}
+                height={375}
+                className="rounded-lg object-cover w-full h-[250px]"
               />
             </div>
-            <div className="md:w-2/3 space-y-4">
-              <h2 className="text-3xl font-bold text-[#a27a50]">
+            <div className="md:w-2/3 space-y-6">
+              <h2 className="text-4xl font-bold text-[#a27a50]">
                 {mission.title}
               </h2>
-              <p className="text-lg">{mission.description}</p>
+              <p className="text-xl">{mission.description}</p>
               <div className="flex justify-between items-center">
-                <span className="bg-[#a27a50] text-black px-3 py-1 rounded-full text-sm">
+                <span className="bg-[#a27a50] text-black px-4 py-2 rounded-full text-lg">
                   Dificuldade: {mission.difficulty}
                 </span>
-                <span className="text-[#a27a50] font-bold">
+                <span className="text-[#a27a50] font-bold text-xl">
                   Recompensa: {mission.reward}
                 </span>
               </div>
-              <button className="bg-[#a27a50] text-black px-6 py-2 rounded hover:bg-[#a27a50]/80 transition-colors">
+              <button className="bg-[#a27a50] text-black px-8 py-3 rounded-lg text-lg font-semibold hover:bg-[#a27a50]/80 transition-colors">
                 Aceitar Missão
               </button>
             </div>
@@ -553,17 +570,17 @@ function MissionsPage() {
 
 function RegimentPage() {
   return (
-    <div className="space-y-8">
-      <section className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Regimento dos Corvos</h1>
-        <p className="text-lg max-w-3xl mx-auto">
+    <div className="space-y-12">
+      <section className="text-center mb-16">
+        <h1 className="text-5xl font-bold mb-6">Regimento dos Corvos</h1>
+        <p className="text-xl max-w-3xl mx-auto">
           Conheça as regras e diretrizes que mantêm nossa guilda unida e forte.
         </p>
       </section>
 
-      <div className="bg-[#2a2a2a] text-[#e6d7c3] rounded-lg overflow-hidden">
+      <div className="bg-[#2a2a2a] text-[#e6d7c3] rounded-xl overflow-hidden p-8">
         <iframe
-          className="w-full min-h-[800px] border-none"
+          className="w-full min-h-[800px] border-none rounded-lg"
           src="https://docs.google.com/document/d/e/2PACX-1vRYLYp0FEsgHg8dKP4ilhzTPlZCZMapYTF3dI5IbLooM-81oT0UGuZIle6GkuB613GF5zq5J7fPgdDe/pub?embedded=true"
           title="Regimento dos Corvos de Efrim"
         />
@@ -580,77 +597,77 @@ function ContactPage() {
   ]
 
   return (
-    <div className="space-y-8">
-      <section className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Entre em Contato</h1>
-        <p className="text-lg max-w-3xl mx-auto">
+    <div className="space-y-12">
+      <section className="text-center mb-16">
+        <h1 className="text-5xl font-bold mb-6">Entre em Contato</h1>
+        <p className="text-xl max-w-3xl mx-auto">
           Tem alguma dúvida ou sugestão? Estamos aqui para ouvir você!
         </p>
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
         {contactMethods.map((method, index) => (
           <div
             key={index}
-            className="bg-[#2a2a2a] text-[#e6d7c3] p-6 rounded-lg text-center"
+            className="bg-[#2a2a2a] text-[#e6d7c3] p-8 rounded-xl text-center"
           >
-            <div className="text-4xl mb-2">{method.icon}</div>
-            <h3 className="text-xl font-bold mb-2">{method.method}</h3>
-            <p className="text-[#a27a50]">{method.contact}</p>
+            <div className="text-6xl mb-4">{method.icon}</div>
+            <h3 className="text-2xl font-bold mb-3">{method.method}</h3>
+            <p className="text-[#a27a50] text-lg">{method.contact}</p>
           </div>
         ))}
       </div>
 
-      <div className="bg-[#a27a50] text-black p-8 rounded-lg">
-        <h2 className="text-3xl font-bold mb-4">Envie uma Mensagem</h2>
-        <form className="space-y-4">
+      <div className="bg-[#a27a50] text-black p-10 rounded-xl">
+        <h2 className="text-4xl font-bold mb-8">Envie uma Mensagem</h2>
+        <form className="space-y-6">
           <div>
-            <label htmlFor="name" className="block mb-1 font-bold">
+            <label htmlFor="name" className="block mb-2 font-bold text-lg">
               Nome
             </label>
             <input
               type="text"
               id="name"
-              className="w-full p-2 rounded bg-[#e6d7c3]"
+              className="w-full p-3 rounded bg-[#e6d7c3] text-lg"
               required
             />
           </div>
           <div>
-            <label htmlFor="email" className="block mb-1 font-bold">
+            <label htmlFor="email" className="block mb-2 font-bold text-lg">
               E-mail
             </label>
             <input
               type="email"
               id="email"
-              className="w-full p-2 rounded bg-[#e6d7c3]"
+              className="w-full p-3 rounded bg-[#e6d7c3] text-lg"
               required
             />
           </div>
           <div>
-            <label htmlFor="subject" className="block mb-1 font-bold">
+            <label htmlFor="subject" className="block mb-2 font-bold text-lg">
               Assunto
             </label>
             <input
               type="text"
               id="subject"
-              className="w-full p-2 rounded bg-[#e6d7c3]"
+              className="w-full p-3 rounded bg-[#e6d7c3] text-lg"
               required
             />
           </div>
           <div>
-            <label htmlFor="message" className="block mb-1 font-bold">
+            <label htmlFor="message" className="block mb-2 font-bold text-lg">
               Mensagem
             </label>
             <textarea
               id="message"
-              className="w-full p-2 rounded bg-[#e6d7c3]"
-              rows="4"
+              className="w-full p-3 rounded bg-[#e6d7c3] text-lg"
+              rows="6"
               required
             ></textarea>
           </div>
           <button
             type="submit"
-            className="bg-[#2a2a2a] text-[#e6d7c3] px-6 py-2 rounded hover:bg-[#2a2a2a]/80 transition-colors"
+            className="bg-[#2a2a2a] text-[#e6d7c3] px-8 py-3 rounded-lg text-lg font-semibold hover:bg-[#2a2a2a]/80 transition-colors"
           >
             Enviar Mensagem
           </button>
