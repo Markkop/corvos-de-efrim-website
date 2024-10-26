@@ -1,8 +1,10 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { timelineEvents } from '@/lib/data'
+import { guildGames, timelineEvents } from '@/lib/data'
+import { cn } from '@/lib/utils'
 import { motion, useInView } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRef } from 'react'
 import { FaDiscord } from 'react-icons/fa'
@@ -29,6 +31,9 @@ export function HistoryPage({ short = false }: HistoryPageProps) {
   }
 
   const displayedEvents = short ? timelineEvents.slice(-1) : timelineEvents
+
+  // Get Waven data from guildGames
+  const wavenGame = guildGames.find((game) => game.name === 'Waven')
 
   const EventContent = ({
     event,
@@ -66,21 +71,49 @@ export function HistoryPage({ short = false }: HistoryPageProps) {
           </Button>
         ) : (
           event.cta && (
-            <Button
-              asChild
-              variant="default"
-              className="bg-[#5865F2] hover:bg-[#4752C4] text-white"
-            >
-              <a
-                href={event.cta.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
+            <div className="flex gap-4">
+              <Button
+                asChild
+                variant="default"
+                className="bg-[#5865F2] hover:bg-[#4752C4] text-white"
               >
-                <span>{event.cta.text}</span>
-                <FaDiscord className="w-6 h-6" />
-              </a>
-            </Button>
+                <a
+                  href={event.cta.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2"
+                >
+                  <span>{event.cta.text}</span>
+                  <FaDiscord className="w-6 h-6" />
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant="default"
+                className="bg-[#aad1de] hover:bg-[#8fbfd5] text-black"
+              >
+                <a
+                  href={wavenGame?.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2"
+                >
+                  <span>Saiba mais!</span>
+                  {wavenGame?.image && (
+                    <Image
+                      src={wavenGame.image}
+                      alt="Waven"
+                      width={24}
+                      height={24}
+                      className={cn(
+                        'object-contain',
+                        wavenGame.lightBackground && 'invert brightness-0',
+                      )}
+                    />
+                  )}
+                </a>
+              </Button>
+            </div>
           )
         )}
       </div>
