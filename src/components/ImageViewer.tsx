@@ -39,14 +39,22 @@ export function ImageViewer({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant="ghost" className="p-0 h-auto w-full">
-          <Image
-            src={currentImage.src}
-            alt={currentImage.alt}
-            width={width}
-            height={height}
-            className="rounded-lg object-cover w-full h-[250px] transition-transform hover:scale-105"
-          />
+        <Button
+          variant="ghost"
+          className="p-0 h-auto w-full overflow-hidden"
+          onClick={(e) => {
+            e.stopPropagation()
+          }}
+        >
+          <div className="overflow-hidden rounded-lg">
+            <Image
+              src={currentImage.src}
+              alt={currentImage.alt}
+              width={width}
+              height={height}
+              className="rounded-lg object-cover w-full h-[250px] transition-transform duration-300 hover:scale-110"
+            />
+          </div>
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-[90vw] max-h-[90vh] w-full h-full p-0 bg-transparent border-none">
