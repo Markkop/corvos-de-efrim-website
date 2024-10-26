@@ -8,22 +8,37 @@ export function HistoryPage() {
       year: '2014',
       title: 'A Fundação',
       description:
-        'Os Corvos de Efrim surgem em Wakfu, unidos pela busca de aventuras e camaradagem.',
-      image: '/images/amakna.png',
+        'A Corvos de Efrim surge em Wakfu, unidos pela busca de aventuras e camaradagem.',
+      image: 'https://i.imgur.com/wEQd5sZ.png',
     },
     {
-      year: '2018',
+      year: '2016-2018',
       title: 'Expansão',
       description:
         'A guilda cresce e se estabelece como uma das mais ativas do servidor.',
       image: '/images/barco.png',
     },
     {
-      year: '2023',
+      year: '2019',
+      title: 'Hiato',
+      description:
+        'A guilda se aposenta em Wakfu, mas mantém contato pelo discord e outros jogos.',
+      image: '/images/wipe.webp',
+    },
+    {
+      year: '2020',
+      title: 'Retorno',
+      description:
+        'A Corvos de Efrim volta ao jogo no então novo servidor monoconta Ogrest, de forma mais casual.',
+      image: '/images/retorno.webp',
+    },
+    {
+      year: '2024',
       title: 'Novos Horizontes',
       description:
         'Expandimos para Waven e outros jogos, mantendo nossa essência e valores.',
-      image: '/images/dormor.png',
+      image:
+        'https://static.ankama.com/upload/backoffice/direct/2024-10-14/13e919929b5171593a980cf7bd70e9c6.png',
     },
   ]
 
