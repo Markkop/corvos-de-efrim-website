@@ -43,7 +43,7 @@ const isLightBackground = (title: string) => {
 
 export function YoutubeWidget({ videos }: { videos: Video[] }) {
   return (
-    <Card className="w-80 bg-gradient-to-b from-red-600 to-red-700 overflow-hidden shadow-lg flex flex-col border-0">
+    <Card className="w-full sm:w-80 bg-gradient-to-b from-red-600 to-red-700 overflow-hidden shadow-lg flex flex-col border-0">
       <CardHeader className="py-[19px] px-4 flex flex-row items-center space-x-2 border-b border-red-500">
         <Youtube className="h-6 w-6 text-white" />
         <h2 className="text-lg font-semibold text-white font-display">
@@ -54,7 +54,7 @@ export function YoutubeWidget({ videos }: { videos: Video[] }) {
         <h3 className="text-xs font-medium mb-3 text-red-300 tracking-wider uppercase font-display">
           Últimos Vídeos
         </h3>
-        <ScrollArea className="h-72 w-full pr-4">
+        <ScrollArea className="h-[280px] sm:h-72 w-full pr-4">
           {videos.map((video, index) => (
             <div key={index} className="mb-2 group">
               <a

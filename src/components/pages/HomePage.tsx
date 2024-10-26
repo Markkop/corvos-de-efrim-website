@@ -73,9 +73,7 @@ export function HomePage() {
         <GamesSmallList />
       </section>
 
-      <section className="bg-[#a27a50] rounded-xl ~p-[1.5rem]/[2rem]">
-        <ContactSmallList />
-      </section>
+      <ContactSmallList />
     </div>
   )
 }
