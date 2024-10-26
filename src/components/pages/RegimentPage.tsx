@@ -8,6 +8,7 @@ export function RegimentPage() {
         <p className="text-xl max-w-3xl mx-auto">
           Conheça as regras e diretrizes que mantêm nossa guilda unida e forte.
         </p>
+        <h2 className="mt-10 text-3xl font-bold mb-6">Regimento no WAKFU</h2>
       </section>
 
       <div className="bg-[#2a2a2a] text-[#e6d7c3] rounded-xl overflow-hidden p-8">
