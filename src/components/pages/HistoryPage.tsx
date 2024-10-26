@@ -2,7 +2,9 @@
 
 import { Button } from '@/components/ui/button'
 import { timelineEvents } from '@/lib/data'
+import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
+import { useRef } from 'react'
 import { FaDiscord } from 'react-icons/fa'
 import { ImageViewer } from '../ImageViewer'
 
@@ -11,6 +13,21 @@ interface HistoryPageProps {
 }
 
 export function HistoryPage({ short = false }: HistoryPageProps) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-100px' })
+
+  const contentVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut',
+      },
+    },
+  }
+
   const displayedEvents = short ? timelineEvents.slice(-1) : timelineEvents
 
   const EventContent = ({
@@ -71,34 +88,42 @@ export function HistoryPage({ short = false }: HistoryPageProps) {
   )
 
   return (
-    <div className="space-y-12">
-      {!short && (
-        <section className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-6">Nossa História</h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            Uma jornada que começou em Wakfu e continua a crescer através dos
-            anos, unindo jogadores em busca de aventuras e amizades duradouras.
-          </p>
-        </section>
-      )}
+    <motion.div
+      ref={ref}
+      variants={contentVariants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+    >
+      <div className="space-y-12">
+        {!short && (
+          <section className="text-center mb-16">
+            <h1 className="text-5xl font-bold mb-6">Nossa História</h1>
+            <p className="text-xl max-w-3xl mx-auto">
+              Uma jornada que começou em Wakfu e continua a crescer através dos
+              anos, unindo jogadores em busca de aventuras e amizades
+              duradouras.
+            </p>
+          </section>
+        )}
 
-      <div className="space-y-16">
-        {displayedEvents.map((event, index) => (
-          <div key={index}>
-            {short ? (
-              <Link
-                href="/historia"
-                className="block transition-transform hover:scale-[1.02] focus:scale-[1.02] focus:outline-none"
-                tabIndex={0}
-              >
+        <div className="space-y-16">
+          {displayedEvents.map((event, index) => (
+            <div key={index}>
+              {short ? (
+                <Link
+                  href="/historia"
+                  className="block transition-transform hover:scale-[1.02] focus:scale-[1.02] focus:outline-none"
+                  tabIndex={0}
+                >
+                  <EventContent event={event} index={index} isShort={short} />
+                </Link>
+              ) : (
                 <EventContent event={event} index={index} isShort={short} />
-              </Link>
-            ) : (
-              <EventContent event={event} index={index} isShort={short} />
-            )}
-          </div>
-        ))}
+              )}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

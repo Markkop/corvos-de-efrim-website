@@ -3,33 +3,66 @@
 import { Card, CardContent } from '@/components/ui/card'
 import { guildGames } from '@/lib/data'
 import { cn } from '@/lib/utils'
+import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
+import { useRef } from 'react'
 
-export const GamesSmallList = () => {
+export function GamesSmallList() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-100px' })
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  }
+
   return (
-    <Card className="bg-[#2a2a2a] text-[#e6d7c3]">
-      <CardContent>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-          {guildGames.map((game) => (
-            <div key={game.name}>
-              {game.link ? (
-                <a
-                  href={game.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block focus:outline-none focus:ring-2 focus:ring-[#a27a50] rounded-lg"
-                  aria-label={`Ver página da guilda em ${game.name}`}
-                >
+    <motion.div
+      ref={ref}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+    >
+      <Card className="bg-[#2a2a2a] text-[#e6d7c3]">
+        <CardContent>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {guildGames.map((game) => (
+              <div key={game.name}>
+                {game.link ? (
+                  <a
+                    href={game.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block focus:outline-none focus:ring-2 focus:ring-[#a27a50] rounded-lg"
+                    aria-label={`Ver página da guilda em ${game.name}`}
+                  >
+                    <GameCard game={game} short />
+                  </a>
+                ) : (
                   <GameCard game={game} short />
-                </a>
-              ) : (
-                <GameCard game={game} short />
-              )}
-            </div>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
+                )}
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </motion.div>
   )
 }
 
