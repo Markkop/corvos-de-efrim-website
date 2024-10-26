@@ -1,7 +1,8 @@
 'use client'
 
-import Image from 'next/image'
+import { Button } from '@/components/ui/button'
 import { FaDiscord } from 'react-icons/fa'
+import { ImageViewer } from '../ImageViewer'
 
 export function HistoryPage() {
   const timelineEvents = [
@@ -68,12 +69,10 @@ export function HistoryPage() {
             }`}
           >
             <div className="lg:w-1/3">
-              <Image
-                src={event.image}
-                alt={event.title}
+              <ImageViewer
+                images={[{ src: event.image, alt: event.title }]}
                 width={500}
                 height={375}
-                className="rounded-lg object-cover w-full h-[250px]"
               />
             </div>
             <div className="lg:w-2/3 space-y-6">
@@ -81,15 +80,21 @@ export function HistoryPage() {
               <h2 className="text-4xl font-bold">{event.title}</h2>
               <p className="text-xl">{event.description}</p>
               {event.cta && (
-                <a
-                  href={event.cta.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#5865F2] text-white px-6 py-3 rounded-full font-bold hover:bg-[#4752C4] transition-colors"
+                <Button
+                  asChild
+                  variant="default"
+                  className="bg-[#5865F2] hover:bg-[#4752C4] text-white"
                 >
-                  <span>{event.cta.text}</span>
-                  <FaDiscord className="w-6 h-6" />
-                </a>
+                  <a
+                    href={event.cta.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2"
+                  >
+                    <span>{event.cta.text}</span>
+                    <FaDiscord className="w-6 h-6" />
+                  </a>
+                </Button>
               )}
             </div>
           </div>
