@@ -2,45 +2,14 @@
 
 import { ImageViewer } from '@/components/ImageViewer'
 import { Card, CardDescription, CardTitle } from '@/components/ui/card'
+import { crewMembers } from '@/lib/data'
 
-export function CrewPage() {
-  const crewMembers = [
-    {
-      name: 'Mark',
-      role: 'Líder da Guilda',
-      description: 'Administra a guilda e coordena as atividades.',
-      images: ['/images/mark-1.png'],
-      specialties: ['Estratégia', 'Liderança', 'Desenvolvimento'],
-    },
-    {
-      name: 'Caliente',
-      role: 'Braço Direito',
-      description: 'Colabora com a liderança e desenvolvimento da guilda.',
-      images: ['/images/cali-2.png', '/images/cali-3.png'],
-      specialties: ['PvE', 'Estratégia', 'Mentoria'],
-    },
-    {
-      name: 'Dan',
-      role: 'Capitão Interino',
-      description: 'Mantém a guilda ativa com eventos criativos e envolventes.',
-      images: ['/images/dan-1.png'],
-      specialties: ['Organização', 'Criatividade', 'Comunicação'],
-    },
-    {
-      name: 'Seten',
-      role: 'Corvo Eterno',
-      description: 'Sempre ativo no Wakfu, sempre presente.',
-      images: ['/images/seten-1.png'],
-      specialties: ['Ensino', 'Paciência', 'Suporte'],
-    },
-    {
-      name: 'Mais em breve...',
-      role: 'Membro Honorário',
-      description: 'Esta lista está em construção',
-      images: ['/images/corvos.png'],
-      specialties: [],
-    },
-  ]
+interface CrewPageProps {
+  short?: boolean
+}
+
+export function CrewPage({ short = false }: CrewPageProps) {
+  const displayedMembers = short ? crewMembers.slice(0, 3) : crewMembers
 
   return (
     <div className="space-y-12">
@@ -52,7 +21,7 @@ export function CrewPage() {
       </section>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {crewMembers.map((member) => (
+        {displayedMembers.map((member) => (
           <Card key={member.name} className="bg-[#2a2a2a] text-[#e6d7c3]">
             <div className="flex gap-6 p-6">
               <div className="w-1/3">

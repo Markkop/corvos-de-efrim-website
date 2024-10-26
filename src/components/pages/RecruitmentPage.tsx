@@ -9,61 +9,19 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { DISCORD_INVITE_URL } from '@/lib/constants'
+import { guildGames } from '@/lib/data'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { FaDiscord } from 'react-icons/fa'
 
-export function RecruitmentPage() {
-  const guildGames = [
-    {
-      name: 'Waven',
-      status: 'recrutando',
-      color: 'bg-green-500',
-      image: '/images/waven-logo.png',
-      lightBackground: false,
-      link: 'https://forum.waven-game.com/en/52-devblogs-pt/6112-guildas',
-    },
-    {
-      name: 'Wakfu',
-      status: 'pouco ativa',
-      color: 'bg-orange-500',
-      image: '/images/wakfu-logo-hd.png',
-      lightBackground: false,
-      link: 'https://www.wakfu.com/pt/forum/49-guildas/13189-guilda-corvos-efrim-2020',
-    },
-    {
-      name: 'Dofus',
-      status: 'inativo',
-      color: 'bg-gray-500',
-      image: '/images/dofus-logo.webp',
-      lightBackground: false,
-      link: '',
-    },
-    {
-      name: 'New World',
-      status: 'inativo',
-      color: 'bg-gray-500',
-      image: '/images/newworld-logo.png',
-      lightBackground: true,
-      link: '',
-    },
-    {
-      name: 'Guild Wars 2',
-      status: 'inativo',
-      color: 'bg-gray-500',
-      image: '/images/gw2-logo.png',
-      lightBackground: true,
-      link: '',
-    },
-    {
-      name: 'Lost Ark',
-      status: 'inativo',
-      color: 'bg-gray-500',
-      image: '/images/lostark-logo.ico',
-      lightBackground: false,
-      link: '',
-    },
-  ]
+interface RecruitmentPageProps {
+  short?: boolean
+}
+
+export function RecruitmentPage({ short = false }: RecruitmentPageProps) {
+  const displayedGames = short
+    ? guildGames.filter((game) => game.status === 'recrutando')
+    : guildGames
 
   return (
     <div className="space-y-12">
@@ -76,34 +34,36 @@ export function RecruitmentPage() {
         </p>
       </section>
 
-      <Card className="bg-[#2a2a2a] text-[#e6d7c3]">
-        <CardHeader>
-          <CardTitle className="text-3xl font-bold text-[#a27a50]">
-            Recrutamento pelo Discord
-          </CardTitle>
-          <CardDescription className="text-lg text-[#e6d7c3]">
-            Entre em nosso servidor do Discord para iniciar o processo de
-            recrutamento
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Button
-            asChild
-            variant="default"
-            className="bg-[#5865F2] hover:bg-[#4752C4] text-white"
-          >
-            <a
-              href={DISCORD_INVITE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2"
+      {!short && (
+        <Card className="bg-[#2a2a2a] text-[#e6d7c3]">
+          <CardHeader>
+            <CardTitle className="text-3xl font-bold text-[#a27a50]">
+              Recrutamento pelo Discord
+            </CardTitle>
+            <CardDescription className="text-lg text-[#e6d7c3]">
+              Entre em nosso servidor do Discord para iniciar o processo de
+              recrutamento
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button
+              asChild
+              variant="default"
+              className="bg-[#5865F2] hover:bg-[#4752C4] text-white"
             >
-              <span>Entrar no Discord</span>
-              <FaDiscord className="w-6 h-6" />
-            </a>
-          </Button>
-        </CardContent>
-      </Card>
+              <a
+                href={DISCORD_INVITE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2"
+              >
+                <span>Entrar no Discord</span>
+                <FaDiscord className="w-6 h-6" />
+              </a>
+            </Button>
+          </CardContent>
+        </Card>
+      )}
 
       <Card className="bg-[#2a2a2a] text-[#e6d7c3]">
         <CardHeader>
@@ -116,7 +76,7 @@ export function RecruitmentPage() {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {guildGames.map((game) => (
+            {displayedGames.map((game) => (
               <div key={game.name}>
                 {game.link ? (
                   <a
