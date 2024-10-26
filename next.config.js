@@ -16,6 +16,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'static.ankama.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.waven-game.com',
+      },
     ],
   },
   async redirects() {

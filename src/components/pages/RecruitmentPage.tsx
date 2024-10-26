@@ -1,6 +1,5 @@
 'use client'
 
-import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -9,16 +8,54 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { cn } from '@/lib/utils'
+import Image from 'next/image'
 import { FaDiscord } from 'react-icons/fa'
 
 export function RecruitmentPage() {
   const guildGames = [
-    { name: 'Waven', status: 'recrutando', color: 'bg-green-500' },
-    { name: 'Wakfu', status: 'pouco ativa', color: 'bg-orange-500' },
-    { name: 'Dofus', status: 'inativo', color: 'bg-gray-500' },
-    { name: 'New World', status: 'inativo', color: 'bg-gray-500' },
-    { name: 'Guild Wars 2', status: 'inativo', color: 'bg-gray-500' },
-    { name: 'Lost Ark', status: 'inativo', color: 'bg-gray-500' },
+    {
+      name: 'Waven',
+      status: 'recrutando',
+      color: 'bg-green-500/20',
+      image: '/images/waven-logo.png',
+      whiteContainer: false,
+    },
+    {
+      name: 'Wakfu',
+      status: 'pouco ativa',
+      color: 'bg-orange-500/20',
+      image: '/images/wakfu-logo-hd.png',
+      whiteContainer: false,
+    },
+    {
+      name: 'Dofus',
+      status: 'inativo',
+      color: 'bg-gray-500/40',
+      image: '/images/dofus-logo.webp',
+      whiteContainer: false,
+    },
+    {
+      name: 'New World',
+      status: 'inativo',
+      color: 'bg-gray-500/40',
+      image: '/images/newworld-logo.png',
+      whiteContainer: true,
+    },
+    {
+      name: 'Guild Wars 2',
+      status: 'inativo',
+      color: 'bg-gray-500/40',
+      image: '/images/gw2-logo.png',
+      whiteContainer: true,
+    },
+    {
+      name: 'Lost Ark',
+      status: 'inativo',
+      color: 'bg-gray-500/40',
+      image: '/images/lostark-logo.ico',
+      whiteContainer: false,
+    },
   ]
 
   return (
@@ -73,20 +110,46 @@ export function RecruitmentPage() {
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {guildGames.map((game) => (
-              <Card key={game.name} className="bg-[#1f1f1f] border-none">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-xl font-semibold text-[#e6d7c3]">
-                    {game.name}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <Badge
-                    variant="secondary"
-                    className={`${game.color} text-white ${game.status === 'inativo' ? 'opacity-60' : ''}`}
+              <Card
+                key={game.name}
+                className={`bg-[#1f1f1f] border-none relative overflow-hidden ${
+                  game.status === 'inativo' ? 'opacity-60' : ''
+                }`}
+              >
+                <div className={`absolute inset-0 ${game.color}`} />
+                <div className="flex items-center gap-6 relative z-10 px-6 py-4">
+                  <div
+                    className={`w-16 h-16 relative flex-shrink-0 ${
+                      game.whiteContainer ? 'bg-white rounded-lg p-1' : ''
+                    }`}
                   >
-                    {game.status}
-                  </Badge>
-                </CardContent>
+                    {game.image && (
+                      <Image
+                        src={game.image}
+                        alt={`${game.name} logo`}
+                        fill
+                        className={cn(
+                          'object-contain',
+                          game.whiteContainer && 'rounded-lg p-1',
+                        )}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        priority={game.status === 'recrutando'}
+                      />
+                    )}
+                  </div>
+                  <div className="flex-1">
+                    <CardHeader className="pb-2 p-0">
+                      <CardTitle className="text-xl font-semibold text-[#e6d7c3]">
+                        {game.name}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                      <span className="text-sm text-[#e6d7c3]/80 capitalize">
+                        {game.status}
+                      </span>
+                    </CardContent>
+                  </div>
+                </div>
               </Card>
             ))}
           </div>
