@@ -1,11 +1,12 @@
 'use client'
 
+import { ContactSmallList } from '@/components/ContactSmallList'
 import { CrewSmallList } from '@/components/CrewSmallList'
+import { GamesSmallList } from '@/components/GamesSmallList'
 import { DISCORD_INVITE_URL } from '@/lib/constants'
 import Image from 'next/image'
 import Link from 'next/link'
 import { HistoryPage } from './HistoryPage'
-import { RecruitmentPage } from './RecruitmentPage'
 
 export function HomePage() {
   return (
@@ -46,13 +47,30 @@ export function HomePage() {
 
       <section className="bg-[#a27a50] rounded-xl p-8">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold mb-6">Tripulação Permanente</h2>
+          <Link
+            href="/tripulacao"
+            className="inline-block transition-transform hover:scale-[1.01] focus-visible:scale-[1.01] focus-visible:outline-none"
+          >
+            <h2 className="text-5xl font-bold mb-6">Tripulação Permanente</h2>
+          </Link>
         </div>
         <CrewSmallList />
       </section>
 
       <section className="bg-[#2a2a2a] rounded-xl p-8">
-        <RecruitmentPage short />
+        <Link
+          href="/recrutamento"
+          className="inline-block transition-transform hover:scale-[1.01] focus-visible:scale-[1.01] focus-visible:outline-none"
+        >
+          <h2 className="text-3xl font-bold mb-6 text-[#e6d7c3]">
+            Presentes em
+          </h2>
+        </Link>
+        <GamesSmallList />
+      </section>
+
+      <section className="bg-[#a27a50] rounded-xl p-8">
+        <ContactSmallList />
       </section>
     </div>
   )
