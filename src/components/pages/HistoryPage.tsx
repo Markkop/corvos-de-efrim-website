@@ -23,20 +23,23 @@ export function HistoryPage({ short = false }: HistoryPageProps) {
     isShort: boolean
   }) => (
     <div
-      className={`flex flex-col lg:flex-row items-center gap-12 p-10 rounded-xl ${
+      className={`flex flex-col lg:flex-row items-center gap-12 p-6 lg:p-10 rounded-xl ${
         index % 2 === 0
           ? 'bg-[#2a2a2a] text-[#e6d7c3]'
           : 'bg-[#a27a50] text-black'
       }`}
     >
-      <div className="lg:w-1/3">
-        <ImageViewer
-          images={[{ src: event.image, alt: event.title }]}
-          width={500}
-          height={375}
-        />
+      <div className="w-full lg:w-1/3">
+        <div className="relative  w-full">
+          <ImageViewer
+            images={[{ src: event.image, alt: event.title }]}
+            width={500}
+            height={375}
+            className="object-cover rounded-lg"
+          />
+        </div>
       </div>
-      <div className="lg:w-2/3 space-y-6">
+      <div className="w-full lg:w-2/3 space-y-6">
         <div className="text-7xl font-bold opacity-50">{event.year}</div>
         <h2 className="text-4xl font-bold">{event.title}</h2>
         <p className="text-xl">{event.description}</p>
