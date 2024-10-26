@@ -57,6 +57,15 @@ module.exports = {
           4: 'hsl(var(--chart-4))',
           5: 'hsl(var(--chart-5))',
         },
+        green: {
+          500: '#22c55e', // Tailwind's default green-500
+        },
+        orange: {
+          500: '#f97316', // Tailwind's default orange-500
+        },
+        gray: {
+          500: '#6b7280', // Tailwind's default gray-500
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',
