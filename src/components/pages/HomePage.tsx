@@ -1,9 +1,9 @@
 'use client'
 
+import { CrewSmallList } from '@/components/CrewSmallList'
 import { DISCORD_INVITE_URL } from '@/lib/constants'
 import Image from 'next/image'
 import Link from 'next/link'
-import { CrewPage } from './CrewPage'
 import { HistoryPage } from './HistoryPage'
 import { RecruitmentPage } from './RecruitmentPage'
 
@@ -45,7 +45,10 @@ export function HomePage() {
       </section>
 
       <section className="bg-[#a27a50] rounded-xl p-8">
-        <CrewPage short />
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold mb-6">Tripulação Permanente</h2>
+        </div>
+        <CrewSmallList />
       </section>
 
       <section className="bg-[#2a2a2a] rounded-xl p-8">
