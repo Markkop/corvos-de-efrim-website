@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { DISCORD_INVITE_URL } from '@/lib/constants'
+import { DISCORD_INVITE_URL, YOUTUBE_CHANNEL_URL } from '@/lib/constants'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -34,7 +34,7 @@ const Navigation = () => {
     },
     {
       name: 'YouTube',
-      url: 'https://www.youtube.com/channel/UCt2vHFLkdUSkLJjcagzX9rA',
+      url: YOUTUBE_CHANNEL_URL,
       image: '/icons/youtube.svg',
     },
   ]

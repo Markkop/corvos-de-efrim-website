@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { YOUTUBE_CHANNEL_URL } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import { Youtube } from 'lucide-react'
 import Image from 'next/image'
@@ -102,7 +103,7 @@ export function YoutubeWidget({ videos }: { videos: Video[] }) {
           asChild
         >
           <a
-            href="https://www.youtube.com/"
+            href={YOUTUBE_CHANNEL_URL}
             target="_blank"
             rel="noopener noreferrer"
           >
