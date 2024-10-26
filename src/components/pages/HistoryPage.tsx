@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import { DISCORD_INVITE_URL } from '@/lib/constants'
 import { FaDiscord } from 'react-icons/fa'
 import { ImageViewer } from '../ImageViewer'
 
@@ -43,7 +44,7 @@ export function HistoryPage() {
         'https://static.ankama.com/upload/backoffice/direct/2024-10-14/13e919929b5171593a980cf7bd70e9c6.png',
       cta: {
         text: 'Venha conosco!',
-        link: 'https://discord.gg/your-discord-invite-link',
+        link: DISCORD_INVITE_URL,
       },
     },
   ]

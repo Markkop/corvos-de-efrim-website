@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { DISCORD_INVITE_URL } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { FaDiscord } from 'react-icons/fa'
@@ -92,7 +93,7 @@ export function RecruitmentPage() {
             className="bg-[#5865F2] hover:bg-[#4752C4] text-white"
           >
             <a
-              href="https://discord.gg/your-discord-invite-link"
+              href={DISCORD_INVITE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2"

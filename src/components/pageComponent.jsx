@@ -591,9 +591,21 @@ function RegimentPage() {
 
 function ContactPage() {
   const contactMethods = [
-    { icon: '📧', method: 'E-mail', contact: 'corvos@efrim.com' },
-    { icon: '🎮', method: 'Discord', contact: 'discord.gg/corvosdeefrim' },
-    { icon: '📱', method: 'WhatsApp', contact: '+55 (11) 99999-9999' },
+    {
+      icon: '🎮',
+      method: 'Discord',
+      contact: new URL(DISCORD_INVITE_URL).pathname.slice(1),
+    },
+    {
+      icon: '📧',
+      method: 'E-mail',
+      contact: 'corvos@efrim.com',
+    },
+    {
+      icon: '📱',
+      method: 'WhatsApp',
+      contact: '+55 (11) 99999-9999',
+    },
   ]
 
   return (
