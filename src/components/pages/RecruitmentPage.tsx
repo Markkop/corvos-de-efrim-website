@@ -17,44 +17,50 @@ export function RecruitmentPage() {
     {
       name: 'Waven',
       status: 'recrutando',
-      color: 'bg-green-500/20',
+      color: 'bg-green-500',
       image: '/images/waven-logo.png',
-      whiteContainer: false,
+      lightBackground: false,
+      link: 'https://forum.waven-game.com/en/52-devblogs-pt/6112-guildas',
     },
     {
       name: 'Wakfu',
       status: 'pouco ativa',
-      color: 'bg-orange-500/20',
+      color: 'bg-orange-500',
       image: '/images/wakfu-logo-hd.png',
-      whiteContainer: false,
+      lightBackground: false,
+      link: 'https://www.wakfu.com/pt/forum/49-guildas/13189-guilda-corvos-efrim-2020',
     },
     {
       name: 'Dofus',
       status: 'inativo',
-      color: 'bg-gray-500/40',
+      color: 'bg-gray-500',
       image: '/images/dofus-logo.webp',
-      whiteContainer: false,
+      lightBackground: false,
+      link: '',
     },
     {
       name: 'New World',
       status: 'inativo',
-      color: 'bg-gray-500/40',
+      color: 'bg-gray-500',
       image: '/images/newworld-logo.png',
-      whiteContainer: true,
+      lightBackground: true,
+      link: '',
     },
     {
       name: 'Guild Wars 2',
       status: 'inativo',
-      color: 'bg-gray-500/40',
+      color: 'bg-gray-500',
       image: '/images/gw2-logo.png',
-      whiteContainer: true,
+      lightBackground: true,
+      link: '',
     },
     {
       name: 'Lost Ark',
       status: 'inativo',
-      color: 'bg-gray-500/40',
+      color: 'bg-gray-500',
       image: '/images/lostark-logo.ico',
-      whiteContainer: false,
+      lightBackground: false,
+      link: '',
     },
   ]
 
@@ -110,47 +116,136 @@ export function RecruitmentPage() {
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {guildGames.map((game) => (
-              <Card
-                key={game.name}
-                className={`bg-[#1f1f1f] border-none relative overflow-hidden ${
-                  game.status === 'inativo' ? 'opacity-60' : ''
-                }`}
-              >
-                <div className={`absolute inset-0 ${game.color}`} />
-                <div className="flex items-center gap-6 relative z-10 px-6 py-4">
-                  <div
-                    className={`w-16 h-16 relative flex-shrink-0 ${
-                      game.whiteContainer ? 'bg-white rounded-lg p-1' : ''
-                    }`}
+              <div key={game.name}>
+                {game.link ? (
+                  <a
+                    href={game.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block focus:outline-none focus:ring-2 focus:ring-[#a27a50] rounded-lg"
+                    aria-label={`Ver página da guilda em ${game.name}`}
                   >
-                    {game.image && (
-                      <Image
-                        src={game.image}
-                        alt={`${game.name} logo`}
-                        fill
+                    <Card className="bg-[#1f1f1f] border-none relative overflow-hidden group hover:scale-105 transition-transform duration-200 cursor-pointer">
+                      <div
                         className={cn(
-                          'object-contain',
-                          game.whiteContainer && 'rounded-lg p-1',
+                          'absolute inset-0 opacity-90 transition-opacity duration-200',
+                          game.status === 'recrutando' && 'bg-green-900',
+                          game.status === 'pouco ativa' && 'bg-orange-900',
+                          game.status === 'inativo' && 'bg-gray-900',
                         )}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        priority={game.status === 'recrutando'}
                       />
-                    )}
-                  </div>
-                  <div className="flex-1">
-                    <CardHeader className="pb-2 p-0">
-                      <CardTitle className="text-xl font-semibold text-[#e6d7c3]">
-                        {game.name}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-0">
-                      <span className="text-sm text-[#e6d7c3]/80 capitalize">
-                        {game.status}
-                      </span>
-                    </CardContent>
-                  </div>
-                </div>
-              </Card>
+                      <div
+                        className={cn(
+                          'absolute inset-0 opacity-0 transition-opacity duration-200',
+                          game.status === 'recrutando' && 'bg-green-800',
+                          game.status === 'pouco ativa' && 'bg-orange-800',
+                          game.status === 'inativo' && 'bg-gray-800',
+                          'group-hover:opacity-100',
+                        )}
+                      />
+                      <div
+                        className={cn(
+                          'relative z-10 flex items-center gap-6 px-6 py-4',
+                          game.status === 'inativo' && 'grayscale',
+                        )}
+                      >
+                        <div
+                          className={cn(
+                            'w-16 h-16 relative flex-shrink-0',
+                            game.lightBackground &&
+                              'bg-gray-400 rounded-lg p-1',
+                          )}
+                        >
+                          {game.image && (
+                            <Image
+                              src={game.image}
+                              alt={`${game.name} logo`}
+                              fill
+                              className={cn(
+                                'object-contain',
+                                game.lightBackground && 'rounded-lg p-1',
+                              )}
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              priority={game.status === 'recrutando'}
+                            />
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <CardHeader className="pb-2 p-0">
+                            <CardTitle className="text-xl font-semibold text-[#e6d7c3]">
+                              {game.name}
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent className="p-0">
+                            <span className="text-sm text-[#e6d7c3]/80 capitalize">
+                              {game.status}
+                            </span>
+                          </CardContent>
+                        </div>
+                      </div>
+                    </Card>
+                  </a>
+                ) : (
+                  <Card className="bg-[#1f1f1f] border-none relative overflow-hidden group">
+                    <div
+                      className={cn(
+                        'absolute inset-0 opacity-90 transition-opacity duration-200',
+                        game.status === 'recrutando' && 'bg-green-900',
+                        game.status === 'pouco ativa' && 'bg-orange-900',
+                        game.status === 'inativo' && 'bg-gray-900',
+                      )}
+                    />
+                    <div
+                      className={cn(
+                        'absolute inset-0 opacity-0 transition-opacity duration-200',
+                        game.status === 'recrutando' && 'bg-green-800',
+                        game.status === 'pouco ativa' && 'bg-orange-800',
+                        game.status === 'inativo' && 'bg-gray-800',
+                        'group-hover:opacity-100',
+                      )}
+                    />
+                    <div
+                      className={cn(
+                        'relative z-10 flex items-center gap-6 px-6 py-4',
+                        game.status === 'inativo' && 'grayscale',
+                      )}
+                    >
+                      <div
+                        className={cn(
+                          'w-16 h-16 relative flex-shrink-0',
+                          game.lightBackground && 'bg-gray-400 rounded-lg p-1',
+                        )}
+                      >
+                        {game.image && (
+                          <Image
+                            src={game.image}
+                            alt={`${game.name} logo`}
+                            fill
+                            className={cn(
+                              'object-contain',
+                              game.lightBackground && 'rounded-lg p-1',
+                            )}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            priority={game.status === 'recrutando'}
+                          />
+                        )}
+                      </div>
+                      <div className="flex-1">
+                        <CardHeader className="pb-2 p-0">
+                          <CardTitle className="text-xl font-semibold text-[#e6d7c3]">
+                            {game.name}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="p-0">
+                          <span className="text-sm text-[#e6d7c3]/80 capitalize">
+                            {game.status}
+                          </span>
+                        </CardContent>
+                      </div>
+                    </div>
+                  </Card>
+                )}
+              </div>
             ))}
           </div>
         </CardContent>
