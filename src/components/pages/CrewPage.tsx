@@ -35,7 +35,7 @@ export function CrewPage({ short = false }: CrewPageProps) {
           'grid grid-cols-1 gap-6',
           short
             ? 'grid-cols-3 sm:grid-cols-4 md:grid-cols-5'
-            : 'md:grid-cols-3',
+            : 'md:grid-cols-2',
         )}
       >
         {displayedMembers.map((member) => (
@@ -79,6 +79,7 @@ export function CrewPage({ short = false }: CrewPageProps) {
                     }))}
                     width={200}
                     height={300}
+                    className="p-0 py-0 my-0 m-0"
                   />
                 </div>
                 <div className="w-2/3 space-y-4">

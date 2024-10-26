@@ -14,6 +14,8 @@ interface ImageViewerProps {
   width: number
   height: number
   initialIndex?: number
+  variant?: 'default' | 'short'
+  className?: string
 }
 
 export function ImageViewer({
@@ -21,6 +23,8 @@ export function ImageViewer({
   width,
   height,
   initialIndex = 0,
+  variant = 'default',
+  className,
 }: ImageViewerProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(initialIndex)
@@ -38,7 +42,7 @@ export function ImageViewer({
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger asChild>
+      <DialogTrigger asChild className={className}>
         <Button
           variant="ghost"
           className="p-0 h-auto w-full overflow-hidden"
@@ -46,13 +50,13 @@ export function ImageViewer({
             e.stopPropagation()
           }}
         >
-          <div className="overflow-hidden rounded-lg">
+          <div className="overflow-hidden rounded-lg relative w-full h-[290px]">
             <Image
               src={currentImage.src}
               alt={currentImage.alt}
-              width={width}
-              height={height}
-              className="rounded-lg object-cover w-full h-[250px] transition-transform duration-300 hover:scale-110"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="rounded-lg object-cover transition-transform duration-300 hover:scale-110"
             />
           </div>
         </Button>
@@ -62,9 +66,9 @@ export function ImageViewer({
           <Image
             src={currentImage.src}
             alt={currentImage.alt}
-            layout="fill"
-            objectFit="contain"
-            className="rounded-full py-2 cursor-pointer"
+            fill
+            sizes="100vw"
+            className="object-contain py-2 cursor-pointer"
             onClick={() => setIsOpen(false)}
             role="button"
             tabIndex={0}
