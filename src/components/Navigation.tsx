@@ -49,22 +49,21 @@ const Navigation = () => {
   return (
     <nav className="max-w-7xl mx-auto p-3">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Link
-            href="/"
-            className="flex items-center gap-3 hover:text-[#a27a50]"
-          >
-            <Image
-              src="/images/corvos.png"
-              alt="Corvos de Efrim"
-              width={48}
-              height={48}
-              className="rounded-full"
-            />
-            <h1 className="~text-lg/2xl font-bold">Corvos de Efrim</h1>
-          </Link>
+        {/* Logo - Left */}
+        <Link href="/" className="flex items-center gap-3 hover:text-[#a27a50]">
+          <Image
+            src="/images/corvos.png"
+            alt="Corvos de Efrim"
+            width={48}
+            height={48}
+            className="rounded-full"
+          />
+          <h1 className="~text-lg/2xl font-bold">Corvos de Efrim</h1>
+        </Link>
 
-          <div className="hidden lg:flex items-center space-x-1 ">
+        {/* Nav Items - Center */}
+        <div className="hidden lg:flex items-center justify-center flex-1 mx-4">
+          <div className="flex items-center space-x-1">
             {navItems.map((item) => (
               <Link key={item.href} href={item.href} onClick={handleNavClick}>
                 <Button
@@ -78,6 +77,7 @@ const Navigation = () => {
           </div>
         </div>
 
+        {/* Social Links and Mobile Menu - Right */}
         <div className="flex items-center gap-4">
           <div className="hidden lg:flex space-x-4">
             {socialLinks.map((item) => (
