@@ -19,20 +19,20 @@ interface RecruitmentPageProps {
 }
 
 export function RecruitmentPage({ short = false }: RecruitmentPageProps) {
-  const displayedGames = short
-    ? guildGames.filter((game) => game.status === 'recrutando')
-    : guildGames
+  const displayedGames = guildGames
 
   return (
     <div className="space-y-12">
-      <section className="text-center mb-16">
-        <h1 className="text-5xl font-bold mb-6">Junte-se aos Corvos</h1>
-        <p className="text-xl max-w-3xl mx-auto">
-          Estamos sempre em busca de novos talentos para fortalecer nossa
-          tripulação. Se você tem paixão por aventuras e trabalho em equipe,
-          este é o seu lugar!
-        </p>
-      </section>
+      {!short && (
+        <section className="text-center mb-16">
+          <h1 className="text-5xl font-bold mb-6">Junte-se aos Corvos</h1>
+          <p className="text-xl max-w-3xl mx-auto">
+            Estamos sempre em busca de novos talentos para fortalecer nossa
+            tripulação. Se você tem paixão por aventuras e trabalho em equipe,
+            este é o seu lugar!
+          </p>
+        </section>
+      )}
 
       {!short && (
         <Card className="bg-[#2a2a2a] text-[#e6d7c3]">
@@ -75,7 +75,14 @@ export function RecruitmentPage({ short = false }: RecruitmentPageProps) {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            className={cn(
+              'grid gap-6',
+              short
+                ? 'grid-cols-2 md:grid-cols-4 lg:grid-cols-6'
+                : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+            )}
+          >
             {displayedGames.map((game) => (
               <div key={game.name}>
                 {game.link ? (
@@ -86,7 +93,13 @@ export function RecruitmentPage({ short = false }: RecruitmentPageProps) {
                     className="block focus:outline-none focus:ring-2 focus:ring-[#a27a50] rounded-lg"
                     aria-label={`Ver página da guilda em ${game.name}`}
                   >
-                    <Card className="bg-[#1f1f1f] border-none relative overflow-hidden group hover:scale-105 transition-transform duration-200 cursor-pointer">
+                    <Card
+                      className={cn(
+                        'bg-[#1f1f1f] border-none relative overflow-hidden group',
+                        game.status !== 'inativo' &&
+                          'hover:scale-105 transition-transform duration-200 cursor-pointer',
+                      )}
+                    >
                       <div
                         className={cn(
                           'absolute inset-0 opacity-90 transition-opacity duration-200',
@@ -101,20 +114,22 @@ export function RecruitmentPage({ short = false }: RecruitmentPageProps) {
                           game.status === 'recrutando' && 'bg-green-800',
                           game.status === 'pouco ativa' && 'bg-orange-800',
                           game.status === 'inativo' && 'bg-gray-800',
-                          'group-hover:opacity-100',
+                          game.status !== 'inativo' &&
+                            'group-hover:opacity-100',
                         )}
                       />
                       <div
                         className={cn(
-                          'relative z-10 flex items-center gap-6 px-6 py-4',
+                          'relative z-10 flex items-center gap-6',
+                          short ? 'p-4' : 'px-6 py-4',
                           game.status === 'inativo' && 'grayscale',
                         )}
                       >
                         <div
                           className={cn(
-                            'w-16 h-16 relative flex-shrink-0',
-                            game.lightBackground &&
-                              'bg-gray-400 rounded-lg p-1',
+                            'relative flex-shrink-0',
+                            short ? 'w-full h-16' : 'w-16 h-16',
+                            // Removed lightBackground condition
                           )}
                         >
                           {game.image && (
@@ -124,30 +139,39 @@ export function RecruitmentPage({ short = false }: RecruitmentPageProps) {
                               fill
                               className={cn(
                                 'object-contain',
-                                game.lightBackground && 'rounded-lg p-1',
+                                // Add filter for logos that need better contrast
+                                game.lightBackground && 'invert brightness-0',
                               )}
                               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                               priority={game.status === 'recrutando'}
                             />
                           )}
                         </div>
-                        <div className="flex-1">
-                          <CardHeader className="pb-2 p-0">
-                            <CardTitle className="text-xl font-semibold text-[#e6d7c3]">
-                              {game.name}
-                            </CardTitle>
-                          </CardHeader>
-                          <CardContent className="p-0">
-                            <span className="text-sm text-[#e6d7c3]/80 capitalize">
-                              {game.status}
-                            </span>
-                          </CardContent>
-                        </div>
+                        {!short && (
+                          <div className="flex-1">
+                            <CardHeader className="pb-2 p-0">
+                              <CardTitle className="text-xl font-semibold text-[#e6d7c3]">
+                                {game.name}
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent className="p-0">
+                              <span className="text-sm text-[#e6d7c3]/80 capitalize">
+                                {game.status}
+                              </span>
+                            </CardContent>
+                          </div>
+                        )}
                       </div>
                     </Card>
                   </a>
                 ) : (
-                  <Card className="bg-[#1f1f1f] border-none relative overflow-hidden group">
+                  <Card
+                    className={cn(
+                      'bg-[#1f1f1f] border-none relative overflow-hidden group',
+                      game.status !== 'inativo' &&
+                        'hover:scale-105 transition-transform duration-200',
+                    )}
+                  >
                     <div
                       className={cn(
                         'absolute inset-0 opacity-90 transition-opacity duration-200',
@@ -162,19 +186,21 @@ export function RecruitmentPage({ short = false }: RecruitmentPageProps) {
                         game.status === 'recrutando' && 'bg-green-800',
                         game.status === 'pouco ativa' && 'bg-orange-800',
                         game.status === 'inativo' && 'bg-gray-800',
-                        'group-hover:opacity-100',
+                        game.status !== 'inativo' && 'group-hover:opacity-100',
                       )}
                     />
                     <div
                       className={cn(
-                        'relative z-10 flex items-center gap-6 px-6 py-4',
+                        'relative z-10 flex items-center gap-6',
+                        short ? 'p-4' : 'px-6 py-4',
                         game.status === 'inativo' && 'grayscale',
                       )}
                     >
                       <div
                         className={cn(
-                          'w-16 h-16 relative flex-shrink-0',
-                          game.lightBackground && 'bg-gray-400 rounded-lg p-1',
+                          'relative flex-shrink-0',
+                          short ? 'w-full h-16' : 'w-16 h-16',
+                          // Removed lightBackground condition
                         )}
                       >
                         {game.image && (
@@ -184,25 +210,28 @@ export function RecruitmentPage({ short = false }: RecruitmentPageProps) {
                             fill
                             className={cn(
                               'object-contain',
-                              game.lightBackground && 'rounded-lg p-1',
+                              // Add filter for logos that need better contrast
+                              game.lightBackground && 'invert brightness-0',
                             )}
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             priority={game.status === 'recrutando'}
                           />
                         )}
                       </div>
-                      <div className="flex-1">
-                        <CardHeader className="pb-2 p-0">
-                          <CardTitle className="text-xl font-semibold text-[#e6d7c3]">
-                            {game.name}
-                          </CardTitle>
-                        </CardHeader>
-                        <CardContent className="p-0">
-                          <span className="text-sm text-[#e6d7c3]/80 capitalize">
-                            {game.status}
-                          </span>
-                        </CardContent>
-                      </div>
+                      {!short && (
+                        <div className="flex-1">
+                          <CardHeader className="pb-2 p-0">
+                            <CardTitle className="text-xl font-semibold text-[#e6d7c3]">
+                              {game.name}
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent className="p-0">
+                            <span className="text-sm text-[#e6d7c3]/80 capitalize">
+                              {game.status}
+                            </span>
+                          </CardContent>
+                        </div>
+                      )}
                     </div>
                   </Card>
                 )}
