@@ -21,14 +21,16 @@ export function CrewPage({ short = false }: CrewPageProps) {
 
   return (
     <div className="space-y-12">
-      {!short && (
-        <section className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-6">Nossa Tripulação</h1>
+      <section className="text-center mb-16">
+        <h1 className="text-5xl font-bold mb-6">
+          {short ? 'Tripulação Permanente' : 'Nossa Tripulação'}
+        </h1>
+        {!short && (
           <p className="text-xl max-w-3xl mx-auto">
             Conheça os membros que mantêm nossa guilda forte e unida.
           </p>
-        </section>
-      )}
+        )}
+      </section>
 
       <div
         className={cn(
@@ -41,23 +43,27 @@ export function CrewPage({ short = false }: CrewPageProps) {
         {displayedMembers.map((member) => (
           <Card
             key={member.name}
-            className="bg-[#2a2a2a] text-[#e6d7c3] overflow-hidden group cursor-pointer"
+            className={cn(
+              'bg-[#2a2a2a] text-[#e6d7c3] overflow-hidden group',
+              // Only add cursor-pointer when in short mode
+              short ? 'cursor-pointer' : '',
+            )}
           >
             {short ? (
               // Short version - simplified card
-              <div className="relative flex justify-center items-center">
-                <div className="w-full h-full transition-transform duration-300 group-hover:scale-105">
-                  <ImageViewer
-                    images={member.images.map((image) => ({
-                      src: image,
-                      alt: `Foto de ${member.name}`,
-                    }))}
-                    width={400}
-                    height={500}
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent transition-opacity duration-300 group-hover:opacity-70" />
-                <CardFooter className="absolute bottom-0 left-0 right-0 p-4 z-10">
+              <div className="relative w-full aspect-square">
+                <ImageViewer
+                  images={member.images.map((image) => ({
+                    src: image,
+                    alt: `Foto de ${member.name}`,
+                  }))}
+                  width={400}
+                  height={400}
+                  variant="short"
+                  className="absolute inset-0"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent transition-opacity duration-300 group-hover:opacity-70 pointer-events-none" />
+                <CardFooter className="absolute bottom-0 left-0 right-0 p-4 z-10 pointer-events-none">
                   <div className="transition-transform duration-300 group-hover:translate-y-[-4px]">
                     <CardTitle className="text-xl text-white">
                       {member.name}

@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import { cn } from '@/lib/utils'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -42,21 +43,34 @@ export function ImageViewer({
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger asChild className={className}>
+      <DialogTrigger asChild>
         <Button
           variant="ghost"
-          className="p-0 h-auto w-full overflow-hidden"
+          className={cn(
+            'p-0 h-auto w-full overflow-hidden',
+            variant === 'short' ? 'h-full' : '',
+            className,
+          )}
           onClick={(e) => {
             e.stopPropagation()
           }}
         >
-          <div className="overflow-hidden rounded-lg relative w-full h-[290px]">
+          <div
+            className={cn(
+              'overflow-hidden relative w-full',
+              variant === 'short' ? 'h-full' : 'h-[290px]',
+              variant === 'short' ? 'rounded-none' : 'rounded-lg',
+            )}
+          >
             <Image
               src={currentImage.src}
               alt={currentImage.alt}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="rounded-lg object-cover transition-transform duration-300 hover:scale-110"
+              className={cn(
+                'object-cover transition-transform duration-300 hover:scale-110',
+                variant === 'short' ? '' : 'rounded-lg',
+              )}
             />
           </div>
         </Button>

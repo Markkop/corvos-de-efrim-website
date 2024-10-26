@@ -67,12 +67,20 @@ export function RecruitmentPage({ short = false }: RecruitmentPageProps) {
 
       <Card className="bg-[#2a2a2a] text-[#e6d7c3]">
         <CardHeader>
-          <CardTitle className="text-3xl font-bold text-[#a27a50]">
-            Jogos da Guilda
-          </CardTitle>
-          <CardDescription className="text-lg text-[#e6d7c3]">
-            Lista de jogos em que a Corvos de Efrim está presente
-          </CardDescription>
+          {!short ? (
+            <CardTitle className="text-3xl font-bold text-[#a27a50]">
+              Jogos da Guilda
+            </CardTitle>
+          ) : (
+            <CardTitle className="text-3xl font-bold text-[#e6d7c3]">
+              Presentes em
+            </CardTitle>
+          )}
+          {!short && (
+            <CardDescription className="text-lg text-[#e6d7c3]">
+              Lista de jogos em que a Corvos de Efrim está presente
+            </CardDescription>
+          )}
         </CardHeader>
         <CardContent>
           <div
