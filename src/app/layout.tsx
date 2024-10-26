@@ -16,11 +16,14 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://corvosdeefrim.com/'),
   title: {
     default: meta.title,
-    template: 'Corvos de Efrim',
+    template: '%s',
   },
   description: meta.description,
   openGraph: {
-    title: meta.title,
+    title: {
+      default: meta.title,
+      template: '%s',
+    },
     description: meta.description,
     url: WEBSITE_HOST_URL,
     siteName: meta.title,
@@ -33,10 +36,13 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    title: meta.title,
+    card: 'summary_large_image',
+    title: {
+      default: meta.title,
+      template: '%s',
+    },
     description: meta.description,
     images: meta.image,
-    card: 'summary_large_image',
   },
   alternates: {
     canonical: WEBSITE_HOST_URL,
