@@ -51,7 +51,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     { label: 'HISTÓRIA', href: '/historia' },
     { label: 'TRIPULAÇÃO', href: '/tripulacao' },
     { label: 'RECRUTAMENTO', href: '/recrutamento' },
-    { label: 'MISSÕES', href: '/missoes' },
+    // { label: 'MISSÕES', href: '/missoes' },
     { label: 'REGIMENTO', href: '/regimento' },
     { label: 'CONTATO', href: '/contato' },
   ]
