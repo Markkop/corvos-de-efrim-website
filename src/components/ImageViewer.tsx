@@ -43,8 +43,7 @@ export function ImageViewer({
     onSwipedLeft: handleNext,
     onSwipedRight: handlePrevious,
     trackMouse: true,
-    trackTouch: true,
-    preventDefaultTouchmoveEvent: true,
+    preventScrollOnSwipe: true,
     delta: 10,
     swipeDuration: 500,
   })
