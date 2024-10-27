@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
-import { useSwipeable } from 'react-swipeable'
 
 interface ImageViewerProps {
   images: Array<{
@@ -38,13 +37,6 @@ export function ImageViewer({
   const handleNext = () => {
     setCurrentIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0))
   }
-
-  const swipeHandlers = useSwipeable({
-    onSwipedLeft: handleNext,
-    onSwipedRight: handlePrevious,
-    preventDefaultTouchmoveEvent: true,
-    trackMouse: true,
-  })
 
   const currentImage = images[currentIndex]
   const showNavigation = images.length > 1
@@ -94,7 +86,7 @@ export function ImageViewer({
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-[90vw] max-h-[90vh] w-full h-full p-0 bg-neutral-950/95 border-none overflow-hidden">
-        <div className="relative w-full h-full" {...swipeHandlers}>
+        <div className="relative w-full h-full">
           <Image
             src={currentImage.src}
             alt={currentImage.alt}
@@ -150,10 +142,7 @@ export function ImageViewer({
           {/* Middle section overlay for close-on-click */}
           <div
             className="absolute inset-x-20 inset-y-0 bg-transparent cursor-pointer"
-            onClick={(e) => {
-              e.stopPropagation()
-              setIsOpen(false)
-            }}
+            onClick={() => setIsOpen(false)}
             role="button"
             tabIndex={0}
             onKeyDown={(e) => e.key === 'Enter' && setIsOpen(false)}
