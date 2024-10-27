@@ -5,7 +5,7 @@ import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { cn } from '@/lib/utils'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import Image from 'next/image'
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
 
 interface ImageViewerProps {
@@ -31,22 +31,19 @@ export function ImageViewer({
   const [isOpen, setIsOpen] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(initialIndex)
 
-  const handlePrevious = useCallback(() => {
+  const handlePrevious = () => {
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1))
-  }, [images.length])
+  }
 
-  const handleNext = useCallback(() => {
+  const handleNext = () => {
     setCurrentIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0))
-  }, [images.length])
+  }
 
   const swipeHandlers = useSwipeable({
     onSwipedLeft: handleNext,
     onSwipedRight: handlePrevious,
-    trackMouse: true,
-    trackTouch: true,
     preventDefaultTouchmoveEvent: true,
-    delta: 10,
-    swipeDuration: 500,
+    trackMouse: true,
   })
 
   const currentImage = images[currentIndex]
@@ -97,14 +94,13 @@ export function ImageViewer({
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-[90vw] max-h-[90vh] w-full h-full p-0 bg-neutral-950/95 border-none overflow-hidden">
-        <div className="relative w-full h-full touch-none" {...swipeHandlers}>
+        <div className="relative w-full h-full" {...swipeHandlers}>
           <Image
             src={currentImage.src}
             alt={currentImage.alt}
             fill
             sizes="100vw"
             className="object-contain"
-            draggable={false}
           />
 
           {/* Close button */}
