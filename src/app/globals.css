@@ -1,0 +1,3 @@
+.zoomable-image {
+  touch-action: pan-x pan-y pinch-zoom;
+}

@@ -43,7 +43,6 @@ export function ImageViewer({
     onSwipedLeft: handleNext,
     onSwipedRight: handlePrevious,
     trackMouse: true,
-    preventScrollOnSwipe: true,
     delta: 10,
     swipeDuration: 500,
   })
@@ -96,13 +95,16 @@ export function ImageViewer({
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-[90vw] max-h-[90vh] w-full h-full p-0 bg-neutral-950/95 border-none overflow-hidden">
-        <div className="relative w-full h-full touch-none" {...swipeHandlers}>
+        <div
+          className="relative w-full h-full touch-pan-y touch-pan-x"
+          {...swipeHandlers}
+        >
           <Image
             src={currentImage.src}
             alt={currentImage.alt}
             fill
             sizes="100vw"
-            className="object-contain"
+            className="object-contain zoomable-image"
             draggable={false}
           />
 
@@ -130,7 +132,10 @@ export function ImageViewer({
                   buttonStyles,
                   'absolute left-4 top-1/2 -translate-y-1/2 w-12 h-20 hover:bg-transparent active:scale-95 transition-transform',
                 )}
-                onClick={handlePrevious}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handlePrevious()
+                }}
                 aria-label="Previous image"
               >
                 <ChevronLeft className="h-10 w-10 text-white/90 drop-shadow-[0_0_8px_rgba(0,0,0,0.3)]" />
@@ -142,7 +147,10 @@ export function ImageViewer({
                   buttonStyles,
                   'absolute right-4 top-1/2 -translate-y-1/2 w-12 h-20 hover:bg-transparent active:scale-95 transition-transform',
                 )}
-                onClick={handleNext}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleNext()
+                }}
                 aria-label="Next image"
               >
                 <ChevronRight className="h-10 w-10 text-white/90 drop-shadow-[0_0_8px_rgba(0,0,0,0.3)]" />
