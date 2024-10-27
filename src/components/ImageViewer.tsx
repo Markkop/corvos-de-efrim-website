@@ -41,6 +41,16 @@ export function ImageViewer({
   const currentImage = images[currentIndex]
   const showNavigation = images.length > 1
 
+  const buttonStyles = `
+    bg-gradient-to-b from-neutral-800/60 to-neutral-900/60
+    shadow-[inset_0_1px_2px_rgba(255,255,255,0.2),inset_0_-1px_2px_rgba(0,0,0,0.2)]
+    border border-neutral-700/50
+    transition-all
+    hover:from-neutral-700/70 hover:to-neutral-800/70
+    active:from-neutral-900/80 active:to-neutral-950/80
+    active:shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]
+  `
+
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
@@ -75,50 +85,69 @@ export function ImageViewer({
           </div>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-[90vw] max-h-[90vh] w-full h-full p-0 bg-transparent border-none">
+      <DialogContent className="max-w-[90vw] max-h-[90vh] w-full h-full p-0 bg-neutral-950/95 border-none overflow-hidden">
         <div className="relative w-full h-full">
           <Image
             src={currentImage.src}
             alt={currentImage.alt}
             fill
             sizes="100vw"
-            className="object-contain py-2 cursor-pointer"
-            onClick={() => setIsOpen(false)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === 'Enter' && setIsOpen(false)}
+            className="object-contain"
           />
+
+          {/* Close button */}
           <Button
             variant="ghost"
             size="icon"
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            className={cn(
+              buttonStyles,
+              'absolute top-4 right-4 w-10 h-10 rounded-full hover:bg-transparent z-10',
+            )}
             onClick={() => setIsOpen(false)}
             aria-label="Close image viewer"
           >
-            <X className="h-6 w-6" />
+            <X className="h-6 w-6 text-white/90" />
           </Button>
+
+          {/* Navigation buttons */}
           {showNavigation && (
             <>
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors h-24 w-24"
+                className={cn(
+                  buttonStyles,
+                  'absolute left-4 top-1/2 -translate-y-1/2 w-12 h-20 hover:bg-transparent active:scale-95 transition-transform',
+                )}
                 onClick={handlePrevious}
                 aria-label="Previous image"
               >
-                <ChevronLeft className="h-16 w-16" />
+                <ChevronLeft className="h-10 w-10 text-white/90 drop-shadow-[0_0_8px_rgba(0,0,0,0.3)]" />
               </Button>
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors h-24 w-24"
+                className={cn(
+                  buttonStyles,
+                  'absolute right-4 top-1/2 -translate-y-1/2 w-12 h-20 hover:bg-transparent active:scale-95 transition-transform',
+                )}
                 onClick={handleNext}
                 aria-label="Next image"
               >
-                <ChevronRight className="h-16 w-16" />
+                <ChevronRight className="h-10 w-10 text-white/90 drop-shadow-[0_0_8px_rgba(0,0,0,0.3)]" />
               </Button>
             </>
           )}
+
+          {/* Middle section overlay for close-on-click */}
+          <div
+            className="absolute inset-x-20 inset-y-0 bg-transparent cursor-pointer"
+            onClick={() => setIsOpen(false)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && setIsOpen(false)}
+            aria-label="Close image viewer"
+          />
         </div>
       </DialogContent>
     </Dialog>
