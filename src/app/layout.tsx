@@ -9,7 +9,7 @@ const meta = {
   title: 'Corvos de Efrim',
   description:
     'Uma guilda presente em Wakfu, Waven e outros jogos. Junte-se a nós!',
-  image: `/images/barco.png`,
+  image: `/images/corvosefrim.jpg`,
 }
 
 export const metadata: Metadata = {

@@ -423,3 +423,77 @@ export const videoList = [
   },
 ]
 
+export const historicalMaterial = [
+  {
+    date: '2020-10-27',
+    title: 'Guilda Corvos de Efrim (2020)',
+    tags: ['forum', 'wakfu'],
+    link: 'https://www.wakfu.com/pt/forum/49-guildas/13189-guilda-corvos-efrim-2020'
+  },
+  {
+    date: '2019-08-16',
+    title: 'Corvos de Efrim se Aposenta',
+    tags: ['forum', 'wakfu'],
+    link: 'https://www.wakfu.com/pt/forum/49-guildas/12295-corvos-efrim-aposenta'
+  },
+  {
+    date: '2015-07-13',
+    title: 'O Livro da Arca',
+    tags: ['forum', 'wakfu'],
+    link: 'https://www.wakfu.com/pt/forum/19-roleplay/5036-livro-arca'
+  },
+  {
+    date: '2014-07-25',
+    title: 'Guilda Corvos de Efrim (Original)',
+    tags: ['forum', 'wakfu'],
+    link: 'https://www.wakfu.com/pt/forum/49-guildas/348-guilda-corvos-efrim'
+  },
+  {
+    date: '2016-06-18',
+    title: 'O Almanaque do Construtor',
+    tags: ['doc', 'wakfu'],
+    link: 'https://docs.google.com/document/d/1A4r8TZB-OOcIKBd5Xj3TrkSymAv6P_X4X3pn7nb0JbA/edit?tab=t.0'
+  },
+  {
+    date: '2017-11-08',
+    title: 'Projeto: Corvos de Efrim Reborn',
+    tags: ['doc', 'wakfu'],
+    link: 'https://docs.google.com/document/d/1yrda3fmmsoOBLUf2-EfTmslaAClDr4vP6353lwRKILg/edit?tab=t.0#heading=h.9ea9pg9jy3lj'
+  },
+  {
+    date: '2018-01-18',
+    title: 'Campanha #1: Corvos em Guerra',
+    tags: ['doc', 'wakfu'],
+    link: 'https://docs.google.com/document/d/1a1WLc7izwAaYPBpG0kaDEIaZWTkiv4FsOaapEetf8cc/edit?tab=t.0'
+  },
+  {
+    date: '2017-07-02',
+    title: 'Cargos 3.0 (Pontos de Corvo)',
+    tags: ['doc', 'wakfu'],
+    link: 'https://docs.google.com/spreadsheets/d/14kvFmk4er141joPMigj9iCl-Xxdc9juDp13rhqhLu8c/edit?gid=0#gid=0'
+  },
+  {
+    date: '2016-04-16',
+    title: 'Cargos (2016) - Planilha',
+    tags: ['doc', 'wakfu'],
+    link: 'https://docs.google.com/spreadsheets/d/17Y832Oyne6gO0sjRegpy0lTJRrjCiy3o7aQV5wEpO-o/edit?gid=0#gid=0'
+  },
+  {
+    date: '2016-06-25',
+    title: 'Plano de Governo - Sufokia',
+    tags: ['doc', 'wakfu'],
+    link: 'https://docs.google.com/document/d/1HsCcHe6Qq2wC-VLcS00_V064SZUS5Dtdoc1ela7_97o/edit?tab=t.0'
+  },
+  {
+    date: '2016-04-16',
+    title: 'Cargos (2016) - Documento',
+    tags: ['doc', 'wakfu'],
+    link: 'https://docs.google.com/document/d/1iOBADcQQxfkpMTEBf9Y-0y-mp_61EcUIJRqeSc30bVE/edit?tab=t.0'
+  },
+  {
+    date: '2016-04-10',
+    title: 'Cargos 2.0 [Rascunho apenas]',
+    tags: ['doc', 'wakfu'],
+    link: 'https://docs.google.com/spreadsheets/d/1o8IkrBoQ0Rk-CTHtkp1q6dj6FeDYNTYNE7yuiYPMHoY/edit?gid=0#gid=0'
+  }
+]

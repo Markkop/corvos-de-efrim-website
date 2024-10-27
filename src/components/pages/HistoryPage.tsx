@@ -1,8 +1,10 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { guildGames, timelineEvents } from '@/lib/data'
+import { guildGames, historicalMaterial, timelineEvents } from '@/lib/data'
 import { cn } from '@/lib/utils'
+import { format } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -120,6 +122,76 @@ export function HistoryPage({ short = false }: HistoryPageProps) {
     </div>
   )
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  }
+
+  const HistoricalMaterialCard = ({
+    item,
+  }: {
+    item: (typeof historicalMaterial)[0]
+  }) => {
+    const wakfuGame = guildGames.find((game) => game.name === 'Wakfu')
+
+    return (
+      <motion.div variants={itemVariants}>
+        <a
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block bg-[#1f1f1f] rounded-lg p-4 hover:bg-[#2a2a2a] transition-colors duration-200"
+        >
+          <p className="text-sm text-[#a27a50] mb-1">
+            {format(new Date(item.date), 'dd MMM yyyy', { locale: ptBR })}
+          </p>
+          <h3 className="text-lg font-semibold text-[#e6d7c3] mb-2">
+            {item.title}
+          </h3>
+          <div className="flex gap-2 items-center">
+            {item.tags.includes('wakfu') && wakfuGame && wakfuGame.image && (
+              <div className="relative w-6 h-6">
+                <Image
+                  src={wakfuGame.image}
+                  alt="Wakfu"
+                  fill
+                  className={cn(
+                    'object-contain',
+                    wakfuGame.lightBackground && 'invert brightness-0',
+                  )}
+                />
+              </div>
+            )}
+            {item.tags.includes('forum') && (
+              <span className="text-xs bg-gray-600 text-gray-200 px-2 py-1 rounded">
+                fórum
+              </span>
+            )}
+            {item.tags.includes('doc') && (
+              <span className="text-xs bg-gray-700 text-gray-200 px-2 py-1 rounded">
+                doc
+              </span>
+            )}
+          </div>
+        </a>
+      </motion.div>
+    )
+  }
+
+  const sortedHistoricalMaterial = [...historicalMaterial].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+  )
+
   return (
     <motion.div
       ref={ref}
@@ -156,6 +228,22 @@ export function HistoryPage({ short = false }: HistoryPageProps) {
             </div>
           ))}
         </div>
+
+        {!short && (
+          <section>
+            <h2 className="text-3xl font-bold mb-6 text-center">
+              Material Histórico
+            </h2>
+            <motion.div
+              variants={containerVariants}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+            >
+              {sortedHistoricalMaterial.map((item) => (
+                <HistoricalMaterialCard key={item.link} item={item} />
+              ))}
+            </motion.div>
+          </section>
+        )}
       </div>
     </motion.div>
   )
