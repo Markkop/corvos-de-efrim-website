@@ -11,6 +11,23 @@ import {
 import { crewMembers } from '@/lib/data'
 
 export function CrewPage() {
+  const sortedCrewMembers = [...crewMembers].sort((a, b) => {
+    // Always put "Mais em breve" last
+    if (a.name === 'Mais em breve') return 1
+    if (b.name === 'Mais em breve') return -1
+
+    // Put members with default/no images after those with custom images
+    const aHasDefaultImage =
+      !a.images.length || a.images[0] === '/images/corvos.png'
+    const bHasDefaultImage =
+      !b.images.length || b.images[0] === '/images/corvos.png'
+
+    if (aHasDefaultImage && !bHasDefaultImage) return 1
+    if (!aHasDefaultImage && bHasDefaultImage) return -1
+
+    return 0
+  })
+
   return (
     <div className="space-y-12">
       <section className="text-center mb-16">
@@ -21,7 +38,7 @@ export function CrewPage() {
       </section>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {crewMembers.map((member) => (
+        {sortedCrewMembers.map((member) => (
           <Card
             key={member.name}
             className="bg-[#2a2a2a] text-[#e6d7c3] overflow-hidden group"
@@ -47,21 +64,6 @@ export function CrewPage() {
                 </CardHeader>
                 <CardContent className="p-0">
                   <p className="text-lg">{member.description}</p>
-                  {member.specialties.length > 0 && (
-                    <div className="mt-4">
-                      <h4 className="font-semibold mb-2">Especialidades:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {member.specialties.map((specialty, i) => (
-                          <span
-                            key={i}
-                            className="bg-[#a27a50] text-black px-3 py-1 rounded-full text-sm"
-                          >
-                            {specialty}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
                 </CardContent>
               </div>
             </div>
