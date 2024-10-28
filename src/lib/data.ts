@@ -73,6 +73,69 @@ export const crewMembers = [
     specialties: ['Ensino', 'Paciência', 'Suporte'],
   },
   {
+    name: 'Paul Cadmus',
+    role: 'Veterano',
+    description: 'Um dos membros mais antigos, conhecido por sua dedicação e experiência.',
+    images: ['/images/corvos.png'],
+    specialties: ['PvP', 'Estratégia', 'Veterania'],
+  },
+  {
+    name: 'Bronzato',
+    role: 'Estrategista',
+    description: 'Especialista em táticas de combate e otimização de builds.',
+    images: ['/images/corvos.png'],
+    specialties: ['Teoria', 'Builds', 'PvE'],
+  },
+  {
+    name: 'Locker',
+    role: 'Guardião',
+    description: 'Protetor dedicado da guilda, sempre pronto para ajudar novos membros.',
+    images: ['/images/corvos.png'],
+    specialties: ['Suporte', 'Mentoria', 'Comunidade'],
+  },
+  {
+    name: "Noa D'Arca",
+    role: 'Historiadora',
+    description: 'Mantém viva a história e tradições da guilda através dos anos.',
+    images: ['/images/corvos.png'],
+    specialties: ['Lore', 'Organização', 'Documentação'],
+  },
+  {
+    name: 'Herbo',
+    role: 'Artesão',
+    description: 'Mestre na arte do craft e economia do jogo.',
+    images: ['/images/corvos.png'],
+    specialties: ['Crafting', 'Economia', 'Recursos'],
+  },
+  {
+    name: 'Tenokashi',
+    role: 'Explorador',
+    description: 'Sempre em busca de novas aventuras e desafios.',
+    images: ['/images/corvos.png'],
+    specialties: ['Exploração', 'Aventura', 'Descobertas'],
+  },
+  {
+    name: 'Acém',
+    role: 'Diplomata',
+    description: 'Responsável por manter boas relações com outras guildas.',
+    images: ['/images/corvos.png'],
+    specialties: ['Diplomacia', 'Comunicação', 'Alianças'],
+  },
+  {
+    name: 'Otelo',
+    role: 'Tático',
+    description: 'Especialista em coordenação de grupo e estratégias avançadas.',
+    images: ['/images/corvos.png'],
+    specialties: ['Tática', 'Coordenação', 'Liderança'],
+  },
+  {
+    name: 'Mob',
+    role: 'Veterano de Guerra',
+    description: 'Experiente em todas as formas de combate e desafios.',
+    images: ['/images/corvos.png'],
+    specialties: ['Combate', 'Experiência', 'Versatilidade'],
+  },
+  {
     name: 'Mais em breve...',
     role: 'Membro Honorário',
     description: 'Esta lista está em construção',
@@ -495,5 +558,12 @@ export const historicalMaterial = [
     title: 'Cargos 2.0 [Rascunho apenas]',
     tags: ['doc', 'wakfu'],
     link: 'https://docs.google.com/spreadsheets/d/1o8IkrBoQ0Rk-CTHtkp1q6dj6FeDYNTYNE7yuiYPMHoY/edit?gid=0#gid=0'
+  },
+  {
+    date: '2023-11-23',
+    title: 'Cargos - Corvos de Efrim (2023)',
+    tags: ['doc', 'wakfu'],
+    link: 'https://docs.google.com/document/d/1LeFgOOWw9rSdOuZUPkdYGuqfZvTINE9LF0FKa2MN28I/edit?tab=t.0'
   }
 ]
+

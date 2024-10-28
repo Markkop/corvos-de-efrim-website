@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/card'
 import { crewMembers } from '@/lib/data'
 import { motion, useInView } from 'framer-motion'
+import Link from 'next/link'
 import { useRef } from 'react'
 
 export function CrewSmallList() {
@@ -44,7 +45,7 @@ export function CrewSmallList() {
       animate={isInView ? 'visible' : 'hidden'}
     >
       <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4 sm:gap-6">
-        {crewMembers.map((member) => (
+        {crewMembers.slice(0, 4).map((member) => (
           <Card
             key={member.name}
             className="bg-[#2a2a2a] text-[#e6d7c3] overflow-hidden group cursor-pointer"
@@ -74,6 +75,24 @@ export function CrewSmallList() {
             </div>
           </Card>
         ))}
+
+        <Link href="/tripulacao" className="block">
+          <Card className="bg-[#2a2a2a] text-[#e6d7c3] overflow-hidden group cursor-pointer h-full">
+            <div className="relative w-full" style={{ aspectRatio: '3/4' }}>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-opacity duration-300 group-hover:opacity-70" />
+              <CardFooter className="absolute inset-0 flex flex-col items-center justify-center p-4 z-10">
+                <div className="transition-transform duration-300 group-hover:translate-y-[-4px] text-center">
+                  <CardTitle className="text-white text-xl mb-2">
+                    Ver mais
+                  </CardTitle>
+                  <CardDescription className="text-[#bf9b30]">
+                    +{crewMembers.length - 4} membros
+                  </CardDescription>
+                </div>
+              </CardFooter>
+            </div>
+          </Card>
+        </Link>
       </div>
     </motion.div>
   )
