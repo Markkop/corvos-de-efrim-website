@@ -1,5 +1,6 @@
 'use client'
 
+import { BuildsSmallList } from '@/components/BuildsSmallList'
 import { ContactSmallList } from '@/components/ContactSmallList'
 import { CrewSmallList } from '@/components/CrewSmallList'
 import { GamesSmallList } from '@/components/GamesSmallList'
@@ -91,6 +92,23 @@ export function HomePage() {
           </Link>
         </motion.div>
         <GamesSmallList />
+      </motion.section>
+
+      <motion.section
+        variants={sectionVariants}
+        className="bg-[#2a2a2a] rounded-xl ~p-[1.5rem]/[2rem]"
+      >
+        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+          <Link
+            href="/builds"
+            className="inline-block focus-visible:outline-none"
+          >
+            <h2 className="~text-[1.5rem]/[2rem] font-bold ~mb-[1rem]/[1.5rem] text-[#e6d7c3]">
+              Builds do Waven
+            </h2>
+          </Link>
+        </motion.div>
+        <BuildsSmallList />
       </motion.section>
 
       <motion.div variants={sectionVariants}>

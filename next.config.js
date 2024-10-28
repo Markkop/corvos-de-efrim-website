@@ -20,6 +20,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'www.waven-game.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.waven-build.com',
+      },
     ],
   },
   async redirects() {

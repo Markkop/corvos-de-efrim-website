@@ -560,3 +560,49 @@ export const historicalMaterial = [
   }
 ]
 
+const weaponLogo = {
+  'pikuxala': 'https://www.waven-build.com/img/classes/swords/Aiguille%20Pikuxala.webp',
+  'arcarius': 'https://www.waven-build.com/img/classes/swords/Paladir%20Arcarius.webp',
+  'sicarius': 'https://www.waven-build.com/img/classes/swords/Paladir%20Sicarius.webp',
+  'ourai': 'https://www.waven-build.com/img/classes/swords/Lame%20Oura%C3%AF.webp',
+  'apostruker': 'https://www.waven-build.com/img/classes/swords/Scalpel%20de%20l\'Apostruker.webp',
+}
+
+
+export const wavenBuildSuggestions = [
+  {
+    name: 'Xelor Pikuxala - Burst / Ataque',
+    description: 'Build boa e barata para fazer lutas fáceis rapidamente',
+    tags: ['daily', 'farm', 'aoe', 'on budget'],
+    link: 'https://www.waven-build.com/builds/9443',
+    logoImgSrc: weaponLogo['pikuxala']
+  },
+  {
+    name: 'Eni Apostruker - Água / Ataque',
+    description: 'Build forte e consistente, boa para masmorras e lutas difíceis',
+    tags: ['daily', 'burst', 'aoe'],
+    link: 'https://www.waven-build.com/builds/8137',
+    logoImgSrc: weaponLogo['apostruker']
+  },
+  {
+    name: 'Cra Paladir - Poke / Sustain / Ataque',
+    description: 'Build divertida e eficaz',
+    tags: ['single-target'],
+    link: 'https://www.waven-build.com/builds/10055',
+    logoImgSrc: weaponLogo['arcarius']
+  },
+  {
+    name: 'Sram Ourai - Água / Magia / Support',
+    description: 'Build forte e boa para vários conteúdos',
+    tags: ['sustain', 'magia'],
+    link: 'https://www.waven-build.com/builds/13513',
+    logoImgSrc: weaponLogo['ourai']
+  },
+  {
+    name: 'Sram Sicarius - Ramp / Drain / Ataque',
+    description: 'Build do estilo de atacar várias vezes',
+    tags: ['sustain'],
+    link: 'https://www.waven-build.com/builds/13514',
+    logoImgSrc: weaponLogo['sicarius']
+  }
+]

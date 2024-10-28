@@ -16,6 +16,7 @@ const Navigation = () => {
     { label: 'INÍCIO', href: '/' },
     { label: 'HISTÓRIA', href: '/historia' },
     { label: 'TRIPULAÇÃO', href: '/tripulacao' },
+    { label: 'BUILDS', href: '/builds' },
     { label: 'RECRUTAMENTO', href: '/recrutamento' },
     { label: 'REGIMENTO', href: '/regimento' },
     { label: 'CONTATO', href: '/contato' },
