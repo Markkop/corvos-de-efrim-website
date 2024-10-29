@@ -12,7 +12,7 @@ const buttonVariants = {
 
 const galleryImages = [
   {
-    src: '/images/bandeirada-1.webp',
+    src: '/images/bandeirada-juramento-1.webp',
     alt: 'Captura de tela do evento Bandeirada',
   },
   {
@@ -28,7 +28,7 @@ const galleryImages = [
     alt: 'Evento do jogo dança das cadeiras',
   },
   {
-    src: '/images/dance-club.webp',
+    src: '/images/dance-club-1.webp',
     alt: 'Evento da boate',
   },
   {
