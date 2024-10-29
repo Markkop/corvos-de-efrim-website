@@ -15,8 +15,8 @@ const Navigation = () => {
   const navItems = [
     { label: 'INÍCIO', href: '/' },
     { label: 'HISTÓRIA', href: '/historia' },
+    { label: 'JOGOS', href: '/jogos' },
     { label: 'TRIPULAÇÃO', href: '/tripulacao' },
-    { label: 'BUILDS', href: '/builds' },
     { label: 'RECRUTAMENTO', href: '/recrutamento' },
     { label: 'REGIMENTO', href: '/regimento' },
     { label: 'CONTATO', href: '/contato' },

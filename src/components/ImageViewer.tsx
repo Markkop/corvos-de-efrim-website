@@ -3,9 +3,10 @@
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { cn } from '@/lib/utils'
+import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface ImageViewerProps {
   images: Array<{
@@ -17,6 +18,7 @@ interface ImageViewerProps {
   initialIndex?: number
   variant?: 'default' | 'short'
   className?: string
+  onImageChange?: (index: number) => void
 }
 
 export function ImageViewer({
@@ -26,16 +28,32 @@ export function ImageViewer({
   initialIndex = 0,
   variant = 'default',
   className,
+  onImageChange,
 }: ImageViewerProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(initialIndex)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    setCurrentIndex(initialIndex)
+  }, [initialIndex])
 
   const handlePrevious = () => {
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1))
+    setIsLoading(true)
+    const newIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1
+    setCurrentIndex(newIndex)
+    onImageChange?.(newIndex)
   }
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0))
+    setIsLoading(true)
+    const newIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0
+    setCurrentIndex(newIndex)
+    onImageChange?.(newIndex)
+  }
+
+  const handleImageLoad = () => {
+    setIsLoading(false)
   }
 
   const currentImage = images[currentIndex]
@@ -72,28 +90,60 @@ export function ImageViewer({
               variant === 'short' ? 'rounded-none' : 'rounded-lg',
             )}
           >
-            <Image
-              src={currentImage.src}
-              alt={currentImage.alt}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className={cn(
-                'object-cover transition-transform duration-300 hover:scale-110',
-                variant === 'short' ? '' : 'rounded-lg',
-              )}
+            <motion.div
+              initial={false}
+              animate={isLoading ? { opacity: 1 } : { opacity: 0 }}
+              className="absolute inset-0 bg-black"
             />
+            <motion.div
+              key={currentImage.src}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                src={currentImage.src}
+                alt={currentImage.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className={cn(
+                  'object-cover transition-transform duration-300 hover:scale-110',
+                  variant === 'short' ? '' : 'rounded-lg',
+                )}
+                onLoad={handleImageLoad}
+              />
+            </motion.div>
           </div>
         </Button>
       </DialogTrigger>
+
       <DialogContent className="max-w-[90vw] max-h-[90vh] w-full h-full p-0 bg-neutral-950/95 border-none overflow-hidden">
         <div className="relative w-full h-full">
-          <Image
-            src={currentImage.src}
-            alt={currentImage.alt}
-            fill
-            sizes="100vw"
-            className="object-contain"
+          <motion.div
+            initial={false}
+            animate={isLoading ? { opacity: 1 } : { opacity: 0 }}
+            className="absolute inset-0 bg-black z-10"
           />
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentImage.src}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+              className="w-full h-full"
+            >
+              <Image
+                src={currentImage.src}
+                alt={currentImage.alt}
+                fill
+                sizes="100vw"
+                className="object-contain"
+                onLoad={handleImageLoad}
+                priority
+              />
+            </motion.div>
+          </AnimatePresence>
 
           {/* Close button */}
           <Button
@@ -101,7 +151,7 @@ export function ImageViewer({
             size="icon"
             className={cn(
               buttonStyles,
-              'absolute top-4 right-4 w-10 h-10 rounded-full hover:bg-transparent z-10',
+              'absolute top-4 right-4 w-10 h-10 rounded-full hover:bg-transparent z-20',
             )}
             onClick={() => setIsOpen(false)}
             aria-label="Close image viewer"
@@ -117,7 +167,7 @@ export function ImageViewer({
                 size="icon"
                 className={cn(
                   buttonStyles,
-                  'absolute left-4 top-1/2 -translate-y-1/2 w-12 h-20 hover:bg-transparent active:scale-95 transition-transform',
+                  'absolute left-4 top-1/2 -translate-y-1/2 w-12 h-20 hover:bg-transparent active:scale-95 transition-transform z-20',
                 )}
                 onClick={handlePrevious}
                 aria-label="Previous image"
@@ -129,7 +179,7 @@ export function ImageViewer({
                 size="icon"
                 className={cn(
                   buttonStyles,
-                  'absolute right-4 top-1/2 -translate-y-1/2 w-12 h-20 hover:bg-transparent active:scale-95 transition-transform',
+                  'absolute right-4 top-1/2 -translate-y-1/2 w-12 h-20 hover:bg-transparent active:scale-95 transition-transform z-20',
                 )}
                 onClick={handleNext}
                 aria-label="Next image"
@@ -139,9 +189,9 @@ export function ImageViewer({
             </>
           )}
 
-          {/* Middle section overlay for close-on-click */}
+          {/* Middle section overlay */}
           <div
-            className="absolute inset-x-20 inset-y-0 bg-transparent cursor-pointer"
+            className="absolute inset-x-20 inset-y-0 bg-transparent cursor-pointer z-20"
             onClick={() => setIsOpen(false)}
             role="button"
             tabIndex={0}
