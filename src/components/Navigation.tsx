@@ -18,7 +18,6 @@ const Navigation = () => {
     { label: 'JOGOS', href: '/jogos' },
     { label: 'TRIPULAÇÃO', href: '/tripulacao' },
     { label: 'RECRUTAMENTO', href: '/recrutamento' },
-    { label: 'REGIMENTO', href: '/regimento' },
     { label: 'CONTATO', href: '/contato' },
   ]
 
