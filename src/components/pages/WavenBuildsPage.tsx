@@ -1,16 +1,7 @@
 'use client'
 
-import { Badge } from '@/components/ui/badge'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-import { wavenBuildSuggestions } from '@/lib/data'
-import Image from 'next/image'
-import Link from 'next/link'
+import { WavenBuildsTable } from '@/components/waven-builds-table'
+import { WavenResources } from '@/components/waven-resources'
 
 export function WavenBuildsPage() {
   return (
@@ -18,58 +9,26 @@ export function WavenBuildsPage() {
       <section className="text-center mb-16">
         <h1 className="text-5xl font-bold mb-6">Builds do Waven</h1>
         <p className="text-xl max-w-3xl mx-auto">
-          Selecionamos algumas builds que achamos interessantes para caso você
-          queira alguma inspiração para o seu personagem.
+          Testamos e selecionamos algumas builds que consideramos fortes e úteis
         </p>
         <p className="text-sm text-gray-500 mt-4">
-          Observação: mesmo que a página da build mencione uma versão mais
-          antiga, ela ainda é válida. No Waven, nem todo patch tem
-          balanceamento.
+          No Waven, builds boas podem passar mudanças entre patch, e mesmo que
+          deixem de ser meta, continuam funcionando muito bem para 90% do jogo.
+          <br />
+          Investir numa build boa e barata é importante para progredir
+          facilmente e então focar em alguma build mais cara, mas que você curta
+          o estilo de jogo.
         </p>
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {wavenBuildSuggestions.map((build) => (
-          <Link
-            href={build.link}
-            key={build.name}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block group"
-          >
-            <Card className="bg-[#2a2a2a] text-[#e6d7c3] overflow-hidden h-full transition-transform duration-200 ease-in-out transform hover:scale-105 hover:shadow-lg">
-              <CardHeader className="p-6">
-                <div className="flex items-center gap-4 mb-4">
-                  <Image
-                    src={build.logoImgSrc}
-                    alt={`${build.name} weapon`}
-                    width={64}
-                    height={64}
-                    className="rounded-full"
-                  />
-                  <CardTitle className="text-2xl">{build.name}</CardTitle>
-                </div>
-                <CardDescription className="text-[#bf9b30] text-lg">
-                  {build.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="p-6 pt-0">
-                <div className="flex flex-wrap gap-2">
-                  {build.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      variant="secondary"
-                      className="bg-[#bf9b30] text-[#2a2a2a]"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </Link>
-        ))}
-      </div>
+      <WavenBuildsTable />
+      <section className="text-center mb-16">
+        <h2 className="text-3xl font-bold mb-6">Recursos Úteis</h2>
+        <p className="text-sm  mt-4">
+          Uma coleção de sites, canais e comunidades para te ajudar no Waven
+        </p>
+        <WavenResources />
+      </section>
     </div>
   )
 }

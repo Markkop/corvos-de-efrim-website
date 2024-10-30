@@ -24,6 +24,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'www.waven-build.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'sjc.microlink.io',
+      },
     ],
   },
   async redirects() {

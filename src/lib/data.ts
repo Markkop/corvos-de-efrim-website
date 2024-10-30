@@ -4,36 +4,36 @@ export const timelineEvents = [
   {
     year: '2014',
     title: 'A Fundação',
-    description:
-      'A Corvos de Efrim surge em Wakfu, unidos pela busca de aventuras e camaradagem.',
+
+    description: 'A Corvos de Efrim surge em Wakfu, unidos pela busca de aventuras e camaradagem.',
     image: 'https://i.imgur.com/wEQd5sZ.png',
   },
   {
     year: '2016-2018',
     title: 'Expansão',
-    description:
-      'A guilda cresce e se estabelece como uma das mais ativas do servidor.',
+
+    description: 'A guilda cresce e se estabelece como uma das mais ativas do servidor.',
     image: '/images/barco.png',
   },
   {
     year: '2019',
     title: 'Hiato',
-    description:
-      'A guilda se aposenta em Wakfu, mas mantém contato pelo discord e outros jogos.',
+
+    description: 'A guilda se aposenta em Wakfu, mas mantém contato pelo discord e outros jogos.',
     image: '/images/wipe.webp',
   },
   {
     year: '2020',
     title: 'Retorno',
-    description:
-      'A Corvos de Efrim volta ao jogo no então novo servidor monoconta Ogrest, de forma mais casual.',
+
+    description: 'A Corvos de Efrim volta ao jogo no então novo servidor monoconta Ogrest, de forma mais casual.',
     image: '/images/retorno.webp',
   },
   {
     year: '2024',
     title: 'Novos Horizontes',
-    description:
-      'Expandimos para Waven e outros jogos, mantendo nossa essência e valores.',
+
+    description: 'Expandimos para Waven e outros jogos, mantendo nossa essência e valores.',
     image:
       'https://static.ankama.com/upload/backoffice/direct/2024-10-14/13e919929b5171593a980cf7bd70e9c6.png',
     cta: {
@@ -47,92 +47,92 @@ export const wakfuCrewMembers = [
   {
     name: 'Mark',
     role: 'Líder da Guilda',
-    description: 'Administra a guilda e coordena as atividades.',
+
     images: ['/images/mark-1.png'],
   },
   {
     name: 'Caliente',
     role: 'Braço Direito',
-    description: 'Colabora com a liderança e desenvolvimento da guilda.',
+
     images: ['/images/cali-2.png', '/images/cali-3.png'],
   },
   {
     name: 'Dan',
     role: 'Capitão Interino',
-    description: 'Mantém a guilda ativa com eventos criativos e envolventes.',
+
     images: ['/images/dan-1.png'],
   },
   {
     name: 'Seten',
     role: 'Corvo Eterno',
-    description: 'Sempre ativo no Wakfu, sempre presente.',
+
     images: ['/images/seten-1.png'],
   },
   {
     name: 'Locker',
     role: 'Guardião',
-    description: 'Protetor dedicado da guilda, sempre pronto para ajudar novos membros.',
+
     images: ['/images/locker-1.png'],
   },
   {
     name: 'Shaman',
     role: 'Veterano de Guerra',
-    description: 'Experiente em todas as formas de combate e desafios.',
+
     images: ['/images/shaman-1.png', '/images/shaman-2.png'],
   },
   {
     name: 'Iorik',
     role: 'Veterano',
-    description: 'Experiente em todas as formas de combate e desafios.',
+
     images: ['/images/corvos.png'],
   },
   {
     name: 'Paul Cadmus',
     role: 'Veterano',
-    description: 'Um dos membros mais antigos, conhecido por sua dedicação e experiência.',
+
     images: ['/images/toxine-1.png', '/images/bump-1.png'],
   },
   {
     name: 'Bronzato',
     role: 'Estrategista',
-    description: 'Especialista em táticas de combate e otimização de builds.',
+
     images: ['/images/bronzato-1.png'],
   },
   {
     name: "Noa D'Arca",
     role: 'Fundador',
-    description: 'O corvo que trouxe as primeiras sementes.',
+
     images: ['/images/noa-1.png'],
   },
   {
     name: 'Tenokashi',
     role: 'Explorador',
-    description: 'Sempre em busca de novas aventuras e desafios.',
+
     images: ['/images/corvos.png'],
   },
   {
     name: 'Acém',
     role: 'Diplomata',
-    description: 'Responsável por manter boas relações com outras guildas.',
+
     images: ['/images/acem-1.png'],
   },
   {
     name: 'Otelo',
     role: 'Tático',
-    description: 'Especialista em coordenação de grupo e estratégias avançadas.',
+
     images: ['/images/otelo-1.png'],
   },
   {
     name: 'Mob',
     role: 'Veterano de Guerra',
-    description: 'Experiente em todas as formas de combate e desafios.',
+
     images: ['/images/corvos.png'],
   },
 
   {
     name: 'Mais em breve...',
     role: 'Membro Honorário',
-    description: 'Esta lista está em construção',
+
     images: ['/images/corvos.png'],
   },
 ]
@@ -141,37 +141,37 @@ export const wavenCrewMembers = [
   {
     name: 'Mark',
     role: 'Líder da Guilda',
-    description: 'Administra a guilda e coordena as atividades.',
+
     images: ['/images/mark-waven-1.png'],
   },
   {
     name: 'Caliente',
     role: 'Braço Direito',
-    description: 'Colabora com a liderança e desenvolvimento da guilda.',
+
     images: ['/images/corvos.png'],
   },
   {
     name: 'NelsinHB',
     role: 'Veterano',
-    description: '',
+
     images: ['/images/corvos.png'],
   },
   {
     name: 'Hypmen',
     role: 'Veterano',
-    description: '',
+
     images: ['/images/corvos.png'],
   },
   {
     name: 'Cachorro Magro',
     role: 'Veterano',
-    description: '',
+
     images: ['/images/corvos.png'],
   },
   {
     name: 'Mais em breve...',
     role: 'Membro Honorário',
-    description: 'Esta lista está em construção',
+
     images: ['/images/corvos.png'],
   },
 ]
@@ -522,126 +522,300 @@ export const historicalMaterial = [
   {
     date: '2020-10-27',
     title: 'Guilda Corvos de Efrim (2020)',
-    tags: ['forum', 'wakfu'],
+
     link: 'https://www.wakfu.com/pt/forum/49-guildas/13189-guilda-corvos-efrim-2020'
   },
   {
     date: '2019-08-16',
     title: 'Corvos de Efrim se Aposenta',
-    tags: ['forum', 'wakfu'],
+
     link: 'https://www.wakfu.com/pt/forum/49-guildas/12295-corvos-efrim-aposenta'
   },
   {
     date: '2015-07-13',
     title: 'O Livro da Arca',
-    tags: ['forum', 'wakfu'],
+
     link: 'https://www.wakfu.com/pt/forum/19-roleplay/5036-livro-arca'
   },
   {
     date: '2014-07-25',
     title: 'Guilda Corvos de Efrim (Original)',
-    tags: ['forum', 'wakfu'],
+
     link: 'https://www.wakfu.com/pt/forum/49-guildas/348-guilda-corvos-efrim'
   },
   {
     date: '2016-06-18',
     title: 'O Almanaque do Construtor',
-    tags: ['doc', 'wakfu'],
+
     link: 'https://docs.google.com/document/d/1A4r8TZB-OOcIKBd5Xj3TrkSymAv6P_X4X3pn7nb0JbA/edit?tab=t.0'
   },
   {
     date: '2017-11-08',
     title: 'Projeto: Corvos de Efrim Reborn',
-    tags: ['doc', 'wakfu'],
+
     link: 'https://docs.google.com/document/d/1yrda3fmmsoOBLUf2-EfTmslaAClDr4vP6353lwRKILg/edit?tab=t.0#heading=h.9ea9pg9jy3lj'
   },
   {
     date: '2018-01-18',
     title: 'Campanha #1: Corvos em Guerra',
-    tags: ['doc', 'wakfu'],
+
     link: 'https://docs.google.com/document/d/1a1WLc7izwAaYPBpG0kaDEIaZWTkiv4FsOaapEetf8cc/edit?tab=t.0'
   },
   {
     date: '2017-07-02',
     title: 'Cargos 3.0 (Pontos de Corvo)',
-    tags: ['doc', 'wakfu'],
+
     link: 'https://docs.google.com/spreadsheets/d/14kvFmk4er141joPMigj9iCl-Xxdc9juDp13rhqhLu8c/edit?gid=0#gid=0'
   },
   {
     date: '2016-04-16',
     title: 'Cargos (2016) - Planilha',
-    tags: ['doc', 'wakfu'],
+
     link: 'https://docs.google.com/spreadsheets/d/17Y832Oyne6gO0sjRegpy0lTJRrjCiy3o7aQV5wEpO-o/edit?gid=0#gid=0'
   },
   {
     date: '2016-06-25',
     title: 'Plano de Governo - Sufokia',
-    tags: ['doc', 'wakfu'],
+
     link: 'https://docs.google.com/document/d/1HsCcHe6Qq2wC-VLcS00_V064SZUS5Dtdoc1ela7_97o/edit?tab=t.0'
   },
   {
     date: '2016-04-16',
     title: 'Cargos (2016) - Documento',
-    tags: ['doc', 'wakfu'],
+
     link: 'https://docs.google.com/document/d/1iOBADcQQxfkpMTEBf9Y-0y-mp_61EcUIJRqeSc30bVE/edit?tab=t.0'
   },
   {
     date: '2016-04-10',
     title: 'Cargos 2.0 [Rascunho apenas]',
-    tags: ['doc', 'wakfu'],
+
     link: 'https://docs.google.com/spreadsheets/d/1o8IkrBoQ0Rk-CTHtkp1q6dj6FeDYNTYNE7yuiYPMHoY/edit?gid=0#gid=0'
   },
   {
     date: '2023-11-23',
     title: 'Cargos - Corvos de Efrim (2023)',
-    tags: ['doc', 'wakfu'],
+
     link: 'https://docs.google.com/document/d/1LeFgOOWw9rSdOuZUPkdYGuqfZvTINE9LF0FKa2MN28I/edit?tab=t.0'
   }
 ]
 
-const weaponLogo = {
-  'pikuxala': 'https://www.waven-build.com/img/classes/swords/Aiguille%20Pikuxala.webp',
-  'arcarius': 'https://www.waven-build.com/img/classes/swords/Paladir%20Arcarius.webp',
-  'sicarius': 'https://www.waven-build.com/img/classes/swords/Paladir%20Sicarius.webp',
-  'ourai': 'https://www.waven-build.com/img/classes/swords/Lame%20Oura%C3%AF.webp',
-  'apostruker': 'https://www.waven-build.com/img/classes/swords/Scalpel%20de%20l\'Apostruker.webp',
-}
+export const classes = {
+  eniripsa: {
+    weapons: {
+      bisturi: {
+        name: 'Bisturi Apostruker',
+        logo: 'https://www.waven-build.com/img/classes/swords/Scalpel%20de%20l\'Apostruker.webp',
+      },
+      kokoro: {
+        name: 'Pincel Kokoro',
+        logo: 'https://www.waven-build.com/img/classes/swords/Pinceau%20Kokoro.webp',
+      },
+      voracius: {
+        name: 'Lâmina Voracius',
+        logo: 'https://www.waven-build.com/img/classes/swords/Lame%20Voracius.webp',
+      },
+      defasante: {
+        name: 'Gema Defasante',
+        logo: 'https://www.waven-build.com/img/classes/swords/Gemme%20D%C3%A9phasante.webp',
+      },
+      tamashi: {
+        name: 'Âmbar Tamashi',
+        logo: 'https://www.waven-build.com/img/classes/swords/Ambre%20Tamashi.webp',
+      },
+      piktus: {
+        name: 'Paladigno Okus Piktus',
+        logo: 'https://www.waven-build.com/img/classes/swords/Paladir%20Okus%20Piktus.webp',
+      },
+    },
+  },
+  iop: {
+    weapons: {
+      orok: {
+        name: 'Bonescudo Orok',
+        logo: 'https://www.waven-build.com/img/classes/swords/Bouvaloir%20Orok.webp',
+      },
+      justalamina: {
+        name: 'Justalâmina Brutal',
+        logo: 'https://www.waven-build.com/img/classes/swords/Justelame%20Brutale.webp',
+      },
+      kasai: {
+        name: 'Kasai Flamejante',
+        logo: 'https://www.waven-build.com/img/classes/swords/Flamboyante%20Kasa%C3%AF.webp',
+      },
+      espectral: {
+        name: 'Laminagedom Espectral',
+        logo: 'https://www.waven-build.com/img/classes/swords/Lamarguedon%20Spectral.webp',
+      },
+      stalaktoss: {
+        name: 'Gládio Stalaktoss',
+        logo: 'https://www.waven-build.com/img/classes/swords/Glaive%20Stalaktoss.webp',
+      },
+      hioplita: {
+        name: 'Paladigno Hioplita',
+        logo: 'https://www.waven-build.com/img/classes/swords/Paladir%20Hioplite.webp',
+      },
+      astramantis: {
+        name: 'Ponta Astramantis',
+        logo: 'https://www.waven-build.com/img/classes/swords/Pic%20Astramantis.webp',
+      },
+    },
+  },
+  xelor: {
+    weapons: {
+      tako: {
+        name: 'Sincronizador Tako',
+        logo: 'https://www.waven-build.com/img/classes/swords/Synchronisateur%20Tako.webp',
+      },
+      jikan: {
+        name: 'Cetrareal Jikan',
+        logo: 'https://www.waven-build.com/img/classes/swords/Sabliaton%20Jikan.webp',
+      },
+      pikuxala: {
+        name: 'Ponteiro Pikuxala',
+        logo: 'https://www.waven-build.com/img/classes/swords/Aiguille%20Pikuxala.webp',
+      },
+      gurpapa: {
+        name: 'Regulador Gurpapa',
+        logo: 'https://www.waven-build.com/img/classes/swords/R%C3%A9gulant%20Gurpapa.webp',
+      },
+      pramium: {
+        name: 'Catalisador Pramium',
+        logo: 'https://www.waven-build.com/img/classes/swords/Catalysateur%20Pramium.webp',
+      },
+      zinetritos: {
+        name: 'Paladigno Zinetritos',
+        logo: 'https://www.waven-build.com/img/classes/swords/Paladir%20Zinetritos.webp',
+      },
+    },
+  },
+  sram: {
+    weapons: {
+      murai: {
+        name: 'Espada Murai',
+        logo: 'https://www.waven-build.com/img/classes/swords/Lame%20Oura%C3%AF.webp',
+      },
+      kartana: {
+        name: 'Ken Kartana',
+        logo: 'https://www.waven-build.com/img/classes/swords/Ken%20Kartana.webp',
+      },
+      shugen: {
+        name: 'Esfolador Shugen',
+        logo: 'https://www.waven-build.com/img/classes/swords/%C3%89corcheur%20Shugen.webp',
+      },
+      surokan: {
+        name: 'Navalha Surokan',
+        logo: 'https://www.waven-build.com/img/classes/swords/Surin%20Sourokan.webp',
+      },
+      orishi: {
+        name: 'Tesoura Orishi',
+        logo: 'https://www.waven-build.com/img/classes/swords/Cisaille%20Orishi.webp',
+      },
+      sicarius: {
+        name: 'Paladigno Sicarius',
+        logo: 'https://www.waven-build.com/img/classes/swords/Paladir%20Sicarius.webp',
+      },
+    },
+  },
+  cra: {
+    weapons: {
+      arcabux: {
+        name: 'Arcabux',
+        logo: 'https://www.waven-build.com/img/classes/swords/Expingole.webp',
+      },
+      bumelamina: {
+        name: 'Bumelâmina',
+        logo: 'https://www.waven-build.com/img/classes/swords/Bunelame.webp',
+      },
+      piven: {
+        name: 'Arco Piven',
+        logo: 'https://www.waven-build.com/img/classes/swords/Arc%20Piven.webp',
+      },
+      shaden: {
+        name: 'Shiru Shaden',
+        logo: 'https://www.waven-build.com/img/classes/swords/Shiru%20Shaden.webp',
+      },
+      voldorak: {
+        name: 'Voldorak Vo',
+        logo: 'https://www.waven-build.com/img/classes/swords/Voldorak%20Vo.webp',
+      },
+      arcarius: {
+        name: 'Paladigno Arcarius',
+        logo: 'https://www.waven-build.com/img/classes/swords/Paladir%20Arcarius.webp',
+      },
+    },
+  },
+};
 
 
 export const wavenBuildSuggestions = [
   {
+    name: 'Eni Kokoro - HP / Armadura',
+    god: 'eniripsa',
+    weapon: 'kokoro',
+    link: 'https://www.waven-build.com/builds/8286',
+
+    cost: 1,
+    difficulty: 1,
+
+  },
+  {
+    name: 'Iop Justalâmina - HP / Armadura',
+    god: 'iop',
+    weapon: 'justalamina',
+    tags: ['armadura', 'hp'],
+    link: 'https://www.waven-build.com/builds/8991',
+    cost: 1,
+    difficulty: 1,
+  },
+  {
     name: 'Xelor Pikuxala - Burst / Ataque',
-    description: 'Build boa e barata para fazer lutas fáceis rapidamente',
-    tags: ['daily', 'farm', 'aoe', 'on budget'],
+    god: 'xelor',
+    weapon: 'pikuxala',
+    tags: ['burst', 'ataque'],
     link: 'https://www.waven-build.com/builds/9443',
-    logoImgSrc: weaponLogo['pikuxala']
+    cost: 1,
+    difficulty: 1,
   },
   {
     name: 'Eni Apostruker - Água / Ataque',
-    description: 'Build forte e consistente, boa para masmorras e lutas difíceis',
-    tags: ['daily', 'burst', 'aoe'],
+    god: 'eniripsa',
+    weapon: 'bisturi',
     link: 'https://www.waven-build.com/builds/8137',
-    logoImgSrc: weaponLogo['apostruker']
+    cost: 2,
+    difficulty: 1,
   },
   {
     name: 'Cra Paladir - Poke / Sustain / Ataque',
-    description: 'Build divertida e eficaz',
-    tags: ['single-target'],
+    god: 'cra',
+    weapon: 'arcarius',
     link: 'https://www.waven-build.com/builds/10055',
-    logoImgSrc: weaponLogo['arcarius']
+    cost: 3,
+    difficulty: 2,
   },
   {
     name: 'Sram Ourai - Água / Magia / Support',
-    description: 'Build forte e boa para vários conteúdos',
-    tags: ['sustain', 'magia'],
+    god: 'sram',
+    weapon: 'murai',
     link: 'https://www.waven-build.com/builds/13513',
-    logoImgSrc: weaponLogo['ourai']
+    cost: 2,
+    difficulty: 2,
   },
   {
     name: 'Sram Sicarius - Ramp / Drain / Ataque',
-    description: 'Build do estilo de atacar várias vezes',
-    tags: ['sustain'],
-    link: 'https://www.waven-build.com/builds/13514',
-    logoImgSrc: weaponLogo['sicarius']
+    god: 'sram',
+    weapon: 'sicarius',
+    link: 'https://www.waven-build.com/builds/8838',
+
+    cost: 3,
+    difficulty: 1,
+  },
+  {
+    name: 'Xelor Pramium - Super vilão',
+    god: 'xelor',
+    weapon: 'pramium',
+    link: 'https://www.waven-build.com/builds/3106',
+
+    cost: 3,
+    difficulty: 2,
   }
 ]

@@ -3,7 +3,6 @@
 import { ImageViewer } from '@/components/ImageViewer'
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -69,9 +68,6 @@ export function CrewPage({ game = 'wakfu' }: CrewPageProps) {
                     {member.role}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="p-0">
-                  <p className="text-lg">{member.description}</p>
-                </CardContent>
               </div>
             </div>
           </Card>

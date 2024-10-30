@@ -3,11 +3,9 @@
 import { GalleryViewer } from '@/components/GalleryViewer'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { guildGames, historicalMaterial } from '@/lib/data'
-import { cn } from '@/lib/utils'
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -190,31 +188,6 @@ const HistoricalMaterialCard = ({
         <h3 className="text-lg font-semibold text-[#e6d7c3] mb-2">
           {item.title}
         </h3>
-        <div className="flex gap-2 items-center">
-          {item.tags.includes('wakfu') && wakfuGame && wakfuGame.image && (
-            <div className="relative w-6 h-6">
-              <Image
-                src={wakfuGame.image}
-                alt="Wakfu"
-                fill
-                className={cn(
-                  'object-contain',
-                  wakfuGame.lightBackground && 'invert brightness-0',
-                )}
-              />
-            </div>
-          )}
-          {item.tags.includes('forum') && (
-            <span className="text-xs bg-gray-600 text-gray-200 px-2 py-1 rounded">
-              fórum
-            </span>
-          )}
-          {item.tags.includes('doc') && (
-            <span className="text-xs bg-gray-700 text-gray-200 px-2 py-1 rounded">
-              doc
-            </span>
-          )}
-        </div>
       </a>
     </motion.div>
   )
