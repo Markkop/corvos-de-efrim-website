@@ -44,7 +44,7 @@ export function WavenRecruitmentComponent() {
     >
       <motion.section className="text-center mb-8" variants={fadeIn}>
         <h1 className="text-5xl font-bold mb-4 ">Regras - Waven</h1>
-        <p className="text-xl">Ao entrar na guilda você concorda com as se</p>
+        <p className="text-xl">Ao entrar na guilda você concorda em:</p>
       </motion.section>
 
       <motion.div variants={fadeIn}>
