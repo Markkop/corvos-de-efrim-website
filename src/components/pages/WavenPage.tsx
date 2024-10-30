@@ -15,14 +15,9 @@ export function WavenPage() {
     {
       title: 'Recrutamento',
       description: 'Junte-se à nossa guilda no Waven.',
-      href: '/recrutamento',
+      href: '/jogos/waven/recrutamento',
     },
-    {
-      title: 'Chips',
-      description: 'Em breve: Guia completo sobre chips no Waven.',
-      href: '/jogos/waven/chips',
-      disabled: true,
-    },
+
     {
       title: 'Galeria',
       description:
