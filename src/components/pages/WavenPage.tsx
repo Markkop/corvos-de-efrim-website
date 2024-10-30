@@ -17,7 +17,11 @@ export function WavenPage() {
       description: 'Junte-se à nossa guilda no Waven.',
       href: '/jogos/waven/recrutamento',
     },
-
+    {
+      title: 'Membros',
+      description: 'Lista de membros ativos da guilda.',
+      href: '/jogos/waven/membros',
+    },
     {
       title: 'Galeria',
       description:

@@ -5,6 +5,7 @@ import { guildGames } from '@/lib/data'
 import { cn } from '@/lib/utils'
 import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRef } from 'react'
 
 export function GamesSmallList() {
@@ -39,12 +40,28 @@ export function GamesSmallList() {
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
     >
-      <Card className="bg-[#2a2a2a] text-[#e6d7c3]">
-        <CardContent>
+      <Card className="dark:bg-[#2a2a2a] text-[#e6d7c3]">
+        <CardContent className="p-0">
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {guildGames.map((game) => (
               <div key={game.name}>
-                {game.link ? (
+                {game.name === 'Wakfu' ? (
+                  <Link
+                    href="/jogos/wakfu"
+                    className="block focus:outline-none focus:ring-2 focus:ring-[#a27a50] rounded-lg"
+                    aria-label={`Ver página da guilda em ${game.name}`}
+                  >
+                    <GameCard game={game} short />
+                  </Link>
+                ) : game.name === 'Waven' ? (
+                  <Link
+                    href="/jogos/waven"
+                    className="block focus:outline-none focus:ring-2 focus:ring-[#a27a50] rounded-lg"
+                    aria-label={`Ver página da guilda em ${game.name}`}
+                  >
+                    <GameCard game={game} short />
+                  </Link>
+                ) : game.link ? (
                   <a
                     href={game.link}
                     target="_blank"

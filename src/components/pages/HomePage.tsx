@@ -46,29 +46,29 @@ export function HomePage() {
     >
       <motion.section
         variants={sectionVariants}
-        className="bg-[#2a2a2a] rounded-xl ~p-[1.5rem]/[2rem]"
+        className="bg-[#2a2a2a] rounded-xl p-6 md:p-8"
       >
         <HeroSection />
       </motion.section>
 
       <motion.section
         variants={sectionVariants}
-        className="bg-[#2a2a2a] rounded-xl ~p-[1.5rem]/[2rem]"
+        className="bg-[#2a2a2a] rounded-xl p-6 md:p-8"
       >
         <HistoryPage short />
       </motion.section>
 
       <motion.section
         variants={sectionVariants}
-        className="bg-[#a27a50] rounded-xl ~p-[1.5rem]/[2rem]"
+        className="bg-[#a27a50] rounded-xl p-6 md:p-8"
       >
-        <div className="text-center ~mb-[3rem]/[4rem]">
+        <div className="text-center mb-12 md:mb-16">
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <Link
               href="/tripulacao"
               className="inline-block focus-visible:outline-none"
             >
-              <h2 className="~text-[2rem]/[3rem] font-bold ~mb-[1rem]/[1.5rem]">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 md:mb-6">
                 Tripulação Permanente
               </h2>
             </Link>
@@ -79,14 +79,14 @@ export function HomePage() {
 
       <motion.section
         variants={sectionVariants}
-        className="bg-[#2a2a2a] rounded-xl ~p-[1.5rem]/[2rem]"
+        className="bg-[#2a2a2a] rounded-xl p-6 md:p-8"
       >
         <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
           <Link
-            href="/recrutamento"
+            href="/jogos"
             className="inline-block focus-visible:outline-none"
           >
-            <h2 className="~text-[1.5rem]/[2rem] font-bold ~mb-[1rem]/[1.5rem] text-[#e6d7c3]">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-[#e6d7c3]">
               Presentes em
             </h2>
           </Link>
@@ -96,14 +96,14 @@ export function HomePage() {
 
       <motion.section
         variants={sectionVariants}
-        className="bg-[#2a2a2a] rounded-xl ~p-[1.5rem]/[2rem]"
+        className="bg-[#2a2a2a] rounded-xl p-6 md:p-8"
       >
         <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
           <Link
             href="/builds"
             className="inline-block focus-visible:outline-none"
           >
-            <h2 className="~text-[1.5rem]/[2rem] font-bold ~mb-[1rem]/[1.5rem] text-[#e6d7c3]">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-[#e6d7c3]">
               Builds do Waven
             </h2>
           </Link>

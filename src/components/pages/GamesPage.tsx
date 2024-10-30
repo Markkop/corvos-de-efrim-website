@@ -1,6 +1,5 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -8,12 +7,10 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { DISCORD_INVITE_URL } from '@/lib/constants'
 import { guildGames } from '@/lib/data'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaDiscord } from 'react-icons/fa'
 
 export function GamesPage() {
   const featuredGames = [
@@ -29,7 +26,7 @@ export function GamesPage() {
       description: 'O novo jogo da Ankama onde estamos desde o beta.',
       image: '/images/waven-logo.png',
       href: '/jogos/waven',
-      features: ['Builds', 'Chips', 'Recrutamento', 'Galeria'],
+      features: ['Builds', 'Recrutamento', 'Galeria'],
     },
   ]
 
@@ -80,35 +77,6 @@ export function GamesPage() {
       <Card className="bg-[#2a2a2a] text-[#e6d7c3]">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-[#a27a50]">
-            Recrutamento pelo Discord
-          </CardTitle>
-          <CardDescription className="text-lg text-[#e6d7c3]">
-            Entre em nosso servidor do Discord para iniciar o processo de
-            recrutamento
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Button
-            asChild
-            variant="default"
-            className="bg-[#5865F2] hover:bg-[#4752C4] text-white"
-          >
-            <a
-              href={DISCORD_INVITE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2"
-            >
-              <span>Entrar no Discord</span>
-              <FaDiscord className="w-6 h-6" />
-            </a>
-          </Button>
-        </CardContent>
-      </Card>
-
-      <Card className="bg-[#2a2a2a] text-[#e6d7c3]">
-        <CardHeader>
-          <CardTitle className="text-3xl font-bold text-[#a27a50]">
             Status nos Jogos
           </CardTitle>
           <CardDescription className="text-lg text-[#e6d7c3]">
@@ -119,7 +87,23 @@ export function GamesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {guildGames.map((game) => (
               <div key={game.name}>
-                {game.link ? (
+                {game.name === 'Wakfu' ? (
+                  <Link
+                    href="/jogos/wakfu"
+                    className="block focus:outline-none focus:ring-2 focus:ring-[#a27a50] rounded-lg"
+                    aria-label={`Ver página da guilda em ${game.name}`}
+                  >
+                    <GameCard game={game} />
+                  </Link>
+                ) : game.name === 'Waven' ? (
+                  <Link
+                    href="/jogos/waven"
+                    className="block focus:outline-none focus:ring-2 focus:ring-[#a27a50] rounded-lg"
+                    aria-label={`Ver página da guilda em ${game.name}`}
+                  >
+                    <GameCard game={game} />
+                  </Link>
+                ) : game.link ? (
                   <a
                     href={game.link}
                     target="_blank"

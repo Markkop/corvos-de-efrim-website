@@ -84,7 +84,7 @@ export function HeroSection() {
             className="bg-[#a27a50] text-[#2a2a2a] px-6 py-3 rounded-full font-semibold text-lg transition-colors hover:bg-[#b28a60]"
           >
             <Link
-              href="/recrutamento"
+              href="/jogos"
               className="focus-visible:outline-none"
               tabIndex={0}
               aria-label="Junte-se à nossa guilda"

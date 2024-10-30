@@ -76,7 +76,7 @@ export function CrewSmallList() {
           </Card>
         ))}
 
-        <Link href="/tripulacao" className="block">
+        <Link href="/jogos/wakfu/membros" className="block">
           <Card className="bg-[#2a2a2a] text-[#e6d7c3] overflow-hidden group cursor-pointer h-full">
             <div className="relative w-full" style={{ aspectRatio: '3/4' }}>
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-opacity duration-300 group-hover:opacity-70" />

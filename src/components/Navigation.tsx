@@ -17,7 +17,6 @@ const Navigation = () => {
     { label: 'HISTÓRIA', href: '/historia' },
     { label: 'WAKFU', href: '/jogos/wakfu' },
     { label: 'WAVEN', href: '/jogos/waven' },
-    { label: 'TRIPULAÇÃO', href: '/tripulacao' },
     { label: 'CONTATO', href: '/contato' },
   ]
 
