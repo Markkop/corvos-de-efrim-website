@@ -12,7 +12,7 @@ import { wavenBuildSuggestions } from '@/lib/data'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export function BuildsPage() {
+export function WavenBuildsPage() {
   return (
     <div className="space-y-12">
       <section className="text-center mb-16">
@@ -21,7 +21,7 @@ export function BuildsPage() {
           Selecionamos algumas builds que achamos interessantes para caso você
           queira alguma inspiração para o seu personagem.
         </p>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-500 mt-4">
           Observação: mesmo que a página da build mencione uma versão mais
           antiga, ela ainda é válida. No Waven, nem todo patch tem
           balanceamento.

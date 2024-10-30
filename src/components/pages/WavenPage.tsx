@@ -10,7 +10,7 @@ export function WavenPage() {
       title: 'Builds',
       description:
         'Explore builds recomendadas para diferentes classes e estilos de jogo.',
-      href: '/builds',
+      href: '/jogos/waven/builds',
     },
     {
       title: 'Recrutamento',
