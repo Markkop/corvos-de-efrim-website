@@ -65,16 +65,35 @@ export function HomePage() {
         <div className="text-center mb-12 md:mb-16">
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <Link
-              href="/tripulacao"
+              href="/jogos/wakfu/membros"
               className="inline-block focus-visible:outline-none"
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-4 md:mb-6">
-                Tripulação Permanente
+                Tripulação do Wakfu
               </h2>
             </Link>
           </motion.div>
         </div>
-        <CrewSmallList />
+        <CrewSmallList game="wakfu" href="/jogos/wakfu/membros" />
+      </motion.section>
+
+      <motion.section
+        variants={sectionVariants}
+        className="bg-[#2a2a2a] rounded-xl p-6 md:p-8"
+      >
+        <div className="text-center mb-12 md:mb-16">
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              href="/jogos/waven/membros"
+              className="inline-block focus-visible:outline-none"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-[#e6d7c3]">
+                Tripulação do Waven
+              </h2>
+            </Link>
+          </motion.div>
+        </div>
+        <CrewSmallList game="waven" href="/jogos/waven/membros" />
       </motion.section>
 
       <motion.section
@@ -100,7 +119,7 @@ export function HomePage() {
       >
         <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
           <Link
-            href="/builds"
+            href="/jogos/waven/builds"
             className="inline-block focus-visible:outline-none"
           >
             <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-[#e6d7c3]">

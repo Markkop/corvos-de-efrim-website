@@ -8,9 +8,16 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { crewMembers } from '@/lib/data'
+import { wakfuCrewMembers, wavenCrewMembers } from '@/lib/data'
 
-export function CrewPage() {
+interface CrewPageProps {
+  game?: 'wakfu' | 'waven'
+}
+
+export function CrewPage({ game = 'wakfu' }: CrewPageProps) {
+  const crewMembers = game === 'wakfu' ? wakfuCrewMembers : wavenCrewMembers
+  const title = game === 'wakfu' ? 'Wakfu' : 'Waven'
+
   const sortedCrewMembers = [...crewMembers].sort((a, b) => {
     // Always put "Mais em breve" last
     if (a.name === 'Mais em breve') return 1
@@ -31,7 +38,7 @@ export function CrewPage() {
   return (
     <div className="space-y-12">
       <section className="text-center mb-16">
-        <h1 className="text-5xl font-bold mb-6">Nossa Tripulação</h1>
+        <h1 className="text-5xl font-bold mb-6">Nossa Tripulação no {title}</h1>
         <p className="text-xl max-w-3xl mx-auto">
           Conheça os membros que mantêm nossa guilda forte e unida.
         </p>

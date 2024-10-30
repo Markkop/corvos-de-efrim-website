@@ -16,5 +16,5 @@ export const metadata: Metadata = {
 }
 
 export default function Membros() {
-  return <CrewPage />
+  return <CrewPage game="wakfu" />
 }
