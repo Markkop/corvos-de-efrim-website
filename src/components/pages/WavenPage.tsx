@@ -29,6 +29,12 @@ export function WavenPage() {
       href: '/jogos/waven/galeria',
       disabled: true,
     },
+    {
+      title: 'Dicas',
+      description:
+        'Guia de recursos e dicas essenciais para progredir no jogo.',
+      href: '/jogos/waven/dicas',
+    },
   ]
 
   return (

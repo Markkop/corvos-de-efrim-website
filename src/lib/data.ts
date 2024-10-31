@@ -827,3 +827,12 @@ export const wavenBuildSuggestions = [
     difficulty: 3,
   }
 ]
+
+export const dailyLevels = [
+  {
+    name: 'Sangue nos Olhos',
+    goal: 'Derrote um Vampyro Bestial pro último',
+    levels: [118, 98, 78, 58, 38, 18],
+  },
+
+]
