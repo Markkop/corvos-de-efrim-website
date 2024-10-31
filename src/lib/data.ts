@@ -817,5 +817,13 @@ export const wavenBuildSuggestions = [
 
     cost: 3,
     difficulty: 2,
+  },
+  {
+    name: 'Xelor Tako - Cthulhu',
+    god: 'xelor',
+    weapon: 'tako',
+    link: 'https://wavendb.com/builds/show/1CCg6fHtTk3SaNu57C1o1X',
+    cost: 3,
+    difficulty: 3,
   }
 ]
