@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/accordion'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { WavenRelatedPages } from '@/components/waven-related-pages'
 import { DISCORD_INVITE_URL } from '@/lib/constants'
 import { guildGames } from '@/lib/data'
 import { cn } from '@/lib/utils'
@@ -311,6 +312,10 @@ export function WavenRecruitmentComponent() {
             </ul>
           </CardContent>
         </Card>
+      </motion.div>
+
+      <motion.div variants={fadeIn}>
+        <WavenRelatedPages currentPath="/jogos/waven/recrutamento" />
       </motion.div>
     </motion.div>
   )

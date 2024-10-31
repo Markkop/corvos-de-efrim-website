@@ -14,6 +14,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { WavenRelatedPages } from '@/components/waven-related-pages'
 import {
   ArrowRightCircle,
   Book,
@@ -207,6 +208,8 @@ export function WavenTipsPage() {
           </CardContent>
         </Card>
       </section>
+
+      <WavenRelatedPages currentPath="/jogos/waven/dicas" />
     </div>
   )
 }
