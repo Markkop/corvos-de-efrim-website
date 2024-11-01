@@ -1,4 +1,5 @@
 import { ThemeProvider } from '@/app/providers'
+import BreadcrumbNav from '@/components/BreadcrumbNav'
 import Navigation from '@/components/Navigation'
 import { WEBSITE_HOST_URL } from '@/lib/constants'
 import type { Metadata } from 'next'
@@ -55,12 +56,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <div className="bg-[#e6d7c3] min-h-screen text-[#2a2a2a] font-serif">
-            {/* Remove the p-6 padding from header since Navigation will handle its own padding */}
             <header className="bg-[#2a2a2a] text-[#e6d7c3] sticky top-0 z-50">
               <Navigation />
             </header>
 
-            <main className="max-w-7xl mx-auto py-12 px-6">{children}</main>
+            <div className="max-w-7xl mx-auto px-6 py-4">
+              <BreadcrumbNav />
+            </div>
+
+            <main className="max-w-7xl mx-auto py-8 px-6">{children}</main>
 
             <footer className="bg-[#2a2a2a] text-[#e6d7c3] p-6 mt-12">
               <div className="max-w-7xl mx-auto text-center">

@@ -9,7 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "tree": "tree -I node_modules"
+    "tree": "tree -I 'node_modules|.git|dist|.next|public|data' > instructions/tree.md"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.1",
