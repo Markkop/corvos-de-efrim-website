@@ -152,7 +152,7 @@ export const wavenCrewMembers = [
     name: 'Caliente',
     role: 'Braço Direito',
 
-    images: ['/images/corvos.png'],
+    images: ['/images/caliente-waven-1.png'],
   },
   {
     name: 'NelsinHB',
@@ -170,7 +170,13 @@ export const wavenCrewMembers = [
     name: 'Cachorro Magro',
     role: 'Veterano',
 
-    images: ['/images/corvos.png'],
+    images: ['/images/cachorro-magro-waven-1.png'],
+  },
+  {
+    name: 'Paul Cadmus',
+    role: 'Veterano',
+
+    images: ['/images/paul-cadmus-waven-1.png'],
   },
   {
     name: 'Mais em breve...',
