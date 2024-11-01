@@ -62,7 +62,7 @@ export function WavenTipsPage() {
       title: 'Fragmentos de Wakfu',
       icon: <Puzzle className="h-6 w-6" />,
       description:
-        'Há poucas formas de se obter. A principal é fazendo a luta sazonal da temporada pagando 1 ticket por luta. Ganha-se 1 ticket por dia e mais tickets com passe de batalha.',
+        'Há poucas formas de se obter. A principal é fazendo a luta sazonal da temporada pagando 1 ticket por luta. Dá pra ganhar ticket com o passe de batalha e também 1 por dia, desde que você "participe" da luta sazonal.',
       note: 'O melhor uso atualmente dos Fragmentos é comprando Runa, mas é possível usar para comprar magias, baús e ouro.',
     },
   ]
