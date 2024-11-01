@@ -1,12 +1,23 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from '@/components/ui/navigation-menu'
 import { DISCORD_INVITE_URL, YOUTUBE_CHANNEL_URL } from '@/lib/constants'
+import { cn } from '@/lib/utils'
 import { AnimatePresence, motion } from 'framer-motion'
+import { BookOpen, ScrollText, Swords, UserPlus, Users } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -35,6 +46,49 @@ const Navigation = () => {
       name: 'YouTube',
       url: YOUTUBE_CHANNEL_URL,
       image: '/icons/youtube.svg',
+    },
+  ]
+
+  const wakfuItems = [
+    {
+      title: 'Regimento',
+      href: '/jogos/wakfu/regimento',
+      description: 'Regras e informações sobre nossa guilda no Wakfu.',
+      icon: ScrollText,
+    },
+    {
+      title: 'Membros',
+      href: '/jogos/wakfu/membros',
+      description: 'Lista de membros ativos da guilda no Wakfu.',
+      icon: Users,
+    },
+  ]
+
+  const wavenItems = [
+    {
+      title: 'Builds',
+      href: '/jogos/waven/builds',
+      description: 'Builds recomendadas para classes do Waven.',
+      icon: Swords,
+    },
+    {
+      title: 'Dicas',
+      href: '/jogos/waven/dicas',
+      description: 'Dicas e guias para jogadores de Waven.',
+      icon: BookOpen,
+    },
+    {
+      title: 'Membros',
+      href: '/jogos/waven/membros',
+      description: 'Lista de membros da comunidade no Waven.',
+      icon: Users,
+    },
+    {
+      title: 'Recrutamento',
+      href: '/jogos/waven/recrutamento',
+      description:
+        'Informações sobre como se juntar à nossa comunidade no Waven.',
+      icon: UserPlus,
     },
   ]
 
@@ -76,28 +130,67 @@ const Navigation = () => {
           </Link>
         </motion.div>
 
-        {/* Nav Items - Center */}
-        <div className="hidden lg:flex items-center justify-center flex-1 mx-4">
-          <div className="flex items-center space-x-1">
-            {navItems.map((item) => (
-              <motion.div
-                key={item.href}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link href={item.href} onClick={handleNavClick}>
-                  <Button
-                    variant="ghost"
-                    className={`hover:text-[#a27a50] ~text-xs/sm ${
-                      isActive(item.href) ? 'text-[#a27a50]' : ''
-                    }`}
-                  >
-                    {item.label}
-                  </Button>
+        {/* Updated Navigation Menu */}
+        <div className="hidden lg:block">
+          <NavigationMenu className="relative">
+            <NavigationMenuList className="flex items-center gap-2">
+              <NavigationMenuItem>
+                <Link href="/" legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    INÍCIO
+                  </NavigationMenuLink>
                 </Link>
-              </motion.div>
-            ))}
-          </div>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link href="/historia" legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    HISTÓRIA
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>WAKFU</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+                    {wakfuItems.map((item) => (
+                      <ListItem
+                        key={item.title}
+                        title={item.title}
+                        href={item.href}
+                        icon={item.icon}
+                      >
+                        {item.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>WAVEN</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+                    {wavenItems.map((item) => (
+                      <ListItem
+                        key={item.title}
+                        title={item.title}
+                        href={item.href}
+                        icon={item.icon}
+                      >
+                        {item.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link href="/contato" legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    CONTATO
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
 
         {/* Social Links and Mobile Menu - Right */}
@@ -233,5 +326,38 @@ const Navigation = () => {
     </nav>
   )
 }
+
+// Add ListItem component
+const ListItem = React.forwardRef<
+  React.ElementRef<'a'>,
+  React.ComponentPropsWithoutRef<'a'> & {
+    title: string
+    icon?: React.ComponentType<{ className?: string }>
+  }
+>(({ className, title, children, icon: Icon, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+            className,
+          )}
+          {...props}
+        >
+          <div className="flex items-center gap-2">
+            {Icon && <Icon className="h-4 w-4 text-amber-500" />}
+            <div className="text-sm font-medium leading-none">{title}</div>
+          </div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-2">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  )
+})
+ListItem.displayName = 'ListItem'
 
 export default Navigation
