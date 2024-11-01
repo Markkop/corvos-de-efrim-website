@@ -25,6 +25,7 @@ import {
   HelpCircle,
   Layers,
   Library,
+  MousePointer2,
   Puzzle,
   Ruler,
   Sun,
@@ -75,7 +76,7 @@ export function WavenTipsPage() {
         'Todo dia muda a rotação de items nas ilhas, definindo o que vai ser vendido na loja da ilha e quais items podem ser recebidos no final das lutas.',
         'A rotação não afeta a mercadoria do vendedor no final de uma masmorra.',
         'Priorize equipamentos que você ainda não tem. Quando já tiver tudo, priorize equipamentos dourados das builds que você planeja montar.',
-        'Equipamentos comuns, raros e épicos vão vir aos montes enquanto você jogar a longo prazo.',
+        'Equipamentos comuns, raros e épicos vão vir aos montos enquanto você jogar a longo prazo.',
       ],
     },
     {
@@ -88,17 +89,27 @@ export function WavenTipsPage() {
         'Não vale muito á pena comprar magia no Kabrok, talvez só uma de cada caso você não tiver',
       ],
     },
+    {
+      title: 'Interface',
+      icon: <MousePointer2 className="h-5 w-5" />,
+      content: [
+        'Desistir de uma luta já ganha, enquanto você apenas espera as animações terminarem, é considerado vitória e você ganhará as recompensas normalmente.',
+        'Clicar com o botão direito em algumas setinhas de transição de mapa (como em calabouços) faz com que você pule diretamente pro outro mapa.',
+        'Para sequencia de animações muito longas, você pode "Desconectar-se" e voltar pro jogo para pular a maior parte delas.',
+      ],
+    },
+    {
+      title: 'Missões Diárias',
+      icon: <Sun className="h-5 w-5" />,
+      content: [
+        'Completar masmorra: baús e ouro',
+        'Ajudar alguém numa masmorra: baús e ouro',
+        'Completar uma mini-missão na ilha: baús, ouro e um trocadinho de runa',
+        'Completar um desafio: ouro e fichas',
+        'Com builds fortes, leva-se no max. 10 minutos para fazer todas as dailies, mas se estiver com falta de tempo/vontade, foque nas que dão ficha. Você vai precisar.',
+      ],
+    },
   ]
-
-  const dailyTips = {
-    types: [
-      'Completar masmorra: baús e ouro',
-      'Ajudar alguém numa masmorra: baús e ouro',
-      'Completar uma mini-missão na ilha: baús, ouro e um trocadinho de runa',
-      'Completar um desafio: ouro e fichas',
-    ],
-    note: 'Com builds fortes, leva-se no max. 10 minutos para fazer todas as dailies, mas se estiver com falta de tempo/vontade, foque nas que dão ficha. Você vai precisar.',
-  }
 
   return (
     <div className="space-y-12">
@@ -186,32 +197,6 @@ export function WavenTipsPage() {
             </AccordionItem>
           ))}
         </Accordion>
-      </section>
-
-      <section>
-        <Card className="bg-[#2a2a2a] text-[#e6d7c3]">
-          <CardHeader>
-            <div className="flex items-center gap-2">
-              <Sun className="h-6 w-6 text-amber-500" />
-              <CardTitle>Dicas de Daily</CardTitle>
-            </div>
-            <CardDescription className="text-gray-400">
-              Existem alguns tipos de daily com diferentes recompensas. Quanto
-              maior o nível da luta que ela for completada, maior a recompensa.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <ul className="space-y-2">
-              {dailyTips.types.map((tip, index) => (
-                <li key={index} className="flex items-start gap-2">
-                  <ArrowRightCircle className="h-4 w-4 mt-1 flex-shrink-0 text-amber-500" />
-                  <span>{tip}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-4 text-sm text-gray-400">{dailyTips.note}</p>
-          </CardContent>
-        </Card>
       </section>
 
       <section>
