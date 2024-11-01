@@ -34,8 +34,12 @@ export const timelineEvents = [
     title: 'Novos Horizontes',
 
     description: 'Expandimos para Waven e outros jogos, mantendo nossa essência e valores.',
-    image:
+    images: [
       'https://static.ankama.com/upload/backoffice/direct/2024-10-14/13e919929b5171593a980cf7bd70e9c6.png',
+      '/images/guild-start-3.png',
+      '/images/ilha-de-guilda.png',
+      '/images/waven-luta-1.png'
+    ],
     cta: {
       text: 'Venha conosco!',
       link: DISCORD_INVITE_URL,

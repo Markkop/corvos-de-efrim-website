@@ -52,9 +52,13 @@ export function HistoryPage({ short = false }: HistoryPageProps) {
       }`}
     >
       <div className="w-full lg:w-1/3">
-        <div className="relative  w-full">
+        <div className="relative w-full">
           <ImageViewer
-            images={[{ src: event.image, alt: event.title }]}
+            images={
+              'images' in event
+                ? event.images.map((src) => ({ src, alt: event.title }))
+                : [{ src: event.image, alt: event.title }]
+            }
             width={500}
             height={375}
             className="object-cover rounded-lg"
