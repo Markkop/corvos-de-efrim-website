@@ -1,12 +1,6 @@
 'use client'
 
-import { ImageViewer } from '@/components/ImageViewer'
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { CrewMemberCard } from '@/components/CrewMemberCard'
 import { wakfuCrewMembers, wavenCrewMembers } from '@/lib/data'
 
 interface CrewPageProps {
@@ -18,11 +12,9 @@ export function CrewPage({ game = 'wakfu' }: CrewPageProps) {
   const title = game === 'wakfu' ? 'Wakfu' : 'Waven'
 
   const sortedCrewMembers = [...crewMembers].sort((a, b) => {
-    // Always put "Mais em breve" last
     if (a.name === 'Mais em breve') return 1
     if (b.name === 'Mais em breve') return -1
 
-    // Put members with default/no images after those with custom images
     const aHasDefaultImage =
       !a.images.length || a.images[0] === '/images/corvos.png'
     const bHasDefaultImage =
@@ -43,34 +35,9 @@ export function CrewPage({ game = 'wakfu' }: CrewPageProps) {
         </p>
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4 sm:gap-6">
         {sortedCrewMembers.map((member) => (
-          <Card
-            key={member.name}
-            className="bg-[#2a2a2a] text-[#e6d7c3] overflow-hidden group"
-          >
-            <div className="flex gap-6 p-6">
-              <div className="w-1/3 flex justify-center items-center">
-                <ImageViewer
-                  images={member.images.map((image) => ({
-                    src: image,
-                    alt: `Foto de ${member.name}`,
-                  }))}
-                  width={200}
-                  height={300}
-                  className="p-0 py-0 my-0 m-0"
-                />
-              </div>
-              <div className="w-2/3 space-y-4">
-                <CardHeader className="p-0">
-                  <CardTitle className="text-3xl">{member.name}</CardTitle>
-                  <CardDescription className="text-[#bf9b30] text-lg">
-                    {member.role}
-                  </CardDescription>
-                </CardHeader>
-              </div>
-            </div>
-          </Card>
+          <CrewMemberCard key={member.name} member={member} />
         ))}
       </div>
     </div>
