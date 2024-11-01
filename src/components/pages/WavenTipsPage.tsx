@@ -15,15 +15,20 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { WavenRelatedPages } from '@/components/waven-related-pages'
+import { dailyLevels } from '@/lib/data'
 import {
   ArrowRightCircle,
   Book,
   Coins,
+  Droplet,
   GamepadIcon,
+  HelpCircle,
   Layers,
   Library,
   Puzzle,
+  Ruler,
   Sun,
+  Target,
   Wand2,
   Warehouse,
 } from 'lucide-react'
@@ -207,6 +212,64 @@ export function WavenTipsPage() {
             <p className="mt-4 text-sm text-gray-400">{dailyTips.note}</p>
           </CardContent>
         </Card>
+      </section>
+
+      <section>
+        <h2 className="text-3xl font-bold mb-6 flex items-center gap-2">
+          <Target className="h-8 w-8" />
+          Daily Levels
+        </h2>
+        <p className="text-black mb-4">
+          Daily de desafio é bom completar no maior nível possível, para ganhar
+          o máximo de fichas possíveis. Mas ás vezes é difícil saber onde
+          monstro em questão aparece, então estamos construindo uma lista com os
+          maiores níveis em que eles podem ser encontrados
+        </p>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {dailyLevels.map((daily) => (
+            <Card
+              key={daily.name}
+              className="bg-[#2a2a2a] text-[#e6d7c3] flex flex-col"
+            >
+              <CardHeader>
+                <div className="flex items-center gap-2">
+                  {daily.icon === 'droplet' && (
+                    <Droplet className="h-5 w-5 text-amber-500" />
+                  )}
+                  {daily.icon === 'ruler' && (
+                    <Ruler className="h-5 w-5 text-amber-500" />
+                  )}
+                  {daily.icon === 'help-circle' && (
+                    <HelpCircle className="h-5 w-5 text-amber-500" />
+                  )}
+                  <CardTitle className="text-lg">{daily.name}</CardTitle>
+                </div>
+                <CardDescription className="text-gray-400">
+                  {daily.goal}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1 flex flex-col justify-end">
+                {daily.levels.length > 0 && (
+                  <div className="mt-auto">
+                    <p className="text-sm text-gray-400 mb-2">
+                      Melhores níveis:
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {daily.levels.map((level) => (
+                        <span
+                          key={level}
+                          className="inline-flex items-center justify-center bg-amber-950/50 text-amber-500 px-2.5 py-0.5 rounded-md text-sm font-medium"
+                        >
+                          {level}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </section>
 
       <WavenRelatedPages currentPath="/jogos/waven/dicas" />
