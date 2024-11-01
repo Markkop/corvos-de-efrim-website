@@ -10,7 +10,8 @@ const meta = {
   title: 'Corvos de Efrim',
   description:
     'Uma guilda presente em Wakfu, Waven e outros jogos. Junte-se a nós!',
-  image: `/images/corvosefrim.jpg`,
+  largeImageUrl: `/images/og.jpg`,
+  thumbnailUrl: `/images/og-thumbnail.png`,
 }
 
 export const metadata: Metadata = {
@@ -32,7 +33,9 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: meta.image,
+        url: meta.thumbnailUrl,
+        width: 300,
+        height: 300,
       },
     ],
   },
@@ -43,7 +46,7 @@ export const metadata: Metadata = {
       template: '%s',
     },
     description: meta.description,
-    images: meta.image,
+    images: meta.largeImageUrl,
   },
   alternates: {
     canonical: WEBSITE_HOST_URL,
