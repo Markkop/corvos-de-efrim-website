@@ -15,7 +15,6 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { WavenRelatedPages } from '@/components/waven-related-pages'
-import { dailyLevels } from '@/lib/data'
 import {
   ArrowRightCircle,
   Book,
@@ -26,6 +25,7 @@ import {
   Layers,
   Library,
   MousePointer2,
+  PiggyBank,
   Puzzle,
   Ruler,
   Sun,
@@ -33,6 +33,33 @@ import {
   Wand2,
   Warehouse,
 } from 'lucide-react'
+
+const dailyLevels = [
+  {
+    name: 'Sangue nos Olhos',
+    goal: 'Derrote um Vampyro Bestial por último',
+    levels: [118, 98, 78, 58, 38, 18],
+    icon: <Droplet className="h-5 w-5 text-amber-500" />,
+  },
+  {
+    name: 'Querendo compensar',
+    goal: 'Elimine um Sussurador Perna-de-Pau quando ele estiver defasado',
+    levels: [108, 88, 68, 48, 28, 8],
+    icon: <Ruler className="h-5 w-5 text-amber-500" />,
+  },
+  {
+    name: 'De porco tudo se aproveita',
+    goal: 'Elimine um Soldado Suinocivo primeiro',
+    levels: [118, 98, 78, 58, 38, 18],
+    icon: <PiggyBank className="h-5 w-5 text-amber-500" />,
+  },
+  {
+    name: 'Contribua!',
+    goal: 'Se você tiver uma dica como essas, mande no nosso Discord',
+    levels: [],
+    icon: <HelpCircle className="h-5 w-5 text-amber-500" />,
+  },
+]
 
 export function WavenTipsPage() {
   const resources = [
@@ -218,15 +245,7 @@ export function WavenTipsPage() {
             >
               <CardHeader>
                 <div className="flex items-center gap-2">
-                  {daily.icon === 'droplet' && (
-                    <Droplet className="h-5 w-5 text-amber-500" />
-                  )}
-                  {daily.icon === 'ruler' && (
-                    <Ruler className="h-5 w-5 text-amber-500" />
-                  )}
-                  {daily.icon === 'help-circle' && (
-                    <HelpCircle className="h-5 w-5 text-amber-500" />
-                  )}
+                  {daily.icon}
                   <CardTitle className="text-lg">{daily.name}</CardTitle>
                 </div>
                 <CardDescription className="text-gray-400">

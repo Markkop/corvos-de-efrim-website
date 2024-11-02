@@ -845,23 +845,3 @@ export const wavenBuildSuggestions = [
   }
 ]
 
-export const dailyLevels = [
-  {
-    name: 'Sangue nos Olhos',
-    goal: 'Derrote um Vampyro Bestial por último',
-    levels: [118, 98, 78, 58, 38, 18],
-    icon: 'droplet'
-  },
-  {
-    name: 'Querendo compensar',
-    goal: 'Elimine um Sussurador Perna-de-Pau quando ele estiver defasado',
-    levels: [108, 88, 68, 48, 28, 8],
-    icon: 'ruler'
-  },
-  {
-    name: 'Contribua!',
-    goal: 'Se você tiver uma dica como essas, mande no nosso Discord',
-    levels: [],
-    icon: 'help-circle'
-  }
-]
