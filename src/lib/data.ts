@@ -155,6 +155,11 @@ export const wavenCrewMembers = [
     images: ['/images/caliente-waven-1.png'],
   },
   {
+    name: 'Corvos Dan',
+    role: 'Veterano',
+    images: ['/images/dan-waven-1.png'],
+  },
+  {
     name: 'NelsinHB',
     role: 'Veterano',
     images: ['/images/corvos.png'],
