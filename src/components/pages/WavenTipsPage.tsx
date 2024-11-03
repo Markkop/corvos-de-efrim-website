@@ -33,6 +33,7 @@ import {
   Wand2,
   Warehouse,
 } from 'lucide-react'
+import { FaEarlybirds } from 'react-icons/fa'
 import { GiBullHorns } from 'react-icons/gi'
 
 const dailyLevels = [
@@ -59,6 +60,12 @@ const dailyLevels = [
     goal: 'Elimine um Taurrida com um ataque',
     levels: [120, 100, 80, 60, 40, 20],
     icon: <GiBullHorns className="h-5 w-5 text-amber-500" />,
+  },
+  {
+    name: 'Tofuliche',
+    goal: 'Elimine duas Hordas no mesmo combate',
+    levels: [120, 100, 80, 60, 40, 20],
+    icon: <FaEarlybirds className="h-5 w-5 text-amber-500" />,
   },
   {
     name: 'Contribua!',
