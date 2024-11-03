@@ -33,6 +33,7 @@ import {
   Wand2,
   Warehouse,
 } from 'lucide-react'
+import { GiBullHorns } from 'react-icons/gi'
 
 const dailyLevels = [
   {
@@ -52,6 +53,12 @@ const dailyLevels = [
     goal: 'Elimine um Soldado Suinocivo primeiro',
     levels: [118, 98, 78, 58, 38, 18],
     icon: <PiggyBank className="h-5 w-5 text-amber-500" />,
+  },
+  {
+    name: 'Taurtura',
+    goal: 'Elimine um Taurrida com um ataque',
+    levels: [120, 100, 80, 60, 40, 20],
+    icon: <GiBullHorns className="h-5 w-5 text-amber-500" />,
   },
   {
     name: 'Contribua!',
