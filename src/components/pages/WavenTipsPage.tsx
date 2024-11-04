@@ -56,6 +56,12 @@ const dailyLevels = [
     icon: <PiggyBank className="h-5 w-5 text-amber-500" />,
   },
   {
+    name: 'Ela está morta, Adela',
+    goal: 'Elimine uma Mortadella primeiro',
+    levels: [118, 98, 78, 58, 38, 18],
+    icon: <PiggyBank className="h-5 w-5 text-amber-500" />,
+  },
+  {
     name: 'Taurtura',
     goal: 'Elimine um Taurrida com um ataque',
     levels: [120, 100, 80, 60, 40, 20],
