@@ -34,7 +34,7 @@ import {
   Warehouse,
 } from 'lucide-react'
 import { FaEarlybirds } from 'react-icons/fa'
-import { GiBullHorns } from 'react-icons/gi'
+import { GiBullHorns, GiSheep } from 'react-icons/gi'
 
 const dailyLevels = [
   {
@@ -72,6 +72,12 @@ const dailyLevels = [
     goal: 'Elimine duas Hordas no mesmo combate',
     levels: [120, 100, 80, 60, 40, 20],
     icon: <FaEarlybirds className="h-5 w-5 text-amber-500" />,
+  },
+  {
+    name: 'Boa lã para velhos ossos',
+    goal: 'Elimine uma Papatudette por último',
+    levels: [116, 96, 76, 56, 36, 16],
+    icon: <GiSheep className="h-5 w-5 text-amber-500" />,
   },
   {
     name: 'Contribua!',
