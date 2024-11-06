@@ -74,11 +74,18 @@ const dailyLevels = [
     icon: <FaEarlybirds className="h-5 w-5 text-amber-500" />,
   },
   {
+    name: 'Regime Forçado',
+    goal: 'Elimine um Tofu Pânceps primeiro',
+    levels: [116, 96, 76, 56, 36, 16],
+    icon: <FaEarlybirds className="h-5 w-5 text-amber-500" />,
+  },
+  {
     name: 'Boa lã para velhos ossos',
     goal: 'Elimine uma Papatudette por último',
     levels: [116, 96, 76, 56, 36, 16],
     icon: <GiSheep className="h-5 w-5 text-amber-500" />,
   },
+
   {
     name: 'Contribua!',
     goal: 'Se você tiver uma dica como essas, mande no nosso Discord',
