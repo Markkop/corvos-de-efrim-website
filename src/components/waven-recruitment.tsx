@@ -1,20 +1,22 @@
 'use client'
 
-import { ImageViewer } from '@/components/ImageViewer'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
-import { Badge } from '@/components/ui/badge'
+import { GalleryViewer } from '@/components/GalleryViewer'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { WavenRelatedPages } from '@/components/waven-related-pages'
 import { DISCORD_INVITE_URL } from '@/lib/constants'
 import { guildGames } from '@/lib/data'
 import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
-import { Activity, Shield, UserPlus, Users } from 'lucide-react'
+import {
+  Activity,
+  Badge,
+  Crown,
+  Shield,
+  Sword,
+  Swords,
+  TrendingUp,
+  Users,
+} from 'lucide-react'
 import Image from 'next/image'
 import { FaDiscord } from 'react-icons/fa'
 import { Button } from './ui/button'
@@ -43,11 +45,207 @@ export function WavenRecruitmentComponent() {
       animate="visible"
       variants={staggerChildren}
     >
-      <motion.section className="text-center mb-8" variants={fadeIn}>
-        <h1 className="text-5xl font-bold mb-4 ">Regras - Waven</h1>
-        <p className="text-xl">Ao entrar na guilda você concorda em:</p>
-      </motion.section>
+      {/* Recrutamento (formerly Caminhos) */}
+      <motion.div variants={fadeIn}>
+        <Card className="bg-[#2a2a2a] text-[#e6d7c3]">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-3 text-[#bf9b30] text-3xl">
+              <Users className="h-8 w-8" />
+              Recrutamento
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-8">
+            {/* Cards Grid */}
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Solo Card */}
+              <Card className="bg-[#1f1f1f] border-[#bf9b30]/20 hover:border-[#bf9b30] transition-colors flex flex-col">
+                <CardHeader>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-[#bf9b30]/10 p-2 rounded-lg">
+                        <Sword className="h-5 w-5 text-[#bf9b30]" />
+                      </div>
+                      <CardTitle className="text-[#bf9b30] text-base">
+                        Solo
+                      </CardTitle>
+                    </div>
+                    <p className="text-sm">
+                      Trilhe seu próprio caminho e descubra uma comunidade ativa
+                      de jogadores.
+                    </p>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4 flex-1 flex flex-col">
+                  <div className="space-y-3 flex-1">
+                    <h4 className="text-[#bf9b30] text-sm">
+                      Critérios de Avaliação
+                    </h4>
+                    <ul className="space-y-2 text-xs">
+                      <li className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#bf9b30]" />
+                        Ex-corvo (prioridade total)
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#bf9b30]" />
+                        Data da Candidatura
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#bf9b30]" />
+                        PdM (média 6k+)
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#bf9b30]" />
+                        Personagens nível 50
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#bf9b30]" />
+                        Texto de apresentação
+                      </li>
+                    </ul>
+                  </div>
+                  <Button
+                    asChild
+                    variant="default"
+                    className="w-full mt-auto bg-[#aad1de] hover:bg-[#8fbfd5] text-black"
+                  >
+                    <a
+                      href={wavenGuildForumUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2"
+                    >
+                      <span>Candidatar-se</span>
+                      {wavenGame?.image && (
+                        <Image
+                          src={wavenGame.image}
+                          alt="Waven"
+                          width={24}
+                          height={24}
+                          className={cn(
+                            'object-contain',
+                            wavenGame.lightBackground && 'invert brightness-0',
+                          )}
+                        />
+                      )}
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
 
+              {/* Group Card */}
+              <Card className="bg-[#1f1f1f] border-[#bf9b30]/20 hover:border-[#bf9b30] transition-colors flex flex-col">
+                <CardHeader>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-[#bf9b30]/10 p-2 rounded-lg">
+                        <Swords className="h-5 w-5 text-[#bf9b30]" />
+                      </div>
+                      <CardTitle className="text-[#bf9b30] text-base">
+                        Em Grupo
+                      </CardTitle>
+                    </div>
+                    <p className="text-sm">
+                      Fortaleça laços existentes! Temos espaço reservado para
+                      pequenos grupos de jogadores.
+                    </p>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4 flex-1 flex flex-col">
+                  <ul className="space-y-2 text-sm flex-1">
+                    <li className="flex items-center gap-2">
+                      <div className="w-1 h-1 rounded-full bg-[#bf9b30]" />
+                      Prioridade na candidatura
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-1 h-1 rounded-full bg-[#bf9b30]" />
+                      Conheça outros grupos
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-1 h-1 rounded-full bg-[#bf9b30]" />
+                      Convide amigos
+                    </li>
+                  </ul>
+                  <Button
+                    asChild
+                    variant="default"
+                    className="w-full mt-auto bg-[#5865F2] hover:bg-[#4752C4] text-white"
+                  >
+                    <a
+                      href={DISCORD_INVITE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2"
+                    >
+                      <span>Entrar em contato</span>
+                      <FaDiscord className="w-6 h-6" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Guild Merge Card */}
+              <Card className="bg-[#1f1f1f] border-[#bf9b30]/20 hover:border-[#bf9b30] transition-colors flex flex-col">
+                <CardHeader>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-[#bf9b30]/10 p-2 rounded-lg">
+                        <Crown className="h-5 w-5 text-[#bf9b30]" />
+                      </div>
+                      <CardTitle className="text-[#bf9b30] text-base">
+                        União de Guildas
+                      </CardTitle>
+                    </div>
+                    <p className="text-sm">
+                      Junte forças através de uma união estratégica com os
+                      Corvos.
+                    </p>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4 flex-1 flex flex-col">
+                  <ul className="space-y-2 text-sm flex-1">
+                    <li className="flex items-center gap-2">
+                      <div className="w-1 h-1 rounded-full bg-[#bf9b30]" />
+                      Discutido caso a caso
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-1 h-1 rounded-full bg-[#bf9b30]" />
+                      Integração facilitada
+                    </li>
+                  </ul>
+                  <Button
+                    asChild
+                    variant="default"
+                    className="w-full mt-auto bg-[#5865F2] hover:bg-[#4752C4] text-white"
+                  >
+                    <a
+                      href={DISCORD_INVITE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2"
+                    >
+                      <span>Entrar em contato</span>
+                      <FaDiscord className="w-6 h-6" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Inactivity Policy Note */}
+            <p className="text-center text-sm text-[#e6d7c3]/80">
+              Em todos os casos os membros estão sujeitos à{' '}
+              <a
+                href="#politica-de-inatividade"
+                className="text-[#bf9b30] hover:underline"
+              >
+                Política de Inatividade
+              </a>
+            </p>
+          </CardContent>
+        </Card>
+      </motion.div>
+
+      {/* Regras */}
       <motion.div variants={fadeIn}>
         <Card className="bg-[#2a2a2a] text-[#e6d7c3]">
           <CardHeader>
@@ -59,39 +257,19 @@ export function WavenRecruitmentComponent() {
           <CardContent>
             <ul className="space-y-2">
               <li className="flex items-center gap-2">
-                <Badge
-                  variant="outline"
-                  className="border-[#bf9b30] text-[#bf9b30]"
-                >
-                  1
-                </Badge>
+                <Badge className="border-[#bf9b30] text-[#bf9b30]">1</Badge>
                 Respeitar os membros
               </li>
               <li className="flex items-center gap-2">
-                <Badge
-                  variant="outline"
-                  className="border-[#bf9b30] text-[#bf9b30]"
-                >
-                  2
-                </Badge>
+                <Badge className="border-[#bf9b30] text-[#bf9b30]">2</Badge>
                 Ajudar com a progressão da guilda
               </li>
               <li className="flex items-center gap-2">
-                <Badge
-                  variant="outline"
-                  className="border-[#bf9b30] text-[#bf9b30]"
-                >
-                  3
-                </Badge>
+                <Badge className="border-[#bf9b30] text-[#bf9b30]">3</Badge>
                 Ser removido em caso de inatividade
               </li>
               <li className="flex items-center gap-2">
-                <Badge
-                  variant="outline"
-                  className="border-[#bf9b30] text-[#bf9b30]"
-                >
-                  4
-                </Badge>
+                <Badge className="border-[#bf9b30] text-[#bf9b30]">4</Badge>
                 Entrar no discord e alterar o seu nick pra ficar o mesmo do jogo
               </li>
             </ul>
@@ -99,164 +277,65 @@ export function WavenRecruitmentComponent() {
         </Card>
       </motion.div>
 
+      {/* Progressão */}
       <motion.div variants={fadeIn}>
         <Card className="bg-[#2a2a2a] text-[#e6d7c3]">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-[#bf9b30]">
-              <Activity className="h-6 w-6" />
+              <TrendingUp className="h-6 w-6" />
               Progressão
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <p className="mb-4">
-              Para contribuir com a progressão da guilda você deve marcar
-              &ldquo;Presente&rdquo; no painel da guilda sempre que possível.
-              Também deve contribuir semanalnte para o saco de pancada
-              &ldquo;Saka Batatauro&rdquo;.
-            </p>
-            <div className="flex justify-center gap-4 flex-wrap">
-              <ImageViewer
-                images={[
-                  {
-                    src: '/images/guild-start-4.png',
-                    alt: 'Saka Batatauro',
-                  },
-                ]}
-                width={300}
-                height={200}
-                className="w-[300px]"
-              />
-
-              <ImageViewer
-                images={[
-                  {
-                    src: '/images/guild-start-2.png',
-                    alt: 'Saka Batatauro',
-                  },
-                ]}
-                width={300}
-                height={200}
-                className="w-[300px]"
-              />
-              <ImageViewer
-                images={[
-                  {
-                    src: '/images/guild-start-1.png',
-                    alt: 'Saka Batatauro',
-                  },
-                ]}
-                width={300}
-                height={200}
-                className="w-[300px]"
-              />
-            </div>
-          </CardContent>
-        </Card>
-      </motion.div>
-
-      <motion.div variants={fadeIn}>
-        <Accordion
-          type="single"
-          collapsible
-          className="bg-[#2a2a2a] text-[#e6d7c3] rounded-lg"
-        >
-          <AccordionItem value="item-1" className="border-[#bf9b30]/20">
-            <AccordionTrigger className="hover:text-[#bf9b30] px-6">
-              Política de Inatividade
-            </AccordionTrigger>
-            <AccordionContent className="px-6">
-              <p className="mb-4">
-                Atualmente o limite de membros de guilda no Waven é 40 e
-                precisamos estar constantemente removendo jogadores inativos
-                para manter a evolução da guilda, então pedimos para que você
-                entenda que removeremos os jogadores da guilda com base nos
-                seguintes critérios:
-              </p>
-              <ul className="list-disc list-inside space-y-2 mb-4">
-                <li>
-                  Tempo sem entrar no jogo* (atualmente não tem como saber)
-                </li>
-                <li>Cargo (Em Avaliação/Membro/Veterano)</li>
-                <li>Quantidade de PdM</li>
-                <li>Nível e quantidade dos personagens</li>
-              </ul>
-              <p className="mb-4">
-                O tempo exato vai depender do fluxo de membros em um dado
-                momento, podendo variar de dias para semanas. Jogadores
-                removidos sempre podem se candidatar novamente, e tendo espaço
-                na guilda eles são imediatamente aceitos.
-              </p>
-              <p>
-                Se por ventura você removido erroneamente, por favor entre em
-                contato no discord, ás vezes acontece.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </motion.div>
-
-      <motion.div variants={fadeIn}>
-        <Card className="bg-[#2a2a2a] text-[#e6d7c3]">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-[#bf9b30]">
-              <UserPlus className="h-6 w-6" />
-              Recrutamento
-            </CardTitle>
-          </CardHeader>
           <CardContent className="space-y-4">
-            <p>
-              Candidate-se pelo painel de guilda, entre no discord e atualize
-              seu nick para ficar igual a que tá no waven. Em caso de lotação,
-              seguraremos a candidatura até liberar espaço na guilda e
-              entenderemos caso entre em outra guilda.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button
-                asChild
-                variant="default"
-                className="bg-[#aad1de] hover:bg-[#8fbfd5] text-black"
-              >
-                <a
-                  href={wavenGuildForumUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2"
-                >
-                  <span>Como se candidatar</span>
-                  {wavenGame?.image && (
-                    <Image
-                      src={wavenGame.image}
-                      alt="Waven"
-                      width={24}
-                      height={24}
-                      className={cn(
-                        'object-contain',
-                        wavenGame.lightBackground && 'invert brightness-0',
-                      )}
-                    />
-                  )}
-                </a>
-              </Button>
-              <Button
-                asChild
-                variant="default"
-                className="bg-[#5865F2] hover:bg-[#4752C4] text-white"
-              >
-                <a
-                  href={DISCORD_INVITE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2"
-                >
-                  <span>Entrar no Discord</span>
-                  <FaDiscord className="w-6 h-6" />
-                </a>
-              </Button>
+            <h3 className="font-medium text-[#bf9b30] text-lg flex items-center gap-2">
+              Tarefas
+            </h3>
+            <ul className="space-y-2">
+              <li className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#bf9b30]" />
+                Marcar &ldquo;Presente&rdquo; no painel da guilda sempre que
+                possível
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#bf9b30]" />
+                Dar o seu melhor no saco de pancada &ldquo;Saka Batatauro&rdquo;
+                semanalmente
+              </li>
+            </ul>
+
+            <h3 className="font-medium text-[#bf9b30] text-lg flex items-center gap-2 pt-4">
+              Recompensas
+            </h3>
+            <ul className="space-y-2">
+              <li className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#bf9b30]" />
+                XP e Kamas
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#bf9b30]" />
+                Loja diária na ilha da guilda
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#bf9b30]" />
+                Até 900 runas semanais de acordo com ranking intra e entre
+                guildas
+              </li>
+            </ul>
+
+            <div className="flex justify-center">
+              <GalleryViewer
+                images={[
+                  '/images/guild-start-1.png',
+                  '/images/guild-start-2.png',
+                ]}
+                className="w-full"
+              />
             </div>
           </CardContent>
         </Card>
       </motion.div>
 
+      {/* Cargos */}
       <motion.div variants={fadeIn}>
         <Card className="bg-[#2a2a2a] text-[#e6d7c3]">
           <CardHeader>
@@ -266,54 +345,109 @@ export function WavenRecruitmentComponent() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-2">
-                <Badge
-                  variant="secondary"
-                  className="mt-1 bg-[#bf9b30] text-[#2a2a2a]"
+            <div className="grid gap-4">
+              {[
+                {
+                  title: 'Líder e Braço direito',
+                  description:
+                    'Membros ativos e experientes para liderar e organizar a guilda.',
+                  icon: <Crown className="h-6 w-6" />,
+                },
+                {
+                  title: 'Veterano',
+                  description: 'Core da guilda',
+                  icon: <Shield className="h-6 w-6" />,
+                },
+                {
+                  title: 'Membro',
+                  description: 'Cargo padrão',
+                  icon: <Users className="h-6 w-6" />,
+                },
+                {
+                  title: 'Em Avaliação',
+                  description:
+                    'Jogadores recentes ou marcados para remoção por inatividade',
+                  icon: <Activity className="h-6 w-6" />,
+                },
+              ].map((cargo) => (
+                <div
+                  key={cargo.title}
+                  className="flex items-start gap-4 p-3 rounded-lg bg-[#1f1f1f] border border-[#bf9b30]/20"
                 >
-                  Líder e Braço direito
-                </Badge>
-                <span>
-                  Jogadores mais ativo e experiente afim de organizar e
-                  progredir a guilda.
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Badge
-                  variant="secondary"
-                  className="mt-1 bg-[#bf9b30] text-[#2a2a2a]"
-                >
-                  Veterano
-                </Badge>
-                <span>Jogadores conhecidos na guilda</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Badge
-                  variant="secondary"
-                  className="mt-1 bg-[#bf9b30] text-[#2a2a2a]"
-                >
-                  Membro
-                </Badge>
-                <span>
-                  Jogadores com mais de 2000 PdM e de 3k de dano no Saka
-                  Batatauro
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Badge
-                  variant="secondary"
-                  className="mt-1 bg-[#bf9b30] text-[#2a2a2a]"
-                >
-                  Em Avaliação
-                </Badge>
-                <span>Jogadores novatos na guilda</span>
-              </li>
-            </ul>
+                  <div className="bg-[#bf9b30]/10 p-2 rounded-lg text-[#bf9b30] h-12 w-12 flex items-center justify-center">
+                    {cargo.icon}
+                  </div>
+                  <div className="space-y-1">
+                    <h4 className="font-medium text-[#bf9b30]">
+                      {cargo.title}
+                    </h4>
+                    <p className="text-sm">{cargo.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </CardContent>
         </Card>
       </motion.div>
 
+      {/* Política de Inatividade */}
+      <motion.div variants={fadeIn}>
+        <Card
+          id="politica-de-inatividade"
+          className="bg-[#2a2a2a] text-[#e6d7c3]"
+        >
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-[#bf9b30]">
+              <Shield className="h-6 w-6" />
+              Política de Inatividade
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <h3 className="font-medium text-[#bf9b30] text-lg flex items-center gap-2">
+                  <Activity className="h-5 w-5" />
+                  Critérios de Inatividade
+                </h3>
+                <ul className="space-y-2">
+                  {[
+                    'Ausência no ranking semanal da guilda',
+                    'Quantidade de PdM abaixo da média (6k+)',
+                    'Futuramente: tempo offline (quando disponível no jogo)',
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#bf9b30]" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-medium text-[#bf9b30] text-lg flex items-center gap-2">
+                  <Shield className="h-5 w-5" />
+                  Importante saber
+                </h3>
+                <ul className="space-y-2">
+                  {[
+                    'Membros inativos podem ser removidos a qualquer momento',
+                    'Ex-membros têm prioridade ao se candidatar novamente',
+                    'Nosso limite de membros é 39 dos máximos 40',
+                    'Se você foi removido por engano, entre em contato no Discord',
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#bf9b30]" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+
+      {/* Related Pages */}
       <motion.div variants={fadeIn}>
         <WavenRelatedPages currentPath="/jogos/waven/recrutamento" />
       </motion.div>

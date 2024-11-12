@@ -4,6 +4,7 @@ import { ImageViewer } from '@/components/ImageViewer'
 import { cn } from '@/lib/utils'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
+import { useState } from 'react'
 
 interface GalleryViewerProps {
   images: string[]
@@ -16,14 +17,23 @@ export function GalleryViewer({
   images,
   className,
   onImageSelect,
-  selectedIndex = 0,
+  selectedIndex: externalSelectedIndex,
 }: GalleryViewerProps) {
+  const [internalSelectedIndex, setInternalSelectedIndex] = useState(0)
+
+  // Use external index if provided, otherwise use internal
+  const selectedIndex =
+    typeof externalSelectedIndex !== 'undefined'
+      ? externalSelectedIndex
+      : internalSelectedIndex
+
   const imageObjects = images.map((src) => ({
     src,
     alt: `Galeria da Guilda - ${src.split('/').pop()?.split('.')[0]}`,
   }))
 
   const handleImageSelect = (index: number) => {
+    setInternalSelectedIndex(index)
     onImageSelect?.(index)
   }
 
@@ -74,7 +84,7 @@ export function GalleryViewer({
               animate={{ opacity: 1, scale: 1 }}
               transition={{
                 duration: 0.2,
-                delay: index * 0.05, // Stagger effect
+                delay: index * 0.05,
               }}
             >
               <Image
