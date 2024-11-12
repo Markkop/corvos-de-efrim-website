@@ -70,8 +70,7 @@ export function WavenRecruitmentComponent() {
                       </CardTitle>
                     </div>
                     <p className="text-sm">
-                      Trilhe seu próprio caminho e descubra uma comunidade ativa
-                      de jogadores.
+                      Descubra uma comunidade ativa de jogadores.
                     </p>
                   </div>
                 </CardHeader>
@@ -145,8 +144,7 @@ export function WavenRecruitmentComponent() {
                       </CardTitle>
                     </div>
                     <p className="text-sm">
-                      Fortaleça laços existentes! Temos espaço reservado para
-                      pequenos grupos de jogadores.
+                      Jogue casualmente com seus amigos.
                     </p>
                   </div>
                 </CardHeader>
@@ -196,21 +194,22 @@ export function WavenRecruitmentComponent() {
                       </CardTitle>
                     </div>
                     <p className="text-sm">
-                      Junte forças através de uma união estratégica com os
-                      Corvos.
+                      Faça uma união estratégica com a Corvos.
                     </p>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4 flex-1 flex flex-col">
                   <ul className="space-y-2 text-sm flex-1">
-                    <li className="flex items-center gap-2">
-                      <div className="w-1 h-1 rounded-full bg-[#bf9b30]" />
-                      Discutido caso a caso
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-1 h-1 rounded-full bg-[#bf9b30]" />
-                      Integração facilitada
-                    </li>
+                    {[
+                      'Ajuda mútua',
+                      'Bônus compartilhados',
+                      'Discutido caso a caso',
+                    ].map((text) => (
+                      <li key={text} className="flex items-center gap-2">
+                        <div className="w-1 h-1 rounded-full bg-[#bf9b30]" />
+                        {text}
+                      </li>
+                    ))}
                   </ul>
                   <Button
                     asChild
