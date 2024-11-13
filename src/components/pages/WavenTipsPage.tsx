@@ -130,7 +130,7 @@ const dailyLevels: DailyChallenge[] = [
   {
     name: 'Without a Sound',
     goal: 'Eliminate 2 Whisperer Foot Soldiers in one turn',
-    levels: [112, 92, 72, 52, 32, 12],
+    levels: [120, 100, 80, 60, 40, 20],
     type: 'whisperer',
   },
   {
