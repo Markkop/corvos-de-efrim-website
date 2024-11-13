@@ -19,7 +19,6 @@ import {
   ArrowRightCircle,
   Book,
   Coins,
-  Droplet,
   GamepadIcon,
   HelpCircle,
   Layers,
@@ -27,72 +26,134 @@ import {
   MousePointer2,
   PiggyBank,
   Puzzle,
-  Ruler,
   Sun,
   Target,
   Wand2,
   Warehouse,
 } from 'lucide-react'
 import { FaEarlybirds } from 'react-icons/fa'
-import { GiBullHorns, GiSheep } from 'react-icons/gi'
+import { FaVolcano } from 'react-icons/fa6'
+import {
+  GiBugleCall,
+  GiBullHorns,
+  GiSheep,
+  GiVampireDracula,
+} from 'react-icons/gi'
 
-const dailyLevels = [
+type DailyChallengeType =
+  | 'vampire'
+  | 'whisperer'
+  | 'pig'
+  | 'taur'
+  | 'tofu'
+  | 'gobbal'
+  | 'sheep'
+  | 'bwork'
+  | 'help'
+
+interface DailyChallenge {
+  name: string
+  goal: string
+  levels: number[]
+  type: DailyChallengeType
+}
+
+const getDailyChallengeIcon = (type: DailyChallengeType) => {
+  const icons = {
+    vampire: <GiVampireDracula className="h-5 w-5 text-amber-500" />,
+    whisperer: <GiBugleCall className="h-5 w-5 text-amber-500" />,
+    pig: <PiggyBank className="h-5 w-5 text-amber-500" />,
+    taur: <GiBullHorns className="h-5 w-5 text-amber-500" />,
+    tofu: <FaEarlybirds className="h-5 w-5 text-amber-500" />,
+    gobbal: <GiSheep className="h-5 w-5 text-amber-500" />,
+    bwork: <FaVolcano className="h-5 w-5 text-amber-500" />,
+    help: <HelpCircle className="h-5 w-5 text-amber-500" />,
+  }
+  return icons[type]
+}
+
+const dailyLevels: DailyChallenge[] = [
   {
     name: 'Sangue nos Olhos',
     goal: 'Derrote um Vampyro Bestial por último',
     levels: [118, 98, 78, 58, 38, 18],
-    icon: <Droplet className="h-5 w-5 text-amber-500" />,
+    type: 'vampire',
   },
   {
     name: 'Querendo compensar',
     goal: 'Elimine um Sussurador Perna-de-Pau quando ele estiver defasado',
     levels: [108, 88, 68, 48, 28, 8],
-    icon: <Ruler className="h-5 w-5 text-amber-500" />,
+    type: 'whisperer',
   },
   {
     name: 'De porco tudo se aproveita',
     goal: 'Elimine um Soldado Suinocivo primeiro',
     levels: [118, 98, 78, 58, 38, 18],
-    icon: <PiggyBank className="h-5 w-5 text-amber-500" />,
+    type: 'pig',
   },
   {
     name: 'Ela está morta, Adela',
     goal: 'Elimine uma Mortadella primeiro',
     levels: [118, 98, 78, 58, 38, 18],
-    icon: <PiggyBank className="h-5 w-5 text-amber-500" />,
+    type: 'pig',
   },
   {
     name: 'Taurtura',
     goal: 'Elimine um Taurrida com um ataque',
     levels: [120, 100, 80, 60, 40, 20],
-    icon: <GiBullHorns className="h-5 w-5 text-amber-500" />,
+    type: 'taur',
   },
   {
     name: 'Tofuliche',
     goal: 'Elimine duas Hordas no mesmo combate',
     levels: [120, 100, 80, 60, 40, 20],
-    icon: <FaEarlybirds className="h-5 w-5 text-amber-500" />,
+    type: 'tofu',
   },
   {
     name: 'Regime Forçado',
     goal: 'Elimine um Tofu Pânceps primeiro',
     levels: [116, 96, 76, 56, 36, 16],
-    icon: <FaEarlybirds className="h-5 w-5 text-amber-500" />,
+    type: 'tofu',
   },
   {
     name: 'Boa lã para velhos ossos',
     goal: 'Elimine uma Papatudette por último',
     levels: [116, 96, 76, 56, 36, 16],
-    icon: <GiSheep className="h-5 w-5 text-amber-500" />,
+    type: 'gobbal',
+  },
+  {
+    name: 'Aos pequenos, pequenas coisas',
+    goal: 'Elimine um Sussurrador Balista por último',
+    levels: [114, 94, 74, 54, 34, 14],
+    type: 'whisperer',
+  },
+  {
+    name: 'Without a Sound',
+    goal: 'Eliminate 2 Whisperer Foot Soldiers in one turn',
+    levels: [112, 92, 72, 52, 32, 12],
+    type: 'whisperer',
+  },
+  {
+    name: 'Eliminando a Fonte',
+    goal: 'Elimine uma Bworka  por último',
+    levels: [116, 96, 76, 56, 36, 16],
+    type: 'bwork',
   },
 
   {
     name: 'Contribua!',
     goal: 'Se você tiver uma dica como essas, mande no nosso Discord',
     levels: [],
-    icon: <HelpCircle className="h-5 w-5 text-amber-500" />,
+    type: 'help',
   },
 ]
+
+// Sort dailyLevels alphabetically by type, keeping 'help' type at the end
+const sortedDailyLevels = [...dailyLevels].sort((a, b) => {
+  if (a.type === 'help') return 1
+  if (b.type === 'help') return -1
+  return a.type.localeCompare(b.type)
+})
 
 export function WavenTipsPage() {
   const resources = [
@@ -270,27 +331,40 @@ export function WavenTipsPage() {
           monstro em questão aparece, então estamos construindo uma lista com os
           maiores níveis em que eles podem ser encontrados
         </p>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {dailyLevels.map((daily) => (
-            <Card
-              key={daily.name}
-              className="bg-[#2a2a2a] text-[#e6d7c3] flex flex-col"
-            >
-              <CardHeader>
-                <div className="flex items-center gap-2">
-                  {daily.icon}
-                  <CardTitle className="text-lg">{daily.name}</CardTitle>
-                </div>
-                <CardDescription className="text-gray-400">
-                  {daily.goal}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="flex-1 flex flex-col justify-end">
-                {daily.levels.length > 0 && (
-                  <div className="mt-auto">
-                    <p className="text-sm text-gray-400 mb-2">
-                      Melhores níveis:
-                    </p>
+        <div className="relative overflow-x-auto rounded-lg">
+          <table className="w-full text-sm text-left">
+            <thead className="text-xs uppercase bg-[#2a2a2a] text-[#e6d7c3]">
+              <tr>
+                <th scope="col" className="px-6 py-3">
+                  Desafio
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Objetivo
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Níveis
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {sortedDailyLevels.map((daily, index) => (
+                <tr
+                  key={daily.name}
+                  className={`bg-[#2a2a2a] text-[#e6d7c3] border-b border-gray-700 ${
+                    index === sortedDailyLevels.length - 1 ? 'border-none' : ''
+                  }`}
+                >
+                  <th
+                    scope="row"
+                    className="px-6 py-4 font-medium whitespace-nowrap"
+                  >
+                    <div className="flex items-center gap-2">
+                      {getDailyChallengeIcon(daily.type)}
+                      {daily.name}
+                    </div>
+                  </th>
+                  <td className="px-6 py-4 text-gray-400">{daily.goal}</td>
+                  <td className="px-6 py-4">
                     <div className="flex flex-wrap gap-2">
                       {daily.levels.map((level) => (
                         <span
@@ -301,11 +375,11 @@ export function WavenTipsPage() {
                         </span>
                       ))}
                     </div>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-          ))}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </section>
 
