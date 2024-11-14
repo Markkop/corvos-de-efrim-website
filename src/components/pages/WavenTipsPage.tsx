@@ -37,6 +37,7 @@ import {
   GiBugleCall,
   GiBullHorns,
   GiSheep,
+  GiStoneBlock,
   GiVampireDracula,
 } from 'react-icons/gi'
 
@@ -50,7 +51,7 @@ type DailyChallengeType =
   | 'sheep'
   | 'bwork'
   | 'help'
-
+  | 'crackler'
 interface DailyChallenge {
   name: string
   goal: string
@@ -67,6 +68,7 @@ const getDailyChallengeIcon = (type: DailyChallengeType) => {
     tofu: <FaEarlybirds className="h-5 w-5 text-amber-500" />,
     gobbal: <GiSheep className="h-5 w-5 text-amber-500" />,
     bwork: <FaVolcano className="h-5 w-5 text-amber-500" />,
+    crackler: <GiStoneBlock className="h-5 w-5 text-amber-500" />,
     help: <HelpCircle className="h-5 w-5 text-amber-500" />,
   }
   return icons[type]
@@ -139,7 +141,18 @@ const dailyLevels: DailyChallenge[] = [
     levels: [116, 96, 76, 56, 36, 16],
     type: 'bwork',
   },
-
+  {
+    name: 'The Rock That Cracks',
+    goal: 'Eliminate a Crackrock first',
+    levels: [120, 100, 80, 60, 40, 20],
+    type: 'crackler',
+  },
+  {
+    name: 'É hora de depenar geral!',
+    goal: 'Eliminate a Tofuna por último',
+    levels: [112, 92, 72, 52, 32, 12],
+    type: 'tofu',
+  },
   {
     name: 'Contribua!',
     goal: 'Se você tiver uma dica como essas, mande no nosso Discord',
