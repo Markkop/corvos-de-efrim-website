@@ -9,19 +9,25 @@ import './global.css'
 
 const meta = {
   title: 'Corvos de Efrim',
-  description:
-    'Uma guilda presente em Wakfu, Waven e outros jogos. Junte-se a nós!',
-  largeImageUrl: `/images/og.jpg`,
-  thumbnailUrl: `/images/og-thumbnail.png`,
+  description: 'Navegamos pelos mares do Waven e Wakfu. Estamos recrutando!',
+  themeColor: '#2a2a2a',
+  backgroundColor: '#e6d7c3',
 }
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://corvosdeefrim.com/'),
   title: {
     default: meta.title,
-    template: '%s',
+    template: '%s | Corvos de Efrim',
   },
   description: meta.description,
+  applicationName: 'Corvos de Efrim',
+  keywords: ['Waven', 'Wakfu', 'Guild', 'Gaming', 'MMORPG', 'Brasil', 'Guilda'],
+  authors: [{ name: 'Corvos de Efrim' }],
+  creator: 'Corvos de Efrim',
+  publisher: 'Corvos de Efrim',
+  category: 'Gaming',
+  themeColor: meta.themeColor,
   openGraph: {
     title: {
       default: meta.title,
@@ -32,14 +38,9 @@ export const metadata: Metadata = {
     siteName: meta.title,
     locale: 'pt-BR',
     type: 'website',
-    images: [
-      {
-        url: meta.thumbnailUrl,
-        width: 300,
-        height: 300,
-      },
-    ],
+    countryName: 'Brazil',
   },
+
   twitter: {
     card: 'summary_large_image',
     title: {
@@ -47,7 +48,6 @@ export const metadata: Metadata = {
       template: '%s',
     },
     description: meta.description,
-    images: meta.largeImageUrl,
   },
   alternates: {
     canonical: WEBSITE_HOST_URL,
