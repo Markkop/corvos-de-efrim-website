@@ -18,7 +18,13 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 import { classes, wavenBuildSuggestions } from '@/lib/data'
+import { cn } from '@/lib/utils'
 import {
   ColumnDef,
   flexRender,
@@ -27,7 +33,14 @@ import {
   SortingState,
   useReactTable,
 } from '@tanstack/react-table'
-import { ChevronDown, ChevronUp, DollarSign, Sword } from 'lucide-react'
+import {
+  ChevronDown,
+  ChevronUp,
+  DollarSign,
+  Star,
+  Sword,
+  Youtube,
+} from 'lucide-react'
 import Image from 'next/image'
 import { useMemo, useState } from 'react'
 
@@ -39,6 +52,8 @@ type Build = {
   cost: number
   difficulty: number
   tags?: string[]
+  favorite?: boolean
+  video?: string
 }
 
 const renderIcons = (
@@ -64,8 +79,10 @@ export function WavenBuildsTable() {
   const [difficultyFilter, setDifficultyFilter] = useState('all')
   const [godFilter, setGodFilter] = useState('all')
   const [weaponFilter, setWeaponFilter] = useState('all')
+  const [favoriteFilter, setFavoriteFilter] = useState<boolean | null>(null)
+  const [videoFilter, setVideoFilter] = useState<boolean | null>(null)
   const [sorting, setSorting] = useState<SortingState>([
-    { id: 'cost', desc: false },
+    { id: 'weapon', desc: false },
   ])
 
   const uniqueGods = useMemo(
@@ -96,12 +113,33 @@ export function WavenBuildsTable() {
         (difficultyFilter === 'all' ||
           build.difficulty === parseInt(difficultyFilter)) &&
         (godFilter === 'all' || build.god === godFilter) &&
-        (weaponFilter === 'all' || build.weapon === weaponFilter)
+        (weaponFilter === 'all' || build.weapon === weaponFilter) &&
+        (favoriteFilter === null || build.favorite === favoriteFilter) &&
+        (videoFilter === null || (build.video ? true : false) === videoFilter)
       )
     })
-  }, [searchTerm, costFilter, difficultyFilter, godFilter, weaponFilter])
+  }, [
+    searchTerm,
+    costFilter,
+    difficultyFilter,
+    godFilter,
+    weaponFilter,
+    favoriteFilter,
+    videoFilter,
+  ])
 
   const columns: ColumnDef<Build>[] = [
+    {
+      id: 'favorite',
+      header: () => <div className="text-center">Favs</div>,
+      cell: ({ row }) => (
+        <div className="flex justify-center">
+          {row.original.favorite && (
+            <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+          )}
+        </div>
+      ),
+    },
     {
       accessorKey: 'weapon',
       header: 'Arma',
@@ -166,6 +204,24 @@ export function WavenBuildsTable() {
           'text-amber-500',
         ),
     },
+    {
+      id: 'video',
+      header: () => <div className="text-center">Video</div>,
+      cell: ({ row }) => (
+        <div className="flex justify-center">
+          {row.original.video && (
+            <a
+              href={row.original.video}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-red-500 hover:text-red-600"
+            >
+              <Youtube className="w-4 h-4" />
+            </a>
+          )}
+        </div>
+      ),
+    },
   ]
 
   const table = useReactTable({
@@ -185,7 +241,7 @@ export function WavenBuildsTable() {
   }
 
   return (
-    <Card className="w-full max-w-4xl mx-auto bg-zinc-950 border-zinc-800">
+    <Card className="w-full max-w-6xl mx-auto bg-zinc-950 border-zinc-800">
       <CardHeader>
         <CardTitle>Sugestões de Build para Waven</CardTitle>
       </CardHeader>
@@ -197,7 +253,7 @@ export function WavenBuildsTable() {
             onChange={(e) => setSearchTerm(e.target.value)}
             className="bg-zinc-900 border-zinc-800"
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Select value={godFilter} onValueChange={handleGodChange}>
               <SelectTrigger className="bg-zinc-900 border-zinc-800">
                 <SelectValue placeholder="Filtrar por deus" />
@@ -315,6 +371,55 @@ export function WavenBuildsTable() {
                 </SelectItem>
               </SelectContent>
             </Select>
+            <div className="flex gap-2">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={() =>
+                      setFavoriteFilter(favoriteFilter === true ? null : true)
+                    }
+                    className={cn(
+                      'bg-zinc-900 border-zinc-800',
+                      favoriteFilter === true &&
+                        'border-amber-500 text-amber-500',
+                    )}
+                  >
+                    <Star
+                      className={cn(
+                        'w-4 h-4',
+                        favoriteFilter === true && 'fill-current',
+                      )}
+                    />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Filtrar favoritos</p>
+                </TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={() =>
+                      setVideoFilter(videoFilter === true ? null : true)
+                    }
+                    className={cn(
+                      'bg-zinc-900 border-zinc-800',
+                      videoFilter === true && 'border-red-500 text-red-500',
+                    )}
+                  >
+                    <Youtube className="w-4 h-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Filtrar builds com vídeo</p>
+                </TooltipContent>
+              </Tooltip>
+            </div>
           </div>
         </div>
         <div className="overflow-x-auto mt-4">

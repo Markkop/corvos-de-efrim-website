@@ -1,6 +1,7 @@
 import { ThemeProvider } from '@/app/providers'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import Navigation from '@/components/Navigation'
+import { TooltipProvider } from '@/components/ui/tooltip'
 import { WEBSITE_HOST_URL } from '@/lib/constants'
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
@@ -58,25 +59,27 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="pt-BR">
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <div className="bg-[#e6d7c3] min-h-screen text-[#2a2a2a] font-serif">
-            <header className="bg-[#2a2a2a] text-[#e6d7c3] sticky top-0 z-50">
-              <Navigation />
-            </header>
+          <TooltipProvider>
+            <div className="bg-[#e6d7c3] min-h-screen text-[#2a2a2a] font-serif">
+              <header className="bg-[#2a2a2a] text-[#e6d7c3] sticky top-0 z-50">
+                <Navigation />
+              </header>
 
-            <div className="max-w-7xl mx-auto px-6 py-4">
-              <BreadcrumbNav />
-            </div>
-
-            <main className="max-w-7xl mx-auto py-8 px-6">{children}</main>
-
-            <footer className="bg-[#2a2a2a] text-[#e6d7c3] p-6 mt-12">
-              <div className="max-w-7xl mx-auto text-center">
-                <p className="text-lg">
-                  © 2024 Corvos de Efrim. Todos os direitos reservados.
-                </p>
+              <div className="max-w-7xl mx-auto px-6 py-4">
+                <BreadcrumbNav />
               </div>
-            </footer>
-          </div>
+
+              <main className="max-w-7xl mx-auto py-8 px-6">{children}</main>
+
+              <footer className="bg-[#2a2a2a] text-[#e6d7c3] p-6 mt-12">
+                <div className="max-w-7xl mx-auto text-center">
+                  <p className="text-lg">
+                    © 2024 Corvos de Efrim. Todos os direitos reservados.
+                  </p>
+                </div>
+              </footer>
+            </div>
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
