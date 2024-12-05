@@ -11,14 +11,18 @@ export function HomePage() {
   const remainingPosts = blogPosts.slice(0, -1).reverse()
 
   return (
-    <div className="container py-8 space-y-8">
+    <div className="container pb-8 space-y-8">
       <section className="space-y-8">
-        <BlogPostCard post={latestPost} featured />
+        <BlogPostCard
+          post={latestPost}
+          featured
+          cardLink={latestPost.cardLink}
+        />
       </section>
 
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {remainingPosts.map((post) => (
-          <BlogPostCard key={post.id} post={post} />
+          <BlogPostCard key={post.id} post={post} cardLink={post.cardLink} />
         ))}
       </section>
 

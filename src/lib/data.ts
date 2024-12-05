@@ -1075,6 +1075,10 @@ export const blogPosts = [
     
     A guilda existe e tem jogadores que ainda jogam, mas não estamos recrutando no momento.`,
     images: ['/images/fashion-names.png'],
+    cardLink: {
+      url: '/jogos/wakfu',
+      external: false
+    },
     links: [
       {
         text: 'Saiba mais',
@@ -1102,6 +1106,10 @@ export const blogPosts = [
       '/images/ilha-de-guilda.png',
       '/images/waven-luta-1.png'
     ],
+    cardLink: {
+      url: '/jogos/waven',
+      external: false
+    },
     links: [
       {
         text: 'Saiba +',
@@ -1143,6 +1151,10 @@ export const blogPosts = [
       '/images/server-dofus.png',
 
     ],
+    cardLink: {
+      url: '/jogos/dofus',
+      external: false
+    },
     links: [
       {
         text: 'Saiba +',

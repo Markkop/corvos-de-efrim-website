@@ -38,17 +38,23 @@ const ALL_PAGES: RelatedPage[] = [
 
 interface WavenRelatedPagesProps {
   currentPath: string
+  noTitle?: boolean
 }
 
-export function WavenRelatedPages({ currentPath }: WavenRelatedPagesProps) {
+export function WavenRelatedPages({
+  currentPath,
+  noTitle,
+}: WavenRelatedPagesProps) {
   // Filter out current page from related pages
   const relatedPages = ALL_PAGES.filter((page) => page.href !== currentPath)
 
   return (
     <section className="mt-16">
-      <h2 className="text-3xl font-bold mb-6 text-center">
-        Páginas Relacionadas
-      </h2>
+      {!noTitle && (
+        <h2 className="text-3xl font-bold mb-6 text-center">
+          Páginas Relacionadas
+        </h2>
+      )}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {relatedPages.map((page) => (
           <Link key={page.href} href={page.href}>
