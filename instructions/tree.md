@@ -6,6 +6,7 @@
 │   ├── about-the-guild.md
 │   ├── goal.md
 │   ├── links.md
+│   ├── recruitment.md
 │   └── tree.md
 ├── next-env.d.ts
 ├── next.config.js
@@ -40,6 +41,7 @@
 │   │   │       │   └── page.tsx
 │   │   │       ├── membros
 │   │   │       │   └── page.tsx
+│   │   │       ├── missoes
 │   │   │       ├── page.tsx
 │   │   │       └── recrutamento
 │   │   │           └── page.tsx
@@ -50,8 +52,10 @@
 │   │   ├── providers.tsx
 │   │   └── sitemap.ts
 │   ├── components
+│   │   ├── BreadcrumbNav.tsx
 │   │   ├── BuildsSmallList.tsx
 │   │   ├── ContactSmallList.tsx
+│   │   ├── CrewMemberCard.tsx
 │   │   ├── CrewSmallList.tsx
 │   │   ├── GalleryViewer.tsx
 │   │   ├── GamesSmallList.tsx
@@ -76,11 +80,13 @@
 │   │   │   ├── alert.tsx
 │   │   │   ├── avatar.tsx
 │   │   │   ├── badge.tsx
+│   │   │   ├── breadcrumb.tsx
 │   │   │   ├── button.tsx
 │   │   │   ├── card.tsx
 │   │   │   ├── dialog.tsx
 │   │   │   ├── input.tsx
 │   │   │   ├── label.tsx
+│   │   │   ├── navigation-menu.tsx
 │   │   │   ├── scroll-area.tsx
 │   │   │   ├── select.tsx
 │   │   │   ├── separator.tsx
@@ -99,4 +105,4 @@
 ├── tailwind.config.js
 └── tsconfig.json
 
-21 directories, 79 files
+22 directories, 84 files

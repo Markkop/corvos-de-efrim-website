@@ -992,3 +992,135 @@ export const wavenBuildSuggestions = [
   },
 ]
 
+interface BlogPostLink {
+  text: string
+  url: string
+  icon?: string // You can expand this to use specific icon types if needed
+}
+
+export const blogPosts = [
+  {
+    id: 'fundacao-corvos-de-efrim',
+    title: 'A Fundação da Corvos de Efrim',
+    date: '2014',
+    excerpt: 'A Corvos de Efrim surge em Wakfu, unidos pela busca de aventuras e camaradagem.',
+    content: `A Corvos de Efrim nasceu da união de jogadores apaixonados por Wakfu, 
+    buscando criar uma comunidade focada em aventuras e camaradagem. Nossa história começou 
+    com um grupo de amigos e cresceu para se tornar uma das guildas mais ativas do servidor.`,
+    images: ['https://i.imgur.com/wEQd5sZ.png'],
+    featured: false,
+    links: [
+      {
+        text: 'Tópico original',
+        url: 'https://www.wakfu.com/pt/forum/49-guildas/348-guilda-corvos-efrim',
+        icon: 'external-link'
+      }
+    ]
+  },
+  {
+    id: 'expansao-e-crescimento',
+    title: 'Expansão e Crescimento',
+    date: '2016-2018',
+    excerpt: 'A guilda cresce e se estabelece',
+    content: `Durante os anos de 2016 a 2018, a Corvos de Efrim viveu seu período de maior expansão.
+    Nesta época, desenvolvemos sistemas de progressão como os Pontos de Corvo e guias e documentos como o Almanaque do Construtor,
+    que ajudaram a criar uma comunidade mais engajada e organizada.`,
+    images: ['/images/barco.png'],
+    featured: false,
+    links: [
+      {
+        text: 'Almanaque do Construtor',
+        url: 'https://docs.google.com/document/d/1A4r8TZB-OOcIKBd5Xj3TrkSymAv6P_X4X3pn7nb0JbA/edit?tab=t.0',
+        icon: 'external-link'
+      }
+    ]
+  },
+  {
+    id: 'hiato-e-retorno',
+    title: 'Hiato e Retorno Triunfal',
+    date: '2019',
+    excerpt: 'A guilda se aposenta em Wakfu, mas mantém contato pelo discord e outros jogos.',
+    content: `Em 2019, a guilda entrou em hiato no Wakfu, mas a amizade entre os membros permaneceu forte.
+    Em 2020, com o lançamento do servidor monoconta Ogrest, retornamos de forma mais casual mas mantendo
+    nossa essência e valores.`,
+    images: ['/images/wipe.webp'],
+    featured: false,
+    links: [
+      {
+        text: 'Tópico no fórum',
+        url: 'https://www.wakfu.com/pt/forum/49-guildas/12295-corvos-efrim-aposenta',
+        icon: 'external-link'
+      }
+    ]
+  },
+  {
+    id: 'novos-horizontes-2024',
+    title: 'Um pulo para Waven',
+    date: '2024',
+    excerpt: 'Expandimos para Waven e outros jogos, mantendo nossa essência e valores.',
+    content: `2024 marca um novo capítulo na história dos Corvos de Efrim. Com o lançamento de Waven,
+    expandimos nossas atividades mantendo os valores que sempre nos definiram: camaradagem, 
+    respeito e busca por aventuras. Agora somos uma comunidade multi-jogos, mas com o mesmo espírito.`,
+    images: [
+      'https://static.ankama.com/upload/backoffice/direct/2024-10-14/13e919929b5171593a980cf7bd70e9c6.png',
+      '/images/guild-start-3.png',
+      '/images/ilha-de-guilda.png',
+      '/images/waven-luta-1.png'
+    ],
+    featured: false,
+    links: [
+      {
+        text: 'Saiba +',
+        url: '/jogos/waven',
+        icon: 'waven',
+        colors: {
+          background: '#aad1de',
+          hover: '#8fbfd5',
+          text: 'black'
+        }
+      },
+      {
+        text: 'Discord',
+        url: DISCORD_INVITE_URL,
+        icon: 'discord',
+        colors: {
+          background: '#5865F2',
+          hover: '#4752C4',
+          text: 'white'
+        }
+      }
+    ]
+  },
+  {
+    id: 'novos-horizontes-dofus',
+    title: 'Estamos no Dofus 3.0!',
+    date: '2025',
+    excerpt: '',
+    content: `Com o lançamento do Dofus 3.0, a Corvos de Efrim sobe no bonde e funda a guilda no servidor Dakal 6. Candidate-se e entre em nosso discord!`,
+    images: ['/images/dofus-3.png'],
+    featured: true,
+    links: [
+      {
+        text: 'Saiba +',
+        url: '/jogos/dofus',
+        icon: 'dofus',
+        colors: {
+          background: '#6F9B4F',  // Dofus green
+          hover: '#526141',       // Darker green for hover
+          text: '#FEFEFE'          // White text for better contrast
+        }
+      },
+      {
+        text: 'Discord',
+        url: DISCORD_INVITE_URL,
+        icon: 'discord',
+        colors: {
+          background: '#5865F2',
+          hover: '#4752C4',
+          text: 'white'
+        }
+      }
+    ]
+  }
+]
+

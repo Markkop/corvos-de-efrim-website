@@ -71,9 +71,3 @@ Here's all the copy text extracted from the files:
 - Title: Nossa História
 - Description: Uma jornada que começou em Wakfu e continua a crescer através dos anos, unindo jogadores em busca de aventuras e amizades duradouras.
 - CTA: "Saiba mais!"
-
-### From other components:
-
-The remaining components are primarily structural and don't contain significant unique copy text beyond what's already been captured in the data structures above. They mainly handle the presentation and interaction logic for displaying the content defined in data.ts.
-
-Would you like me to extract any specific additional text from the components?
