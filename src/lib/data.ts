@@ -998,18 +998,27 @@ interface BlogPostLink {
   icon?: string // You can expand this to use specific icon types if needed
 }
 
+interface BlogPost {
+  id: string
+  title: string
+  date: string
+  excerpt?: string
+  content: string
+  images: string[]
+  links: BlogPostLink[]
+}
+
 export const blogPosts = [
   {
     id: 'fundacao-corvos-de-efrim',
     title: 'A Fundação',
     date: '2014',
-    content: `A Corvos de Efrim foi fundada por Noa D'Arca, Locker e Othello em 2014 e foi uma das primeiras guildas do servidor, conhecida
+    content: `A Corvos de Efrim foi fundada por Noa D'Arca, Locker e Othello em 2014 e foi uma das primeiras guildas do servidor Efrim, conhecida
     pelo seu roleplay e atividade. 
     
     A guilda vivenciou eventos marcantes como a guerra de sementes e passou inclusive a stocar
     sementes e compartilhar elas publicamente.`,
     images: ['https://i.imgur.com/wEQd5sZ.png'],
-    featured: false,
     links: [
       {
         text: 'Tópico original',
@@ -1029,7 +1038,6 @@ export const blogPosts = [
 
     Também criamos vários guias e documentos, como o Almanaque do Construtor, um clássico para planejar mundos seguros de autoria do Locker`,
     images: ['/images/barco.png'],
-    featured: false,
     links: [
       {
         text: 'Almanaque do Construtor',
@@ -1041,17 +1049,42 @@ export const blogPosts = [
   {
     id: 'hiato-e-retorno',
     title: 'Hiato e Retorno',
-    date: '2019',
+    date: '2019 / 2020',
     content: `Em 2019, a guilda ficou inativa por um bom tempo no Wakfu, porém manteve contato via discord.
 
-    Em 2020, com o lançamento do servidor monoconta Ogrest, nos re-estabelecemos e evoluímos um pouco.`,
+    Em 2020, o servidor Efrim foi mergeado e virou Rubilax e nós jogamos um pouco.`,
     images: ['/images/wipe.webp'],
-    featured: false,
     links: [
       {
         text: 'Tópico no fórum',
         url: 'https://www.wakfu.com/pt/forum/49-guildas/12295-corvos-efrim-aposenta',
-        icon: 'external-link'
+        icon: 'external-link',
+        colors: {
+          background: '#2a2a2a',
+          hover: '#1a1a1a',
+          text: 'white'
+        }
+      }
+    ]
+  },
+  {
+    id: 'wakfu-ogrest-2024',
+    title: 'Ogrest: Wakfu Monoconta',
+    date: '2023',
+    content: `Partimos para um recomeço no servidor monoconta Ogrest, mas não conseguimos manter atividade. 
+    
+    A guilda existe e tem jogadores que ainda jogam, mas não estamos recrutando no momento.`,
+    images: ['/images/fashion-names.png'],
+    links: [
+      {
+        text: 'Saiba mais',
+        url: '/jogos/wakfu',
+        icon: 'wakfu',
+        colors: {
+          background: '#1ba7848f',
+          hover: '#17896d',
+          text: '#'
+        }
       }
     ]
   },
@@ -1059,9 +1092,9 @@ export const blogPosts = [
     id: 'novos-horizontes-2024',
     title: 'Aventuras em Waven',
     date: '2024',
-    content: `Assim que saiu a funcionalidade de guilda no Waven, nos estabelecemos por lá e estamos com mais de 20 jogadores por dia e no Top 5 guildas do servidor no ranking de pontos semanalmente. 
+    content: `Já estávamos jogando Waven casualmente, mas assim que saiu a funcionalidade de guilda, nos estabelecemos por lá e estamos com mais de 20 jogadores ativos por dia e no Top 5 guildas do servidor no ranking de pontos semanal. 
 
-      Waven é perfeito para quem tem pouco tempo para jogar, mas quer progredir de forma mais casual.
+      Waven é perfeito para quem tem pouco tempo para jogar e gosta de experimentar várias builds e gameplays.
     `,
     images: [
       'https://static.ankama.com/upload/backoffice/direct/2024-10-14/13e919929b5171593a980cf7bd70e9c6.png',
@@ -1069,7 +1102,6 @@ export const blogPosts = [
       '/images/ilha-de-guilda.png',
       '/images/waven-luta-1.png'
     ],
-    featured: false,
     links: [
       {
         text: 'Saiba +',
@@ -1101,8 +1133,16 @@ export const blogPosts = [
     content: `Com o lançamento do Dofus 3.0, a Corvos de Efrim sobe no bonde e funda a guilda no servidor Dakal 6. Seria o revival?
 
     Candidate-se e entre em nosso discord!`,
-    images: ['/images/dofus-3.png'],
-    featured: true,
+    images: ['/images/dofus-3.png',
+      '/images/dofus-bronzato-tofu.png',
+      '/images/dofus-pandawa-agua.png',
+      '/images/dofus-bronzato-imersivo.png',
+      '/images/dofus-agror-luta.png',
+      '/images/dofus-1.jpg',
+      '/images/corvos-painel-dofus.png',
+      '/images/server-dofus.png',
+
+    ],
     links: [
       {
         text: 'Saiba +',

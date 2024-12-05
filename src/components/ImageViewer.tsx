@@ -76,7 +76,7 @@ export function ImageViewer({
           variant="ghost"
           className={cn(
             'p-0 h-auto w-full overflow-hidden',
-            variant === 'short' ? 'h-full' : '',
+            variant === 'short' ? 'h-full rounded-none' : '',
             className,
           )}
           onClick={(e) => {

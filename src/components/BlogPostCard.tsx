@@ -14,6 +14,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { FaDiscord } from 'react-icons/fa'
+import { GalleryViewer } from './GalleryViewer'
 import { ImageViewer } from './ImageViewer'
 
 interface BlogPostLink {
@@ -34,7 +35,6 @@ interface BlogPost {
   excerpt?: string
   content: string
   images: string[]
-  featured: boolean
   links: BlogPostLink[]
 }
 
@@ -83,25 +83,29 @@ export function BlogPostCard({
       {i < post.content.split('\n').length - 1 && <br />}
     </React.Fragment>
   ))
-
+  console.log(featured, post.images.length)
   return (
     <CardWrapper>
       <Card
         className={cn(
           'overflow-hidden transition-all duration-200 h-full flex flex-col',
-          featured ? 'lg:flex-row lg:h-[400px]' : '',
+          featured ? 'lg:flex-row ' : '',
           'hover:border-primary/50',
           cardLink && 'hover:scale-[1.02]',
         )}
       >
         <div className={cn('relative', featured ? 'lg:w-2/3' : 'aspect-video')}>
-          <ImageViewer
-            images={post.images.map((img) => ({ src: img, alt: post.title }))}
-            width={1200}
-            height={800}
-            variant="short"
-            className="h-full"
-          />
+          {featured && post.images.length > 1 ? (
+            <GalleryViewer images={post.images} className="p-6" />
+          ) : (
+            <ImageViewer
+              images={post.images.map((img) => ({ src: img, alt: post.title }))}
+              width={1200}
+              height={800}
+              variant="short"
+              className="h-full"
+            />
+          )}
         </div>
         <div
           className={cn('flex flex-col flex-grow', featured ? 'lg:w-1/3' : '')}
@@ -128,6 +132,8 @@ export function BlogPostCard({
                     'shadow-sm hover:shadow-md',
                     'flex items-center justify-center',
                     'min-w-0',
+                    !link.colors &&
+                      'bg-[#2a2a2a] text-white hover:bg-[#1a1a1a]',
                   )}
                   style={
                     link.colors
@@ -177,6 +183,14 @@ export function BlogPostCard({
                         width={28}
                         height={28}
                         className="object-contain flex-shrink-0"
+                      />
+                    )}
+                    {link.icon === 'wakfu' && (
+                      <Image
+                        src="/images/wakfu-logo-hd.png"
+                        alt="Wakfu"
+                        width={28}
+                        height={28}
                       />
                     )}
                   </Link>

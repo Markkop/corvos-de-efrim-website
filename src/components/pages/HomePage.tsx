@@ -7,19 +7,17 @@ import Link from 'next/link'
 import { BlogPostCard } from '../BlogPostCard'
 
 export function HomePage() {
-  const featuredPosts = blogPosts.filter((post) => post.featured)
-  const regularPosts = blogPosts.filter((post) => !post.featured).reverse()
+  const latestPost = blogPosts[blogPosts.length - 1]
+  const remainingPosts = blogPosts.slice(0, -1).reverse()
 
   return (
     <div className="container py-8 space-y-8">
       <section className="space-y-8">
-        {featuredPosts.map((post) => (
-          <BlogPostCard key={post.id} post={post} featured />
-        ))}
+        <BlogPostCard post={latestPost} featured />
       </section>
 
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {regularPosts.map((post) => (
+        {remainingPosts.map((post) => (
           <BlogPostCard key={post.id} post={post} />
         ))}
       </section>

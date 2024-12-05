@@ -49,14 +49,14 @@ export function GalleryViewer({
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-3xl mx-auto">
-        <div className="aspect-video w-full relative">
+        <div className="aspect-video w-full relative ">
           <ImageViewer
             images={imageObjects}
             width={1280}
             height={720}
             initialIndex={selectedIndex}
             variant="short"
-            className="h-full"
+            className="h-full rounded-lg"
             onImageChange={handleImageSelect}
           />
         </div>
