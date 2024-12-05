@@ -86,7 +86,7 @@ export function ImageViewer({
           <div
             className={cn(
               'overflow-hidden relative w-full',
-              variant === 'short' ? 'h-full' : 'h-[290px]',
+              variant === 'short' ? 'h-full' : 'aspect-video',
               variant === 'short' ? 'rounded-none' : 'rounded-lg',
             )}
           >

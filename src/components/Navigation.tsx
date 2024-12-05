@@ -25,9 +25,9 @@ const Navigation = () => {
 
   const navItems = [
     { label: 'INÍCIO', href: '/' },
-    { label: 'HISTÓRIA', href: '/historia' },
-    { label: 'WAKFU', href: '/jogos/wakfu' },
+    { label: 'DOFUS', href: '/jogos/dofus' },
     { label: 'WAVEN', href: '/jogos/waven' },
+    { label: 'WAKFU', href: '/jogos/wakfu' },
     { label: 'CONTATO', href: '/contato' },
   ]
 
@@ -92,6 +92,22 @@ const Navigation = () => {
     },
   ]
 
+  const dofusItems = [
+    {
+      title: 'Membros',
+      href: '/jogos/dofus/membros',
+      description: 'Lista de membros ativos da guilda no Dofus.',
+      icon: Users,
+    },
+    {
+      title: 'Recrutamento',
+      href: '/jogos/dofus/recrutamento',
+      description:
+        'Informações sobre como se juntar à nossa comunidade no Dofus.',
+      icon: UserPlus,
+    },
+  ]
+
   const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
@@ -142,17 +158,10 @@ const Navigation = () => {
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="/historia" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    HISTÓRIA
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>WAKFU</NavigationMenuTrigger>
+                <NavigationMenuTrigger>DOFUS</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
-                    {wakfuItems.map((item) => (
+                    {dofusItems.map((item) => (
                       <ListItem
                         key={item.title}
                         title={item.title}
@@ -170,6 +179,23 @@ const Navigation = () => {
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                     {wavenItems.map((item) => (
+                      <ListItem
+                        key={item.title}
+                        title={item.title}
+                        href={item.href}
+                        icon={item.icon}
+                      >
+                        {item.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>WAKFU</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+                    {wakfuItems.map((item) => (
                       <ListItem
                         key={item.title}
                         title={item.title}

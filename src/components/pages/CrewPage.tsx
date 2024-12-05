@@ -1,15 +1,32 @@
 'use client'
 
 import { CrewMemberCard } from '@/components/CrewMemberCard'
-import { wakfuCrewMembers, wavenCrewMembers } from '@/lib/data'
+import {
+  dofusCrewMembers,
+  wakfuCrewMembers,
+  wavenCrewMembers,
+} from '@/lib/data'
 
 interface CrewPageProps {
-  game?: 'wakfu' | 'waven'
+  game?: 'wakfu' | 'waven' | 'dofus'
 }
 
 export function CrewPage({ game = 'wakfu' }: CrewPageProps) {
-  const crewMembers = game === 'wakfu' ? wakfuCrewMembers : wavenCrewMembers
-  const title = game === 'wakfu' ? 'Wakfu' : 'Waven'
+  const getCrewMembers = () => {
+    switch (game) {
+      case 'wakfu':
+        return wakfuCrewMembers
+      case 'waven':
+        return wavenCrewMembers
+      case 'dofus':
+        return dofusCrewMembers
+      default:
+        return wakfuCrewMembers
+    }
+  }
+
+  const crewMembers = getCrewMembers()
+  const title = game.charAt(0).toUpperCase() + game.slice(1)
 
   const sortedCrewMembers = [...crewMembers].sort((a, b) => {
     if (a.name === 'Mais em breve') return 1

@@ -28,6 +28,13 @@ export function GamesPage() {
       href: '/jogos/waven',
       features: ['Builds', 'Recrutamento', 'Galeria'],
     },
+    {
+      name: 'Dofus 3.0',
+      description: 'O queridinho agora em Unity! Bora testar?',
+      image: '/images/dofus-logo.webp',
+      href: '/jogos/dofus',
+      features: ['Membros', 'Recrutamento'],
+    },
   ]
 
   return (
@@ -87,32 +94,26 @@ export function GamesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {guildGames.map((game) => (
               <div key={game.name}>
-                {game.name === 'Wakfu' ? (
-                  <Link
-                    href="/jogos/wakfu"
-                    className="block focus:outline-none focus:ring-2 focus:ring-[#a27a50] rounded-lg"
-                    aria-label={`Ver página da guilda em ${game.name}`}
-                  >
-                    <GameCard game={game} />
-                  </Link>
-                ) : game.name === 'Waven' ? (
-                  <Link
-                    href="/jogos/waven"
-                    className="block focus:outline-none focus:ring-2 focus:ring-[#a27a50] rounded-lg"
-                    aria-label={`Ver página da guilda em ${game.name}`}
-                  >
-                    <GameCard game={game} />
-                  </Link>
-                ) : game.link ? (
-                  <a
-                    href={game.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block focus:outline-none focus:ring-2 focus:ring-[#a27a50] rounded-lg"
-                    aria-label={`Ver página da guilda em ${game.name}`}
-                  >
-                    <GameCard game={game} />
-                  </a>
+                {game.link ? (
+                  game.link.startsWith('http') ? (
+                    <a
+                      href={game.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block focus:outline-none focus:ring-2 focus:ring-[#a27a50] rounded-lg"
+                      aria-label={`Ver página da guilda em ${game.name}`}
+                    >
+                      <GameCard game={game} />
+                    </a>
+                  ) : (
+                    <Link
+                      href={game.link}
+                      className="block focus:outline-none focus:ring-2 focus:ring-[#a27a50] rounded-lg"
+                      aria-label={`Ver página da guilda em ${game.name}`}
+                    >
+                      <GameCard game={game} />
+                    </Link>
+                  )
                 ) : (
                   <GameCard game={game} />
                 )}
@@ -144,6 +145,7 @@ const GameCard = ({ game }: GameCardProps) => {
           'absolute inset-0 opacity-90 transition-opacity duration-200',
           game.status === 'recrutando' && 'bg-green-900',
           game.status === 'pouco ativa' && 'bg-green-900',
+          game.status === 'existindo' && 'bg-green-900',
           game.status === 'inativo' && 'bg-gray-900',
         )}
       />
@@ -152,6 +154,7 @@ const GameCard = ({ game }: GameCardProps) => {
           'absolute inset-0 opacity-0 transition-opacity duration-200',
           game.status === 'recrutando' && 'bg-green-800',
           game.status === 'pouco ativa' && 'bg-green-800',
+          game.status === 'existindo' && 'bg-green-800',
           game.status === 'inativo' && 'bg-gray-800',
           game.status !== 'inativo' && 'group-hover:opacity-100',
         )}

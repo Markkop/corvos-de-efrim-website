@@ -203,20 +203,20 @@ export const guildGames = [
     link: 'https://forum.waven-game.com/en/52-devblogs-pt/6112-guildas',
   },
   {
+    name: 'Dofus',
+    status: 'recrutando',
+    color: 'bg-green-500',
+    image: '/images/dofus-logo.webp',
+    lightBackground: false,
+    link: '/jogos/dofus',
+  },
+  {
     name: 'Wakfu',
-    status: 'pouco ativa',
+    status: 'existindo',
     color: 'bg-green-500',
     image: '/images/wakfu-logo-hd.png',
     lightBackground: false,
     link: 'https://www.wakfu.com/pt/forum/49-guildas/13189-guilda-corvos-efrim-2020',
-  },
-  {
-    name: 'Dofus',
-    status: 'pouco ativa',
-    color: 'bg-gray-500',
-    image: '/images/dofus-logo.webp',
-    lightBackground: false,
-    link: '',
   },
   {
     name: 'New World',
@@ -1001,12 +1001,13 @@ interface BlogPostLink {
 export const blogPosts = [
   {
     id: 'fundacao-corvos-de-efrim',
-    title: 'A Fundação da Corvos de Efrim',
+    title: 'A Fundação',
     date: '2014',
-    excerpt: 'A Corvos de Efrim surge em Wakfu, unidos pela busca de aventuras e camaradagem.',
-    content: `A Corvos de Efrim nasceu da união de jogadores apaixonados por Wakfu, 
-    buscando criar uma comunidade focada em aventuras e camaradagem. Nossa história começou 
-    com um grupo de amigos e cresceu para se tornar uma das guildas mais ativas do servidor.`,
+    content: `A Corvos de Efrim foi fundada por Noa D'Arca, Locker e Othello em 2014 e foi uma das primeiras guildas do servidor, conhecida
+    pelo seu roleplay e atividade. 
+    
+    A guilda vivenciou eventos marcantes como a guerra de sementes e passou inclusive a stocar
+    sementes e compartilhar elas publicamente.`,
     images: ['https://i.imgur.com/wEQd5sZ.png'],
     featured: false,
     links: [
@@ -1019,12 +1020,14 @@ export const blogPosts = [
   },
   {
     id: 'expansao-e-crescimento',
-    title: 'Expansão e Crescimento',
+    title: 'Época de Ouro',
     date: '2016-2018',
-    excerpt: 'A guilda cresce e se estabelece',
-    content: `Durante os anos de 2016 a 2018, a Corvos de Efrim viveu seu período de maior expansão.
-    Nesta época, desenvolvemos sistemas de progressão como os Pontos de Corvo e guias e documentos como o Almanaque do Construtor,
-    que ajudaram a criar uma comunidade mais engajada e organizada.`,
+    content: `Durante os anos de 2016 a 2018, a Corvos de Efrim viveu seu período de maior atividade.
+
+    Nesta época, tentamos diversas formas de gestão, desde sistemas de progressão de cargo como Pontos de Corvo até
+    organização simplificada com base no estilo de jogo de cada membro.
+
+    Também criamos vários guias e documentos, como o Almanaque do Construtor, um clássico para planejar mundos seguros de autoria do Locker`,
     images: ['/images/barco.png'],
     featured: false,
     links: [
@@ -1037,12 +1040,11 @@ export const blogPosts = [
   },
   {
     id: 'hiato-e-retorno',
-    title: 'Hiato e Retorno Triunfal',
+    title: 'Hiato e Retorno',
     date: '2019',
-    excerpt: 'A guilda se aposenta em Wakfu, mas mantém contato pelo discord e outros jogos.',
-    content: `Em 2019, a guilda entrou em hiato no Wakfu, mas a amizade entre os membros permaneceu forte.
-    Em 2020, com o lançamento do servidor monoconta Ogrest, retornamos de forma mais casual mas mantendo
-    nossa essência e valores.`,
+    content: `Em 2019, a guilda ficou inativa por um bom tempo no Wakfu, porém manteve contato via discord.
+
+    Em 2020, com o lançamento do servidor monoconta Ogrest, nos re-estabelecemos e evoluímos um pouco.`,
     images: ['/images/wipe.webp'],
     featured: false,
     links: [
@@ -1055,12 +1057,12 @@ export const blogPosts = [
   },
   {
     id: 'novos-horizontes-2024',
-    title: 'Um pulo para Waven',
+    title: 'Aventuras em Waven',
     date: '2024',
-    excerpt: 'Expandimos para Waven e outros jogos, mantendo nossa essência e valores.',
-    content: `2024 marca um novo capítulo na história dos Corvos de Efrim. Com o lançamento de Waven,
-    expandimos nossas atividades mantendo os valores que sempre nos definiram: camaradagem, 
-    respeito e busca por aventuras. Agora somos uma comunidade multi-jogos, mas com o mesmo espírito.`,
+    content: `Assim que saiu a funcionalidade de guilda no Waven, nos estabelecemos por lá e estamos com mais de 20 jogadores por dia e no Top 5 guildas do servidor no ranking de pontos semanalmente. 
+
+      Waven é perfeito para quem tem pouco tempo para jogar, mas quer progredir de forma mais casual.
+    `,
     images: [
       'https://static.ankama.com/upload/backoffice/direct/2024-10-14/13e919929b5171593a980cf7bd70e9c6.png',
       '/images/guild-start-3.png',
@@ -1094,9 +1096,11 @@ export const blogPosts = [
   {
     id: 'novos-horizontes-dofus',
     title: 'Estamos no Dofus 3.0!',
-    date: '2025',
+    date: '2024 / 2025',
     excerpt: '',
-    content: `Com o lançamento do Dofus 3.0, a Corvos de Efrim sobe no bonde e funda a guilda no servidor Dakal 6. Candidate-se e entre em nosso discord!`,
+    content: `Com o lançamento do Dofus 3.0, a Corvos de Efrim sobe no bonde e funda a guilda no servidor Dakal 6. Seria o revival?
+
+    Candidate-se e entre em nosso discord!`,
     images: ['/images/dofus-3.png'],
     featured: true,
     links: [
@@ -1122,5 +1126,29 @@ export const blogPosts = [
       }
     ]
   }
+]
+
+export const dofusCrewMembers = [
+  {
+    name: 'Mark',
+    role: 'Líder da Guilda',
+    images: ['/images/mark-dofus-1.png'],
+  },
+  {
+    name: 'Epitaph',
+    role: 'Oficial',
+    images: ['/images/corvos.png'],
+  },
+  {
+    name: 'Feriepe',
+    role: 'Oficial',
+    images: ['/images/corvos.png'],
+  },
+  {
+    name: 'Mauette',
+    role: 'Oficial',
+    images: ['/images/corvos.png'],
+  },
+
 ]
 
