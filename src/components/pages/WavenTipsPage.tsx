@@ -14,6 +14,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { WavenDailyQuestsTable } from '@/components/waven-daily-quests-table'
 import { WavenRelatedPages } from '@/components/waven-related-pages'
 import {
   ArrowRightCircle,
@@ -118,6 +119,12 @@ const dailyLevels: DailyChallenge[] = [
     type: 'tofu',
   },
   {
+    name: 'Medida Sanitária',
+    goal: 'Elimine 3 Pupulgas no mesmo turno.',
+    levels: [120, 100, 80, 60, 40, 20],
+    type: 'gobbal',
+  },
+  {
     name: 'Boa lã para velhos ossos',
     goal: 'Elimine uma Papatudette por último',
     levels: [116, 96, 76, 56, 36, 16],
@@ -152,6 +159,24 @@ const dailyLevels: DailyChallenge[] = [
     goal: 'Eliminate a Tofuna por último',
     levels: [112, 92, 72, 52, 32, 12],
     type: 'tofu',
+  },
+  {
+    name: 'Esmigalhamento de Smagalhadores',
+    goal: 'Elimine um Smagalhador sem que sua equipe sofra Fratura.',
+    levels: [114, 94, 74, 54, 34, 14],
+    type: 'crackler',
+  },
+  {
+    name: 'Tauríveis Tauros',
+    goal: 'Elimine um Pubertauro primeiro.',
+    levels: [116, 96, 76, 56, 36, 16],
+    type: 'taur',
+  },
+  {
+    name: 'Caça Selvagem',
+    goal: 'Elimine 2 Vampyros Selvagens no mesmo turno.',
+    levels: [106, 86, 66, 46, 26, 6],
+    type: 'vampire',
   },
   {
     name: 'Contribua!',
@@ -344,56 +369,10 @@ export function WavenTipsPage() {
           monstro em questão aparece, então estamos construindo uma lista com os
           maiores níveis em que eles podem ser encontrados
         </p>
-        <div className="relative overflow-x-auto rounded-lg">
-          <table className="w-full text-sm text-left">
-            <thead className="text-xs uppercase bg-[#2a2a2a] text-[#e6d7c3]">
-              <tr>
-                <th scope="col" className="px-6 py-3">
-                  Desafio
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Objetivo
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Níveis
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {sortedDailyLevels.map((daily, index) => (
-                <tr
-                  key={daily.name}
-                  className={`bg-[#2a2a2a] text-[#e6d7c3] border-b border-gray-700 ${
-                    index === sortedDailyLevels.length - 1 ? 'border-none' : ''
-                  }`}
-                >
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium whitespace-nowrap"
-                  >
-                    <div className="flex items-center gap-2">
-                      {getDailyChallengeIcon(daily.type)}
-                      {daily.name}
-                    </div>
-                  </th>
-                  <td className="px-6 py-4 text-gray-400">{daily.goal}</td>
-                  <td className="px-6 py-4">
-                    <div className="flex flex-wrap gap-2">
-                      {daily.levels.map((level) => (
-                        <span
-                          key={level}
-                          className="inline-flex items-center justify-center bg-amber-950/50 text-amber-500 px-2.5 py-0.5 rounded-md text-sm font-medium"
-                        >
-                          {level}
-                        </span>
-                      ))}
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <WavenDailyQuestsTable 
+          dailyQuests={sortedDailyLevels} 
+          getDailyChallengeIcon={getDailyChallengeIcon} 
+        />
       </section>
 
       <WavenRelatedPages currentPath="/jogos/waven/dicas" />
