@@ -3,9 +3,12 @@
 ![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
 [![https://img.shields.io/badge/made%20with-react-blue](https://img.shields.io/badge/made%20with-react-blue)](https://reactjs.org/)
 
-
-Projeto em baseado no template: https://github.com/ChangoMan/nextjs-mdx-blog
 Confira em: https://corvosdeefrim.com
+
+Projeto do site da Guilda Corvos de Efrim de Wakfu/Waven/Dofus.
+
+Começou sendo um projeto simples de React e evoluiu para NextJs.
+Então teve uma tentativa de ser um blog usando um template de nextjs, mas acabou virando um site project normal feito apenas com IA (Cursor e v0).
 
 ## Como desenvolver
 
