@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://corvosdeefrim.com/'),
   title: {
     default: meta.title,
-    template: '%s | Corvos de Efrim',
+    template: '%s',
   },
   description: meta.description,
   applicationName: 'Corvos de Efrim',
