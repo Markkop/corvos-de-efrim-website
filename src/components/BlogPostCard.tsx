@@ -31,7 +31,7 @@ interface BlogPost {
   id: string
   title: string
   date: string
-  excerpt: string
+  excerpt?: string
   content: string
   images: string[]
   featured: boolean
