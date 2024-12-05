@@ -172,7 +172,7 @@ export function BlogPostCard({
                     )}
                     {link.icon === 'dofus' && (
                       <Image
-                        src="/images/dofus-logo.webp"
+                        src="/images/dofus-egg.png"
                         alt="Dofus"
                         width={28}
                         height={28}
