@@ -79,7 +79,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <BreadcrumbNav />
               </div>
 
-              <main className="max-w-7xl mx-auto py-8 px-6">{children}</main>
+              <main className="max-w-7xl mx-auto lg:py-8 px-6">{children}</main>
 
               <footer className="bg-[#2a2a2a] text-[#e6d7c3] p-6 mt-12">
                 <div className="max-w-7xl mx-auto text-center">

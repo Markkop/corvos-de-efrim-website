@@ -11,7 +11,7 @@ export function HomePage() {
   const remainingPosts = blogPosts.slice(0, -1).reverse()
 
   return (
-    <div className="container pb-8 space-y-8">
+    <div className="pb-8 space-y-8">
       <section className="space-y-8">
         <BlogPostCard
           post={latestPost}

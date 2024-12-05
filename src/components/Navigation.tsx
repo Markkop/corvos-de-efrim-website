@@ -158,7 +158,9 @@ const Navigation = () => {
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>DOFUS</NavigationMenuTrigger>
+                <Link href="/jogos/dofus" legacyBehavior passHref>
+                  <NavigationMenuTrigger>DOFUS</NavigationMenuTrigger>
+                </Link>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                     {dofusItems.map((item) => (
@@ -175,7 +177,9 @@ const Navigation = () => {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>WAVEN</NavigationMenuTrigger>
+                <Link href="/jogos/waven" legacyBehavior passHref>
+                  <NavigationMenuTrigger>WAVEN</NavigationMenuTrigger>
+                </Link>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                     {wavenItems.map((item) => (
@@ -192,7 +196,9 @@ const Navigation = () => {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>WAKFU</NavigationMenuTrigger>
+                <Link href="/jogos/wakfu" legacyBehavior passHref>
+                  <NavigationMenuTrigger>WAKFU</NavigationMenuTrigger>
+                </Link>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                     {wakfuItems.map((item) => (

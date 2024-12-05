@@ -117,7 +117,7 @@ export function BlogPostCard({
           </>
         )}
         <CardFooter className="mt-auto p-6">
-          <div className="flex gap-4 w-full">
+          <div className="flex flex-col lg:flex-row gap-4 w-full">
             {post.links.map((link, index) => (
               <Button
                 key={index}
