@@ -8,9 +8,10 @@ import { ReactNode } from 'react'
 import './global.css'
 
 const meta = {
-  title: 'Corvos de Efrim',
-  description: 'Navegamos pelos mares do Waven e Wakfu. Estamos recrutando!',
-  themeColor: '#2a2a2a',
+  title: 'Corvos de Efrim | Wakfu, Waven e Dofus 3.0',
+  description:
+    'Navegamos pelos mares de Wakfu, Waven e Dofus 3.0! Estamos recrutando!',
+  themeColor: '#e6d7c3',
   backgroundColor: '#e6d7c3',
 }
 
@@ -22,7 +23,16 @@ export const metadata: Metadata = {
   },
   description: meta.description,
   applicationName: 'Corvos de Efrim',
-  keywords: ['Waven', 'Wakfu', 'Guild', 'Gaming', 'MMORPG', 'Brasil', 'Guilda'],
+  keywords: [
+    'Waven',
+    'Wakfu',
+    'Dofus',
+    'Guild',
+    'Gaming',
+    'MMORPG',
+    'Brasil',
+    'Guilda',
+  ],
   authors: [{ name: 'Corvos de Efrim' }],
   creator: 'Corvos de Efrim',
   publisher: 'Corvos de Efrim',
