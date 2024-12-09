@@ -1187,20 +1187,24 @@ export const dofusCrewMembers = [
     images: ['/images/mark-dofus-1.png'],
   },
   {
+    name: 'Caliente',
+    role: 'Braço Direito',
+    images: ['/images/dofus-caliente.png'],
+  },
+  {
     name: 'Epitaph',
     role: 'Oficial',
-    images: ['/images/corvos.png'],
+    images: ['/images/dofus-epitaph.png'],
   },
   {
     name: 'Feriepe',
     role: 'Oficial',
-    images: ['/images/corvos.png'],
+    images: ['/images/dofus-feriepe.png'],
   },
   {
     name: 'Mauette',
     role: 'Oficial',
-    images: ['/images/corvos.png'],
+    images: ['/images/dofus-bronzato.png'],
   },
-
 ]
 
