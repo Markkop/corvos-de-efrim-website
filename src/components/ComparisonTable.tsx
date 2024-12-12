@@ -6,8 +6,13 @@ import {
   Backpack,
   Badge,
   ChevronDown,
+  Clock,
+  Hammer,
   Palette,
+  RefreshCcw,
   ScrollText,
+  Skull,
+  Smartphone,
   Sword,
   Swords,
   TrendingUp,
@@ -32,12 +37,12 @@ const comparisonData: ComparisonRow[] = [
     icon: Palette,
     scores: { dofus: 2, wakfu: 1, waven: 3 },
     description:
-      'Waven é o que tem gráfico e animações modernas. O gráfico de Wakfu não é ruim, mas tá ficando outdated. Dofus tende a melhorar agora com engine nova.',
+      'Waven é o que tem gráfico e animações modernas. O gráfico de Wakfu não é ruim, mas tá ficando defasado. Dofus tende a melhorar agora com engine nova.',
   },
   {
     title: 'Progressão',
     icon: TrendingUp,
-    scores: { dofus: 1, wakfu: 2, waven: 3 },
+    scores: { dofus: 2, wakfu: 1, waven: 3 },
     description:
       'No Waven a progressão é mais fácil, mas com menos sentimento de evolução. No Dofus e Wakfu a progressão é lenta, sendo que Dofus parece depender muito de quest.',
   },
@@ -46,42 +51,49 @@ const comparisonData: ComparisonRow[] = [
     icon: ScrollText,
     scores: { dofus: 3, wakfu: 2, waven: 1 },
     description:
-      'No Waven quest = luta (o que eu gosto, mas acho que diversifica pouco), e não sei qual seria "melhor" entre Dofus e Wakfu',
+      'No Waven, cada missão é uma luta, o que é bom pra um jogo casual e dinâmico, mas não agrega profundidade. No Dofus e Wakfu há várias missões para fazer.',
   },
   {
     title: 'Dungeon',
     icon: Swords,
-    scores: { dofus: 1, wakfu: 2, waven: 3 },
+    scores: { dofus: 3, wakfu: 2, waven: 1 },
     description:
-      'Waven dungeon é rápida, 4 lutinha e com vários níveis de dificuldade (10-100, pode botar broche, tem sala extra). No Wakfu era bem chato dungeon com várias salas, não sei como tá agora. No Dofus não sei tb, mas parece ter 5+ salas, meio chato',
+      'Há várias considerações aqui. No Waven, as dungeons tem 4 salas e tendem a ser mais fáceis e rápidas, porém com menos mecânicas e incentivos. No Wakfu, há alta rejogabilidade e variedade de mecânicas, mas elas são bem demoradas e precisam de grupo. Dofus parece ter um bom meio termo.',
   },
   {
     title: 'Guilds',
     icon: Badge,
     scores: { dofus: 2, wakfu: 3, waven: 1 },
     description:
-      'Waven não tem quase nada de gulda (ainda?). No Wakfu tem bastante coisa e o mundo seguro é bem daora, mas imagino que no Dofus tem mais coisa legal. Dá pra considerar aliança como guild aqui',
+      'Waven não tem quase nada de gulda (ainda?). No Wakfu dá pra personalizar cargos e gerenciar Mundo Seguro (mapa da guilda). No Dofus, há pouco conteúdo de guilda, mas lá tem alianças que seria um tipo de GxG.',
   },
   {
     title: 'Builds',
     icon: Wrench,
-    scores: { dofus: 1, wakfu: 2, waven: 3 },
+    scores: { dofus: 2, wakfu: 1, waven: 3 },
     description:
-      'Não sei comparar Dofus e Wakfu nisso, mas botei 3 no Waven pq é mais fácil de testar e mudar builds, mudando bastante o gameplay. No Dofus/Wakfu vc precisa grindar mto pra mudar 1 equip',
+      'Aqui vamos considerar diversidade de builds e facilidade de mudar/testar builds. No Waven, há uma variedade de builds e dá pra compartilhar equipamentos entre os personagens. No Dofus, dá pra fazer build boa facilmente. Já no Wakfu, as sublimações agregam bastante, mas exigem muito esforço.',
+  },
+  {
+    title: 'Grind/Farm',
+    icon: Clock,
+    scores: { dofus: 3, wakfu: 2, waven: 1 },
+    description:
+      'O grind no Waven é triste, uma vez que o jogador é limitado pela rotação diária dos drops. No Wakfu e no Dofus o grind é bastante extenso, mas no Dofus dá pra solar muito mais.',
   },
   {
     title: 'Solo',
     icon: User,
     scores: { dofus: 3, wakfu: 1, waven: 2 },
     description:
-      'Dofus dá pra evoluir bastante jogando sozinho, principalmente fazendo quest e sucesso (conquista). Waven também dá, mas por ser mais casual o grind fica limitado. Wakfu dá, mas muita coisa vai precisar de grupo mesmo.',
+      'Dofus dá pra evoluir bastante jogando sozinho, principalmente fazendo quest e sucesso (conquista). No Waven, jogar em grupo pode até ser mais lento e difícil. No Wakfu, muita coisa vai precisar de grupo.',
   },
   {
-    title: 'Multiplayer',
+    title: 'Em Grupo',
     icon: Users2,
     scores: { dofus: 2, wakfu: 3, waven: 1 },
     description:
-      'Waven grupo max é de 3 e ainda tem aquele elite bizarro, menos na luta do Toross que acho que é o melhor e único exemplo de UB/raid por enquanto. Não sei diferenciar Dofus e Wakfu aqui. Parece que Wakfu precisa mais de grupo que Dofus?',
+      'Waven o máximo em um grupo atualmente é 3 e tem pouco conteúdo que precisa. No Dofus e principalmente no Wakfu, há bastante.',
   },
   {
     title: 'End Game',
@@ -95,14 +107,42 @@ const comparisonData: ComparisonRow[] = [
     icon: Sword,
     scores: { dofus: 3, wakfu: 2, waven: 1 },
     description:
-      'Waven até tem, mas ninguém joga e os devs não estão focando nisso. Wakfu tem, mas o formato de campo de batalha não funciona direito nem quando o servidor tem bastante gente. Parece que o Koliseu do Dofus é o mais divertido e consistente.',
+      'Waven até tem, mas está abandonado. Wakfu tem, mas num formato de campo de batalha que exige um servidor ativo e grande organização. Já o Koliseu do Dofus é o mais divertido e consistente.',
   },
   {
     title: 'Inventário',
     icon: Backpack,
     scores: { dofus: 2, wakfu: 1, waven: 3 },
     description:
-      'Waven: que inventário? Dofus: tudo junto. Wakfu: compra mais bag aí troxa kkk',
+      'Waven: não tem inventário. Dofus: o inventário é um só, com uma certa limitação de espaço (pods). Wakfu: precisa gerenciar o tempo todo e aumentar os slots com bags',
+  },
+  {
+    title: 'Rejogabilidade',
+    icon: RefreshCcw,
+    scores: { dofus: 2, wakfu: 3, waven: 1 },
+    description:
+      'No Waven, exceto por daily, não há incentivo para repetir conteúdo. No Wakfu, é possível ajustar o nível para + drop/xp/dificuldade, além de ter sistema de mentoria. No Dofus, exceto por sucesso (conquista), não há muito incentivo para repetir conteúdo.',
+  },
+  {
+    title: 'Profissão',
+    icon: Hammer,
+    scores: { dofus: 2, wakfu: 3, waven: 1 },
+    description:
+      'No Waven não tem nada de profissão. No Wakfu e Dofus há bastante, sendo que no Wakfu há bastante espaço para otimização.',
+  },
+  {
+    title: 'Dificuldade',
+    icon: Skull,
+    scores: { dofus: 2, wakfu: 1, waven: 3 },
+    description:
+      'Waven é fácil e simples. Dofus e Wakfu são parecidos, mas o Wakfu é menos piedoso em vários conteúdos. Nesta categoria, é difícil dizer qual nota é melhor, já que ser mais difícil não é necessariamente ser pior.',
+  },
+  {
+    title: 'Crossplay',
+    icon: Smartphone,
+    scores: { dofus: 2, wakfu: 1, waven: 3 },
+    description:
+      'Todos os jogos rodam em Windows, Mac e Linux. Waven roda em Android e iOS (quem sabe console no futuro?). Dofus promete lançar pra mobile em breve.',
   },
 ]
 
@@ -179,14 +219,14 @@ export const ComparisonTable = () => {
         <thead>
           <tr className="border-b border-[#3a3a3a]">
             <th className="p-2 text-center">
-              <div 
+              <div
                 className="flex items-center gap-2 cursor-pointer group"
                 onClick={handleExpandAll}
               >
                 <ChevronDown
                   className={cn(
                     'h-4 w-4 transition-transform',
-                    expandAll && 'rotate-180'
+                    expandAll && 'rotate-180',
                   )}
                 />
                 <span className="text-sm text-[#e6d7c3]/70 group-hover:text-[#e6d7c3]">
@@ -214,7 +254,9 @@ export const ComparisonTable = () => {
                       className="w-7 h-7 sm:w-8 sm:h-8"
                     />
                     <div className="hidden sm:flex items-center gap-1">
-                      <span className="text-sm sm:text-base capitalize">{game.id}</span>
+                      <span className="text-sm sm:text-base capitalize">
+                        {game.id}
+                      </span>
                       <ArrowUpDown
                         className={cn(
                           'h-3 w-3 transition-colors',
@@ -294,7 +336,7 @@ export const ComparisonTable = () => {
                   <div
                     className={cn(
                       'grid transition-all duration-200 ease-in-out',
-                      (expandedRow === row.title || expandedRow === 'all')
+                      expandedRow === row.title || expandedRow === 'all'
                         ? 'grid-rows-[1fr] opacity-100'
                         : 'grid-rows-[0fr] opacity-0',
                     )}
@@ -338,4 +380,4 @@ export const ComparisonTable = () => {
       </table>
     </div>
   )
-} 
+}
