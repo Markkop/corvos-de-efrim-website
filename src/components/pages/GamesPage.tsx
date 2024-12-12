@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/card'
 import { guildGames } from '@/lib/data'
 import { cn } from '@/lib/utils'
+import { ComparisonTable } from '@/components/ComparisonTable'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -120,6 +121,20 @@ export function GamesPage() {
               </div>
             ))}
           </div>
+        </CardContent>
+      </Card>
+
+      <Card className="bg-[#2a2a2a] text-[#e6d7c3] w-2/3 mx-auto">
+        <CardHeader>
+          <CardTitle className="text-3xl font-bold text-[#a27a50]">
+            Comparativo
+          </CardTitle>
+          <CardDescription className="text-lg text-[#e6d7c3]">
+            Compare as características de cada jogo
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <ComparisonTable />
         </CardContent>
       </Card>
     </div>
