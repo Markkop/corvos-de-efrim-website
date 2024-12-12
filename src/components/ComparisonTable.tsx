@@ -201,20 +201,20 @@ export const ComparisonTable = () => {
             ].map((game) => (
               <th
                 key={game.id}
-                className="p-2 cursor-pointer group"
+                className="p-0.5 sm:p-2 cursor-pointer group"
                 onClick={() => handleSort(game.id)}
               >
-                <div className="flex text-center items-center justify-center gap-2">
+                <div className="flex text-center items-center justify-center gap-0.5 sm:gap-2">
                   <div className="flex flex-col items-center">
                     <Image
                       src={game.logo}
                       alt={game.id}
-                      width={32}
-                      height={32}
-                      className=""
+                      width={28}
+                      height={28}
+                      className="w-7 h-7 sm:w-8 sm:h-8"
                     />
-                    <div className="flex items-center gap-1">
-                      <span className="text-base capitalize">{game.id}</span>
+                    <div className="hidden sm:flex items-center gap-1">
+                      <span className="text-sm sm:text-base capitalize">{game.id}</span>
                       <ArrowUpDown
                         className={cn(
                           'h-3 w-3 transition-colors',
@@ -241,7 +241,7 @@ export const ComparisonTable = () => {
                 onClick={() => handleRowClick(row.title)}
                 className="border-b border-[#3a3a3a] hover:bg-[#3a3a3a] cursor-pointer group"
               >
-                <td className="p-2 flex items-center gap-2">
+                <td className="p-1 sm:p-2 flex items-center gap-1 sm:gap-2">
                   <ChevronDown
                     className={cn(
                       'h-4 w-4 transition-transform',
@@ -249,13 +249,13 @@ export const ComparisonTable = () => {
                     )}
                   />
                   <row.icon className="h-4 w-4 text-[#e6d7c3]/70" />
-                  <span className="flex-1 text-sm">{row.title}</span>
+                  <span className="flex-1 text-xs sm:text-sm">{row.title}</span>
                 </td>
                 {['dofus', 'wakfu', 'waven'].map((game) => (
-                  <td key={game} className="p-2 text-center relative">
+                  <td key={game} className="p-1 sm:p-2 text-center relative">
                     <div
                       className={cn(
-                        'absolute inset-y-0 right-0 w-12 transition-opacity duration-200',
+                        'absolute inset-y-0 right-0 w-12 transition-opacity duration-200 hidden sm:block',
                         expandedRow === row.title
                           ? 'opacity-100'
                           : 'opacity-0 group-hover:opacity-10',
@@ -276,7 +276,7 @@ export const ComparisonTable = () => {
                     </div>
                     <span
                       className={cn(
-                        'text-lg font-bold px-2 py-0.5 rounded-full relative z-10',
+                        'text-base sm:text-lg font-bold px-1.5 sm:px-2 py-0.5 rounded-full relative z-10',
                         row.scores[game] === 3 &&
                           'bg-green-800/50 text-green-400',
                         row.scores[game] === 2 &&

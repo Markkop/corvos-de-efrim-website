@@ -1,5 +1,6 @@
 'use client'
 
+import { ComparisonTable } from '@/components/ComparisonTable'
 import {
   Card,
   CardContent,
@@ -9,7 +10,6 @@ import {
 } from '@/components/ui/card'
 import { guildGames } from '@/lib/data'
 import { cn } from '@/lib/utils'
-import { ComparisonTable } from '@/components/ComparisonTable'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -124,7 +124,7 @@ export function GamesPage() {
         </CardContent>
       </Card>
 
-      <Card className="bg-[#2a2a2a] text-[#e6d7c3] w-2/3 mx-auto">
+      <Card className="bg-[#2a2a2a] text-[#e6d7c3] w-full lg:w-2/3 mx-auto">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-[#a27a50]">
             Comparativo
