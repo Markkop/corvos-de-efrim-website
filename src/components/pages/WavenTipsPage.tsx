@@ -179,6 +179,12 @@ const dailyLevels: DailyChallenge[] = [
     type: 'vampire',
   },
   {
+    name: 'Cada um com sua Muumãe',
+    goal: 'Elimine uma Muumãe por último.',
+    levels: [118, 98, 78, 58, 38, 18],
+    type: 'taur',
+  },
+  {
     name: 'Contribua!',
     goal: 'Se você tiver uma dica como essas, mande no nosso Discord',
     levels: [],
@@ -369,9 +375,9 @@ export function WavenTipsPage() {
           monstro em questão aparece, então estamos construindo uma lista com os
           maiores níveis em que eles podem ser encontrados
         </p>
-        <WavenDailyQuestsTable 
-          dailyQuests={sortedDailyLevels} 
-          getDailyChallengeIcon={getDailyChallengeIcon} 
+        <WavenDailyQuestsTable
+          dailyQuests={sortedDailyLevels}
+          getDailyChallengeIcon={getDailyChallengeIcon}
         />
       </section>
 
