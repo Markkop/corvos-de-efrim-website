@@ -11,7 +11,6 @@ import {
   Palette,
   RefreshCcw,
   ScrollText,
-  Skull,
   Smartphone,
   Sword,
   Swords,
@@ -56,9 +55,9 @@ const comparisonData: ComparisonRow[] = [
   {
     title: 'Dungeon',
     icon: Swords,
-    scores: { dofus: 3, wakfu: 2, waven: 1 },
+    scores: { dofus: 2, wakfu: 3, waven: 1 },
     description:
-      'Há várias considerações aqui. No Waven, as dungeons tem 4 salas e tendem a ser mais fáceis e rápidas, porém com menos mecânicas e incentivos. No Wakfu, há alta rejogabilidade e variedade de mecânicas, mas elas são bem demoradas e precisam de grupo. Dofus parece ter um bom meio termo.',
+      'Há várias considerações aqui. No Waven, as dungeons tem 4 salas e tendem a ser mais fáceis e rápidas, porém com menos mecânicas e incentivos. No Wakfu, há alta rejogabilidade e variedade de mecânicas, mas elas são bem demoradas e precisam de grupo.',
   },
   {
     title: 'Guilds',
@@ -129,13 +128,6 @@ const comparisonData: ComparisonRow[] = [
     scores: { dofus: 2, wakfu: 3, waven: 1 },
     description:
       'No Waven não tem nada de profissão. No Wakfu e Dofus há bastante, sendo que no Wakfu há bastante espaço para otimização.',
-  },
-  {
-    title: 'Dificuldade',
-    icon: Skull,
-    scores: { dofus: 2, wakfu: 1, waven: 3 },
-    description:
-      'Waven é fácil e simples. Dofus e Wakfu são parecidos, mas o Wakfu é menos piedoso em vários conteúdos. Nesta categoria, é difícil dizer qual nota é melhor, já que ser mais difícil não é necessariamente ser pior.',
   },
   {
     title: 'Crossplay',
