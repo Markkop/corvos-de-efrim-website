@@ -62,6 +62,20 @@ export function GanymedePage() {
 
       <Card className="bg-[#2a2a2a] text-[#e6d7c3] mb-6">
         <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-xl text-amber-500">
+            ⚠️ Aviso Importante
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-gray-400">
+            As traduções destes guias foram feitas por IA e podem (e vão) conter
+            erros.
+          </p>
+        </CardContent>
+      </Card>
+
+      <Card className="bg-[#2a2a2a] text-[#e6d7c3] mb-6">
+        <CardHeader>
           <CardTitle className="flex items-center gap-2 text-xl">
             <FileJson className="h-6 w-6 text-amber-500" />
             Como importar os arquivos
