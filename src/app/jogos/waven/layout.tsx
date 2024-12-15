@@ -1,5 +1,8 @@
+'use client'
+
+import { RelatedPages, type RelatedPage } from '@/components/RelatedPages'
 import { BookOpen, Swords, UserPlus, Users } from 'lucide-react'
-import { RelatedPages, type RelatedPage } from './RelatedPages'
+import { usePathname } from 'next/navigation'
 
 const WAVEN_PAGES: RelatedPage[] = [
   {
@@ -28,21 +31,13 @@ const WAVEN_PAGES: RelatedPage[] = [
   },
 ]
 
-interface WavenRelatedPagesProps {
-  currentPath: string
-  noTitle?: boolean
-}
+export default function Layout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname()
 
-export function WavenRelatedPages({
-  currentPath,
-  noTitle,
-}: WavenRelatedPagesProps) {
   return (
-    <RelatedPages
-      currentPath={currentPath}
-      pages={WAVEN_PAGES}
-      noTitle={noTitle}
-      gridCols={3}
-    />
+    <div className="space-y-12">
+      {children}
+      <RelatedPages currentPath={pathname} pages={WAVEN_PAGES} gridCols={3} />
+    </div>
   )
 }

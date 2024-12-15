@@ -1,7 +1,6 @@
 'use client'
 
 import { WavenBuildsTable } from '@/components/waven-builds-table'
-import { WavenRelatedPages } from '@/components/waven-related-pages'
 import { WavenResources } from '@/components/waven-resources'
 
 export function WavenBuildsPage() {
@@ -30,8 +29,6 @@ export function WavenBuildsPage() {
         </p>
         <WavenResources />
       </section>
-
-      <WavenRelatedPages currentPath="/jogos/waven/builds" />
     </div>
   )
 }

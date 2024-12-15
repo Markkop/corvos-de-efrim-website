@@ -1,5 +1,8 @@
+'use client'
+
+import { RelatedPages, type RelatedPage } from '@/components/RelatedPages'
 import { Download, UserPlus, Users } from 'lucide-react'
-import { RelatedPages, type RelatedPage } from './RelatedPages'
+import { usePathname } from 'next/navigation'
 
 const DOFUS_PAGES: RelatedPage[] = [
   {
@@ -22,20 +25,13 @@ const DOFUS_PAGES: RelatedPage[] = [
   },
 ]
 
-interface DofusRelatedPagesProps {
-  currentPath: string
-  noTitle?: boolean
-}
+export default function Layout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname()
 
-export function DofusRelatedPages({
-  currentPath,
-  noTitle,
-}: DofusRelatedPagesProps) {
   return (
-    <RelatedPages
-      currentPath={currentPath}
-      pages={DOFUS_PAGES}
-      noTitle={noTitle}
-    />
+    <div className="space-y-12">
+      {children}
+      <RelatedPages currentPath={pathname} pages={DOFUS_PAGES} />
+    </div>
   )
 }

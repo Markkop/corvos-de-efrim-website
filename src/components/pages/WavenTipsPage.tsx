@@ -15,7 +15,6 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { WavenDailyQuestsTable } from '@/components/waven-daily-quests-table'
-import { WavenRelatedPages } from '@/components/waven-related-pages'
 import {
   ArrowRightCircle,
   Book,
@@ -380,8 +379,6 @@ export function WavenTipsPage() {
           getDailyChallengeIcon={getDailyChallengeIcon}
         />
       </section>
-
-      <WavenRelatedPages currentPath="/jogos/waven/dicas" />
     </div>
   )
 }

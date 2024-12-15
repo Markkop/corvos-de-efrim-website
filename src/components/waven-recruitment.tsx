@@ -2,7 +2,6 @@
 
 import { GalleryViewer } from '@/components/GalleryViewer'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { WavenRelatedPages } from '@/components/waven-related-pages'
 import { DISCORD_INVITE_URL } from '@/lib/constants'
 import { guildGames } from '@/lib/data'
 import { cn } from '@/lib/utils'
@@ -444,11 +443,6 @@ export function WavenRecruitmentComponent() {
             </div>
           </CardContent>
         </Card>
-      </motion.div>
-
-      {/* Related Pages */}
-      <motion.div variants={fadeIn}>
-        <WavenRelatedPages currentPath="/jogos/waven/recrutamento" />
       </motion.div>
     </motion.div>
   )
