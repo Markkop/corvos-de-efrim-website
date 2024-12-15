@@ -13,7 +13,14 @@ import {
 import { DISCORD_INVITE_URL, YOUTUBE_CHANNEL_URL } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import { AnimatePresence, motion } from 'framer-motion'
-import { BookOpen, ScrollText, Swords, UserPlus, Users } from 'lucide-react'
+import {
+  BookOpen,
+  Download,
+  ScrollText,
+  Swords,
+  UserPlus,
+  Users,
+} from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -105,6 +112,12 @@ const Navigation = () => {
       description:
         'Informações sobre como se juntar à nossa comunidade no Dofus.',
       icon: UserPlus,
+    },
+    {
+      title: 'Ganymede',
+      href: '/jogos/dofus/ganymede',
+      description: 'Guias JSON traduzidos para Ganymede',
+      icon: Download,
     },
   ]
 
