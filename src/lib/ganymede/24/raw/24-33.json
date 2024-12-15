@@ -1,0 +1,7 @@
+{
+  "name": null,
+  "map": "Douze",
+  "pos_x": 25,
+  "pos_y": -4,
+  "web_text": "<p>Parlez à <span style=\"color: #FFFF00\">Lenald des Temps Anciens</span><span style=\"color: #FFFFFF\">.</span></p><p></p><p>Ensuite <span style=\"color: #62ACFF\">allez en</span> [24,-2]</p><p></p><ul data-type=\"taskList\"><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map à gauche</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">2 maps en bas</span></p></div></li></ul>"
+}

@@ -1,0 +1,7 @@
+{
+  "name": null,
+  "map": "Douze",
+  "pos_x": 24,
+  "pos_y": -2,
+  "web_text": "<p>Parlez <span style=\"color: #FFFFFF\">à </span><span style=\"color: #FFFF00\">Capitaine Lily</span><span style=\"color: #FFFFFF\"> et </span><span style=\"color: #FFFF00\">Demander si le bateau va tenir le coup</span><span style=\"color: #FFFFFF\"> pour lancer la quête </span><span data-type=\"custom-tag\" data-id=\"952\" class=\"tag-quest\" id=\"678\" type=\"quest\" name=\"La chasse de Lily\" imageurl=\"https://ganymede-dofus.com/images/icon_quest.png\" dofusdbid=\"952\"><img src=\"https://ganymede-dofus.com/images/icon_quest.png\" alt=\"quest\"><span>La chasse de Lily</span></span>. </p><p></p><p>Ensuite <span style=\"color: #62ACFF\">allez en</span> [23,-4]</p><p></p><ul data-type=\"taskList\"><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">2 maps en haut</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map à gauche</span></p></div></li></ul>"
+}

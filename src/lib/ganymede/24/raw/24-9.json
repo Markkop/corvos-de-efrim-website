@@ -1,0 +1,7 @@
+{
+  "name": null,
+  "map": "Douze",
+  "pos_x": 24,
+  "pos_y": -7,
+  "web_text": "<p>Cliquez sur n'importe lequel des <span style=\"color: #FFFF00\">tas de bois</span>.</p><p></p><p>Ensuite <span style=\"color: #62ACFF\">allez en</span> [26,-9]</p><p></p><ul data-type=\"taskList\"><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map à droite</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">2 maps en haut</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map à droite</span></p></div></li></ul>"
+}

@@ -1,0 +1,21 @@
+{
+  "id": 24,
+  "name": "[GP13] 100% WABBIT + DOFUS CAWOTTE",
+  "description": "<p>Guide écrit par <span style=\"color: #ffff00\">Fladam</span></p>",
+  "status": "gp",
+  "likes": 18,
+  "dislikes": 0,
+  "downloads": null,
+  "deleted_at": null,
+  "updated_at": "2024-12-13T16:56:22.000000Z",
+  "lang": "fr",
+  "order": 13,
+  "user": {
+    "id": 86,
+    "name": "Ganymede",
+    "is_admin": 1,
+    "is_certified": 1
+  },
+  "web_description": null,
+  "folder": null
+}

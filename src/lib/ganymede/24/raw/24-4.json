@@ -1,0 +1,7 @@
+{
+  "name": null,
+  "map": "Douze",
+  "pos_x": 24,
+  "pos_y": -4,
+  "web_text": "<p>Parlez à <span style=\"color: #FFFF00\">Xiap</span> pour lancer la quête <span data-type=\"custom-tag\" data-id=\"920\" class=\"tag-quest\" id=\"646\" type=\"quest\" name=\"Guewwe et Paix\" imageurl=\"https://ganymede-dofus.com/images/icon_quest.png\" dofusdbid=\"920\"><img src=\"https://ganymede-dofus.com/images/icon_quest.png\" alt=\"quest\"><span>Guewwe et Paix</span></span><span style=\"color: #FFFFFF\">.</span></p><p></p><p>Ensuite <span style=\"color: #62ACFF\">allez en</span> [24,-3]</p><p></p><ul data-type=\"taskList\"><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map en bas</span></p></div></li></ul>"
+}

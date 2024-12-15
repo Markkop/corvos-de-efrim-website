@@ -1,0 +1,7 @@
+{
+  "name": null,
+  "map": "Douze",
+  "pos_x": 23,
+  "pos_y": -7,
+  "web_text": "<p>Maintenant, suivez le <span style=\"color: #ffff00\">chemin rouge</span> ci-dessous :</p><p></p><img src=\"https://i.imgur.com/MEU2Sj0.png\" class=\"img-large\"><p></p><p>Cliquez sur le <span style=\"color: #62ACFF\">tunnel du bas</span> pour sortir.</p><p></p><p>Ensuite <span style=\"color: #62ACFF\">allez en</span> [22,-6]</p><p></p><ul data-type=\"taskList\"><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">2 maps à gauche</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">Sortez </span>de la <span style=\"color: #62ACFF\">maison</span></p></div></li></ul>"
+}

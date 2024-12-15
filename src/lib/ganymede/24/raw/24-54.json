@@ -1,0 +1,7 @@
+{
+  "name": null,
+  "map": "Douze",
+  "pos_x": 24,
+  "pos_y": -13,
+  "web_text": "<p>Une fois dehors, parlez à <span style=\"color: #FFFF00\">Logel le Lenald</span> pour <span style=\"color: #FFFF00\">retourner au village</span>.</p><p></p><p>Ensuite <span style=\"color: #62ACFF\">allez en</span> [23,-4]</p><p></p><ul data-type=\"taskList\"><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map en haut</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map à gauche</span></p></div></li></ul>"
+}

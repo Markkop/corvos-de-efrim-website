@@ -1,0 +1,7 @@
+{
+  "name": null,
+  "map": "Douze",
+  "pos_x": 24,
+  "pos_y": -2,
+  "web_text": "<p>Parlez à la <span style=\"color: #FFFF00\">Capitaine Lily</span><span style=\"color: #FFFFFF\"> et </span><span style=\"color: #FFFF00\">Demander à interroger les Wabbits capturés...</span></p><p></p><p><span style=\"color: #ffff00\">Vérifiez </span><span style=\"color: #FFFFFF\">que vous </span><span style=\"color: #ffff00\">avez </span><span style=\"color: #FFFFFF\">1 </span><span data-type=\"custom-tag\" data-id=\"361\" class=\"tag-item\" id=\"129\" type=\"item\" name=\"Cawotte\" imageurl=\"https://api.dofusdb.fr/img/items/68031.png\" dofusdbid=\"361\"><img src=\"https://api.dofusdb.fr/img/items/68031.png\" alt=\"item\"><span>Cawotte</span></span> sinon allez la drop sur les wabbits.</p><p></p><p><span style=\"color: #ffff00\">P</span><span style=\"color: #ffff00\">arlez </span><span style=\"color: #FFFFFF\">au </span><span style=\"color: #FFFF00\">Tiwabbit Kiatwefin</span><span style=\"color: #FFFFFF\"> qui vient d'apparaître et </span><span style=\"color: #FFFF00\">Ne pas donner la Cawotte promise</span><span style=\"color: #FFFFFF\">.</span></p><p></p><p>Ensuite <span style=\"color: #62ACFF\">allez en</span> [24,-4]</p><p></p><ul data-type=\"taskList\"><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">2 map en haut</span></p></div></li></ul>"
+}

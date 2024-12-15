@@ -1,0 +1,120 @@
+{
+  "id": 1523,
+  "name": "Guia do Usuário Ganymede",
+  "description": "<p>Guia escrito por <span style=\"color: #FFFF00\">Mazette </span><span style=\"color: #FFFFFF\">(Discord: damned3952) da guilda </span><span style=\"color: #62ACFF\">Alètheia</span><span style=\"color: #FFFFFF\"> e traduzido por Markx (Corvos de Efrim)</span>.</p>",
+  "status": "draft",
+  "likes": 0,
+  "dislikes": 0,
+  "downloads": null,
+  "deleted_at": null,
+  "updated_at": "2024-12-15T17:41:43.000000Z",
+  "lang": "pt",
+  "order": 0,
+  "user": {
+    "id": 5990,
+    "name": "[CORV] Markx",
+    "is_admin": 0,
+    "is_certified": 0
+  },
+  "web_description": null,
+  "steps": [
+    {
+      "name": null,
+      "map": null,
+      "pos_x": 0,
+      "pos_y": 0,
+      "web_text": "<p style=\"text-align: center\"><strong>SUMÁRIO</strong></p><p></p><p><span data-type=\"guide-step\" class=\"guide-step\" guideid=\"0\" stepid=\"203391\" stepnumber=\"2\" label=\"\" baseurl=\"https://ganymede-dofus.com\"><img src=\"https://ganymede-dofus.com/images/texteditor/guides.png\" alt=\"GuideStep\">Etapa 2</span> : 💾 Abrir um recurso do DofusDB</p><p></p><p><span data-type=\"guide-step\" class=\"guide-step\" guideid=\"0\" stepid=\"203407\" stepnumber=\"3\" label=\"\" baseurl=\"https://ganymede-dofus.com\"><img src=\"https://ganymede-dofus.com/images/texteditor/guides.png\" alt=\"GuideStep\">Etapa 3</span> : 🚕 Autopiloto</p><p></p><p><span data-type=\"guide-step\" class=\"guide-step\" guideid=\"0\" stepid=\"203408\" stepnumber=\"4\" label=\"\" baseurl=\"https://ganymede-dofus.com\"><img src=\"https://ganymede-dofus.com/images/texteditor/guides.png\" alt=\"GuideStep\">Etapa 4</span> : <span style=\"color: #FFFFFF\">📖 Etapas dos guias</span></p><p></p><p><span data-type=\"guide-step\" class=\"guide-step\" guideid=\"0\" stepid=\"203409\" stepnumber=\"5\" label=\"\" baseurl=\"https://ganymede-dofus.com\"><img src=\"https://ganymede-dofus.com/images/texteditor/guides.png\" alt=\"GuideStep\">Etapa 5</span> : 🔗 Links e imagens</p><p></p><p><span data-type=\"guide-step\" class=\"guide-step\" guideid=\"0\" stepid=\"203391\" stepnumber=\"6\" label=\"\" baseurl=\"https://ganymede-dofus.com\"><img src=\"https://ganymede-dofus.com/images/texteditor/guides.png\" alt=\"GuideStep\">Etapa 6</span> : ⌨️ Atalhos de teclado página anterior e próxima</p><p></p><p><span data-type=\"guide-step\" class=\"guide-step\" guideid=\"0\" stepid=\"203409\" stepnumber=\"7\" label=\"\" baseurl=\"https://ganymede-dofus.com\"><img src=\"https://ganymede-dofus.com/images/texteditor/guides.png\" alt=\"GuideStep\">Etapa 7</span> : <span style=\"color: #FFFF00\">🖱️ </span>Atalhos do mouse página anterior e próxima</p><p></p><p><span data-type=\"guide-step\" class=\"guide-step\" guideid=\"0\" stepid=\"203411\" stepnumber=\"8\" label=\"\" baseurl=\"https://ganymede-dofus.com\"><img src=\"https://ganymede-dofus.com/images/texteditor/guides.png\" alt=\"GuideStep\">Etapa 8</span> : 📏 Redimensionar o aplicativo</p><p></p><p><span data-type=\"guide-step\" class=\"guide-step\" guideid=\"0\" stepid=\"203412\" stepnumber=\"9\" label=\"\" baseurl=\"https://ganymede-dofus.com\"><img src=\"https://ganymede-dofus.com/images/texteditor/guides.png\" alt=\"GuideStep\">Etapa 9</span> : <span style=\"color: #A9A9A9\">🗚</span> Alterar o tamanho do texto e opções</p><p></p><p><span data-type=\"guide-step\" class=\"guide-step\" guideid=\"0\" stepid=\"203413\" stepnumber=\"10\" label=\"\" baseurl=\"https://ganymede-dofus.com\"><img src=\"https://ganymede-dofus.com/images/texteditor/guides.png\" alt=\"GuideStep\">Etapa 10</span> : 🗺️ Ferramenta Mapa</p><p></p><p><span data-type=\"guide-step\" class=\"guide-step\" guideid=\"0\" stepid=\"203413\" stepnumber=\"11\" label=\"\" baseurl=\"https://ganymede-dofus.com\"><img src=\"https://ganymede-dofus.com/images/texteditor/guides.png\" alt=\"GuideStep\">Etapa 11</span> : 🗺️ Ferramenta Caça ao Tesouro</p><p></p><p><span data-type=\"guide-step\" class=\"guide-step\" guideid=\"0\" stepid=\"203414\" stepnumber=\"12\" label=\"\" baseurl=\"https://ganymede-dofus.com\"><img src=\"https://ganymede-dofus.com/images/texteditor/guides.png\" alt=\"GuideStep\">Etapa 12</span> : 😄 Comentar e avaliar um guia</p><p></p><p><span data-type=\"guide-step\" class=\"guide-step\" guideid=\"0\" stepid=\"205687\" stepnumber=\"13\" label=\"\" baseurl=\"https://ganymede-dofus.com\"><img src=\"https://ganymede-dofus.com/images/texteditor/guides.png\" alt=\"GuideStep\">Etapa 13</span> : 🦉 Abrir múltiplas instâncias do Ganymede</p><p></p><p><span data-type=\"guide-step\" class=\"guide-step\" guideid=\"0\" stepid=\"216136\" stepnumber=\"14\" label=\"\" baseurl=\"https://ganymede-dofus.com\"><img src=\"https://ganymede-dofus.com/images/texteditor/guides.png\" alt=\"GuideStep\">Etapa 14</span> : 👾 Reportar bugs</p><p></p><p></p><p></p>"
+    },
+    {
+      "name": null,
+      "map": null,
+      "pos_x": 0,
+      "pos_y": 0,
+      "web_text": "<p style=\"text-align: center\"><strong>💾 Abrir um recurso do DofusDB 💾</strong></p><p></p><p>Usando a combinação <span style=\"color: #FFFF00\">CTRL + Clique esquerdo</span> você pode abrir os seguintes recursos no seu navegador:</p><p></p><p><span style=\"color: #FFFF00\">Missões </span>: <span data-type=\"custom-tag\" data-id=\"18\" class=\"tag-quest\" id=\"1\" type=\"quest\" name=\"Wogew l'hewmite\" imageurl=\"https://ganymede-dofus.com/images/icon_quest.png\" dofusdbid=\"18\"><img src=\"https://ganymede-dofus.com/images/icon_quest.png\" alt=\"quest\"><span>Wogew l'hewmite</span></span> para ver as diferentes etapas da missão.</p><p></p><p><span style=\"color: #FFFF00\">Itens</span> : <span data-type=\"custom-tag\" data-id=\"8523\" class=\"tag-item\" id=\"3110\" type=\"item\" name=\"La relique des Robill\" imageurl=\"https://api.dofusdb.fr/img/items/24714.png\" dofusdbid=\"8523\"><img src=\"https://api.dofusdb.fr/img/items/24714.png\" alt=\"item\"><span>La relique des Robill</span></span> para ver as formas de obtenção ou uso do item.</p><p></p><p><span style=\"color: #FFFF00\">Monstros </span>: <span data-type=\"custom-tag\" data-id=\"112\" class=\"tag-monster\" id=\"58\" type=\"monster\" name=\"Boo\" imageurl=\"https://api.dofusdb.fr/img/monsters/112.png\" dofusdbid=\"112\"><img src=\"https://api.dofusdb.fr/img/monsters/112.png\" alt=\"monster\"><span>Boo</span></span> para ver as características e feitiços do monstro.</p><p></p><p><span style=\"color: #FFFF00\">Masmorras </span>: <span data-type=\"custom-tag\" data-id=\"13\" class=\"tag-dungeon\" id=\"10\" type=\"dungeon\" name=\"Donjon des Bworks\" imageurl=\"https://ganymede-dofus.com/images/icon_dungeon.png\" dofusdbid=\"13\"><img src=\"https://ganymede-dofus.com/images/icon_dungeon.png\" alt=\"dungeon\"><span>Masmorra dos Bworks</span></span> para ver os monstros e missões relacionadas à masmorra.</p>"
+    },
+    {
+      "name": null,
+      "map": null,
+      "pos_x": 0,
+      "pos_y": 0,
+      "web_text": "<p style=\"text-align: center\"><strong>🚕 Autopiloto 🚕</strong></p><p><br>O autopiloto está disponível para todos a partir do nível 10 no jogo.<br></p><p>Ao clicar nas <span style=\"color: #FFFF00\">coordenadas </span>entre colchetes, você poderá <span style=\"color: #FFFF00\">copiar um link de autopiloto</span> do tipo <span style=\"color: #FFFF00\">/travel 1,4</span> que você poderá <span style=\"color: #FFFF00\">colar no chat do jogo</span> para se mover até o destino desejado.</p><p></p><p>Na imagem abaixo, a posição na barra superior corresponde ao mapa onde você deveria estar, enquanto a posição inferior indica seu destino. É possível clicar em ambos!</p><p></p><img src=\"https://i.gyazo.com/7940cba78e0739d9f40d363374ce6527.png\" class=\"img-large\"><p></p><p><span style=\"color: #FFFFFF\">Te convido a tentar clicando aqui: [0,0]<br><br>Se não funcionar, você precisará marcar \"</span><span style=\"color: #FFFF00\">Cópia de autopiloto</span><span style=\"color: #FFFFFF\">\" nas </span><span style=\"color: #FFFF00\">opções</span><span style=\"color: #FFFFFF\">.</span></p><p></p>"
+    },
+    {
+      "name": null,
+      "map": null,
+      "pos_x": 0,
+      "pos_y": 0,
+      "web_text": "<p style=\"text-align: center\"><span style=\"color: #FFFFFF\"><strong>📖 Etapas dos guias 📖</strong></span></p><p></p><p><span style=\"color: #FFFFFF\">As </span><span style=\"color: #FFFF00\">etapas dos guias</span><span style=\"color: #FFFFFF\"> correspondem ao </span><span style=\"color: #FFFF00\">número de páginas</span><span style=\"color: #FFFFFF\"> deles. Por exemplo, na imagem abaixo, você está na etapa 9 do guia </span><span style=\"color: #7986CC\">Incarnam Astrub</span><span style=\"color: #FFFFFF\"> que tem 241 etapas.</span></p><p></p><p><span style=\"color: #FFFFFF\">Você também pode </span><span style=\"color: #FFFF00\">clicar </span><span style=\"color: #FFFFFF\">e digitar o </span><span style=\"color: #FFFF00\">número da etapa</span><span style=\"color: #FFFFFF\"> desejada com seu </span><span style=\"color: #FFFF00\">teclado </span><span style=\"color: #FFFFFF\">nesta área antes de pressionar </span><span style=\"color: #FFFF00\">Enter</span><span style=\"color: #FFFFFF\"> para ir diretamente à etapa desejada.</span></p><p></p><img src=\"https://i.gyazo.com/081cf83f74f4171d7006c7c2dbf0d1f6.png\" class=\"img-large\"><p></p>"
+    },
+    {
+      "name": null,
+      "map": null,
+      "pos_x": 0,
+      "pos_y": 0,
+      "web_text": "<p style=\"text-align: center\">🔗 <strong>Links e imagens </strong>🔗</p><p></p><p>Você pode <span style=\"color: #FFFF00\">clicar</span> em todas as <span style=\"color: #FFFF00\">imagens </span>presentes no <span style=\"color: #FFFF00\">Ganymede </span>para abri-las no seu <span style=\"color: #FFFF00\">navegador</span>, onde poderá dar zoom nelas.</p><p></p><p>Você também encontrará <span style=\"color: #FFFF00\">palavras-chave</span> contendo <span style=\"color: #FFFF00\">links </span>que te redirecionarão para <span style=\"color: #FFFF00\">páginas web</span>.</p><p></p><p>Exemplo: <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://docs.google.com/spreadsheets/d/1gpV7-4IvpZXtynWGzYJ15V19tqUCLwnV_tc6Czmd3WQ/edit?usp=sharing\">🌽 Fazendeiro 0 a 10 🌽</a></p>"
+    },
+    {
+      "name": null,
+      "map": null,
+      "pos_x": 0,
+      "pos_y": 0,
+      "web_text": "<p style=\"text-align: center\"><strong>⌨️ Atalhos de teclado página anterior e próxima ⌨️</strong></p><p></p><p><span style=\"color: #ffff00\">CTRL + SHIFT + E</span> : Ir para a próxima etapa.</p><p></p><p><span style=\"color: #ffff00\">CTRL + SHIFT + A</span> : Ir para a etapa anterior.</p><p></p><p>Muito úteis, estes atalhos podem ser usados a qualquer momento.</p>"
+    },
+    {
+      "name": null,
+      "map": null,
+      "pos_x": 0,
+      "pos_y": 0,
+      "web_text": "<p style=\"text-align: center\"><span style=\"color: #FFFF00\">🖱️ </span><strong>Atalhos do mouse página anterior e próxima </strong><span style=\"color: #FFFF00\">🖱️</span></p><p></p><p><span style=\"color: #FFFFFF\">Se você tem </span><span style=\"color: #FFFF00\">botões laterais no seu mouse 🖱️</span><span style=\"color: #FFFFFF\">, você pode usá-los para realizar as ações de </span><span style=\"color: #FFFF00\">página anterior</span><span style=\"color: #FFFFFF\"> e </span><span style=\"color: #FFFF00\">próxima página</span><span style=\"color: #FFFFFF\"> para alternar, por exemplo, entre páginas já visitadas de um guia ou entre dois guias.</span></p><p></p><p><span style=\"color: #FFFFFF\">Te convido a tentar clicando aqui: </span><span data-type=\"guide-step\" class=\"guide-step\" guideid=\"2\" stepid=\"0\" stepnumber=\"1\" guidename=\"[GP1] Incarnam Astrub\" label=\"Incarnam &amp; Astrub\" baseurl=\"https://ganymede-dofus.com\"><img src=\"https://ganymede-dofus.com/images/texteditor/guides.png\" alt=\"GuideStep\">Incarnam &amp; Astrub</span> !<br><br>Isso só afeta seu histórico, se a próxima página não tiver sido visitada ainda, use o atalho de teclado da <span data-type=\"guide-step\" class=\"guide-step\" guideid=\"0\" stepid=\"216094\" stepnumber=\"6\" label=\"\" baseurl=\"https://ganymede-dofus.com\"><img src=\"https://ganymede-dofus.com/images/texteditor/guides.png\" alt=\"GuideStep\">Etapa 6</span>.</p>"
+    },
+    {
+      "name": null,
+      "map": null,
+      "pos_x": 0,
+      "pos_y": 0,
+      "web_text": "<p style=\"text-align: center\"><strong>📏 Redimensionar o aplicativo 📏</strong></p><p></p><p>Clicando nas <span style=\"color: #FFFF00\">bordas do aplicativo</span>, você pode <span style=\"color: #FFFF00\">redimensioná-lo</span> como desejar.</p><p></p><p>Particularmente útil ao usar as ferramentas <span style=\"color: #ffff00\">Mapa </span>e <span style=\"color: #ffff00\">Caça ao tesouro</span><span style=\"color: #ffffff\">, por exemplo.</span></p>"
+    },
+    {
+      "name": null,
+      "map": null,
+      "pos_x": 0,
+      "pos_y": 0,
+      "web_text": "<p style=\"text-align: center\"><span style=\"color: #A9A9A9\"><strong>🗚</strong></span><strong> Alterar o tamanho do texto e opções </strong><span style=\"color: #A9A9A9\"><strong>🗚</strong></span></p><p></p><p>Clicando na <span style=\"color: #FFFF00\">engrenagem no canto superior direito</span> do aplicativo, você pode acessar as <span style=\"color: #FFFF00\">opções </span>que permitem, por exemplo:</p><p></p><ul><li><p>Alterar a opacidade do aplicativo</p></li><li><p>Alterar o tamanho do texto</p></li><li><p>Alterar o idioma do aplicativo</p></li></ul><p></p><p>Te convido também a visitar as <span style=\"color: #FFFF00\">opções </span>para modificar o aplicativo de acordo com suas necessidades.</p>"
+    },
+    {
+      "name": null,
+      "map": null,
+      "pos_x": 0,
+      "pos_y": 0,
+      "web_text": "<p style=\"text-align: center\"><strong>🗺️ Ferramenta Mapa 🗺️</strong></p><p></p><p>Clicando no <span style=\"color: #FFFF00\">menu suspenso</span> no canto superior esquerdo você poderá acessar a ferramenta <span style=\"color: #FFFF00\">Mapa</span>.</p><p></p><img src=\"https://i.gyazo.com/839cddc711933379eec2c307b42131d4.png\" class=\"img-medium\"><p></p><p>Você precisará <span style=\"color: #FFFF00\">redimensionar o aplicativo</span> para aumentá-lo e poderá <span style=\"color: #FFFF00\">clicar nos recursos de profissões</span> à direita para fazê-los <span style=\"color: #FFFF00\">aparecer no mapa</span>.</p><p></p><p>Prático para suas profissões de coleta, não é?</p>"
+    },
+    {
+      "name": null,
+      "map": null,
+      "pos_x": 0,
+      "pos_y": 0,
+      "web_text": "<p style=\"text-align: center\">🗺️ <strong>Ferramenta Caça ao Tesouro </strong>🗺️</p><p></p><p>Localizada logo abaixo da ferramenta mapa, você precisará <span style=\"color: #FFFF00\">redimensionar o aplicativo</span> para aumentá-lo. <em>Não podemos remover o captcha</em>.</p><p></p><p>Para usá-la, você deve indicar as <span style=\"color: #FFFF00\">coordenadas do mapa atual</span>, depois a <span style=\"color: #FFFF00\">direção da pista</span> e por fim o <span style=\"color: #FFFF00\">nome da pista</span>.</p>"
+    },
+    {
+      "name": null,
+      "map": null,
+      "pos_x": 0,
+      "pos_y": 0,
+      "web_text": "<p style=\"text-align: center\"><strong>😄 Comentar e avaliar um guia 😄</strong></p><p></p><p>Acessando o <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://ganymede-dofus.com/guides\"><span style=\"color: #7986cc\">Site do Ganymede</span></a> e entrando na seção \"<span style=\"color: #ffff00\">Lista de guias</span>\"<span style=\"color: #ffffff\">, você terá a possibilidade de avaliar um guia!</span></p><p><span style=\"color: #ffffff\">Você também pode </span><span style=\"color: #ffff00\">comentar </span><span style=\"color: #ffffff\">em um guia clicando na </span><span style=\"color: #ffff00\">bolha azul</span><span style=\"color: #ffffff\"> para agradecer ao autor, propor correções ou melhorias!</span></p><p></p><p><span style=\"color: #d81b43\">⚠️</span><span style=\"color: #FFFFFF\"> </span><span style=\"color: #ffffff\">Você precisará criar uma conta Ganymede para realizar essas operações.</span></p><p></p><img src=\"https://i.gyazo.com/2fc247584978755d47f13b4f9a475c81.png\">"
+    },
+    {
+      "name": null,
+      "map": null,
+      "pos_x": 0,
+      "pos_y": 0,
+      "web_text": "<p style=\"text-align: center\"><strong>🦉 Abrir múltiplas instâncias do Ganymede 🦉</strong></p><p></p><p>É possível iniciar <span style=\"color: #ffff00\">várias instâncias do Ganymede ao mesmo tempo</span>.</p><p></p><p>Isso pode ser útil caso você esteja seguindo vários guias simultaneamente, por exemplo.</p><p></p><p>O aplicativo consome aproximadamente 70mb de RAM (framework web2view + Ganymede inclusos).</p>"
+    },
+    {
+      "name": null,
+      "map": null,
+      "pos_x": 0,
+      "pos_y": 0,
+      "web_text": "<p style=\"text-align: center\"><strong>👾 Reportar bugs 👾</strong></p><p></p><p><span style=\"color: #FFFFFF\">Se você encontrar um bug, por favor crie um</span><span style=\"color: #FFFF00\"> ticket </span><span style=\"color: #ffffff\">na seção </span><span style=\"color: #FFFF00\">bug report</span><span style=\"color: #FFFFFF\"> no nosso </span><span style=\"color: #FFFF00\">discord</span><span style=\"color: #FFFFFF\">.</span></p>"
+    }
+  ]
+}

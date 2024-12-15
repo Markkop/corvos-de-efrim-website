@@ -1,0 +1,7 @@
+{
+  "name": null,
+  "map": "Douze",
+  "pos_x": 21,
+  "pos_y": -12,
+  "web_text": "<p>Parlez à <span style=\"color: #FFFF00\">Lelievwe Pâle Pitane </span><span style=\"color: #FFFFFF\">et</span><span style=\"color: #FFFF00\"> Affirmer que tout ceci est très intéressant...</span></p><p></p><p><span style=\"color: #FFFF00\">Utilisez </span>1 <span data-type=\"custom-tag\" data-id=\"548\" class=\"tag-item\" id=\"267\" type=\"item\" name=\"Potion de Rappel\" imageurl=\"https://api.dofusdb.fr/img/items/12017.png\" dofusdbid=\"548\"><img src=\"https://api.dofusdb.fr/img/items/12017.png\" alt=\"item\"><span>Potion de Rappel</span></span> pour vous téléporter au Zaap. </p><p></p><p>Ensuite <span style=\"color: #62ACFF\">allez en</span> [24,-3]</p><p></p><ul data-type=\"taskList\"><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map à gauche</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map en bas</span></p></div></li></ul>"
+}

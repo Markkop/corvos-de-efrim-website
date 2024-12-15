@@ -1,0 +1,7 @@
+{
+  "name": null,
+  "map": "Douze",
+  "pos_x": 25,
+  "pos_y": -4,
+  "web_text": "<p><span style=\"color: #FFFF00\">Sauvegardez le zaap</span>, le bouton se situe au dessus du nom des territoires. </p><p></p><p><span style=\"color: #05a045\">Astuce :</span></p><p>- <span style=\"color: #ffff00\">Sauvegarder </span>un <span style=\"color: #ffff00\">Zaap </span>vous <span style=\"color: #ffff00\">permet </span>de vous y <span style=\"color: #ffff00\">téléporter </span>grâce aux <span data-type=\"custom-tag\" data-id=\"548\" class=\"tag-item\" id=\"267\" type=\"item\" name=\"Potion de Rappel\" imageurl=\"https://api.dofusdb.fr/img/items/12017.png\" dofusdbid=\"548\"><img src=\"https://api.dofusdb.fr/img/items/12017.png\" alt=\"item\"><span>Potion de Rappel</span></span> </p><p></p><p>Ensuite <span style=\"color: #62ACFF\">allez en</span> [24,-4]</p><p></p><ul data-type=\"taskList\"><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map à gauche</span></p></div></li></ul>"
+}

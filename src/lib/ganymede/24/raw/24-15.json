@@ -1,0 +1,7 @@
+{
+  "name": null,
+  "map": "Douze",
+  "pos_x": 26,
+  "pos_y": -11,
+  "web_text": "<p>Cliquez sur le <span style=\"color: #FFFF00\">pot</span> pour récupérer un <span data-type=\"custom-tag\" data-id=\"12877\" class=\"tag-item\" id=\"6399\" type=\"item\" name=\"Jus de Cawotte râpée\" imageurl=\"https://api.dofusdb.fr/img/items/79005.png\" dofusdbid=\"12877\"><img src=\"https://api.dofusdb.fr/img/items/79005.png\" alt=\"item\"><span>Jus de Cawotte râpée</span></span>.</p><p></p><p>Ensuite <span style=\"color: #62ACFF\">allez en</span> [27,-11]</p><p></p><ul data-type=\"taskList\"><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map à droite</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">Sortez</span><span style=\"color: #62ACFF\"> </span>de la <span style=\"color: #62ACFF\">maison</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map à droite</span></p></div></li></ul>"
+}

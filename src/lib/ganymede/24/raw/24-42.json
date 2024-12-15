@@ -1,0 +1,7 @@
+{
+  "name": null,
+  "map": "Douze",
+  "pos_x": 28,
+  "pos_y": -12,
+  "web_text": "<p>Une dois dehors, cliquez sur le <span style=\"color: #FFFF00\">barbecue</span>.</p><p></p><p><span style=\"color: #ffff00\">Fabriquez </span>1 <span data-type=\"custom-tag\" data-id=\"14483\" class=\"tag-item\" id=\"7731\" type=\"item\" name=\"Patte de Wabbit glillée\" imageurl=\"https://api.dofusdb.fr/img/items/69131.png\" dofusdbid=\"14483\"><img src=\"https://api.dofusdb.fr/img/items/69131.png\" alt=\"item\"><span>Patte de Wabbit glillée</span></span>.</p><p></p><p>Ensuite <span style=\"color: #62ACFF\">allez en</span> [28,-13]</p><p></p><ul data-type=\"taskList\"><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map en haut</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">Entrez </span><span style=\"color: #FFFFFF\">dans la </span><span style=\"color: #62ACFF\">statue </span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">Souterrain</span></p></div></li></ul>"
+}

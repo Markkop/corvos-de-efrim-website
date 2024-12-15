@@ -4,7 +4,9 @@
 ├── contentlayer.config.ts
 ├── instructions
 │   ├── about-the-guild.md
+│   ├── colors.md
 │   ├── goal.md
+│   ├── image.png
 │   ├── links.md
 │   ├── recruitment.md
 │   └── tree.md
@@ -26,6 +28,12 @@
 │   │   ├── historia
 │   │   │   └── page.tsx
 │   │   ├── jogos
+│   │   │   ├── dofus
+│   │   │   │   ├── membros
+│   │   │   │   │   └── page.tsx
+│   │   │   │   ├── page.tsx
+│   │   │   │   └── recrutamento
+│   │   │   │       └── page.tsx
 │   │   │   ├── page.tsx
 │   │   │   ├── wakfu
 │   │   │   │   ├── membros
@@ -52,20 +60,25 @@
 │   │   ├── providers.tsx
 │   │   └── sitemap.ts
 │   ├── components
+│   │   ├── BlogPostCard.tsx
 │   │   ├── BreadcrumbNav.tsx
 │   │   ├── BuildsSmallList.tsx
+│   │   ├── ComparisonTable.tsx
 │   │   ├── ContactSmallList.tsx
 │   │   ├── CrewMemberCard.tsx
 │   │   ├── CrewSmallList.tsx
+│   │   ├── DofusRelatedPages.tsx
 │   │   ├── GalleryViewer.tsx
 │   │   ├── GamesSmallList.tsx
 │   │   ├── ImageViewer.tsx
 │   │   ├── Navigation.tsx
 │   │   ├── PostCard.tsx
+│   │   ├── dofus-recruitment.tsx
 │   │   ├── hero-section.tsx
 │   │   ├── pages
 │   │   │   ├── ContactPage.tsx
 │   │   │   ├── CrewPage.tsx
+│   │   │   ├── DofusPage.tsx
 │   │   │   ├── GamesPage.tsx
 │   │   │   ├── HistoryPage.tsx
 │   │   │   ├── HomePage.tsx
@@ -94,6 +107,7 @@
 │   │   │   ├── textarea.tsx
 │   │   │   └── tooltip.tsx
 │   │   ├── waven-builds-table.tsx
+│   │   ├── waven-daily-quests-table.tsx
 │   │   ├── waven-recruitment.tsx
 │   │   ├── waven-related-pages.tsx
 │   │   ├── waven-resources.tsx
@@ -101,8 +115,14 @@
 │   └── lib
 │       ├── constants.ts
 │       ├── data.ts
+│       ├── ganymede
+│       │   ├── 24.json
+│       │   └── pt-br
+│       │       ├── 1523.json
+│       │       ├── 1524.json
+│       │       └── 24.json
 │       └── utils.ts
 ├── tailwind.config.js
 └── tsconfig.json
 
-22 directories, 84 files
+27 directories, 99 files

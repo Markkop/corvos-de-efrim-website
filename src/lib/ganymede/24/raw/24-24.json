@@ -1,0 +1,7 @@
+{
+  "name": null,
+  "map": "Douze",
+  "pos_x": 23,
+  "pos_y": -9,
+  "web_text": "<p>Cliquez sur la <span style=\"color: #FFFF00\">cawotte.</span></p><p></p><p>Ensuite <span style=\"color: #62ACFF\">allez en</span> [23,-8]</p><p></p><ul data-type=\"taskList\"><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">E</span><span style=\"color: #62ACFF\">ntrez </span>dans une <span style=\"color: #62ACFF\">maison</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">S</span><span style=\"color: #62ACFF\">outerrain</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map en bas</span></p></div></li></ul>"
+}

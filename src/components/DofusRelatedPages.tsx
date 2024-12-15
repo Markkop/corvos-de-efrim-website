@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { ArrowRight, UserPlus, Users } from 'lucide-react'
+import { ArrowRight, Download, UserPlus, Users } from 'lucide-react'
 import Link from 'next/link'
 
 type RelatedPage = {
@@ -21,6 +21,12 @@ const ALL_PAGES: RelatedPage[] = [
     description: 'Junte-se à nossa guilda no Dofus',
     href: '/jogos/dofus/recrutamento',
     icon: <UserPlus className="h-6 w-6" />,
+  },
+  {
+    title: 'Ganymede',
+    description: 'Download dos arquivos JSON do Ganymede',
+    href: '/jogos/dofus/ganymede',
+    icon: <Download className="h-6 w-6" />,
   },
 ]
 

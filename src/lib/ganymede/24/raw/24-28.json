@@ -1,0 +1,7 @@
+{
+  "name": null,
+  "map": "Douze",
+  "pos_x": 22,
+  "pos_y": -5,
+  "web_text": "<p>Parlez au <span style=\"color: #FFFF00\">Wabbit du Soiw Woulant</span><span style=\"color: #FFFFFF\"> pour </span><span style=\"color: #FFFF00\">Prendre la clef</span><span style=\"color: #FFFFFF\">.</span></p><p></p><p><span style=\"color: #FFFF00\">Utilisez </span>1 <span data-type=\"custom-tag\" data-id=\"548\" class=\"tag-item\" id=\"267\" type=\"item\" name=\"Potion de Rappel\" imageurl=\"https://api.dofusdb.fr/img/items/12017.png\" dofusdbid=\"548\"><img src=\"https://api.dofusdb.fr/img/items/12017.png\" alt=\"item\"><span>Potion de Rappel</span></span> pour vous téléporter au Zaap. </p><p></p><p>Ensuite <span style=\"color: #62ACFF\">allez en</span> [24,-3]</p><p></p><ul data-type=\"taskList\"><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map à gauche</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map en bas</span></p></div></li></ul>"
+}

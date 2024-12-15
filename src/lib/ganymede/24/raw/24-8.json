@@ -1,0 +1,7 @@
+{
+  "name": null,
+  "map": "Douze",
+  "pos_x": 24,
+  "pos_y": -6,
+  "web_text": "<p>Parlez au <span style=\"color: #FFFF00\">Wabbit du Midi Wayonnant</span></p><p></p><p>Entrez dans la<span style=\"color: #FFFF00\"> </span><span style=\"color: #62ACFF\">maison</span>.</p><p></p><p>Cliquez sur le<span style=\"color: #FFFFFF\"> </span><span style=\"color: #FFFF00\">tapis </span>enroulé à gauche de l'entrée.</p><p></p><p>Ensuite <span style=\"color: #62ACFF\">allez en</span> [24,-7]</p><p></p><ul data-type=\"taskList\"><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">Ressortez</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map à gauche</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">2 maps en haut</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map à droite</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map en bas</span></p></div></li></ul>"
+}

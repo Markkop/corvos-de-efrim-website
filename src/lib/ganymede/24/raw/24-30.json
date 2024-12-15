@@ -1,0 +1,7 @@
+{
+  "name": null,
+  "map": "Douze",
+  "pos_x": 22,
+  "pos_y": -7,
+  "web_text": "<p><span style=\"color: #FFFF00\">Suivez le tunnel</span> pour ressortir sur l'<span style=\"color: #FFFF00\">îlot des Tombeaux</span>.</p><p></p><p>Comme à l'<span data-type=\"guide-step\" class=\"guide-step\" guideid=\"0\" stepid=\"1638\" stepnumber=\"26\" label=\"\" baseurl=\"https://ganymede-dofus.com\"><img src=\"https://ganymede-dofus.com/images/texteditor/guides.png\" alt=\"GuideStep\">Etape 26</span> ne <span style=\"color: #FFFF00\">tombez pas</span> dans les <span style=\"color: #FFFF00\">trous </span>!</p><p></p><p><span style=\"color: #05A045\">Astuce :</span></p><p>- <span style=\"color: #FFFFFF\">Si vous tombez, </span>allez<span style=\"color: #62ACFF\"> 2 maps à droite </span>et <span style=\"color: #62ACFF\">1 map</span><span style=\"color: #FFFFFF\"> </span><span style=\"color: #62ACFF\">à gauche</span><span style=\"color: #FFFFFF\"> puis </span><span style=\"color: #62ACFF\">sortez </span><span style=\"color: #FFFFFF\">de la </span><span style=\"color: #62ACFF\">maison </span><span style=\"color: #FFFFFF\">et allez </span><span style=\"color: #62ACFF\">1 map à gauche</span>.</p><p></p><p>Une fois dehors, <span style=\"color: #62ACFF\">allez en</span> [21,-12]</p><p></p><ul data-type=\"taskList\"><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map en haut</span></p></div></li></ul>"
+}

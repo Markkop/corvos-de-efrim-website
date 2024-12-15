@@ -1,0 +1,7 @@
+{
+  "name": null,
+  "map": "Douze",
+  "pos_x": 24,
+  "pos_y": -3,
+  "web_text": "<p>Parlez à <span style=\"color: #FFFF00\">Lilou la Lenalde</span><span style=\"color: #FFFFFF\"> pour finir la quête </span><span data-type=\"custom-tag\" data-id=\"839\" class=\"tag-quest\" id=\"567\" type=\"quest\" name=\"Il y a un os, de Wabbit\" imageurl=\"https://ganymede-dofus.com/images/icon_quest.png\" dofusdbid=\"839\"><img src=\"https://ganymede-dofus.com/images/icon_quest.png\" alt=\"quest\"><span>Il y a un os, de Wabbit</span></span> et lancer la quête <span data-type=\"custom-tag\" data-id=\"840\" class=\"tag-quest\" id=\"568\" type=\"quest\" name=\"Art gastronomique\" imageurl=\"https://ganymede-dofus.com/images/icon_quest.png\" dofusdbid=\"840\"><img src=\"https://ganymede-dofus.com/images/icon_quest.png\" alt=\"quest\"><span>Art gastronomique</span></span>.</p><p></p><p>Ensuite <span style=\"color: #62ACFF\">allez en</span> [24,-2]</p><p></p><ul data-type=\"taskList\"><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map en bas</span></p></div></li></ul>"
+}

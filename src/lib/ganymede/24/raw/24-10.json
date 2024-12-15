@@ -1,0 +1,7 @@
+{
+  "name": null,
+  "map": "Douze",
+  "pos_x": 26,
+  "pos_y": -9,
+  "web_text": "<p>Cliquez sur <span style=\"color: #FFFF00\">la plante rose</span> derrière la cawotte.</p><p></p><p>Ensuite <span style=\"color: #62ACFF\">allez en</span> [24,-10]</p><p></p><ul data-type=\"taskList\"><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">2 maps à gauche</span></p></div></li><li data-checked=\"false\" data-type=\"taskItem\"><label><input type=\"checkbox\"><span></span></label><div><p><span style=\"color: #62ACFF\">1 map en haut</span></p><p></p></div></li></ul>"
+}
