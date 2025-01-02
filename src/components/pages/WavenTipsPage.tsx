@@ -136,12 +136,6 @@ const dailyLevels: DailyChallenge[] = [
     type: 'whisperer',
   },
   {
-    name: 'Without a Sound',
-    goal: 'Eliminate 2 Whisperer Foot Soldiers in one turn',
-    levels: [120, 100, 80, 60, 40, 20],
-    type: 'whisperer',
-  },
-  {
     name: 'Eliminando a Fonte',
     goal: 'Elimine uma Bworka  por último',
     levels: [116, 96, 76, 56, 36, 16],
@@ -182,6 +176,42 @@ const dailyLevels: DailyChallenge[] = [
     goal: 'Elimine uma Muumãe por último.',
     levels: [118, 98, 78, 58, 38, 18],
     type: 'taur',
+  },
+  {
+    name: 'Regulação',
+    goal: 'Elimine 2 Tofuzinhos no mesmo combate',
+    levels: [114, 94, 74, 54, 34, 14],
+    type: 'tofu',
+  },
+  {
+    name: 'Fisicultaurista',
+    goal: 'Vença um combate com Fortauros sem sofrer uma Investida',
+    levels: [110, 90, 70, 50, 30, 10],
+    type: 'taur',
+  },
+  {
+    name: 'Dessussurramento',
+    goal: 'Elimine um Sentinela Smagado primeiro',
+    levels: [120, 100, 80, 60, 40, 20],
+    type: 'whisperer',
+  },
+  {
+    name: 'Sem Descanso para os Malditos',
+    goal: 'Destrua um Caixão',
+    levels: [110, 90, 70, 50, 30, 10],
+    type: 'vampire',
+  },
+  {
+    name: 'Nem um Ruído',
+    goal: 'Elimine 2 Sussurradores de Infantaria no mesmo turno',
+    levels: [112, 92, 72, 52, 32, 12],
+    type: 'whisperer',
+  },
+  {
+    name: 'Os Três Porquinhos Feios',
+    goal: 'Elimine um Discípulo Leitão por último',
+    levels: [114, 94, 74, 54, 34, 14],
+    type: 'pig',
   },
   {
     name: 'Contribua!',
