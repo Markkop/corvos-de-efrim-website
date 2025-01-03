@@ -31,7 +31,7 @@ import {
   Wand2,
   Warehouse,
 } from 'lucide-react'
-import { FaEarlybirds } from 'react-icons/fa'
+import { FaEarlybirds, FaSkull } from 'react-icons/fa'
 import { FaVolcano } from 'react-icons/fa6'
 import {
   GiBugleCall,
@@ -52,6 +52,7 @@ type DailyChallengeType =
   | 'bwork'
   | 'help'
   | 'crackler'
+  | 'chafer'
 interface DailyChallenge {
   name: string
   goal: string
@@ -69,6 +70,7 @@ const getDailyChallengeIcon = (type: DailyChallengeType) => {
     gobbal: <GiSheep className="h-5 w-5 text-amber-500" />,
     bwork: <FaVolcano className="h-5 w-5 text-amber-500" />,
     crackler: <GiStoneBlock className="h-5 w-5 text-amber-500" />,
+    chafer: <FaSkull className="h-5 w-5 text-amber-500" />,
     help: <HelpCircle className="h-5 w-5 text-amber-500" />,
   }
   return icons[type]
@@ -212,6 +214,12 @@ const dailyLevels: DailyChallenge[] = [
     goal: 'Elimine um Discípulo Leitão por último',
     levels: [114, 94, 74, 54, 34, 14],
     type: 'pig',
+  },
+  {
+    name: 'Ossos do Ofício',
+    goal: 'Elimine 3 Amortos no mesmo combate',
+    levels: [106, 86, 66, 46, 26, 6],
+    type: 'chafer',
   },
   {
     name: 'Contribua!',

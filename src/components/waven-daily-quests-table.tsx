@@ -42,6 +42,7 @@ const TYPE_NAMES = {
   bwork: 'Bwork',
   help: 'Ajuda',
   crackler: 'Crackler',
+  chafer: 'Chafer',
 } as const
 
 export function WavenDailyQuestsTable({
