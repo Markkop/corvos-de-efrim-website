@@ -195,6 +195,14 @@ export const wavenCrewMembers = [
 
 export const guildGames = [
   {
+    name: 'Go Go Muffin',
+    status: 'recrutando',
+    color: 'bg-green-500',
+    image: '/images/ggm-1.jpg',
+    lightBackground: false,
+    link: '/jogos/go-go-muffin',
+  },
+  {
     name: 'Waven',
     status: 'Aguardando conteúdo',
     color: 'bg-green-500',

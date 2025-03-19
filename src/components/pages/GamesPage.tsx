@@ -16,6 +16,14 @@ import Link from 'next/link'
 export function GamesPage() {
   const featuredGames = [
     {
+      name: 'Go Go Muffin',
+      description:
+        'Um idle game bonitinho e cooperativo onde ignoramos o FOMO e jogamos de vez em quando',
+      image: '/images/ggm-1.jpg',
+      href: '/jogos/go-go-muffin',
+      features: ['Sobre', 'Recrutamento'],
+    },
+    {
       name: 'Wakfu',
       description: 'MMORPG tático onde nossa história começou em 2014.',
       image: '/images/wakfu-logo-hd.png',
@@ -191,6 +199,7 @@ const GameCard = ({ game }: GameCardProps) => {
               className={cn(
                 'object-contain',
                 game.lightBackground && 'invert brightness-0',
+                game.name === 'Go Go Muffin' && 'rounded-lg',
               )}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               priority={game.status === 'recrutando'}
