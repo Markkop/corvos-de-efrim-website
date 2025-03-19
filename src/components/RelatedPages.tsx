@@ -23,6 +23,7 @@ export function RelatedPages({
   gridCols = 2,
 }: RelatedPagesProps) {
   const relatedPages = pages.filter((page) => page.href !== currentPath)
+  if (relatedPages.length === 0) return null
 
   return (
     <section className="mt-16">

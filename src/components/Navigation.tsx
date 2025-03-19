@@ -35,7 +35,7 @@ const Navigation = () => {
     { label: 'DOFUS', href: '/jogos/dofus' },
     { label: 'WAVEN', href: '/jogos/waven' },
     { label: 'WAKFU', href: '/jogos/wakfu' },
-    { label: 'CONTATO', href: '/contato' },
+    { label: 'GO GO MUFFIN', href: '/jogos/go-go-muffin' },
   ]
 
   const socialLinks = [
@@ -228,9 +228,9 @@ const Navigation = () => {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="/contato" legacyBehavior passHref>
+                <Link href="/jogos/go-go-muffin" legacyBehavior passHref>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    CONTATO
+                    GO GO MUFFIN
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
