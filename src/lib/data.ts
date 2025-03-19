@@ -198,7 +198,7 @@ export const guildGames = [
     name: 'Go Go Muffin',
     status: 'recrutando',
     color: 'bg-green-500',
-    image: '/images/ggm-1.jpg',
+    image: '/images/ggm-logo-2.webp',
     lightBackground: false,
     link: '/jogos/go-go-muffin',
   },
@@ -1182,6 +1182,43 @@ export const blogPosts = [
           background: '#5865F2',
           hover: '#4752C4',
           text: 'white'
+        }
+      }
+    ]
+  },
+  {
+    id: 'go-go-muffin-2025',
+    title: 'Um idle game para passar o tempo',
+    date: '2025',
+    content: `Enquanto aguardamos por novos conteúdos em Waven, Wakfu e Dofus, encontramos em Go Go Muffin uma forma divertida e casual de nos mantermos unidos.
+
+    É um jogo que permite jogar cooperativamente e em guilda, mas mantemos uma mentalidade tranquila: sem FOMO (Fear of Missing Out) e sem pressão para competir com veteranos ou pessoas que investem dinheiro no jogo.
+    
+    Nossa filosofia é aproveitar o jogo no nosso próprio ritmo, focando na diversão e na interação entre os membros da guilda.`,
+    images: ['/images/ggm-2.png'],
+    cardLink: {
+      url: '/jogos/go-go-muffin',
+      external: false
+    },
+    links: [
+      {
+        text: 'Discord',
+        url: DISCORD_INVITE_URL,
+        icon: 'discord',
+        colors: {
+          background: '#5865F2',
+          hover: '#4752C4',
+          text: 'white'
+        }
+      },
+      {
+        text: 'Site',
+        url: 'https://muffin.xdg.com/',
+        icon: 'external-link',
+        colors: {
+          background: '#f1aa4a',  // Orange from active nav
+          hover: '#5b4524',       // Brown from text-stroke
+          text: '#5b4524'
         }
       }
     ]

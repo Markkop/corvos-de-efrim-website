@@ -19,7 +19,7 @@ export function GamesPage() {
       name: 'Go Go Muffin',
       description:
         'Um idle game bonitinho e cooperativo onde ignoramos o FOMO e jogamos de vez em quando',
-      image: '/images/ggm-1.jpg',
+      image: '/images/ggm-logo-2.webp',
       href: '/jogos/go-go-muffin',
       features: ['Sobre', 'Recrutamento'],
     },
