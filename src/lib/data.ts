@@ -196,7 +196,7 @@ export const wavenCrewMembers = [
 export const guildGames = [
   {
     name: 'Waven',
-    status: 'recrutando',
+    status: 'Aguardando conteúdo',
     color: 'bg-green-500',
     image: '/images/waven-logo.png',
     lightBackground: false,
@@ -204,16 +204,16 @@ export const guildGames = [
   },
   {
     name: 'Dofus',
-    status: 'recrutando',
-    color: 'bg-green-500',
+    status: 'inativo',
+    color: 'bg-gray-500',
     image: '/images/dofus-logo.webp',
     lightBackground: false,
     link: '/jogos/dofus',
   },
   {
     name: 'Wakfu',
-    status: 'existindo',
-    color: 'bg-green-500',
+    status: 'inativo',
+    color: 'bg-gray-500',
     image: '/images/wakfu-logo-hd.png',
     lightBackground: false,
     link: 'https://www.wakfu.com/pt/forum/49-guildas/13189-guilda-corvos-efrim-2020',

@@ -161,6 +161,7 @@ const GameCard = ({ game }: GameCardProps) => {
           game.status === 'recrutando' && 'bg-green-900',
           game.status === 'pouco ativa' && 'bg-green-900',
           game.status === 'existindo' && 'bg-green-900',
+          game.status === 'Aguardando conteúdo' && 'bg-amber-900',
           game.status === 'inativo' && 'bg-gray-900',
         )}
       />
@@ -170,6 +171,7 @@ const GameCard = ({ game }: GameCardProps) => {
           game.status === 'recrutando' && 'bg-green-800',
           game.status === 'pouco ativa' && 'bg-green-800',
           game.status === 'existindo' && 'bg-green-800',
+          game.status === 'Aguardando conteúdo' && 'bg-amber-800',
           game.status === 'inativo' && 'bg-gray-800',
           game.status !== 'inativo' && 'group-hover:opacity-100',
         )}
