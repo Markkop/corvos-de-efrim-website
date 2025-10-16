@@ -17,7 +17,15 @@ interface PaperPlaneData {
 }
 
 const PaperPlanePage = () => {
-  const CURRENT_CYCLE = 45
+  // Current cycle and date configuration
+  const [currentCycle, setCurrentCycle] = useState(45)
+  const [currentDate, setCurrentDate] = useState('2026-10-16')
+  const [baseCycleDate, setBaseCycleDate] = useState('2026-10-14') // The start date of current cycle
+
+  // Temporary input values (before applying)
+  const [tempCycle, setTempCycle] = useState('45')
+  const [tempDate, setTempDate] = useState('2026-10-16')
+
   const [expandedSections, setExpandedSections] = useState<{
     showBefore: boolean
     inBetween: Set<string>
@@ -28,13 +36,33 @@ const PaperPlanePage = () => {
     showMoreNext: false,
   })
 
-  // Calculate dates based on PP 45 starting on Tuesday, October 14, 2026
+  const handleApplySettings = () => {
+    const newCycle = parseInt(tempCycle)
+    if (isNaN(newCycle) || newCycle < 0 || newCycle > 87) {
+      alert('Please enter a valid cycle number between 0 and 87')
+      return
+    }
+
+    setCurrentCycle(newCycle)
+    setCurrentDate(tempDate)
+
+    // Calculate the start date for the new current cycle (assuming cycles start on Tuesdays)
+    const selectedDate = new Date(tempDate)
+    const dayOfWeek = selectedDate.getDay()
+    const daysToTuesday =
+      dayOfWeek === 2 ? 0 : dayOfWeek < 2 ? 2 - dayOfWeek : 9 - dayOfWeek
+    const cycleStartDate = new Date(selectedDate)
+    cycleStartDate.setDate(selectedDate.getDate() - daysToTuesday)
+
+    setBaseCycleDate(cycleStartDate.toISOString().split('T')[0])
+  }
+
+  // Calculate dates based on current cycle configuration
   const calculateDate = (cycle: number): string => {
-    const baseDate = new Date('2026-10-14') // PP 45 start date (Tuesday)
-    const baseCycle = 45
+    const baseDate = new Date(baseCycleDate)
     const daysPerCycle = 7 // Weekly cycles
 
-    const daysDifference = (cycle - baseCycle) * daysPerCycle
+    const daysDifference = (cycle - currentCycle) * daysPerCycle
     const targetDate = new Date(baseDate)
     targetDate.setDate(baseDate.getDate() + daysDifference)
 
@@ -45,26 +73,53 @@ const PaperPlanePage = () => {
     })
   }
 
-  // Calculate relative time from today
+  // Calculate relative time from current date
   const calculateRelativeTime = (cycle: number): string => {
-    const baseDate = new Date('2026-10-14')
-    const baseCycle = 45
+    const baseDate = new Date(baseCycleDate)
     const daysPerCycle = 7
 
-    const daysDifference = (cycle - baseCycle) * daysPerCycle
+    const daysDifference = (cycle - currentCycle) * daysPerCycle
     const targetDate = new Date(baseDate)
     targetDate.setDate(baseDate.getDate() + daysDifference)
 
-    const today = new Date('2026-10-16') // Current date (Thursday, Oct 16, 2026)
+    const today = new Date(currentDate)
     const diffTime = targetDate.getTime() - today.getTime()
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
 
     if (diffDays === 0) return 'Today'
     if (diffDays === 1) return 'Tomorrow'
     if (diffDays === -1) return 'Yesterday'
+
+    const absDays = Math.abs(diffDays)
+    const weeks = Math.floor(absDays / 7)
+    const days = absDays % 7
+
+    // If 4+ weeks, show in months
+    if (weeks >= 4) {
+      const months = Math.floor(weeks / 4)
+      const remainingWeeks = weeks % 4
+      const isFuture = diffDays > 0
+
+      if (remainingWeeks === 0 && days === 0) {
+        return isFuture
+          ? `In ${months} month${months > 1 ? 's' : ''}`
+          : `${months} month${months > 1 ? 's' : ''} ago`
+      } else if (remainingWeeks === 0) {
+        return isFuture
+          ? `In ${months} month${months > 1 ? 's' : ''} and ${days} day${days > 1 ? 's' : ''}`
+          : `${months} month${months > 1 ? 's' : ''} and ${days} day${days > 1 ? 's' : ''} ago`
+      } else if (days === 0) {
+        return isFuture
+          ? `In ${months} month${months > 1 ? 's' : ''} and ${remainingWeeks} week${remainingWeeks > 1 ? 's' : ''}`
+          : `${months} month${months > 1 ? 's' : ''} and ${remainingWeeks} week${remainingWeeks > 1 ? 's' : ''} ago`
+      } else {
+        return isFuture
+          ? `In ${months} month${months > 1 ? 's' : ''}, ${remainingWeeks} week${remainingWeeks > 1 ? 's' : ''} and ${days} day${days > 1 ? 's' : ''}`
+          : `${months} month${months > 1 ? 's' : ''}, ${remainingWeeks} week${remainingWeeks > 1 ? 's' : ''} and ${days} day${days > 1 ? 's' : ''} ago`
+      }
+    }
+
     if (diffDays > 0) {
-      const weeks = Math.floor(diffDays / 7)
-      const days = diffDays % 7
       if (weeks > 0 && days === 0) {
         return `In ${weeks} week${weeks > 1 ? 's' : ''}`
       } else if (weeks > 0) {
@@ -72,9 +127,7 @@ const PaperPlanePage = () => {
       }
       return `In ${diffDays} day${diffDays > 1 ? 's' : ''}`
     }
-    const absDays = Math.abs(diffDays)
-    const weeks = Math.floor(absDays / 7)
-    const days = absDays % 7
+
     if (weeks > 0 && days === 0) {
       return `${weeks} week${weeks > 1 ? 's' : ''} ago`
     } else if (weeks > 0) {
@@ -115,20 +168,20 @@ const PaperPlanePage = () => {
     > = []
 
     // Add "See previous" button if not expanded
-    if (!expandedSections.showBefore && CURRENT_CYCLE > 0) {
+    if (!expandedSections.showBefore && currentCycle > 0) {
       result.push('load-more-prev')
     }
 
     // Show all previous cycles if expanded
     if (expandedSections.showBefore) {
-      for (let i = 0; i < CURRENT_CYCLE - 1; i++) {
+      for (let i = 0; i < currentCycle - 1; i++) {
         const cycleData = paperPlaneData.find((d) => d.cycle === i)
         if (cycleData) result.push(cycleData)
       }
     }
 
     // Always show N-1, N, N+1, N+2
-    for (let i = CURRENT_CYCLE - 1; i <= CURRENT_CYCLE + 2; i++) {
+    for (let i = currentCycle - 1; i <= currentCycle + 2; i++) {
       if (i >= 0 && i <= 87) {
         const cycleData = paperPlaneData.find((d) => d.cycle === i)
         if (cycleData) result.push(cycleData)
@@ -136,7 +189,7 @@ const PaperPlanePage = () => {
     }
 
     // Find next priority cycles after N+2
-    const afterN2 = CURRENT_CYCLE + 2
+    const afterN2 = currentCycle + 2
     const nextPriorities = priorityCycles.filter((c) => c > afterN2)
 
     // Show first 2 priority cycles with in-between buttons
@@ -250,6 +303,57 @@ const PaperPlanePage = () => {
           </p>
         </div>
 
+        {/* Cycle Configuration */}
+        <div className="mb-8 p-6 bg-gradient-to-r from-gray-800/50 to-gray-900/50 border border-gray-700 rounded-xl">
+          <h3 className="text-xl font-semibold text-gray-100 mb-4 text-center">
+            Adjust Cycle & Date
+          </h3>
+          <div className="flex flex-wrap items-end justify-center gap-4">
+            <div className="flex flex-col">
+              <label
+                htmlFor="cycle-input"
+                className="text-sm text-gray-300 mb-2"
+              >
+                Current Cycle (0-87)
+              </label>
+              <input
+                id="cycle-input"
+                type="number"
+                min="0"
+                max="87"
+                value={tempCycle}
+                onChange={(e) => setTempCycle(e.target.value)}
+                className="px-4 py-2 bg-gray-700 text-gray-100 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 w-32"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label
+                htmlFor="date-input"
+                className="text-sm text-gray-300 mb-2"
+              >
+                Current Date
+              </label>
+              <input
+                id="date-input"
+                type="date"
+                value={tempDate}
+                onChange={(e) => setTempDate(e.target.value)}
+                className="px-4 py-2 bg-gray-700 text-gray-100 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+            </div>
+            <button
+              onClick={handleApplySettings}
+              className="px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+            >
+              Apply
+            </button>
+          </div>
+          <p className="text-xs text-gray-400 text-center mt-3">
+            Adjust these values if the current cycle or dates are incorrect. All
+            dates in the table will be recalculated.
+          </p>
+        </div>
+
         {/* Main Table */}
         <div className="overflow-x-auto rounded-xl border border-gray-700 shadow-2xl">
           <table className="w-full text-left border-collapse">
@@ -339,7 +443,7 @@ const PaperPlanePage = () => {
 
                 const row = item as PaperPlaneData
                 const isPriority = priorityCycles.includes(row.cycle)
-                const isCurrent = row.cycle === CURRENT_CYCLE
+                const isCurrent = row.cycle === currentCycle
 
                 return (
                   <tr
