@@ -147,7 +147,7 @@ const PaperPlanePage = () => {
     const key = `${fromCycle}-${toCycle}`
     setExpandedSections((prev) => ({
       ...prev,
-      inBetween: new Set([...prev.inBetween, key]),
+      inBetween: new Set([...Array.from(prev.inBetween), key]),
     }))
   }
 
@@ -421,11 +421,19 @@ const PaperPlanePage = () => {
                   'type' in item &&
                   item.type === 'load-in-between'
                 ) {
+                  const betweenItem = item as {
+                    type: 'load-in-between'
+                    fromCycle: number
+                    toCycle: number
+                  }
                   return (
                     <tr
-                      key={`between-${item.fromCycle}-${item.toCycle}`}
+                      key={`between-${betweenItem.fromCycle}-${betweenItem.toCycle}`}
                       onClick={() =>
-                        loadInBetween(item.fromCycle, item.toCycle)
+                        loadInBetween(
+                          betweenItem.fromCycle,
+                          betweenItem.toCycle,
+                        )
                       }
                       className="cursor-pointer hover:bg-gray-700/30 transition-colors"
                     >
