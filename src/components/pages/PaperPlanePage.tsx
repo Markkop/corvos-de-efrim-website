@@ -28,11 +28,9 @@ const PaperPlanePage = () => {
 
   const [expandedSections, setExpandedSections] = useState<{
     showBefore: boolean
-    inBetween: Set<string>
     showMoreNext: boolean
   }>({
     showBefore: false,
-    inBetween: new Set(),
     showMoreNext: false,
   })
 
@@ -143,14 +141,6 @@ const PaperPlanePage = () => {
     }))
   }
 
-  const loadInBetween = (fromCycle: number, toCycle: number) => {
-    const key = `${fromCycle}-${toCycle}`
-    setExpandedSections((prev) => ({
-      ...prev,
-      inBetween: new Set([...Array.from(prev.inBetween), key]),
-    }))
-  }
-
   const loadMoreNext = () => {
     setExpandedSections((prev) => ({
       ...prev,
@@ -160,77 +150,44 @@ const PaperPlanePage = () => {
 
   // Calculate visible cycles with fixed structure
   const getVisibleCycles = () => {
-    const result: Array<
-      | PaperPlaneData
-      | 'load-more-prev'
-      | 'load-more-next'
-      | { type: 'load-in-between'; fromCycle: number; toCycle: number }
-    > = []
+    const result: Array<PaperPlaneData | 'load-more-prev' | 'load-more-next'> =
+      []
 
-    // Add "See previous" button if not expanded
-    if (!expandedSections.showBefore && currentCycle > 0) {
+    const startCycle = currentCycle - 1
+    const endCycle = currentCycle + 10
+
+    // Add "Prev" button if not expanded and there are cycles before N-1
+    if (!expandedSections.showBefore && startCycle > 0) {
       result.push('load-more-prev')
     }
 
     // Show all previous cycles if expanded
     if (expandedSections.showBefore) {
-      for (let i = 0; i < currentCycle - 1; i++) {
+      for (let i = 0; i < startCycle; i++) {
         const cycleData = paperPlaneData.find((d) => d.cycle === i)
         if (cycleData) result.push(cycleData)
       }
     }
 
-    // Always show N-1, N, N+1, N+2
-    for (let i = currentCycle - 1; i <= currentCycle + 2; i++) {
+    // Always show cycles from N-1 to N+10
+    for (let i = startCycle; i <= endCycle; i++) {
       if (i >= 0 && i <= 87) {
         const cycleData = paperPlaneData.find((d) => d.cycle === i)
         if (cycleData) result.push(cycleData)
       }
     }
 
-    // Find next priority cycles after N+2
-    const afterN2 = currentCycle + 2
-    const nextPriorities = priorityCycles.filter((c) => c > afterN2)
-
-    // Show first 2 priority cycles with in-between buttons
-    for (let idx = 0; idx < Math.min(2, nextPriorities.length); idx++) {
-      const priorityCycle = nextPriorities[idx]
-      const prevCycle = idx === 0 ? afterN2 : nextPriorities[idx - 1]
-
-      // Add "Load In Between" button if there are cycles in between
-      if (priorityCycle > prevCycle + 1) {
-        const key = `${prevCycle}-${priorityCycle}`
-        if (expandedSections.inBetween.has(key)) {
-          // Show all cycles in between
-          for (let i = prevCycle + 1; i < priorityCycle; i++) {
-            const cycleData = paperPlaneData.find((d) => d.cycle === i)
-            if (cycleData) result.push(cycleData)
-          }
-        } else {
-          // Show button to load in-between cycles
-          result.push({
-            type: 'load-in-between',
-            fromCycle: prevCycle,
-            toCycle: priorityCycle,
-          })
-        }
-      }
-
-      // Add the priority cycle
-      const cycleData = paperPlaneData.find((d) => d.cycle === priorityCycle)
-      if (cycleData) result.push(cycleData)
+    // Add "Next" button if not expanded and there are cycles after N+10
+    if (!expandedSections.showMoreNext && endCycle < 87) {
+      result.push('load-more-next')
     }
 
-    // Add "Load More Next Weeks" if there are more cycles
+    // Show all remaining cycles if expanded
     if (expandedSections.showMoreNext) {
-      // Show all remaining cycles
-      const lastShown = nextPriorities[1] || nextPriorities[0] || afterN2
-      for (let i = lastShown + 1; i <= 87; i++) {
+      for (let i = endCycle + 1; i <= 87; i++) {
         const cycleData = paperPlaneData.find((d) => d.cycle === i)
         if (cycleData) result.push(cycleData)
       }
-    } else if (nextPriorities.length > 0) {
-      result.push('load-more-next')
     }
 
     return result
@@ -402,39 +359,6 @@ const PaperPlanePage = () => {
                     <tr
                       key="load-more-next"
                       onClick={loadMoreNext}
-                      className="cursor-pointer hover:bg-gray-700/30 transition-colors"
-                    >
-                      <td
-                        colSpan={5}
-                        className="px-4 py-2 text-center border-b border-gray-700 text-gray-400 hover:text-gray-200"
-                      >
-                        <div className="flex items-center justify-center">
-                          <span className="text-2xl">...</span>
-                        </div>
-                      </td>
-                    </tr>
-                  )
-                }
-
-                if (
-                  typeof item === 'object' &&
-                  'type' in item &&
-                  item.type === 'load-in-between'
-                ) {
-                  const betweenItem = item as {
-                    type: 'load-in-between'
-                    fromCycle: number
-                    toCycle: number
-                  }
-                  return (
-                    <tr
-                      key={`between-${betweenItem.fromCycle}-${betweenItem.toCycle}`}
-                      onClick={() =>
-                        loadInBetween(
-                          betweenItem.fromCycle,
-                          betweenItem.toCycle,
-                        )
-                      }
                       className="cursor-pointer hover:bg-gray-700/30 transition-colors"
                     >
                       <td
