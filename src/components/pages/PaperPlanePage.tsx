@@ -598,7 +598,7 @@ const PaperPlanePage = () => {
         {/* Notes Section */}
         <div className="mt-6 p-6 bg-gradient-to-r from-indigo-900/40 to-blue-900/40 border border-indigo-500/30 rounded-xl">
           <h2 className="text-2xl font-bold text-indigo-300 mb-4 flex items-center gap-2">
-            <span>📝</span> Important Notes
+            <span>📝</span> Notes
           </h2>
           <ul className="space-y-3 text-gray-200">
             <li className="flex items-start gap-3">
@@ -629,14 +629,6 @@ const PaperPlanePage = () => {
                 </TooltipProvider>{' '}
                 over EX Damage Artifacts
               </div>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-lg mt-0.5">•</span>
-              <div>EX DMG artifacts become more valuable after CC6</div>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-lg mt-0.5">•</span>
-              <div>Save resources and plan ahead for high-priority cycles</div>
             </li>
           </ul>
         </div>
