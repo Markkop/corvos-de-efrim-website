@@ -7,7 +7,26 @@ export default async function sitemap() {
     lastModified: post.date,
   }))
 
-  const routes = ['', '/about'].map((route) => ({
+  const routes = [
+    '',
+    '/about',
+    '/jogos',
+    '/jogos/dofus',
+    '/jogos/dofus/membros',
+    '/jogos/dofus/recrutamento',
+    '/jogos/dofus/ganymede',
+    '/jogos/waven',
+    '/jogos/waven/builds',
+    '/jogos/waven/dicas',
+    '/jogos/waven/membros',
+    '/jogos/waven/recrutamento',
+    '/jogos/wakfu',
+    '/jogos/wakfu/regimento',
+    '/jogos/wakfu/membros',
+    '/jogos/go-go-muffin',
+    '/jogos/go-go-muffin/sobre',
+    '/jogos/go-go-muffin/paper-plane',
+  ].map((route) => ({
     url: `${WEBSITE_HOST_URL}${route}`,
     lastModified: new Date().toISOString().split('T')[0],
   }))

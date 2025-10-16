@@ -2,17 +2,23 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { motion } from 'framer-motion'
-import { BookOpen } from 'lucide-react'
+import { BookOpen, Calendar } from 'lucide-react'
 import Link from 'next/link'
-import { redirect } from 'next/navigation'
+
 export default function GoGoMuffinPage() {
-  redirect('/jogos/go-go-muffin/sobre')
   const sections = [
     {
       title: 'Sobre',
       description: 'Conheça mais sobre o jogo e suas mecânicas',
       href: '/jogos/go-go-muffin/sobre',
       icon: <BookOpen className="h-6 w-6 text-amber-500" />,
+    },
+    {
+      title: 'Paper Plane Schedule',
+      description:
+        'Calendário e guia completo dos ciclos do Operation: Paper Planes',
+      href: '/jogos/go-go-muffin/paper-plane',
+      icon: <Calendar className="h-6 w-6 text-purple-500" />,
     },
   ]
 

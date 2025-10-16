@@ -15,6 +15,7 @@ import { cn } from '@/lib/utils'
 import { AnimatePresence, motion } from 'framer-motion'
 import {
   BookOpen,
+  Calendar,
   Download,
   ScrollText,
   Swords,
@@ -96,6 +97,22 @@ const Navigation = () => {
       description:
         'Informações sobre como se juntar à nossa comunidade no Waven.',
       icon: UserPlus,
+    },
+  ]
+
+  const goGoMuffinItems = [
+    {
+      title: 'Sobre',
+      href: '/jogos/go-go-muffin/sobre',
+      description: 'Conheça mais sobre o jogo e suas mecânicas.',
+      icon: BookOpen,
+    },
+    {
+      title: 'Paper Plane Schedule',
+      href: '/jogos/go-go-muffin/paper-plane',
+      description:
+        'Calendário e guia completo dos ciclos do Operation: Paper Planes.',
+      icon: Calendar,
     },
   ]
 
@@ -229,10 +246,22 @@ const Navigation = () => {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <Link href="/jogos/go-go-muffin" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    GO GO MUFFIN
-                  </NavigationMenuLink>
+                  <NavigationMenuTrigger>GO GO MUFFIN</NavigationMenuTrigger>
                 </Link>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+                    {goGoMuffinItems.map((item) => (
+                      <ListItem
+                        key={item.title}
+                        title={item.title}
+                        href={item.href}
+                        icon={item.icon}
+                      >
+                        {item.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
