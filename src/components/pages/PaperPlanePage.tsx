@@ -261,54 +261,52 @@ const PaperPlanePage = () => {
         </div>
 
         {/* Cycle Configuration */}
-        <div className="mb-8 p-6 bg-gradient-to-r from-gray-800/50 to-gray-900/50 border border-gray-700 rounded-xl">
-          <h3 className="text-xl font-semibold text-gray-100 mb-4 text-center">
-            Adjust Cycle & Date
-          </h3>
-          <div className="flex flex-wrap items-end justify-center gap-4">
-            <div className="flex flex-col">
-              <label
-                htmlFor="cycle-input"
-                className="text-sm text-gray-300 mb-2"
+        <div className="mb-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-900/50 border border-gray-700 rounded-lg">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-2">
+                <label
+                  htmlFor="cycle-input"
+                  className="text-sm font-medium text-gray-300 whitespace-nowrap"
+                >
+                  Current Cycle (0-87):
+                </label>
+                <input
+                  id="cycle-input"
+                  type="number"
+                  min="0"
+                  max="87"
+                  value={tempCycle}
+                  onChange={(e) => setTempCycle(e.target.value)}
+                  className="px-3 py-1.5 bg-gray-700 text-gray-100 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 w-20 text-center"
+                />
+              </div>
+              <div className="flex items-center gap-2">
+                <label
+                  htmlFor="date-input"
+                  className="text-sm font-medium text-gray-300 whitespace-nowrap"
+                >
+                  Current Date:
+                </label>
+                <input
+                  id="date-input"
+                  type="date"
+                  value={tempDate}
+                  onChange={(e) => setTempDate(e.target.value)}
+                  className="px-3 py-1.5 bg-gray-700 text-gray-100 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                />
+              </div>
+              <button
+                onClick={handleApplySettings}
+                className="px-4 py-1.5 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold rounded-md transition-all duration-200 shadow-md hover:shadow-lg"
               >
-                Current Cycle (0-87)
-              </label>
-              <input
-                id="cycle-input"
-                type="number"
-                min="0"
-                max="87"
-                value={tempCycle}
-                onChange={(e) => setTempCycle(e.target.value)}
-                className="px-4 py-2 bg-gray-700 text-gray-100 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 w-32"
-              />
+                Apply
+              </button>
             </div>
-            <div className="flex flex-col">
-              <label
-                htmlFor="date-input"
-                className="text-sm text-gray-300 mb-2"
-              >
-                Current Date
-              </label>
-              <input
-                id="date-input"
-                type="date"
-                value={tempDate}
-                onChange={(e) => setTempDate(e.target.value)}
-                className="px-4 py-2 bg-gray-700 text-gray-100 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
-            </div>
-            <button
-              onClick={handleApplySettings}
-              className="px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
-            >
-              Apply
-            </button>
+            <p className="text-xs text-gray-400 italic">
+              Adjust to recalculate all dates in the table
+            </p>
           </div>
-          <p className="text-xs text-gray-400 text-center mt-3">
-            Adjust these values if the current cycle or dates are incorrect. All
-            dates in the table will be recalculated.
-          </p>
         </div>
 
         {/* Main Table */}
