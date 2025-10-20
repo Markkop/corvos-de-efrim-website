@@ -1192,9 +1192,9 @@ export const blogPosts = [
     date: '2025',
     content: `Enquanto aguardamos por novos conteúdos em Waven, Wakfu e Dofus, encontramos em Go Go Muffin uma forma divertida e casual de nos mantermos unidos.
 
-    É um jogo que permite jogar cooperativamente e em guilda, mas mantemos uma mentalidade tranquila: sem FOMO (Fear of Missing Out) e sem pressão para competir com veteranos ou pessoas que investem dinheiro no jogo.
+    É um jogo que permite jogar cooperativamente, mas mantemos uma mentalidade tranquila: sem FOMO (Fear of Missing Out) e sem pressão para competir com veteranos ou pessoas que investem dinheiro no jogo.
     
-    Nossa filosofia é aproveitar o jogo no nosso próprio ritmo, focando na diversão e na interação entre os membros da guilda.`,
+    Nossa filosofia é aproveitar o jogo no nosso próprio ritmo, focando na diversão e na interação entre os membros do grupo. Jogamos no Servidor 1.`,
     images: ['/images/ggm-2.png'],
     cardLink: {
       url: '/jogos/go-go-muffin',

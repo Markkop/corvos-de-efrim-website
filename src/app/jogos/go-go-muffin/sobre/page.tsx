@@ -4,10 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { motion } from 'framer-motion'
 import {
   AlertTriangle,
-  Check,
   Clock,
   Coins,
-  Copy,
   DollarSign,
   GamepadIcon,
   Heart,
@@ -15,17 +13,8 @@ import {
   Shield,
   Users2,
 } from 'lucide-react'
-import { useState } from 'react'
 
 export default function SobrePage() {
-  const [copied, setCopied] = useState(false)
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText('127278')
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
-
   return (
     <div className="space-y-12">
       <div className="relative w-full aspect-video max-w-4xl mx-auto mb-16">
@@ -106,12 +95,12 @@ export default function SobrePage() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-2xl text-amber-500">
               <Shield className="h-6 w-6" />
-              Guilda Corvos de Efrim
+              Jogando no Servidor 1
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-lg">
-              Nossa guilda está estabelecida no{' '}
+              Nós jogamos no{' '}
               <span className="font-bold text-amber-500">Servidor 1</span>,
               onde:
             </p>
@@ -144,23 +133,8 @@ export default function SobrePage() {
                 <div className="bg-amber-500/10 p-2 rounded-lg">
                   <Info className="h-5 w-5 text-amber-500" />
                 </div>
-                <span className="flex items-center gap-2">
-                  Procure por Guild ID{' '}
-                  <span className="font-mono text-sm bg-white/5 px-1.5 py-0.5 rounded text-zinc-400 inline-flex items-center gap-1.5">
-                    127278
-                    <button
-                      onClick={handleCopy}
-                      className="hover:text-zinc-200 transition-colors"
-                      aria-label="Copiar ID da guilda"
-                    >
-                      {copied ? (
-                        <Check className="h-3.5 w-3.5" />
-                      ) : (
-                        <Copy className="h-3.5 w-3.5" />
-                      )}
-                    </button>
-                  </span>
-                  , precisa de nível 15
+                <span>
+                  Entre em contato pelo Discord para jogar junto com a galera
                 </span>
               </li>
             </ul>
@@ -238,9 +212,7 @@ export default function SobrePage() {
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                <span>
-                  Priorize alcançar o nível 15 para se juntar à nossa guilda
-                </span>
+                <span>Conecte-se com outros membros através do Discord</span>
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
