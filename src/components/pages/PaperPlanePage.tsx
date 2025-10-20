@@ -17,14 +17,50 @@ interface PaperPlaneData {
 }
 
 const PaperPlanePage = () => {
+  // Reference point: Cycle 45 started on October 14, 2025 (Tuesday)
+  const REFERENCE_CYCLE = 45
+  const REFERENCE_DATE = '2025-10-14' // Tuesday of Cycle 45
+
+  // Calculate current cycle based on today's date (UTC)
+  const calculateCurrentCycle = () => {
+    const today = new Date()
+    const referenceDate = new Date(REFERENCE_DATE + 'T00:00:00Z')
+
+    const daysDifference = Math.floor(
+      (today.getTime() - referenceDate.getTime()) / (1000 * 60 * 60 * 24),
+    )
+    const cyclesDifference = Math.floor(daysDifference / 7)
+    return REFERENCE_CYCLE + cyclesDifference
+  }
+
+  const getTodayDate = () => {
+    return new Date().toISOString().split('T')[0]
+  }
+
+  const calculateBaseCycleDate = (cycleNumber: number) => {
+    const referenceDate = new Date(REFERENCE_DATE + 'T00:00:00Z')
+
+    const cyclesDifference = cycleNumber - REFERENCE_CYCLE
+    const daysDifference = cyclesDifference * 7
+    const targetDate = new Date(referenceDate)
+    targetDate.setUTCDate(targetDate.getUTCDate() + daysDifference)
+
+    return targetDate.toISOString().split('T')[0]
+  }
+
+  const dynamicCycle = calculateCurrentCycle()
+  const dynamicDate = getTodayDate()
+
   // Current cycle and date configuration
-  const [currentCycle, setCurrentCycle] = useState(45)
-  const [currentDate, setCurrentDate] = useState('2026-10-16')
-  const [baseCycleDate, setBaseCycleDate] = useState('2026-10-14') // The start date of current cycle
+  const [currentCycle, setCurrentCycle] = useState(dynamicCycle)
+  const [currentDate, setCurrentDate] = useState(dynamicDate)
+  const [baseCycleDate, setBaseCycleDate] = useState(
+    calculateBaseCycleDate(dynamicCycle),
+  )
 
   // Temporary input values (before applying)
-  const [tempCycle, setTempCycle] = useState('45')
-  const [tempDate, setTempDate] = useState('2026-10-16')
+  const [tempCycle, setTempCycle] = useState(dynamicCycle.toString())
+  const [tempDate, setTempDate] = useState(dynamicDate)
 
   const [expandedSections, setExpandedSections] = useState<{
     showBefore: boolean
@@ -44,43 +80,44 @@ const PaperPlanePage = () => {
     setCurrentCycle(newCycle)
     setCurrentDate(tempDate)
 
-    // Calculate the start date for the new current cycle (assuming cycles start on Tuesdays)
-    const selectedDate = new Date(tempDate)
-    const dayOfWeek = selectedDate.getDay()
+    // Calculate the start date for the new current cycle (assuming cycles start on Tuesdays in UTC)
+    const selectedDate = new Date(tempDate + 'T00:00:00Z')
+    const dayOfWeek = selectedDate.getUTCDay()
     const daysToTuesday =
       dayOfWeek === 2 ? 0 : dayOfWeek < 2 ? 2 - dayOfWeek : 9 - dayOfWeek
     const cycleStartDate = new Date(selectedDate)
-    cycleStartDate.setDate(selectedDate.getDate() - daysToTuesday)
+    cycleStartDate.setUTCDate(cycleStartDate.getUTCDate() - daysToTuesday)
 
     setBaseCycleDate(cycleStartDate.toISOString().split('T')[0])
   }
 
-  // Calculate dates based on current cycle configuration
+  // Calculate dates based on current cycle configuration (UTC)
   const calculateDate = (cycle: number): string => {
-    const baseDate = new Date(baseCycleDate)
+    const baseDate = new Date(baseCycleDate + 'T00:00:00Z')
     const daysPerCycle = 7 // Weekly cycles
 
     const daysDifference = (cycle - currentCycle) * daysPerCycle
     const targetDate = new Date(baseDate)
-    targetDate.setDate(baseDate.getDate() + daysDifference)
+    targetDate.setUTCDate(targetDate.getUTCDate() + daysDifference)
 
     return targetDate.toLocaleDateString('en-US', {
       month: 'short',
       day: 'numeric',
       year: 'numeric',
+      timeZone: 'UTC',
     })
   }
 
-  // Calculate relative time from current date
+  // Calculate relative time from current date (UTC)
   const calculateRelativeTime = (cycle: number): string => {
-    const baseDate = new Date(baseCycleDate)
+    const baseDate = new Date(baseCycleDate + 'T00:00:00Z')
     const daysPerCycle = 7
 
     const daysDifference = (cycle - currentCycle) * daysPerCycle
     const targetDate = new Date(baseDate)
-    targetDate.setDate(baseDate.getDate() + daysDifference)
+    targetDate.setUTCDate(targetDate.getUTCDate() + daysDifference)
 
-    const today = new Date(currentDate)
+    const today = new Date(currentDate + 'T00:00:00Z')
     const diffTime = targetDate.getTime() - today.getTime()
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
 
@@ -321,7 +358,7 @@ const PaperPlanePage = () => {
                   Type
                 </th>
                 <th className="px-4 py-4 text-gray-100 font-bold border-b border-gray-700 whitespace-nowrap">
-                  Start Date
+                  Start Date (UTC)
                 </th>
                 <th className="px-4 py-4 text-gray-100 font-bold border-b border-gray-700">
                   Unlocked Content
