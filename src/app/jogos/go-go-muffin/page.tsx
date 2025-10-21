@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { motion } from 'framer-motion'
-import { BookOpen, Calendar } from 'lucide-react'
+import { BookOpen, Calendar, Wallet } from 'lucide-react'
 import Link from 'next/link'
 
 export default function GoGoMuffinPage() {
@@ -19,6 +19,12 @@ export default function GoGoMuffinPage() {
         'Calendário e guia completo dos ciclos do Operation: Paper Planes',
       href: '/jogos/go-go-muffin/paper-plane',
       icon: <Calendar className="h-6 w-6 text-purple-500" />,
+    },
+    {
+      title: 'Stellarite Tracker',
+      description: 'Track your in-game cash income and expenses',
+      href: '/jogos/go-go-muffin/stellarite-tracker',
+      icon: <Wallet className="h-6 w-6 text-green-500" />,
     },
   ]
 
