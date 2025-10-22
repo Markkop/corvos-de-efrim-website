@@ -8,7 +8,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 import { motion } from 'framer-motion'
-import { Star, Trash2, Minus, Plus } from 'lucide-react'
+import { Star, Trash2, Minus, Plus, Info } from 'lucide-react'
 import Image from 'next/image'
 import { GGMTrackerItem } from '@/lib/ggmTrackerData'
 
@@ -64,47 +64,52 @@ export const StellariteTrackerItem = ({
 
   const getDefaultQuantity = () => {
     if (!item.supportsQuantity) return 0
-    return item.category === 'Quick Purchase'
-      ? Math.min(3, item.maxQuantity || 1)
-      : item.maxQuantity || 1
+    if (item.category === 'Quick Purchase') {
+      return Math.min(3, item.maxQuantity || 1)
+    }
+    if (item.category === 'Guild Watering') {
+      return Math.min(2, item.maxQuantity || 1)
+    }
+    return item.maxQuantity || 1
   }
 
   const displayAmount = item.supportsQuantity
     ? calculateCost(quantity > 0 ? quantity : getDefaultQuantity())
     : item.amount
 
+  const handleItemClick = () => {
+    onToggle(item.id)
+    // If checking and item supports quantity, set quantity
+    if (!isSelected && item.supportsQuantity && onQuantityChange) {
+      onQuantityChange(item.id, getDefaultQuantity())
+    }
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
-      className="flex items-center space-x-3 p-3 rounded-lg bg-[#1a1a1a] hover:bg-[#252525] transition-colors"
+      onClick={handleItemClick}
+      className="flex items-center space-x-3 p-3 rounded-lg bg-[#1a1a1a] hover:bg-[#252525] transition-colors cursor-pointer"
     >
       <Checkbox
         id={item.id}
         checked={isSelected}
-        onCheckedChange={() => {
-          onToggle(item.id)
-          // If checking and item supports quantity, set quantity
-          if (!isSelected && item.supportsQuantity && onQuantityChange) {
-            // For Quick Purchase items, default to 3, otherwise use max
-            const defaultQuantity =
-              item.category === 'Quick Purchase'
-                ? Math.min(3, item.maxQuantity || 1)
-                : item.maxQuantity || 1
-            onQuantityChange(item.id, defaultQuantity)
-          }
-        }}
+        onCheckedChange={handleItemClick}
+        onClick={(e) => e.stopPropagation()}
         className="border-amber-600 data-[state=checked]:bg-amber-600 data-[state=checked]:border-amber-600"
       />
       <div className="flex-1 flex items-center justify-between gap-3">
-        <label htmlFor={item.id} className="cursor-pointer text-sm">
+        <div className="text-sm">
           <div className="flex items-center gap-1.5">
             <span className="text-[#e6d7c3]">{item.name}</span>
             {item.recommended && (
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Star className="h-3.5 w-3.5 text-amber-400 fill-amber-400 cursor-help" />
+                    <div onClick={(e) => e.stopPropagation()}>
+                      <Star className="h-3.5 w-3.5 text-amber-400 fill-amber-400 cursor-help" />
+                    </div>
                   </TooltipTrigger>
                   <TooltipContent>
                     <p>Recommended</p>
@@ -112,10 +117,27 @@ export const StellariteTrackerItem = ({
                 </Tooltip>
               </TooltipProvider>
             )}
+            {item.infoTooltip && (
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div onClick={(e) => e.stopPropagation()}>
+                      <Info className="h-3.5 w-3.5 text-blue-400 cursor-help" />
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p className="text-xs max-w-xs">{item.infoTooltip}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            )}
           </div>
-        </label>
+        </div>
 
-        <div className="flex items-center gap-2">
+        <div
+          className="flex items-center gap-2"
+          onClick={(e) => e.stopPropagation()}
+        >
           {item.supportsQuantity && isSelected && onQuantityChange && (
             <div className="flex items-center gap-1 bg-[#2a2a2a] rounded px-1">
               <Button
@@ -170,13 +192,39 @@ export const StellariteTrackerItem = ({
               className="inline-block"
             />
           </div>
-          <span className="text-xs text-gray-400 bg-[#2a2a2a] px-2 py-1 rounded">
-            {item.frequency === 'daily' && 'Daily'}
-            {item.frequency === 'weekly' && 'Weekly'}
-            {item.frequency === 'monthly' && 'Monthly'}
-            {item.frequency === '10-day' && '10-day'}
-            {item.frequency === '8-day' && '8-day'}
-          </span>
+          {item.frequency === 'daily' ? (
+            <span className="text-xs text-gray-400 bg-[#2a2a2a] px-2 py-1 rounded">
+              Daily
+            </span>
+          ) : (
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <span className="text-xs text-gray-400 bg-[#2a2a2a] px-2 py-1 rounded cursor-help">
+                    {item.frequency === 'weekly' && 'Weekly'}
+                    {item.frequency === 'monthly' && 'Monthly'}
+                    {item.frequency === '10-day' && '10-day'}
+                    {item.frequency === '8-day' && '8-day'}
+                    {item.frequency === '14-day' && '14-day'}
+                  </span>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="text-xs">
+                    {item.frequency === 'weekly' &&
+                      `~${Math.round(displayAmount / 7)} daily`}
+                    {item.frequency === 'monthly' &&
+                      `~${Math.round(displayAmount / 30)} daily`}
+                    {item.frequency === '10-day' &&
+                      `~${Math.round(displayAmount / 10)} daily`}
+                    {item.frequency === '8-day' &&
+                      `~${Math.round(displayAmount / 8)} daily`}
+                    {item.frequency === '14-day' &&
+                      `~${Math.round(displayAmount / 14)} daily`}
+                  </p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          )}
         </div>
       </div>
 
@@ -184,7 +232,10 @@ export const StellariteTrackerItem = ({
         <Button
           variant="ghost"
           size="sm"
-          onClick={() => onRemove(item.id)}
+          onClick={(e) => {
+            e.stopPropagation()
+            onRemove(item.id)
+          }}
           className="h-8 w-8 p-0 hover:bg-red-900/20 hover:text-red-400"
         >
           <Trash2 className="h-4 w-4" />

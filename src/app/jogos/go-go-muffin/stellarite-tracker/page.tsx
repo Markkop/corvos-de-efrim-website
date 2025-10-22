@@ -2,14 +2,23 @@
 
 import { useState, useMemo, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import { ggmTrackerItems, GGMTrackerItem } from '@/lib/ggmTrackerData'
-import { TrendingUp, TrendingDown, Wallet, RotateCcw } from 'lucide-react'
+import {
+  TrendingUp,
+  TrendingDown,
+  Wallet,
+  RotateCcw,
+  Calendar,
+} from 'lucide-react'
 import {
   StellariteTrackerSummaryCard,
   StellariteTrackerSection,
   StellariteTrackerCustomItemForm,
   StellariteTrackerInfoNote,
 } from '@/components/stellarite-tracker'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import Image from 'next/image'
 
 export default function StellariteTrackerPage() {
   const [selectedItems, setSelectedItems] = useState<Set<string>>(new Set())
@@ -17,6 +26,7 @@ export default function StellariteTrackerPage() {
   const [itemQuantities, setItemQuantities] = useState<Record<string, number>>(
     {},
   )
+  const [currentBalance, setCurrentBalance] = useState<string>('')
   const [isLoaded, setIsLoaded] = useState(false)
 
   // Load selections, quantities, and custom items from localStorage on mount
@@ -49,6 +59,11 @@ export default function StellariteTrackerPage() {
       } catch (error) {
         console.error('Failed to load saved custom items:', error)
       }
+    }
+
+    const savedBalance = localStorage.getItem('ggm-tracker-current-balance')
+    if (savedBalance) {
+      setCurrentBalance(savedBalance)
     }
 
     setIsLoaded(true)
@@ -84,6 +99,13 @@ export default function StellariteTrackerPage() {
     }
   }, [customItems, isLoaded])
 
+  // Save current balance to localStorage whenever it changes
+  useEffect(() => {
+    if (isLoaded) {
+      localStorage.setItem('ggm-tracker-current-balance', currentBalance)
+    }
+  }, [currentBalance, isLoaded])
+
   const handleToggleItem = (id: string) => {
     setSelectedItems((prev) => {
       const newSet = new Set(prev)
@@ -111,7 +133,7 @@ export default function StellariteTrackerPage() {
   const handleAddCustomItem = (
     name: string,
     amount: number,
-    frequency: 'daily' | 'weekly' | 'monthly' | '10-day' | '8-day',
+    frequency: 'daily' | 'weekly' | 'monthly' | '10-day' | '8-day' | '14-day',
     type: 'income' | 'outcome',
   ) => {
     const newItem: GGMTrackerItem = {
@@ -225,30 +247,44 @@ export default function StellariteTrackerPage() {
         return sum + cost
       }, 0)
 
+    const fourteenDayItems = selected
+      .filter((item) => item.frequency === '14-day')
+      .reduce((sum, item) => {
+        const quantity = itemQuantities[item.id] || 0
+        const cost =
+          item.supportsQuantity && quantity > 0
+            ? calculateItemCost(item, quantity)
+            : item.amount
+        return sum + cost
+      }, 0)
+
     // Calculate totals for each time period
-    // Daily: include daily items + weekly/7 + monthly/30 + 10-day/10 + 8-day/8
+    // Daily: include daily items + weekly/7 + monthly/30 + 10-day/10 + 8-day/8 + 14-day/14
     const dailyTotal =
       dailyItems +
       weeklyItems / 7 +
       monthlyItems / 30 +
       tenDayItems / 10 +
-      eightDayItems / 8
+      eightDayItems / 8 +
+      fourteenDayItems / 14
 
-    // Weekly: daily * 7 + weekly + monthly/~4.3 + 10-day*0.7 + 8-day*0.875
+    // Weekly: daily * 7 + weekly + monthly/~4.3 + 10-day*0.7 + 8-day*0.875 + 14-day*0.5
     const weeklyTotal =
       dailyItems * 7 +
       weeklyItems +
       monthlyItems / 4.3 +
       (tenDayItems * 7) / 10 +
-      (eightDayItems * 7) / 8
+      (eightDayItems * 7) / 8 +
+      (fourteenDayItems * 7) / 14
 
-    // Monthly: daily * 30 + weekly * ~4.3 + monthly + 10-day*3 + 8-day*3.75
+    // Monthly: daily * 30 + weekly * ~4.3 + monthly + 10-day*3 + 8-day*3.75 + 14-day*2.14
     const monthlyTotal =
       dailyItems * 30 +
       weeklyItems * 4.3 +
       monthlyItems +
       (tenDayItems * 30) / 10 +
-      (eightDayItems * 30) / 8
+      (eightDayItems * 30) / 8 +
+      (fourteenDayItems * 30) / 14
 
     return {
       daily: Math.round(dailyTotal),
@@ -266,6 +302,19 @@ export default function StellariteTrackerPage() {
     monthly: incomeTotals.monthly - outcomeTotals.monthly,
   }
 
+  const handleBalanceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    // Allow empty string or valid numbers
+    if (value === '' || /^\d+$/.test(value)) {
+      setCurrentBalance(value)
+    }
+  }
+
+  const balanceNumber = parseInt(currentBalance) || 0
+  const forecastTomorrow = balanceNumber + netTotals.daily
+  const forecastWeek = balanceNumber + netTotals.weekly
+  const forecastMonth = balanceNumber + netTotals.monthly
+
   return (
     <div className="space-y-8">
       <section className="text-center mb-12">
@@ -276,7 +325,7 @@ export default function StellariteTrackerPage() {
       </section>
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <StellariteTrackerSummaryCard
           title="Total Income"
           icon={TrendingUp}
@@ -311,6 +360,85 @@ export default function StellariteTrackerPage() {
           valueColor="text-amber-400"
           showSign
         />
+
+        {/* Balance Forecast Card */}
+        <Card className="bg-gradient-to-br from-blue-900/30 to-blue-800/20 border-blue-700">
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center gap-2 text-lg">
+              <Calendar className="h-5 w-5 text-blue-400" />
+              <span className="text-blue-400">Balance Forecast</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-2 text-sm">
+            <div className="flex justify-between items-center">
+              <span className="text-gray-400">Current:</span>
+              <div className="flex items-center gap-1.5">
+                <Input
+                  type="text"
+                  value={currentBalance}
+                  onChange={handleBalanceChange}
+                  placeholder="0"
+                  className="border-0 bg-transparent text-blue-400 font-bold text-right p-0 h-auto w-24 focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-blue-400/30"
+                />
+                <Image
+                  src="/icons/stellarite.png"
+                  alt="Stellarite"
+                  width={14}
+                  height={14}
+                  className="flex-shrink-0"
+                />
+              </div>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-gray-400">Tomorrow:</span>
+              <div className="flex items-center gap-1.5">
+                <span
+                  className={`font-semibold ${forecastTomorrow >= 0 ? 'text-blue-400' : 'text-red-400'}`}
+                >
+                  {forecastTomorrow.toLocaleString()}
+                </span>
+                <Image
+                  src="/icons/stellarite.png"
+                  alt="Stellarite"
+                  width={14}
+                  height={14}
+                />
+              </div>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-gray-400">In 1 week:</span>
+              <div className="flex items-center gap-1.5">
+                <span
+                  className={`font-semibold ${forecastWeek >= 0 ? 'text-blue-400' : 'text-red-400'}`}
+                >
+                  {forecastWeek.toLocaleString()}
+                </span>
+                <Image
+                  src="/icons/stellarite.png"
+                  alt="Stellarite"
+                  width={14}
+                  height={14}
+                />
+              </div>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-gray-400">In 1 month:</span>
+              <div className="flex items-center gap-1.5">
+                <span
+                  className={`font-semibold ${forecastMonth >= 0 ? 'text-blue-400' : 'text-red-400'}`}
+                >
+                  {forecastMonth.toLocaleString()}
+                </span>
+                <Image
+                  src="/icons/stellarite.png"
+                  alt="Stellarite"
+                  width={14}
+                  height={14}
+                />
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
       {/* Income and Outcome Sections */}

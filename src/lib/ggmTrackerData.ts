@@ -2,10 +2,11 @@ export interface GGMTrackerItem {
   id: string
   name: string
   amount: number
-  frequency: 'daily' | 'weekly' | 'monthly' | '10-day' | '8-day'
+  frequency: 'daily' | 'weekly' | 'monthly' | '10-day' | '8-day' | '14-day'
   type: 'income' | 'outcome'
   category?: string
   recommended?: boolean
+  infoTooltip?: string
   supportsQuantity?: boolean
   maxQuantity?: number
   costProgression?: number[] // Array of costs for each quantity level (cumulative or individual based on progressionType)
@@ -13,6 +14,52 @@ export interface GGMTrackerItem {
 }
 
 export const ggmTrackerItems: GGMTrackerItem[] = [
+  // Income Items - Progression (Estimated)
+  {
+    id: 'level-reward',
+    name: 'Level Reward',
+    amount: 140,
+    frequency: 'daily',
+    type: 'income',
+    category: 'Progression (Estimated)',
+    infoTooltip: 'Since launch (4th Dec 2024) up to the date 22nd Oct 2025, we had 111 levels with 410 Stellarite each, averaging 140 per day',
+  },
+  {
+    id: 'trial-clear-reward',
+    name: 'Trial Clear Reward',
+    amount: 32,
+    frequency: 'daily',
+    type: 'income',
+    category: 'Progression (Estimated)',
+    infoTooltip: 'Since launch (4th Dec 2024) up to 22nd Oct 2025, we had 11 trials (1 difficulty) + 20 trials (2 difficulties) at 200 Stellarite each, averaging 32 per day',
+  },
+  {
+    id: 'trial-challenge-server-reward',
+    name: 'Trial Challenge Server Reward',
+    amount: 79,
+    frequency: 'daily',
+    type: 'income',
+    category: 'Progression (Estimated)',
+    infoTooltip: 'Since launch (4th Dec 2024) up to 22nd Oct 2025, we had 11 trials (1 difficulty) + 20 trials (2 difficulties) at 500 Stellarite each, averaging 79 per day',
+  },
+  {
+    id: 'echoes-clear-reward',
+    name: 'Echoes of War Clear Reward',
+    amount: 19,
+    frequency: 'daily',
+    type: 'income',
+    category: 'Progression (Estimated)',
+    infoTooltip: 'Since launch (4th Dec 2024) up to 22nd Oct 2025, we had 10 echoes (3 difficulties) at 200 Stellarite each, averaging 19 per day',
+  },
+  {
+    id: 'echoes-challenge-server-reward',
+    name: 'Echoes of War Challenge Server Reward',
+    amount: 47,
+    frequency: 'daily',
+    type: 'income',
+    category: 'Progression (Estimated)',
+    infoTooltip: 'Since launch (4th Dec 2024) up to 22nd Oct 2025, we had 10 echoes (3 difficulties) at 500 Stellarite each, averaging 47 per day',
+  },
   // Income Items - Common
   {
     id: 'daily-quest',
@@ -41,10 +88,14 @@ export const ggmTrackerItems: GGMTrackerItem[] = [
   {
     id: 'waves-of-horror',
     name: 'Waves of Horror',
-    amount: 200,
+    amount: 25,
     frequency: 'weekly',
     type: 'income',
     category: 'Common',
+    supportsQuantity: true,
+    maxQuantity: 18,
+    costProgression: [25],
+    progressionType: 'individual',
   },
   {
     id: 'guild-quest',
@@ -106,7 +157,7 @@ export const ggmTrackerItems: GGMTrackerItem[] = [
   },
   {
     id: 'luminous-odyssey',
-    name: 'Luminous Odyssey (10-day)',
+    name: 'Luminous Odyssey',
     amount: 350,
     frequency: '10-day',
     type: 'income',
@@ -132,6 +183,14 @@ export const ggmTrackerItems: GGMTrackerItem[] = [
     costProgression: [100],
     progressionType: 'individual',
   },
+  {
+    id: 'special-guest-finding',
+    name: 'Special Guest Finding',
+    amount: 600,
+    frequency: '14-day',
+    type: 'income',
+    category: 'Timed Events',
+  },
   // Outcome Items - Hamster's Goods
   {
     id: 'hamster-black-ash-stone-50',
@@ -152,7 +211,6 @@ export const ggmTrackerItems: GGMTrackerItem[] = [
     frequency: 'daily',
     type: 'outcome',
     category: "Hamster's Goods",
-    recommended: true,
     supportsQuantity: true,
     maxQuantity: 6,
     costProgression: [50],
@@ -165,7 +223,6 @@ export const ggmTrackerItems: GGMTrackerItem[] = [
     frequency: 'daily',
     type: 'outcome',
     category: "Hamster's Goods",
-    recommended: true,
     supportsQuantity: true,
     maxQuantity: 3,
     costProgression: [20],
@@ -275,7 +332,6 @@ export const ggmTrackerItems: GGMTrackerItem[] = [
     frequency: 'weekly',
     type: 'outcome',
     category: 'Paper Plane',
-    recommended: true,
     supportsQuantity: true,
     maxQuantity: 2,
     costProgression: [1000, 2000],
@@ -302,7 +358,6 @@ export const ggmTrackerItems: GGMTrackerItem[] = [
     frequency: 'daily',
     type: 'outcome',
     category: 'Guild Watering',
-    recommended: true,
     supportsQuantity: true,
     maxQuantity: 5,
     costProgression: [20, 70, 170, 370, 570],
