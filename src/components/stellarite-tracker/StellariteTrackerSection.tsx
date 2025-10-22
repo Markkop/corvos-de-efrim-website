@@ -10,7 +10,9 @@ interface TrackerSectionProps {
   borderColor: string
   items: GGMTrackerItem[]
   selectedItems: Set<string>
+  itemQuantities: Record<string, number>
   onToggleItem: (id: string) => void
+  onQuantityChange: (id: string, quantity: number) => void
   onRemoveItem?: (id: string) => void
 }
 
@@ -21,7 +23,9 @@ export const StellariteTrackerSection = ({
   borderColor,
   items,
   selectedItems,
+  itemQuantities,
   onToggleItem,
+  onQuantityChange,
   onRemoveItem,
 }: TrackerSectionProps) => {
   const renderItemsByCategory = () => {
@@ -52,7 +56,9 @@ export const StellariteTrackerSection = ({
                 item={item}
                 isSelected={selectedItems.has(item.id)}
                 isCustom={isCustomItem}
+                quantity={itemQuantities[item.id] || 0}
                 onToggle={onToggleItem}
+                onQuantityChange={onQuantityChange}
                 onRemove={onRemoveItem}
               />
             )

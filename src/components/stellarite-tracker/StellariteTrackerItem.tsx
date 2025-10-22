@@ -1,5 +1,6 @@
 import { Checkbox } from '@/components/ui/checkbox'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import {
   Tooltip,
   TooltipContent,
@@ -7,7 +8,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 import { motion } from 'framer-motion'
-import { Star, Trash2 } from 'lucide-react'
+import { Star, Trash2, Minus, Plus } from 'lucide-react'
 import Image from 'next/image'
 import { GGMTrackerItem } from '@/lib/ggmTrackerData'
 
@@ -15,7 +16,9 @@ interface TrackerItemProps {
   item: GGMTrackerItem
   isSelected: boolean
   isCustom: boolean
+  quantity?: number
   onToggle: (id: string) => void
+  onQuantityChange?: (id: string, quantity: number) => void
   onRemove?: (id: string) => void
 }
 
@@ -23,9 +26,53 @@ export const StellariteTrackerItem = ({
   item,
   isSelected,
   isCustom,
+  quantity = 0,
   onToggle,
+  onQuantityChange,
   onRemove,
 }: TrackerItemProps) => {
+  const calculateCost = (qty: number) => {
+    if (!item.supportsQuantity || !item.costProgression || qty === 0) {
+      return 0
+    }
+
+    if (item.progressionType === 'cumulative') {
+      // For cumulative, the cost at index qty-1 is the total cost
+      return item.costProgression[qty - 1] || 0
+    } else {
+      // For individual, multiply the base cost by quantity
+      return (item.costProgression[0] || item.amount) * qty
+    }
+  }
+
+  const handleQuantityChange = (newQuantity: number) => {
+    if (!item.supportsQuantity || !onQuantityChange) return
+
+    const maxQty = item.maxQuantity || 1
+    const minQty = isSelected ? 1 : 0
+    const clampedQuantity = Math.max(minQty, Math.min(newQuantity, maxQty))
+
+    // If quantity would go to 0 and item is selected, uncheck it instead
+    if (newQuantity < 1 && isSelected) {
+      onToggle(item.id)
+      onQuantityChange(item.id, 0)
+      return
+    }
+
+    onQuantityChange(item.id, clampedQuantity)
+  }
+
+  const getDefaultQuantity = () => {
+    if (!item.supportsQuantity) return 0
+    return item.category === 'Quick Purchase'
+      ? Math.min(3, item.maxQuantity || 1)
+      : item.maxQuantity || 1
+  }
+
+  const displayAmount = item.supportsQuantity
+    ? calculateCost(quantity > 0 ? quantity : getDefaultQuantity())
+    : item.amount
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -35,11 +82,22 @@ export const StellariteTrackerItem = ({
       <Checkbox
         id={item.id}
         checked={isSelected}
-        onCheckedChange={() => onToggle(item.id)}
+        onCheckedChange={() => {
+          onToggle(item.id)
+          // If checking and item supports quantity, set quantity
+          if (!isSelected && item.supportsQuantity && onQuantityChange) {
+            // For Quick Purchase items, default to 3, otherwise use max
+            const defaultQuantity =
+              item.category === 'Quick Purchase'
+                ? Math.min(3, item.maxQuantity || 1)
+                : item.maxQuantity || 1
+            onQuantityChange(item.id, defaultQuantity)
+          }
+        }}
         className="border-amber-600 data-[state=checked]:bg-amber-600 data-[state=checked]:border-amber-600"
       />
-      <label htmlFor={item.id} className="flex-1 cursor-pointer text-sm">
-        <div className="flex justify-between items-center">
+      <div className="flex-1 flex items-center justify-between gap-3">
+        <label htmlFor={item.id} className="cursor-pointer text-sm">
           <div className="flex items-center gap-1.5">
             <span className="text-[#e6d7c3]">{item.name}</span>
             {item.recommended && (
@@ -55,27 +113,73 @@ export const StellariteTrackerItem = ({
               </TooltipProvider>
             )}
           </div>
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1">
-              <span className="text-amber-500 font-bold">
-                {item.amount.toLocaleString()}
-              </span>
-              <Image
-                src="/icons/stellarite.png"
-                alt="Stellarite"
-                width={14}
-                height={14}
-                className="inline-block"
+        </label>
+
+        <div className="flex items-center gap-2">
+          {item.supportsQuantity && isSelected && onQuantityChange && (
+            <div className="flex items-center gap-1 bg-[#2a2a2a] rounded px-1">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleQuantityChange(quantity - 1)
+                }}
+                disabled={quantity <= 1}
+                className="h-7 w-7 p-0 hover:bg-amber-900/20 hover:text-amber-400 disabled:opacity-30"
+              >
+                <Minus className="h-3 w-3" />
+              </Button>
+              <Input
+                type="number"
+                min={1}
+                max={item.maxQuantity || 1}
+                value={quantity}
+                onChange={(e) => {
+                  e.stopPropagation()
+                  const value = parseInt(e.target.value) || 1
+                  handleQuantityChange(value)
+                }}
+                onClick={(e) => e.stopPropagation()}
+                className="h-7 w-12 text-center text-xs bg-[#1a1a1a] border-amber-900/30 text-amber-400 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
               />
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleQuantityChange(quantity + 1)
+                }}
+                disabled={quantity >= (item.maxQuantity || 1)}
+                className="h-7 w-7 p-0 hover:bg-amber-900/20 hover:text-amber-400 disabled:opacity-30"
+              >
+                <Plus className="h-3 w-3" />
+              </Button>
             </div>
-            <span className="text-xs text-gray-400 bg-[#2a2a2a] px-2 py-1 rounded">
-              {item.frequency === 'daily' && 'Daily'}
-              {item.frequency === 'weekly' && 'Weekly'}
-              {item.frequency === 'monthly' && 'Monthly'}
+          )}
+
+          <div className="flex items-center gap-1">
+            <span className="text-amber-500 font-bold">
+              {displayAmount.toLocaleString()}
             </span>
+            <Image
+              src="/icons/stellarite.png"
+              alt="Stellarite"
+              width={14}
+              height={14}
+              className="inline-block"
+            />
           </div>
+          <span className="text-xs text-gray-400 bg-[#2a2a2a] px-2 py-1 rounded">
+            {item.frequency === 'daily' && 'Daily'}
+            {item.frequency === 'weekly' && 'Weekly'}
+            {item.frequency === 'monthly' && 'Monthly'}
+            {item.frequency === '10-day' && '10-day'}
+            {item.frequency === '8-day' && '8-day'}
+          </span>
         </div>
-      </label>
+      </div>
+
       {isCustom && onRemove && (
         <Button
           variant="ghost"

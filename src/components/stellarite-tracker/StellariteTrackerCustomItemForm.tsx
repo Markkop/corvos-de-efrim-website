@@ -16,7 +16,7 @@ interface CustomItemFormProps {
   onAddItem: (
     name: string,
     amount: number,
-    frequency: 'daily' | 'weekly' | 'monthly',
+    frequency: 'daily' | 'weekly' | 'monthly' | '10-day' | '8-day',
     type: 'income' | 'outcome',
   ) => void
 }
@@ -27,7 +27,7 @@ export const StellariteTrackerCustomItemForm = ({
   const [itemName, setItemName] = useState('')
   const [itemAmount, setItemAmount] = useState('')
   const [itemFrequency, setItemFrequency] = useState<
-    'daily' | 'weekly' | 'monthly'
+    'daily' | 'weekly' | 'monthly' | '10-day' | '8-day'
   >('daily')
   const [itemType, setItemType] = useState<'income' | 'outcome'>('income')
 
@@ -95,7 +95,9 @@ export const StellariteTrackerCustomItemForm = ({
             <Select
               value={itemFrequency}
               onValueChange={(value) =>
-                setItemFrequency(value as 'daily' | 'weekly' | 'monthly')
+                setItemFrequency(
+                  value as 'daily' | 'weekly' | 'monthly' | '10-day' | '8-day',
+                )
               }
             >
               <SelectTrigger
@@ -107,6 +109,8 @@ export const StellariteTrackerCustomItemForm = ({
               <SelectContent>
                 <SelectItem value="daily">Daily</SelectItem>
                 <SelectItem value="weekly">Weekly</SelectItem>
+                <SelectItem value="10-day">10-day</SelectItem>
+                <SelectItem value="8-day">8-day</SelectItem>
                 <SelectItem value="monthly">Monthly</SelectItem>
               </SelectContent>
             </Select>

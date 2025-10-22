@@ -14,9 +14,12 @@ import {
 export default function StellariteTrackerPage() {
   const [selectedItems, setSelectedItems] = useState<Set<string>>(new Set())
   const [customItems, setCustomItems] = useState<GGMTrackerItem[]>([])
+  const [itemQuantities, setItemQuantities] = useState<Record<string, number>>(
+    {},
+  )
   const [isLoaded, setIsLoaded] = useState(false)
 
-  // Load selections and custom items from localStorage on mount
+  // Load selections, quantities, and custom items from localStorage on mount
   useEffect(() => {
     const saved = localStorage.getItem('ggm-tracker-selections')
     if (saved) {
@@ -25,6 +28,16 @@ export default function StellariteTrackerPage() {
         setSelectedItems(new Set(parsed))
       } catch (error) {
         console.error('Failed to load saved selections:', error)
+      }
+    }
+
+    const savedQuantities = localStorage.getItem('ggm-tracker-quantities')
+    if (savedQuantities) {
+      try {
+        const parsed = JSON.parse(savedQuantities)
+        setItemQuantities(parsed)
+      } catch (error) {
+        console.error('Failed to load saved quantities:', error)
       }
     }
 
@@ -51,6 +64,16 @@ export default function StellariteTrackerPage() {
     }
   }, [selectedItems, isLoaded])
 
+  // Save quantities to localStorage whenever they change
+  useEffect(() => {
+    if (isLoaded) {
+      localStorage.setItem(
+        'ggm-tracker-quantities',
+        JSON.stringify(itemQuantities),
+      )
+    }
+  }, [itemQuantities, isLoaded])
+
   // Save custom items to localStorage whenever they change
   useEffect(() => {
     if (isLoaded) {
@@ -73,14 +96,22 @@ export default function StellariteTrackerPage() {
     })
   }
 
+  const handleQuantityChange = (id: string, quantity: number) => {
+    setItemQuantities((prev) => ({
+      ...prev,
+      [id]: quantity,
+    }))
+  }
+
   const handleReset = () => {
     setSelectedItems(new Set())
+    setItemQuantities({})
   }
 
   const handleAddCustomItem = (
     name: string,
     amount: number,
-    frequency: 'daily' | 'weekly' | 'monthly',
+    frequency: 'daily' | 'weekly' | 'monthly' | '10-day' | '8-day',
     type: 'income' | 'outcome',
   ) => {
     const newItem: GGMTrackerItem = {
@@ -124,30 +155,100 @@ export default function StellariteTrackerPage() {
     [allItems],
   )
 
+  const calculateItemCost = (item: GGMTrackerItem, quantity: number) => {
+    if (!item.supportsQuantity || !item.costProgression || quantity === 0) {
+      return item.amount
+    }
+
+    if (item.progressionType === 'cumulative') {
+      return item.costProgression[quantity - 1] || 0
+    } else {
+      return (item.costProgression[0] || item.amount) * quantity
+    }
+  }
+
   const calculateTotals = (items: GGMTrackerItem[]) => {
     const selected = items.filter((item) => selectedItems.has(item.id))
 
     const dailyItems = selected
       .filter((item) => item.frequency === 'daily')
-      .reduce((sum, item) => sum + item.amount, 0)
+      .reduce((sum, item) => {
+        const quantity = itemQuantities[item.id] || 0
+        const cost =
+          item.supportsQuantity && quantity > 0
+            ? calculateItemCost(item, quantity)
+            : item.amount
+        return sum + cost
+      }, 0)
 
     const weeklyItems = selected
       .filter((item) => item.frequency === 'weekly')
-      .reduce((sum, item) => sum + item.amount, 0)
+      .reduce((sum, item) => {
+        const quantity = itemQuantities[item.id] || 0
+        const cost =
+          item.supportsQuantity && quantity > 0
+            ? calculateItemCost(item, quantity)
+            : item.amount
+        return sum + cost
+      }, 0)
 
     const monthlyItems = selected
       .filter((item) => item.frequency === 'monthly')
-      .reduce((sum, item) => sum + item.amount, 0)
+      .reduce((sum, item) => {
+        const quantity = itemQuantities[item.id] || 0
+        const cost =
+          item.supportsQuantity && quantity > 0
+            ? calculateItemCost(item, quantity)
+            : item.amount
+        return sum + cost
+      }, 0)
+
+    const tenDayItems = selected
+      .filter((item) => item.frequency === '10-day')
+      .reduce((sum, item) => {
+        const quantity = itemQuantities[item.id] || 0
+        const cost =
+          item.supportsQuantity && quantity > 0
+            ? calculateItemCost(item, quantity)
+            : item.amount
+        return sum + cost
+      }, 0)
+
+    const eightDayItems = selected
+      .filter((item) => item.frequency === '8-day')
+      .reduce((sum, item) => {
+        const quantity = itemQuantities[item.id] || 0
+        const cost =
+          item.supportsQuantity && quantity > 0
+            ? calculateItemCost(item, quantity)
+            : item.amount
+        return sum + cost
+      }, 0)
 
     // Calculate totals for each time period
-    // Daily: include daily items + weekly items divided by 7 + monthly items divided by 30
-    const dailyTotal = dailyItems + weeklyItems / 7 + monthlyItems / 30
+    // Daily: include daily items + weekly/7 + monthly/30 + 10-day/10 + 8-day/8
+    const dailyTotal =
+      dailyItems +
+      weeklyItems / 7 +
+      monthlyItems / 30 +
+      tenDayItems / 10 +
+      eightDayItems / 8
 
-    // Weekly: daily items * 7 + weekly items + monthly items divided by ~4.3 weeks per month
-    const weeklyTotal = dailyItems * 7 + weeklyItems + monthlyItems / 4.3
+    // Weekly: daily * 7 + weekly + monthly/~4.3 + 10-day*0.7 + 8-day*0.875
+    const weeklyTotal =
+      dailyItems * 7 +
+      weeklyItems +
+      monthlyItems / 4.3 +
+      (tenDayItems * 7) / 10 +
+      (eightDayItems * 7) / 8
 
-    // Monthly: daily items * 30 + weekly items * ~4.3 + monthly items
-    const monthlyTotal = dailyItems * 30 + weeklyItems * 4.3 + monthlyItems
+    // Monthly: daily * 30 + weekly * ~4.3 + monthly + 10-day*3 + 8-day*3.75
+    const monthlyTotal =
+      dailyItems * 30 +
+      weeklyItems * 4.3 +
+      monthlyItems +
+      (tenDayItems * 30) / 10 +
+      (eightDayItems * 30) / 8
 
     return {
       daily: Math.round(dailyTotal),
@@ -221,7 +322,9 @@ export default function StellariteTrackerPage() {
           borderColor="border-green-900/50"
           items={incomeItems}
           selectedItems={selectedItems}
+          itemQuantities={itemQuantities}
           onToggleItem={handleToggleItem}
+          onQuantityChange={handleQuantityChange}
           onRemoveItem={handleRemoveCustomItem}
         />
         <StellariteTrackerSection
@@ -231,7 +334,9 @@ export default function StellariteTrackerPage() {
           borderColor="border-red-900/50"
           items={outcomeItems}
           selectedItems={selectedItems}
+          itemQuantities={itemQuantities}
           onToggleItem={handleToggleItem}
+          onQuantityChange={handleQuantityChange}
           onRemoveItem={handleRemoveCustomItem}
         />
       </div>
