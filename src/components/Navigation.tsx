@@ -21,6 +21,7 @@ import {
   Swords,
   UserPlus,
   Users,
+  Wallet,
 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -113,6 +114,12 @@ const Navigation = () => {
       description:
         'Calendário e guia completo dos ciclos do Operation: Paper Planes.',
       icon: Calendar,
+    },
+    {
+      title: 'Stellarite Tracker',
+      href: '/jogos/go-go-muffin/stellarite-tracker',
+      description: 'Track your in-game cash income and expenses.',
+      icon: Wallet,
     },
   ]
 
