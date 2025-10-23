@@ -68,7 +68,7 @@ export const StellariteTrackerItem = ({
       return Math.min(3, item.maxQuantity || 1)
     }
     if (item.category === 'Guild Watering') {
-      return Math.min(2, item.maxQuantity || 1)
+      return Math.min(1, item.maxQuantity || 1)
     }
     return item.maxQuantity || 1
   }

@@ -373,7 +373,7 @@ export const ggmTrackerItems: GGMTrackerItem[] = [
     category: 'Quick Purchase',
     supportsQuantity: true,
     maxQuantity: 15,
-    costProgression: [30, 110, 270, 550, 980, 1560, 2290, 3240, 4410, 5800, 7410, 9320, 11530, 14040, 16850],
+    costProgression: [30, 80, 160, 280, 430, 580, 730, 950, 1170, 1390, 1610, 1910, 2210, 2510, 2810],
     progressionType: 'cumulative',
   },
   {
@@ -385,7 +385,7 @@ export const ggmTrackerItems: GGMTrackerItem[] = [
     category: 'Quick Purchase',
     supportsQuantity: true,
     maxQuantity: 15,
-    costProgression: [20, 70, 170, 350, 630, 1010, 1490, 2120, 2900, 3830, 4910, 6190, 7670, 9350, 11230],
+    costProgression: [20, 50, 100, 180, 280, 380, 480, 630, 780, 930, 1080, 1280, 1480, 1680, 1880],
     progressionType: 'cumulative',
   },
   {
@@ -397,7 +397,7 @@ export const ggmTrackerItems: GGMTrackerItem[] = [
     category: 'Quick Purchase',
     supportsQuantity: true,
     maxQuantity: 9,
-    costProgression: [30, 90, 200, 390, 700, 1160, 1820, 2730, 3940],
+    costProgression: [30, 60, 110, 190, 310, 460, 660, 910, 1210],
     progressionType: 'cumulative',
   },
   {
@@ -409,7 +409,7 @@ export const ggmTrackerItems: GGMTrackerItem[] = [
     category: 'Quick Purchase',
     supportsQuantity: true,
     maxQuantity: 9,
-    costProgression: [30, 110, 270, 550, 980, 1610, 2490, 3670, 5150],
+    costProgression: [30, 80, 160, 280, 430, 630, 880, 1180, 1480],
     progressionType: 'cumulative',
   },
   // Outcome Items - Rifts
