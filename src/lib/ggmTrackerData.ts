@@ -146,6 +146,22 @@ export const ggmTrackerItems: GGMTrackerItem[] = [
     type: 'income',
     category: 'Travel Events',
   },
+  {
+    id: 'newborn-stars',
+    name: 'Newborn Stars',
+    amount: 180,
+    frequency: 'monthly',
+    type: 'income',
+    category: 'Travel Events',
+  },
+  {
+    id: 'newborn-stars-paid',
+    name: 'Newborn Stars (paid)',
+    amount: 1110,
+    frequency: 'monthly',
+    type: 'income',
+    category: 'Travel Events',
+  },
   // Income Items - Timed Events
   {
     id: 'slime-event',
