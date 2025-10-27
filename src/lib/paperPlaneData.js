@@ -282,7 +282,7 @@ export const paperPlaneData = [
   },
   {
     cycle: 46,
-    type: 'Mount',
+    type: 'Stellar',
     unlockedContent: '-',
     notableReward: 'Gen 5 Mount Fragments',
   },

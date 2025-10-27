@@ -14,6 +14,13 @@ export default function GoGoMuffinPage() {
       icon: <BookOpen className="h-6 w-6 text-amber-500" />,
     },
     {
+      title: 'Event Scheduler',
+      description:
+        'Calendário visual com todos os eventos diários, semanais e temporários',
+      href: '/jogos/go-go-muffin/scheduler',
+      icon: <Calendar className="h-6 w-6 text-blue-500" />,
+    },
+    {
       title: 'Paper Plane Schedule',
       description:
         'Calendário e guia completo dos ciclos do Operation: Paper Planes',
@@ -38,7 +45,7 @@ export default function GoGoMuffinPage() {
         </p>
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {sections.map((section) => (
           <motion.div
             key={section.title}
