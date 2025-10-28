@@ -55,7 +55,7 @@ const mainEvents: GGMSchedulerEvent[] = [
     title: "Tasha's Commission: Crystal Nest Cliff",
     color: '#00d4ff',
     start: new Date('2025-10-22T05:00:00'),
-    end: new Date('2025-10-29T04:00:00'),
+    end: new Date('2025-10-28T04:00:00'),
     category: 'event',
   },
   {
@@ -71,7 +71,7 @@ const mainEvents: GGMSchedulerEvent[] = [
     title: 'Melomon Wishlist',
     color: '#9b59b6',
     start: new Date('2025-10-22T05:00:00'),
-    end: new Date('2025-10-29T05:00:00'),
+    end: new Date('2025-10-28T05:00:00'),
     category: 'wishlist',
   },
 ]
