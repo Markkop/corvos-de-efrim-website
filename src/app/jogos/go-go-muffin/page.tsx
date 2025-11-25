@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { motion } from 'framer-motion'
-import { BookOpen, Calendar, Wallet } from 'lucide-react'
+import { BookOpen, Calendar, Wallet, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 
 export default function GoGoMuffinPage() {
@@ -32,6 +32,13 @@ export default function GoGoMuffinPage() {
       description: 'Track your in-game cash income and expenses',
       href: '/jogos/go-go-muffin/stellarite-tracker',
       icon: <Wallet className="h-6 w-6 text-green-500" />,
+    },
+    {
+      title: 'Melomon Skill Planner',
+      description:
+        'Plan and optimize melomon passive skill upgrades for maximum attack power',
+      href: '/jogos/go-go-muffin/melomon-planner',
+      icon: <Sparkles className="h-6 w-6 text-purple-500" />,
     },
   ]
 

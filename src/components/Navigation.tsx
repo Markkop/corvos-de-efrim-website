@@ -22,6 +22,7 @@ import {
   UserPlus,
   Users,
   Wallet,
+  Sparkles,
 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -120,6 +121,13 @@ const Navigation = () => {
       href: '/jogos/go-go-muffin/stellarite-tracker',
       description: 'Track your in-game cash income and expenses.',
       icon: Wallet,
+    },
+    {
+      title: 'Melomon Skill Planner',
+      href: '/jogos/go-go-muffin/melomon-planner',
+      description:
+        'Plan and optimize melomon passive skill upgrades for maximum attack power.',
+      icon: Sparkles,
     },
   ]
 
